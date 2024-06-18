@@ -1360,7 +1360,7 @@ This is not a recommendation of what presentation mode to use and is instead, he
 
 ### 11.33.4. Game Mode
 
-Ensure that Xbox Game Bar acknowledges that the game that you are running or have installed. If not, open Game Bar by pressing ``Win+R`` and enabling ``Remember this is a game`` while it is open. This also ensures that Game Mode functions properly.
+Ensure that Xbox Game Bar acknowledges that the game that you are running or have installed. If not, open Game Bar by pressing ``Win+G`` and enabling ``Remember this is a game`` while it is open. This also ensures that Game Mode functions properly.
 
 ### 11.33.5. Media Player
 
