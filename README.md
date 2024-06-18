@@ -354,7 +354,7 @@ Disable Legacy USB Support as it may cause the system to enter System Management
 
 ## 6.19. Disable Software Installation Options
 
-If there are options relating to software installation such as ASUS Armoury Crate, disable them. These types of software are typically in-line with other bloatware which can safely be avoided.
+If there are options relating to software installation (e.g. ASUS Armoury Crate), then disable them. These types of software are typically in-line with other bloatware which can safely be avoided and are present in various BIOSes ([ASUS](https://www.asus.com/support/faq/1043788), [Gigabyte](https://old.reddit.com/r/gigabyte/comments/106d9ns/gigabyte_control_center_prompt_to_install_every/ja0gc6l), [MSI](https://old.reddit.com/r/MSI_Gaming/comments/14s7so7/how_to_disable_autoinstall_of_msi_center/l6zoigh), [ASRock](https://old.reddit.com/r/ASRock/comments/1bxf8jt/asrock_auto_driver_install_app/kyc904r)).
 
 ## 6.20. Configure PCI Link Speed for Devices
 
