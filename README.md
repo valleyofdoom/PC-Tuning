@@ -829,6 +829,8 @@ Configure a browser of your choice.
 
 - See [privacytests.org](https://privacytests.org)
 
+- See [Desktop Browsers | Privacy Guides](https://www.privacyguides.org/en/desktop-browsers)
+
 ## 11.8. Scheduled Tasks
 
 There are a handful of scheduled tasks that ship with Windows which can be assessed using [TaskSchedulerView](https://www.nirsoft.net/utils/task_scheduler_view.html). Assessing them can help in having finer control as to what runs on your system silently whether it be updates-related, telemetry-related, defender-related and more. Consider the ``Last Run``, ``Next Run`` and ``Triggers`` column to evaluate whether there is any point disabling the task in question.
