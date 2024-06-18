@@ -435,11 +435,11 @@ Scaling Mode: 2
 
 - Conclusions:
 
-  - No scaling in GPU control panel requests the Centred (2) scaling mode
+  - No scaling in GPU control panel requests the Centered (2) scaling mode
 
   - Requesting to use the identity (1) scaling mode with GPU scaling resorts to the aspect ratio (4) scaling mode
 
-  - An observation that isn't demonstrated in the table above is that, in my case, having two or more detailed resolutions in CRU while using ``Perform Scaling On: GPU`` along with the desired resolution not being topmost resolution resulted in the Centred, full-screen and aspect ratio scaling modes used (GPU scaling)
+  - An observation that isn't demonstrated in the table above is that, in my case, having two or more detailed resolutions in CRU while using ``Perform Scaling On: GPU`` along with the desired resolution not being topmost resolution resulted in the Centered, full-screen and aspect ratio scaling modes used (GPU scaling)
 
   - Due to the previous bullet point, the GPU/Display scaling option in the GPU control panel only makes a difference when using two or more detailed resolutions in CRU
 

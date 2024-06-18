@@ -119,7 +119,7 @@
 
 # 2. Introduction
 
-The primary objective of this resource is to utilize an evidence-oriented approach to explore practices for tuning Windows-based systems for a variety of use cases, covering hardware, operating system (OS), and software configurations. The material is designed to accommodate a broad audience including advanced users, addressing various goals such as enhancing security, protecting privacy however, it generally favours and caters for gaining a competitive edge in games and executing real-time tasks. There is a strong emphasis on encouraging users to make the changes themselves, with litte to no use of scripts to ensure transparency and prevent unintended modifications to the reader's system.
+The primary objective of this resource is to utilize an evidence-oriented approach to explore practices for tuning Windows-based systems for a variety of use cases, covering hardware, operating system (OS), and software configurations. The material is designed to accommodate a broad audience including advanced users, addressing various goals such as enhancing security, protecting privacy however, it generally favors and caters for gaining a competitive edge in games and executing real-time tasks. There is a strong emphasis on encouraging users to make the changes themselves, with little to no use of scripts to ensure transparency and prevent unintended modifications to the reader's system.
 
 The reader is expected to follow the sections in sequential order as subsequent steps are contingent upon the completion of preceding steps. Therefore, each section is numbered.
 
@@ -142,7 +142,7 @@ Benchmarking is the process of evaluating the quality or characteristic of a giv
 - [Windows Performance Toolkit](https://learn.microsoft.com/en-us/windows-hardware/test/wpt) - Advanced performance analysis library for Windows. Measure ISR/DPC execution times with xperf
 - Mouse Tester - Polling interval, X/Y counts and more plots against time
 - [NVIDIA Reflex Analyzer](https://www.nvidia.com/en-gb/geforce/news/reflex-latency-analyzer-360hz-g-sync-monitors) - End-to-end latency
-- [Frame-Time-Analysis](https://boringboredom.github.io/Frame-Time-Analysis) - Analyze CSV data logged by the progr ams mentioned above including 1%, 0.1% lows metrics
+- [Frame-Time-Analysis](https://boringboredom.github.io/Frame-Time-Analysis) - Analyze CSV data logged by the programs mentioned above including 1%, 0.1% lows metrics
 - [Latency Grapher](https://boringboredom.github.io/tools/latencygrapher) - Analyze latency results from RLA, FrameView and PresentMon
 
 ---
@@ -166,7 +166,7 @@ Benchmarking is the process of evaluating the quality or characteristic of a giv
 
 - Disconnect unnecessary and unused devices from your setup including peripherals, LEDs, RGB light strips, USB devices, storage drives, wireless receivers and more
 
-- Favour wired over cordless devices (e.g. peripherals, Ethernet) due to the degraded performance and inconsistency associated with wireless devices, aggressive power-saving features for a longer battery life along with the downside of being negatively affected by interference and transmission overhead ([1](https://www.meetion.com/a-the-impact-of-lift-off-distance-on-battery-life-with-wireless-vs-wired-gaming-mice.html), [2](https://en.wikipedia.org/wiki/2.4_GHz_radio_use), [3](https://raw.githubusercontent.com/BoringBoredom/PC-Optimization-Hub/main/content/peripherals/wireless%20overhead.png), [4](https://www.logitechg.com/en-gb/innovation/hero.html), [5](https://www.youtube.com/watch?v=Zn7WjyIvAWA))
+- Favor wired over cordless devices (e.g. peripherals, Ethernet) due to the degraded performance and inconsistency associated with wireless devices, aggressive power-saving features for a longer battery life along with the downside of being negatively affected by interference and transmission overhead ([1](https://www.meetion.com/a-the-impact-of-lift-off-distance-on-battery-life-with-wireless-vs-wired-gaming-mice.html), [2](https://en.wikipedia.org/wiki/2.4_GHz_radio_use), [3](https://raw.githubusercontent.com/BoringBoredom/PC-Optimization-Hub/main/content/peripherals/wireless%20overhead.png), [4](https://www.logitechg.com/en-gb/innovation/hero.html), [5](https://www.youtube.com/watch?v=Zn7WjyIvAWA))
 
 - An SSD or NVMe storage is strongly recommended due to the degraded performance ([1](https://unihost.com/help/nvme-vs-ssd-vs-hdd-overview-and-comparison)) and excessive interference of HDDs. Ensure that there is always a sufficient amount of free space as SSDs slow down as they are filled up ([1](https://www.howtogeek.com/165542/why-solid-state-drives-slow-down-as-you-fill-them-up)) however most drives are overprovisioned from factory ([1](https://download.semiconductor.samsung.com/resources/white-paper/S190311-SAMSUNG-Memory-Over-Provisioning-White-paper.pdf), [2](https://www.techpowerup.com/ssd-specs/samsung-980-pro-1-tb.d47))
 
@@ -178,7 +178,7 @@ Benchmarking is the process of evaluating the quality or characteristic of a giv
 
   - See [Motherboard Memory Layouts | buildzoid](https://www.youtube.com/watch?v=3vQwGGbW1AE)
 
-- Favour PCIe ports that are connected directly to the CPU rather than chipset. This typically applies to M.2, NVMe drives and GPUs. This can be determined with the PCIe Bus category in [HWiNFO](https://www.hwinfo.com). Additionally, ensure that all your PCIe devices under the PCIe Bus category are running at their rated specification such as ``x16 3.0`` ([example](/assets/images/hwinfo-pcie-width-speed.png)). The current link width/speed of the device should match the maximum supported by the device. For certain devices such as GPUs, the link speed may decrease when idling. In these situations, place the device under load to get a meaningful reading
+- Favor PCIe ports that are connected directly to the CPU rather than chipset. This typically applies to M.2, NVMe drives and GPUs. This can be determined with the PCIe Bus category in [HWiNFO](https://www.hwinfo.com). Additionally, ensure that all your PCIe devices under the PCIe Bus category are running at their rated specification such as ``x16 3.0`` ([example](/assets/images/hwinfo-pcie-width-speed.png)). The current link width/speed of the device should match the maximum supported by the device. For certain devices such as GPUs, the link speed may decrease when idling. In these situations, place the device under load to get a meaningful reading
 
 - IRQ sharing is problematic and is a source of high interrupt latency ([1](https://repo.zenk-security.com/Linux%20et%20systemes%20d.exploitations/Windows%20Internals%20Part%201_6th%20Edition.pdf)). IRQ conflicts can be assessed by typing ``msinfo32`` in ``Win+R`` then navigating to the Conflicts/Sharing section.  The causes may be due to the hardware or software configuration. To isolate potential hardware-related causes, enable [Message Signaled Interrupts](https://forums.guru3d.com/threads/windows-line-based-vs-message-signaled-based-interrupts-msi-tool.378044) on the problematic device then restart the system. If the device still shares an IRQ, this can indicate incorrectly configured hardware
 
@@ -194,7 +194,7 @@ Benchmarking is the process of evaluating the quality or characteristic of a giv
 
   - See [Installation Remark for High Power Consumption Graphics Cards | Seasonic](https://knowledge.seasonic.com/article/8-installation-remark-for-high-power-consumption-graphics-cards)
 
-- Favour shielded cables and avoid unnecessarily long ones as they offer more protection against interference ([1](https://precmfgco.com/blog/shielded-vs-unshielded-cables))
+- Favor shielded cables and avoid unnecessarily long ones as they offer more protection against interference ([1](https://precmfgco.com/blog/shielded-vs-unshielded-cables))
 
 - Ensure that there is a moderate amount of space between cables to reduce the risk of [coupling](https://en.wikipedia.org/wiki/Coupling_(electronics))
 
@@ -215,7 +215,7 @@ Benchmarking is the process of evaluating the quality or characteristic of a giv
 > [!CAUTION]
 > 📊 DO NOT blindly follow the recommendations in this section. DO benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-- If you plan on overclocking, consider the points below to maximize temperature headroom and overclocking potential. It is important to note that lower temperatures can affect other variables even if you are not overclocking such as CPU boosting behaviour as the boosting algorithm is affected by temperature and much more
+- If you plan on overclocking, consider the points below to maximize temperature headroom and overclocking potential. It is important to note that lower temperatures can affect other variables even if you are not overclocking such as CPU boosting behavior as the boosting algorithm is affected by temperature and much more
 
   - Remove the side panels from your case as they tend to trap heat or consider an open-bench setup (beware of dust)
   - Delid your CPU and use liquid metal for a significant thermal improvement depending on the quality of the IHS ([1](https://www.youtube.com/watch?v=rUy3WcDlBXE)). Direct die and lapping are also worth considering however users should assess the risk with carrying out these procedures
@@ -240,7 +240,7 @@ Benchmarking is the process of evaluating the quality or characteristic of a giv
 
   - See [Stop Doing It Wrong: How To Kill Your CPU Cooler | Gamers Nexus](https://www.youtube.com/watch?v=BbGomv195sk)
 
-- Use non-RGB fans while favouring ones with a high static pressure as mesh filters, radiators, heatsink fins and more obstruct airflow
+- Use non-RGB fans while favoring ones with a high static pressure as mesh filters, radiators, heatsink fins and more obstruct airflow
 
   - See [PC Fans | Calypto](https://docs.google.com/spreadsheets/d/1AydYHI_M6ov9a3OgVuYXhLEGps0J55LniH9htAHy2wU)
 
@@ -358,7 +358,7 @@ If there are options relating to software installation such as ASUS Armoury Crat
 
 ## 6.20. Configure PCI Link Speed for Devices
 
-Set PCIe link speed to the maximum supported such as ``Gen 4.0``. This may be represented as gigatransfers per second (GT/s) ([1](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)). This helps with alleviating unexpected behaviour and issues.
+Set PCIe link speed to the maximum supported such as ``Gen 4.0``. This may be represented as gigatransfers per second (GT/s) ([1](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)). This helps with alleviating unexpected behavior and issues.
 
 ## 6.21. Fan Curves
 
@@ -441,7 +441,7 @@ I would highly recommend configuring a temporary dual-boot with a fresh installa
 
 ## 9.2. General Information
 
-- Verify and validate changes within software to avoid unexpected results and behaviour (e.g. frequency, voltages, timings)
+- Verify and validate changes within software to avoid unexpected results and behavior (e.g. frequency, voltages, timings)
 
 - Save a BIOS profile before each change when overclocking such as changing CPU/RAM frequency and RAM timings so that you don't lose progress if you need to clear CMOS. Refer to the [BIOS Profiles and Backups](#622-bios-profiles-and-backups) section regarding restoring settings properly
 
@@ -568,9 +568,9 @@ Set up a [multi-boot](https://en.wikipedia.org/wiki/Multi-booting) system to mai
 
 - Windows 10 2004+ is required for [Hardware Accelerated GPU Scheduling](https://devblogs.microsoft.com/directx/hardware-accelerated-gpu-scheduling) which is necessary for DLSS Frame Generation ([1](https://developer.nvidia.com/rtx/streamline/get-started))
 
-- Processes raising the timer resolution on Windows 10 2004+ no longer affect the global timer resolution ([1](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod), [2](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change)) meaning that it is set on a per-process basis in which, processes that do not explicitly raise the resolution are not guaranteed a higher resolution and are serviced less often. This was further developed on Windows 11 as a higher resolution is not guaranteed to the calling process if its window is minimized or visibly occluded ([1](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod)). Microsoft added the ability to restore the global behaviour on Windows Server 2022+ and Windows 11+ with a registry entry ([1](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change)) meaning that the implementation can not be restored on Windows 10 versions 2004 - 22H2
+- Processes raising the timer resolution on Windows 10 2004+ no longer affect the global timer resolution ([1](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod), [2](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change)) meaning that it is set on a per-process basis in which, processes that do not explicitly raise the resolution are not guaranteed a higher resolution and are serviced less often. This was further developed on Windows 11 as a higher resolution is not guaranteed to the calling process if its window is minimized or visibly occluded ([1](https://learn.microsoft.com/en-us/windows/win32/api/timeapi/nf-timeapi-timebeginperiod)). Microsoft added the ability to restore the global behavior on Windows Server 2022+ and Windows 11+ with a registry entry ([1](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change)) meaning that the implementation can not be restored on Windows 10 versions 2004 - 22H2
 
-- Windows 11+ has an updated scheduler for Intel 12th Gen CPUs and above ([1](https://www.anandtech.com/show/16959/intel-innovation-alder-lake-november-4th/3)) but the behaviour can be replicated manually with affinity policies on any Windows version as explained in later sections
+- Windows 11+ has an updated scheduler for Intel 12th Gen CPUs and above ([1](https://www.anandtech.com/show/16959/intel-innovation-alder-lake-november-4th/3)) but the behavior can be replicated manually with affinity policies on any Windows version as explained in later sections
 
 - Windows 11+ limits the window message rate of background processes ([1](https://blogs.windows.com/windowsdeveloper/2023/05/26/delivering-delightful-performance-for-more-than-one-billion-users-worldwide))
 
@@ -748,7 +748,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable driver installation via windows update``|Prevents outdated, vulnerable and bloated drivers from being installed via Windows Update. It is recommended to manually only install ones that you require along with the latest version directly from the manufacture's website as outlined in the [Install Drivers](#115-install-drivers) section. This option is overridden if ``disable windows update`` is set to ``true``|``true``|
 |``disable user account control``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Eliminates [this](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works#uac-elevation-prompts) intrusive UAC elevation prompt. Disabling UAC may negatively impact security as all processes are run with administrator privileges by default ([1](https://www.howtogeek.com/124754/htg-explains-why-you-shouldnt-disable-uac/), [2](https://raptor.solutions/the-risks-of-disabling-uac-in-windows-10/)). If you choose to leave UAC enabled, I would recommend setting it to the highest level (most restrictive) in control panel as the default level can be exploited ([1](https://devblogs.microsoft.com/oldnewthing/20160816-00/?p=94105))|``false``|
 |``disable windows marking file attachments with information about their zone of origin``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevents [this](https://www.tenforums.com/tutorials/85418-how-disable-downloaded-files-being-blocked-windows.html) intrusive security warning as downloaded files are constantly required to be unblocked however this may negatively impact security as the user will not be notified of blocked files via a security warning prompt ([1](https://www.tenforums.com/tutorials/85418-how-disable-downloaded-files-being-blocked-windows.html))|``true``|
-|``disable windows defender``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevents CPU overhead and interferes with the CPU operating in C-State 0 ([1](https://www.techpowerup.com/295877/windows-defender-can-significantly-impact-intel-cpu-performance-we-have-the-fix)). Instead, run system scans frequently, keep UAC enabled and favour free, open source and reputable software. Stay away from proprietary software where you can and ensure to scan files and executables with [VirusTotal](https://www.virustotal.com/gui/home/upload) before opening them|``true``|
+|``disable windows defender``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevents CPU overhead and interferes with the CPU operating in C-State 0 ([1](https://www.techpowerup.com/295877/windows-defender-can-significantly-impact-intel-cpu-performance-we-have-the-fix)). Instead, run system scans frequently, keep UAC enabled and favor free, open source and reputable software. Stay away from proprietary software where you can and ensure to scan files and executables with [VirusTotal](https://www.virustotal.com/gui/home/upload) before opening them|``true``|
 |``disable malicious software removal tool updates``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevent Windows offering Malicious Software Removal Tool through Windows Update|``true``|
 |``disable PC is out of support message``|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message|``true``|
 |``disable automatic maintenance``|Intrusive|``true``|
@@ -997,7 +997,7 @@ If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-ca
 
 You may have optionally found a stable overclock for your display in earlier sections using [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) which you can dial in now.
 
-- Typically, you have the option of performing scaling on the GPU or display. Native resolution does not require scaling thus results in identity (no) scaling. Furthermore, identity scaling renders most of the scaling options in the GPU control panel obsolete. If you are using a non-native resolution, there is an argument for favouring display scaling due to less GPU processing
+- Typically, you have the option of performing scaling on the GPU or display. Native resolution does not require scaling thus results in identity (no) scaling. Furthermore, identity scaling renders most of the scaling options in the GPU control panel obsolete. If you are using a non-native resolution, there is an argument for favoring display scaling due to less GPU processing
 
 - Aim for an ``actual`` integer refresh rate such as 60.00/240.00, not 59.94/239.76
 
@@ -1305,7 +1305,7 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 - Install any programs and applications that you use (including games) to prepare us for the next steps
 
-- If applicable, favour portable editions of programs as installers tend to leave bloatware behind even after uninstalling them however, this can be circumvented by using programs such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
+- If applicable, favor portable editions of programs as installers tend to leave bloatware behind even after uninstalling them however, this can be circumvented by using programs such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 
 ### 11.33.1. NVIDIA Reflex
 
@@ -1387,7 +1387,7 @@ QoS DSCP policies allow Windows to prioritize packets of an application.
 
 Windows schedules interrupts and DPCs on CPU 0 for several kernel-mode modules by default. In any case, scheduling many tasks on a single CPU can introduce additional overhead and increased jitter due to them competing for CPU time. To alleviate this, affinities can be configured to isolate given modules from disturbances including servicing time-sensitive modules on underutilized CPUs instead of clumping everything on a single CPU.
 
-- Use the xperf DPC/ISR report generated by the xperf-dpcisr.bat script to analyze which CPUs kernel-mode modules are being serviced on. You can not manage affinities if you do not know what is running and which CPU(s) they are running on to begin with. The same concept applies to user-mode threads. Additionally, verify whether interrupt affinity policies are performing as expected by analysing per-CPU usage for the module in question while the device is busy
+- Use the xperf DPC/ISR report generated by the xperf-dpcisr.bat script to analyze which CPUs kernel-mode modules are being serviced on. You can not manage affinities if you do not know what is running and which CPU(s) they are running on to begin with. The same concept applies to user-mode threads. Additionally, verify whether interrupt affinity policies are performing as expected by analyzing per-CPU usage for the module in question while the device is busy
 
 - Additionally, core-to-core-latency benchmarks can assist with decision-making in terms of affinity management
 
@@ -1468,7 +1468,7 @@ ReservedCpuSets can be used to prevent Windows routing ISRs, DPCs and scheduling
 - As CPU sets are considered soft policies, the configuration isn't guaranteed. A CPU-intensive process such as a stress-test will utilize the reserved cores if required
 
 > [!IMPORTANT]
-> Unexpected behaviour occurs when a process affinity is set to both reserved and unreserved CPUs. Ensure to set the affinity to either reserved or unreserved CPUs, not a combination of both.
+> Unexpected behavior occurs when a process affinity is set to both reserved and unreserved CPUs. Ensure to set the affinity to either reserved or unreserved CPUs, not a combination of both.
 
 ### 11.36.1. Use Cases
 
@@ -1519,4 +1519,4 @@ Virtualization Based Security negatively impacts performance ([1](https://www.to
     DISM /Online /Cleanup-Image /StartComponentCleanup /ResetBase
     ```
 
-- Favour tools such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller) to uninstall programs as the regular control panel does not remove residual files
+- Favor tools such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller) to uninstall programs as the regular control panel does not remove residual files

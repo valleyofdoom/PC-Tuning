@@ -6,7 +6,7 @@
 - [3. Configure NVIDIA Control Panel](#3-configure-nvidia-control-panel)
   - [3.1. Manage 3D Settings](#31-manage-3d-settings)
   - [3.2. Change Resolution](#32-change-resolution)
-  - [3.3. Adjust Video Colour Settings](#33-adjust-video-colour-settings)
+  - [3.3. Adjust Video  Settings](#33-adjust-video-color-settings)
   - [3.4. Lock GPU Clocks/P-State 0](#34-lock-gpu-clocksp-state-0)
 - [3.5. Configure NVIDIA Inspector](#35-configure-nvidia-inspector)
 
@@ -70,7 +70,7 @@ Download the latest game ready driver using the [advanced driver search](https:/
 
 - Output dynamic range - Full
 
-### 3.3. Adjust Video Colour Settings
+### 3.3. Adjust Video Color Settings
 
 - Dynamic range - Full
 
