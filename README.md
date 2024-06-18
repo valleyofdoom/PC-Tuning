@@ -4,6 +4,7 @@
 
 # 1. Table of Contents
 
+- [1. Table of Contents](#1-table-of-contents)
 - [2. Introduction](#2-introduction)
 - [3. Benchmarking](#3-benchmarking)
 - [4. Physical Setup](#4-physical-setup)
