@@ -135,7 +135,7 @@ The reader is expected to follow the sections in sequential order as subsequent 
 
 # 3. Benchmarking
 
-Benchmarking is the process of evaluating the the quality or characteristic of a given change. In the context of this resource, it typically refers to measuring performance scaling after making certain changes to your system. It is important to learn and understand what is involved in the benchmarking process as you will need to carry out your own experiments to assist in decision-making such as identifying whether a certain change results in a performance regression or what settings to use in-game. For given changes, ask yourself questions such as "*What am I trying to achive?*, "*What is my goal?*", "*What am I trying to improve with this change?*", "*What is this change supposed to affect?*".
+Benchmarking is the process of evaluating the quality or characteristic of a given change. In the context of this resource, it typically refers to measuring performance scaling after making certain changes to your system. It is important to learn and understand what is involved in the benchmarking process as you will need to carry out your own experiments to assist in decision-making such as identifying whether a certain change results in a performance regression or what settings to use in-game. For given changes, ask yourself questions such as "*What am I trying to achieve?*", "*What is my goal?*", "*What am I trying to improve with this change?*", "*What is this change supposed to affect?*".
 
 - [FrameView](https://www.nvidia.com/en-gb/geforce/technologies/frameview) - [PC Latency](https://images.nvidia.com/content/images/article/system-latency-optimization-guide/nvidia-latency-optimization-guide-pc-latency.png) in games that support [PC Latency Stats](https://www.nvidia.com/en-gb/geforce/technologies/reflex/supported-products) and frame pacing
 - [PresentMon](https://boringboredom.github.io/Frame-Time-Analysis) - Various metrics such as frame pacing and [GPU Busy](https://www.intel.com/content/www/us/en/docs/gpa/user-guide/2022-4/gpu-metrics.html). See a full list [here](https://github.com/GameTechDev/PresentMon/blob/main/README-CaptureApplication.md#metric-definitions)
@@ -168,7 +168,7 @@ Benchmarking is the process of evaluating the the quality or characteristic of a
 
 - Favour wired over cordless devices (e.g. peripherals, Ethernet) due to the degraded performance and inconsistency associated with wireless devices, aggressive power-saving features for a longer battery life along with the downside of being negatively affected by interference and transmission overhead ([1](https://www.meetion.com/a-the-impact-of-lift-off-distance-on-battery-life-with-wireless-vs-wired-gaming-mice.html), [2](https://en.wikipedia.org/wiki/2.4_GHz_radio_use), [3](https://raw.githubusercontent.com/BoringBoredom/PC-Optimization-Hub/main/content/peripherals/wireless%20overhead.png), [4](https://www.logitechg.com/en-gb/innovation/hero.html), [5](https://www.youtube.com/watch?v=Zn7WjyIvAWA))
 
-- An SSD or NVMe storage is strongly recommended due to the degraded performance ([1](https://unihost.com/help/nvme-vs-ssd-vs-hdd-overview-and-comparison))  and excessive interference of HDDs. Ensure that there is always a sufficient amount of free space as SSDs slow down as they are filled up ([1](https://www.howtogeek.com/165542/why-solid-state-drives-slow-down-as-you-fill-them-up)) however most drives are overprovisioned from factory ([1](https://download.semiconductor.samsung.com/resources/white-paper/S190311-SAMSUNG-Memory-Over-Provisioning-White-paper.pdf), [2](https://www.techpowerup.com/ssd-specs/samsung-980-pro-1-tb.d47))
+- An SSD or NVMe storage is strongly recommended due to the degraded performance ([1](https://unihost.com/help/nvme-vs-ssd-vs-hdd-overview-and-comparison)) and excessive interference of HDDs. Ensure that there is always a sufficient amount of free space as SSDs slow down as they are filled up ([1](https://www.howtogeek.com/165542/why-solid-state-drives-slow-down-as-you-fill-them-up)) however most drives are overprovisioned from factory ([1](https://download.semiconductor.samsung.com/resources/white-paper/S190311-SAMSUNG-Memory-Over-Provisioning-White-paper.pdf), [2](https://www.techpowerup.com/ssd-specs/samsung-980-pro-1-tb.d47))
 
 - Assess the condition and performance of storage devices with [CrystalDiskInfo](https://crystalmark.info/en/software/crystaldiskinfo) and [CrystalDiskMark](https://crystalmark.info/en/software/crystaldiskmark) to determine whether they require replacement or maintenance
 
@@ -198,7 +198,7 @@ Benchmarking is the process of evaluating the the quality or characteristic of a
 
 - Ensure that there is a moderate amount of space between cables to reduce the risk of [coupling](https://en.wikipedia.org/wiki/Coupling_(electronics))
 
-- Clean dust from components and heat sinks as they have the potential to cause short circuits and reduce airflow ([1](https://www.armagard.co.uk/articles/dust-computer-killer.html)). Be careful in regards to voltage feedback to the motherboard when dusting case fans
+- Clean dust from components and heat sinks as they have the potential to cause short circuits and reduce airflow ([1](https://www.armagard.co.uk/articles/dust-computer-killer.html)). Be careful in regard to voltage feedback to the motherboard when dusting case fans
 
 - Clean the contact pins and connectors of components. Use compressed air to remove dust from slots before installing components such as PCIe, NVMe, RAM and more
 
@@ -288,7 +288,7 @@ Motherboard vendors hide and lock a lot of settings so that they aren't visible 
 
 ## 6.7. Disable Unnecessary Devices
 
-Generally, follow the rule of "If you're not using it, disable it". It is preferable to physically disconnect components if possible but this typically includes NICs, WLAN, Bluetooth, High Definition Audio (if you are not utilizing motherboard audio) controllers, integrated graphics, SATA, RAM slots, onboard devices visible in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) (e.g. LED controllers, IR receivers) and more. Keep in mind that some motherboards have the High Definition Audio controller linked to the USB controller ([1](https://www.igorslab.de/en/the-old-alc4080-on-the-new-intel-boards-demystified-and-the-differences-from-alc1220-insider)) so don't get confused if this is encountered in the USB device tree.
+Generally, follow the rule of "If you're not using it, disable it". It is preferable to physically disconnect components if possible, but this typically includes NICs, WLAN, Bluetooth, High Definition Audio (if you are not utilizing motherboard audio) controllers, integrated graphics, SATA, RAM slots, onboard devices visible in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) (e.g. LED controllers, IR receivers) and more. Keep in mind that some motherboards have the High Definition Audio controller linked to the USB controller ([1](https://www.igorslab.de/en/the-old-alc4080-on-the-new-intel-boards-demystified-and-the-differences-from-alc1220-insider)) so don't get confused if this is encountered in the USB device tree.
 
 ## 6.8. Resizable Bar
 
@@ -350,7 +350,7 @@ Disable Spread Spectrum and ensure BCLK frequency is close to the desired value 
 
 ## 6.18. Legacy USB Support
 
-Disable Legacy USB Support as it may cause the system to enter System Management Mode (SMM) via System Management Interrupts (SMIs) ([1](https://patents.google.com/patent/US6067589), [2](https://www.kernel.org/doc/Documentation/x86/usb-legacy-support.txt)) which are high priority unmaskable hardware interrupts which cause the CPU to immediately suspend all other activities, including the operating system ([1](https://wiki.linuxfoundation.org/realtime/documentation/howto/debugging/smi-latency/smi)). You may need to turn this on to install a new operating system , access BIOS or USB devices in some cases.
+Disable Legacy USB Support as it may cause the system to enter System Management Mode (SMM) via System Management Interrupts (SMIs) ([1](https://patents.google.com/patent/US6067589), [2](https://www.kernel.org/doc/Documentation/x86/usb-legacy-support.txt)) which are high priority unmaskable hardware interrupts which cause the CPU to immediately suspend all other activities, including the operating system ([1](https://wiki.linuxfoundation.org/realtime/documentation/howto/debugging/smi-latency/smi)). You may need to turn this on to install a new operating system, access BIOS or USB devices in some cases.
 
 ## 6.19. Disable Software Installation Options
 
@@ -368,7 +368,7 @@ To maximize cooling potential, configure fan curves ([example](https://imgur.com
 
 Backup BIOS by saving the current settings to a profile or export one to local storage as clearing CMOS will wipe all settings if you need to do so (e.g. while overclocking).
 
-In my experience on various motherboards, loading a saved profile fails to restore certain settings after clearing CMOS. I would recommended dumping NVRAM using a tool such as [SCEWIN](https://github.com/ab3lkaizen/SCEHUB) so that when you restore a profile, dump NVRAM again then compare it to the previous/original export to see whether anything failed to restore by using a text comparison tool such as the [Notepad++ Compare plugin](https://sourceforge.net/projects/npp-compare) or [Visual Studio Code](https://code.visualstudio.com/download).
+In my experience on various motherboards, loading a saved profile fails to restore certain settings after clearing CMOS. I would recommend dumping NVRAM using a tool such as [SCEWIN](https://github.com/ab3lkaizen/SCEHUB) so that when you restore a profile, dump NVRAM again then compare it to the previous/original export to see whether anything failed to restore by using a text comparison tool such as the [Notepad++ Compare plugin](https://sourceforge.net/projects/npp-compare) or [Visual Studio Code](https://code.visualstudio.com/download).
 
 ---
 
@@ -437,7 +437,7 @@ Ensure that all of your hardware is stable before configuring a new operating sy
 
 ## 9.1. Temporary Operating System
 
-I would highly recommended to configure a temporary dual-boot with a fresh installation of Windows or a bootable Windows USB ([Windows To Go](https://www.youtube.com/watch?v=w34x1kBZN6c)) to avoid corrupting your main operating system while stress-testing and overclocking. In terms of memory stress-testing, this also allows the stress-test to use more RAM as it isn't being hogged by potential bloatware on your current installation. Safe mode can also serve as a minimal testing environment but certain software may not work.
+I would highly recommend configuring a temporary dual-boot with a fresh installation of Windows or a bootable Windows USB ([Windows To Go](https://www.youtube.com/watch?v=w34x1kBZN6c)) to avoid corrupting your main operating system while stress-testing and overclocking. In terms of memory stress-testing, this also allows the stress-test to use more RAM as it isn't being hogged by potential bloatware on your current installation. Safe mode can also serve as a minimal testing environment but certain software may not work.
 
 ## 9.2. General Information
 
@@ -601,7 +601,7 @@ Ensure to download an ISO that contains an edition with group policy support as 
 <details>
 <summary>Windows 7</summary>
 
-If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)). Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be be integrated into the ISO to physically be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection and unusable USB input, unless you plan on installing the ISO with DISM as described in the [Boot Into the ISO](#107-boot-into-the-iso) section because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
+If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)). Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be integrated into the ISO to physically be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection and unusable USB input, unless you plan on installing the ISO with DISM as described in the [Boot Into the ISO](#107-boot-into-the-iso) section because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try to integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
 
 |Knowledge Base (KB) ID|Notes|
 |---|---|
@@ -614,7 +614,7 @@ If you are configuring Windows 7, I recommend using the ``en_windows_7_professio
 |KB4534314|Easy anticheat Support|
 |KB3191566|WMF 5.1 (<https://www.microsoft.com/en-us/download/details.aspx?id=54616>)|
 
-If you are having trouble with Windows Setup when installing with a USB storage device despite integrating drivers and updates into the ``boot.wim``, you can use modern Windows Setup to install your Windows 7 ISO by placing the Windows 7 ``intall.wim`` in the sources folder of a Windows 10 ISO's sources folder. Ensure that the language of the ISOs match. This method of installing Windows 7 has alleviated issues for other individuals as modern Windows Setup is equipped with the required components to run on modern hardware and offers greater compatibility.
+If you are having trouble with Windows Setup when installing with a USB storage device despite integrating drivers and updates into the ``boot.wim``, you can use modern Windows Setup to install your Windows 7 ISO by placing the Windows 7 ``intall.wim`` in the ``sources`` folder of a Windows 10 ISO's ``sources`` folder. Ensure that the language of the ISOs match. This method of installing Windows 7 has alleviated issues for other individuals as modern Windows Setup is equipped with the required components to run on modern hardware and offers greater compatibility.
 </details>
 
 <details>
@@ -736,7 +736,7 @@ Move the ``bin`` folder that you downloaded prior to installing Windows to the `
 > [!WARNING]
 > 🔒 Some changes outlined in the table below may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
-The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied. there are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
+The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied, there are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
 
 > [!IMPORTANT]
 > As of now, the script does not revert options if re-run. For example, if the script was run with an option set to ``true``, then running the script with a given option set to ``false`` will not revert the changed made as the script is unaware of the previous state of the registry keys associated with the option. This functionality may be implemented in the future but for now, use the ``-get_option_keys <option>`` argument with the script to get all relevant keys for a given option so that you can revert them manually.
@@ -1035,7 +1035,7 @@ Open-Shell is a FOSS alternative to the Windows Start Menu.
 > [!CAUTION]
 > 📊 DO NOT blindly follow the recommendations in this section. DO benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-Disabling Spectre and Meltdown is an age old trick familiar amongst many individuals however with newer platforms and system architecture, there may be a performance regression ([1](https://www.phoronix.com/review/amd-zen4-spectrev2)). For this reason, extensive tests should be carried out to determine how performance is impacted and whether performance scales positively, negatively or not at all. Its state can be manipulated with the [InSpectre](https://www.grc.com/inspectre.htm) tool.
+Disabling Spectre and Meltdown is an age-old trick familiar amongst many individuals however with newer platforms and system architecture, there may be a performance regression ([1](https://www.phoronix.com/review/amd-zen4-spectrev2)). For this reason, extensive tests should be carried out to determine how performance is impacted and whether performance scales positively, negatively or not at all. Its state can be manipulated with the [InSpectre](https://www.grc.com/inspectre.htm) tool.
 
 - AMD is unaffected by Meltdown
 
@@ -1098,7 +1098,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 > [!CAUTION]
 > 📊 DO NOT blindly follow the recommendations in this section. DO benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-The script below can be used to to disable [process mitigations](https://docs.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps). Effects can be viewed with ``Get-ProcessMitigation -System`` in PowerShell or in Windows Defender's ``Exploit Protection`` page.
+The script below can be used to disable [process mitigations](https://docs.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps). Effects can be viewed with ``Get-ProcessMitigation -System`` in PowerShell or in Windows Defender's ``Exploit Protection`` page.
 
 ```bat
 @echo off
@@ -1210,7 +1210,7 @@ Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.ena
 
 ## 11.28. Configure Event Trace Sessions (ETS)
 
-This sections outlines instructions to mass-toggle Event Trace Sessions which can be viewed by typing ``perfmon`` in ``Win+R`` then navigating to ``Data Collector Sets -> Event Trace Sessions``. Programs that rely on event tracers will not be able to log data until the required sessions are restored which is the purpose of creating two registry files to toggle between them. Open CMD as administrator and enter the commands below to build the registry files in the ``C:\`` directory. These registry files must be ran with Trusted Installer (use [NSudo](https://github.com/M2TeamArchived/NSudo/releases/latest)) to prevent permission errors.
+This section outlines instructions to mass-toggle Event Trace Sessions which can be viewed by typing ``perfmon`` in ``Win+R`` then navigating to ``Data Collector Sets -> Event Trace Sessions``. Programs that rely on event tracers will not be able to log data until the required sessions are restored which is the purpose of creating two registry files to toggle between them. Open CMD as administrator and enter the commands below to build the registry files in the ``C:\`` directory. These registry files must be run with Trusted Installer (use [NSudo](https://github.com/M2TeamArchived/NSudo/releases/latest)) to prevent permission errors.
 
 - ``ets-enable.reg``
 
@@ -1259,7 +1259,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
 
 - Download and open [MSI Utility](https://forums.guru3d.com/threads/windows-line-based-vs-message-signaled-based-interrupts-msi-tool.378044) or [GoInterruptPolicy](https://github.com/spddl/GoInterruptPolicy)
 
-- MSIs can be enabled on devices that support it. It is worth noting that it may be in the developer's intention to not enable MSIs in the driver INF file hence MSIs will be disabled by default once the driver is installed. Namely, NVIDIA seems to selectively enable MSIs depending on the GPU architecture ([1](https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/528356)). Exercise with due care and carry out tests to determine whether changes result in positive positive performance scaling
+- MSIs can be enabled on devices that support it. It is worth noting that it may be in the developer's intention to not enable MSIs in the driver INF file hence MSIs will be disabled by default once the driver is installed. Namely, NVIDIA seems to selectively enable MSIs depending on the GPU architecture ([1](https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/528356)). Exercise with due care and carry out tests to determine whether changes result in positive performance scaling
 
   - You will BSOD if you enable MSIs for the stock Windows 7 SATA driver which you should have already updated as mentioned in the [Install Drivers](#115-install-drivers) section
 
@@ -1303,7 +1303,7 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 ## 11.33. Configuring Applications
 
-- Install any programs and applications applications that you use (including games) to prepare us for the next steps
+- Install any programs and applications that you use (including games) to prepare us for the next steps
 
 - If applicable, favour portable editions of programs as installers tend to leave bloatware behind even after uninstalling them however, this can be circumvented by using programs such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 
@@ -1312,7 +1312,7 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 > [!CAUTION]
 > 📊 DO NOT blindly follow the recommendations in this section. DO benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-[NVIDIA Reflex](https://www.nvidia.com/en-us/geforce/news/reflex-low-latency-platform) minimizes queued frames in the the GPU render queue by dynamically adjusting the framerate in GPU-intensive gaming scenarios and can be enabled in-game if the developer has added support for it. Although this minimizes latency, it acts as a dynamic framerate limiter and can result in minor stuttering or frametime variance. For this reason, I would recommend extensively benchmarking this rather than blindly enabling it in your chosen games.
+[NVIDIA Reflex](https://www.nvidia.com/en-us/geforce/news/reflex-low-latency-platform) minimizes queued frames in the GPU render queue by dynamically adjusting the framerate in GPU-intensive gaming scenarios and can be enabled in-game if the developer has added support for it. Although this minimizes latency, it acts as a dynamic framerate limiter and can result in minor stuttering or frametime variance. For this reason, I would recommend extensively benchmarking this rather than blindly enabling it in your chosen games.
 
 - See [NVIDIA Reflex Low Latency - How It Works & Why You Want To Use It | Battle(non)sense](https://www.youtube.com/watch?v=QzmoLJwS6eQ)
 
@@ -1513,7 +1513,7 @@ Virtualization Based Security negatively impacts performance ([1](https://www.to
       cleanmgr /sagerun:0
       ```
 
-- Optionally clean the WinSxS folder to reduce the size of it ([1](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11))  with the command below in CMD. Note that this can be a lengthy process
+- Optionally clean the WinSxS folder to reduce the size of it ([1](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11)) with the command below in CMD. Note that this can be a lengthy process
 
     ```bat
     DISM /Online /Cleanup-Image /StartComponentCleanup /ResetBase
