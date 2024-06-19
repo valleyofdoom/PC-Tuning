@@ -66,6 +66,8 @@
   - [11.2. Unrestricted PowerShell Execution Policy](#112-unrestricted-powershell-execution-policy)
   - [11.3. Import ``bin`` Folder](#113-import-bin-folder)
   - [11.4. Merge the Registry Options](#114-merge-the-registry-options)
+    - [11.4.1. Registry Options Documentation (Required Reading)](#1141-registry-options-documentation-required-reading)
+    - [11.4.2. Apply Options](#1142-apply-options)
   - [11.5. Install Drivers](#115-install-drivers)
   - [11.6. Privacy Options (Windows 8+)](#116-privacy-options-windows-8)
   - [11.7. Time, Language and Region](#117-time-language-and-region)
@@ -749,6 +751,8 @@ Move the ``bin`` folder that you downloaded prior to installing Windows to the `
 
 The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied, there are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
 
+### 11.4.1. Registry Options Documentation (Required Reading)
+
 > [!IMPORTANT]
 > As of now, the script does not revert options if re-run. For example, if the script was run with an option set to ``true``, then running the script with a given option set to ``false`` will not revert the changed made as the script is unaware of the previous state of the registry keys associated with the option. This functionality may be implemented in the future but for now, use the ``-get_option_keys <option>`` argument with the script to get all relevant keys for a given option so that you can revert them manually.
 
@@ -787,6 +791,8 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable suggestions in the search box and in search home``|Telemetry and intrusive|``true``|
 |``allocate processor resources primarily to programs``|On client editions of Windows, this has no effect from the default behavior but is changed to ensure consistency between all editions including Windows Server|``true``|
 |``disable widgets``|Security risk ([1](https://www.youtube.com/watch?v=m9d-fXl3Z8k))|``true``|
+
+## 11.4.2. Apply Options
 
 - Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection in Windows Defender (Windows 10 1909+). If that doesn't work, reboot then re-execute the command again
 
