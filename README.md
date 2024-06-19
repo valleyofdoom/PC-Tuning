@@ -150,7 +150,7 @@ Benchmarking is the process of evaluating the quality or characteristic of a giv
 # 4. Physical Setup
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. Do benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
 - New installations of Windows are recommended after major hardware changes including but not limited to motherboards, CPUs, platforms and chipsets
 
