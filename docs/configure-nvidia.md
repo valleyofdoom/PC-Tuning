@@ -46,7 +46,7 @@ Download the latest game ready driver using the [advanced driver search](https:/
 ### 3.1. Manage 3D Settings
 
 > [!CAUTION]
-> 📊 DO NOT blindly follow the recommendations in this section. DO benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
+> 📊 Do **NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
 
 - Anisotropic filtering - Off
 
@@ -85,7 +85,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08
 ## 3.5. Configure NVIDIA Inspector
 
 > [!CAUTION]
-> 📊 DO NOT blindly follow the recommendations in this section. DO benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
+> 📊 Do **NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
 
 - Download and extract [NVIDIA Profile Inspector](https://github.com/Orbmu2k/nvidiaProfileInspector)
 
