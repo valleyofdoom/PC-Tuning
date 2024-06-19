@@ -286,16 +286,6 @@ $entries = @{
             "apply_if" = @("disable pointer acceleration")
         }
     }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power"                                                                             = @{
-        "HibernateEnabled" = @{
-            "value"    = 0
-            "type"     = "REG_DWORD"
-            "apply_if" = @(
-                "disable hibernation"
-                "disable fast startup"
-            )
-        }
-    }
     "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power"                                                             = @{
         "HiberbootEnabled" = @{
             "value"    = 0

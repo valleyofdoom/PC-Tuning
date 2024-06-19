@@ -16,7 +16,6 @@
     "disable sticky keys": true,
     "disable pointer acceleration": true,
     "disable fast startup": true,
-    "disable hibernation": true,
     "disable windows error reporting": true,
     "reserve 10% of CPU resources for low-priority tasks instead of the default 20%": true,
     "disable remote assistance": true,

@@ -67,53 +67,58 @@
   - [11.3. Import ``bin`` Folder](#113-import-bin-folder)
   - [11.4. Merge the Registry Options](#114-merge-the-registry-options)
   - [11.5. Install Drivers](#115-install-drivers)
-  - [11.6. Time, Language and Region](#116-time-language-and-region)
-  - [11.7. Configure a Web Browser](#117-configure-a-web-browser)
-  - [11.8. 11.8. Scheduled Tasks](#118-scheduled-tasks)
-  - [11.9. Activate Windows](#119-activate-windows)
-  - [11.10. Miscellaneous](#1110-miscellaneous)
-  - [11.11. Install Runtimes](#1111-install-runtimes)
-  - [11.12. Handle Bloatware](#1112-handle-bloatware)
-  - [11.13. Optional Features](#1113-optional-features)
-    - [11.13.1. NET 3.5](#11131-net-35)
-  - [11.14. Install 7-Zip](#1114-install-7-zip)
-  - [11.15. Configure the Graphics Driver](#1115-configure-the-graphics-driver)
-  - [11.16. Configure MSI Afterburner](#1116-configure-msi-afterburner)
-  - [11.17. Display Resolutions and Scaling Modes](#1117-display-resolutions-and-scaling-modes)
-  - [11.18. Install Open-Shell (Windows 8+)](#1118-install-open-shell-windows-8)
-  - [11.19. Spectre, Meltdown and CPU Microcode](#1119-spectre-meltdown-and-cpu-microcode)
-  - [11.20. Configure Power Options](#1120-configure-power-options)
-  - [11.21. Replace Task Manager with Process Explorer](#1121-replace-task-manager-with-process-explorer)
-  - [11.22. Disable Process Mitigations (Windows 10 1709+)](#1122-disable-process-mitigations-windows-10-1709)
-  - [11.23. Configure Memory Management Settings (Windows 8+)](#1123-configure-memory-management-settings-windows-8)
-  - [11.24. Configure the Network Adapter](#1124-configure-the-network-adapter)
-  - [11.25. Configure Audio Devices](#1125-configure-audio-devices)
-  - [11.26. Configure Device Manager](#1126-configure-device-manager)
-  - [11.27. Disable Driver Power-Saving](#612-power-saving)
-  - [11.28. Configure Event Trace Sessions (ETS)](#1128-configure-event-trace-sessions-ets)
-  - [11.29. Optimize the File System](#1129-optimize-the-file-system)
-  - [11.30. Message Signaled Interrupts](#1130-message-signaled-interrupts)
-  - [11.31. XHCI Interrupt Moderation (IMOD)](#1131-xhci-interrupt-moderation-imod)
-  - [11.32. Configure Control Panel](#1132-configure-control-panel)
-  - [11.33. Configuring Applications](#1133-configuring-applications)
-    - [11.33.1 NVIDIA Reflex](#11331-nvidia-reflex)
-    - [11.33.2 Framerate Limit](#11332-framerate-limit)
-    - [11.33.3 Presentation Mode](#11333-presentation-mode)
-    - [11.33.4. Game Mode](#11334-game-mode)
-    - [11.33.5. Media Player](#11335-media-player)
-    - [11.33.6. QoS Policies](#11336-qos-policies)
-  - [11.34. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#1134-kernel-mode-scheduling-interrupts-dpcs-and-more)
-    - [11.34.1.  GPU and DirectX Graphics Kernel](#11341--gpu-and-directx-graphics-kernel)
-    - [11.34.2. XHCI and Audio Controller](#11342-xhci-and-audio-controller)
-    - [11.34.3. Network Interface Card](#11343-network-interface-card)
-  - [11.35. User-Mode Scheduling (Processes, Threads)](#1135-user-mode-scheduling-processes-threads)
-    - [11.35.1. Starting a Process with a Specified Affinity Mask](#11351-starting-a-process-with-a-specified-affinity-mask)
-    - [11.35.2. Specifying an Affinity Mask for Running Processes](#11352-specifying-an-affinity-mask-for-running-processes)
-  - [11.36. Reserved CPU Sets (Windows 10+)](#1136-reserved-cpu-sets-windows-10)
-    - [11.36.1. Use Cases](#11361-use-cases)
-  - [11.37. Analyze Event Viewer](#1137-analyze-event-viewer)
-  - [11.38. Virtualization Based Security (VBS)](#611-virtualizationsvm-mode)
-  - [11.39. Cleanup and Maintenance](#1139-cleanup-and-maintenance)
+  - [11.6. Privacy Options (Windows 8+)](#116-privacy-options-windows-8)
+  - [11.7. Time, Language and Region](#117-time-language-and-region)
+  - [11.8. Configure a Web Browser](#118-configure-a-web-browser)
+  - [11.9. 11.8. Scheduled Tasks](#119-scheduled-tasks)
+  - [11.10. Activate Windows](#1110-activate-windows)
+  - [11.11. Miscellaneous](#1111-miscellaneous)
+  - [11.12. Disable Superfetch and Prefetch](#1112-disable-superfetch-and-prefetch)
+  - [11.13. Operating System and Partition Name](#1113-operating-system-and-partition-name)
+  - [11.14. Show Tray Icons](#1114-show-tray-icons)
+  - [11.15. Disable Hibernation](#1115-disable-hibernation)
+  - [11.16. Install Runtimes](#1116-install-runtimes)
+  - [11.17. Handle Bloatware](#1117-handle-bloatware)
+  - [11.18. Optional Features](#1118-optional-features)
+    - [11.18.1. NET 3.5](#11181-net-35)
+  - [11.19. Install 7-Zip](#1119-install-7-zip)
+  - [11.20. Configure the Graphics Driver](#1120-configure-the-graphics-driver)
+  - [11.21. Configure MSI Afterburner](#1121-configure-msi-afterburner)
+  - [11.22. Display Resolutions and Scaling Modes](#1122-display-resolutions-and-scaling-modes)
+  - [11.23. Install Open-Shell (Windows 8+)](#1123-install-open-shell-windows-8)
+  - [11.24. Spectre, Meltdown and CPU Microcode](#1124-spectre-meltdown-and-cpu-microcode)
+  - [11.25. Configure Power Options](#1125-configure-power-options)
+  - [11.26. Replace Task Manager with Process Explorer](#1126-replace-task-manager-with-process-explorer)
+  - [11.27. Disable Process Mitigations (Windows 10 1709+)](#1127-disable-process-mitigations-windows-10-1709)
+  - [11.28. Configure Memory Management Settings (Windows 8+)](#1128-configure-memory-management-settings-windows-8)
+  - [11.29. Configure the Network Adapter](#1129-configure-the-network-adapter)
+  - [11.30. Configure Audio Devices](#1130-configure-audio-devices)
+  - [11.31. Configure Device Manager](#1131-configure-device-manager)
+  - [11.32. Disable Driver Power-Saving](#1132-disable-driver-power-saving)
+  - [11.33. Configure Event Trace Sessions (ETS)](#1133-configure-event-trace-sessions-ets)
+  - [11.34. Optimize the File System](#1134-optimize-the-file-system)
+  - [11.35. Message Signaled Interrupts](#1135-message-signaled-interrupts)
+  - [11.36. XHCI Interrupt Moderation (IMOD)](#1136-xhci-interrupt-moderation-imod)
+  - [11.37. Configure Control Panel](#1137-configure-control-panel)
+  - [11.38. Configuring Applications](#1138-configuring-applications)
+    - [11.38.1 NVIDIA Reflex](#11381-nvidia-reflex)
+    - [11.38.2 Framerate Limit](#11382-framerate-limit)
+    - [11.38.3 Presentation Mode](#11383-presentation-mode)
+    - [11.38.4. Game Mode](#11384-game-mode)
+    - [11.38.5. Media Player](#11385-media-player)
+    - [11.38.6. QoS Policies](#11386-qos-policies)
+  - [11.39. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#1139-kernel-mode-scheduling-interrupts-dpcs-and-more)
+    - [11.39.1.  GPU and DirectX Graphics Kernel](#11391--gpu-and-directx-graphics-kernel)
+    - [11.39.2. XHCI and Audio Controller](#11392-xhci-and-audio-controller)
+    - [11.39.3. Network Interface Card](#11393-network-interface-card)
+  - [11.40. User-Mode Scheduling (Processes, Threads)](#1140-user-mode-scheduling-processes-threads)
+    - [11.40.1. Starting a Process with a Specified Affinity Mask](#11401-starting-a-process-with-a-specified-affinity-mask)
+    - [11.40.2. Specifying an Affinity Mask for Running Processes](#11402-specifying-an-affinity-mask-for-running-processes)
+  - [11.41. Reserved CPU Sets (Windows 10+)](#1141-reserved-cpu-sets-windows-10)
+    - [11.41.1. Use Cases](#11411-use-cases)
+  - [11.42. Analyze Event Viewer](#1142-analyze-event-viewer)
+  - [11.43. Virtualization Based Security (VBS)](#1143-virtualization-based-security-vbs)
+  - [11.44. Cleanup and Maintenance](#1144-cleanup-and-maintenance)
 
 ---
 
@@ -342,7 +347,13 @@ On Windows 11, a minority of anticheats (Vanguard, FACEIT, THE FINALS) require S
 
 ## 6.16. Fast Startup, Standby and Hibernate
 
-This boils down to personal preference, perceptions and experiences however, some individuals prefer not to utilize features such as Fast Startup, standby and hibernation while preferring to perform clean system boots instead of saving and restoring kernel and software state thus limiting the system power states to S0 (working state) and S5 (soft off). Learn about system power states and their meaning [here](https://learn.microsoft.com/en-us/windows/win32/power/system-power-states) and [here](https://www.sciencedirect.com/topics/computer-science/sleeping-state). These options in BIOS are often named Fast Startup, Suspend to RAM, S-States (search for *S1*, *S2*, *S3*, *S4*, *S5*), standby or similar options. S-State status can be verified with ``powercfg /a`` in CMD.
+This boils down to personal preference, perceptions and experiences however, some individuals prefer not to utilize features such as Fast Startup, standby and hibernation, as they can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)), while preferring to perform clean system boots instead of saving and restoring kernel and software state thus limiting the system power states to S0 (working state) and S5 (soft off). Learn about system power states and their meaning [here](https://learn.microsoft.com/en-us/windows/win32/power/system-power-states) and [here](https://www.sciencedirect.com/topics/computer-science/sleeping-state). These options in BIOS are often named Fast Startup, Suspend to RAM, S-States (search for *S1*, *S2*, *S3*, *S4*, *S5*), standby or similar options. S-State status can be verified with ``powercfg /a`` in CMD.
+
+Windows also has a toggle that disables Fast Startup, hibernation and removes ``C:\hiberfil.sys``:
+
+```bat
+powercfg /h off
+```
 
 ## 6.17. Spread Spectrum
 
@@ -758,8 +769,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable fault tolerant heap``|Prevents Windows autonomously applying mitigations to prevent future crashes on a per-application basis ([1](https://learn.microsoft.com/en-us/windows/win32/win7appqual/fault-tolerant-heap))|``true``|
 |``disable sticky keys``|Disables the *Do you want to turn on Sticky Keys?* promt when the hotkey is pressed a certain number of times. This is severely intrusive in applications that utilize the ``Shift`` key for controls such as games|``true``|
 |``disable pointer acceleration``|Ensures one-to-one mouse response for games that do not subscribe to raw input events and on Desktop|``true``|
-|``disable fast startup``|Interferes with shutting down in the sense that the system does not enter S5. See the [Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate) section for more information|``true``|
-|``disable hibernation``|Eliminates the need for a hibernation file. It is recommended to shut down instead. This option is overridden if ``disable fast startup`` is set to ``true``|``true``|
+|``disable fast startup``|Interferes with shutting down in the sense that the system does not enter S5 which can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)). See the [Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate) section for related information. It is possible to shut down  properly without disabling Fast Startup by holding ``Shift`` while clicking ``Shut down`` in the start menu. However, the downside to this is that you may forget to hold the ``Shift`` key.|``true``|
 |``disable windows error reporting``|Telemetry|``true``|
 |``reserve 10% of CPU resources for low-priority tasks instead of the default 20%``|On an optimized system with few background tasks, it is desirable to allocate most of the CPU time to the foreground process. See [here](https://learn.microsoft.com/en-us/windows/win32/procthread/multimedia-class-scheduler-service) for more information|``true``|
 |``disable remote assistance``|Security risk|``true``|
@@ -813,7 +823,11 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - Other required drivers can be installed with [Snappy Driver Installer Origin](https://www.snappy-driver-installer.org)
 
-## 11.6. Time, Language and Region
+## 11.6. Privacy Options (Windows 8+)
+
+Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``.
+
+## 11.7. Time, Language and Region
 
 - Configure settings by typing ``intl.cpl`` and ``timedate.cpl`` in ``Win+R``
 
@@ -823,7 +837,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
     - If you intend to exclusively use one language and keyboard layout, ensure that is the case in actuality so that you don't need to toggle the language bar hotkeys which can become intrusive as the hotkey can be accidentally pressed
 
-## 11.7. Configure a Web Browser
+## 11.8. Configure a Web Browser
 
 Configure a browser of your choice.
 
@@ -831,11 +845,11 @@ Configure a browser of your choice.
 
 - See [Desktop Browsers | Privacy Guides](https://www.privacyguides.org/en/desktop-browsers)
 
-## 11.8. Scheduled Tasks
+## 11.9. Scheduled Tasks
 
 There are a handful of scheduled tasks that ship with Windows which can be assessed using [TaskSchedulerView](https://www.nirsoft.net/utils/task_scheduler_view.html). Assessing them can help in having finer control as to what runs on your system silently whether it be updates-related, telemetry-related, defender-related and more. Consider the ``Last Run``, ``Next Run`` and ``Triggers`` column to evaluate whether there is any point disabling the task in question.
 
-## 11.9. Activate Windows
+## 11.10. Activate Windows
 
 Use the commands below to activate Windows using your license key if you do not have one linked to your HWID. Ensure that the activation process was successful by verifying the activation status in computer properties. Open CMD as administrator and enter the commands below.
 
@@ -847,39 +861,9 @@ slmgr /ipk <license key>
 slmgr /ato
 ```
 
-## 11.10. Miscellaneous
+## 11.11. Miscellaneous
 
 - To declutter the interface, disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu
-
-- I would recommend enabling the ``Always show all icons in the notification area`` for better process management. Hiding icons in the tray area can partially be considered a security risk since you won't be aware of potentially malicious or unwanted programs running silently
-
-- Optionally set the maximum password age to never expire to prevent Windows periodically asking to change or enter a password ([1](https://www.tenforums.com/tutorials/87386-change-maximum-minimum-password-age-local-accounts-windows-10-a.html)) with the command below in CMD
-
-    ```bat
-    net accounts /maxpwage:unlimited
-    ```
-
-- Configure the operating system and drive's partition name. It is recommended to set it to something meaningful or unique such has ``W10 22H2 Work`` or ``W10 22H2 Gaming`` for clarity when dual-booting or when multiple drives are present
-
-    ```bat
-    bcdedit /set {current} description "OS_NAME"
-    ```
-
-    ```bat
-    label C: "OS_NAME"
-    ```
-
-- If a HDD isn't present in the system then Superfetch/Prefetch can be disabled with the command below in CMD. Disabling SysMain is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device))
-
-    ```bat
-    reg add "HKLM\SYSTEM\CurrentControlSet\Services\SysMain" /v "Start" /t REG_DWORD /d "4" /f
-    ```
-
-- I would recommend staying away from System Protection and restore points as it has proven to be unreliable ([1](https://askleo.com/why_i_dont_like_system_restore)). Optionally disable and delete existing restore points
-
-- Windows 8+ Only:
-
-  - Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``
 
 - Windows Server Only:
 
@@ -895,7 +879,39 @@ slmgr /ato
 
   - To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
 
-## 11.11. Install Runtimes
+## 11.12. Disable Superfetch and Prefetch
+
+If a HDD isn't present in the system then Superfetch and Prefetch can be disabled with the command below in CMD. Disabling SysMain is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)) and the ``C:\Windows\Prefetch`` folder should no longer be populated.
+
+  ```bat
+  reg add "HKLM\SYSTEM\CurrentControlSet\Services\SysMain" /v "Start" /t REG_DWORD /d "4" /f
+  ```
+
+## 11.13. Operating System and Partition Name
+
+Configure the operating system and drive's partition name. It is recommended to set it to something meaningful or unique such has ``W10 22H2 Work`` or ``W10 22H2 Gaming`` for clarity when dual-booting or when multiple drives are present. Open CMD as administrator and enter the commands below.
+
+  ```bat
+  bcdedit /set {current} description "OS_NAME"
+  ```
+
+  ```bat
+  label C: "OS_NAME"
+  ```
+
+## 11.14. Show Tray Icons
+
+I would recommend enabling the ``Always show all icons in the notification area`` for better process management. Hiding icons in the tray area can partially be considered a security risk since you won't be aware of potentially malicious or unwanted programs running silently.
+
+## 11.15. Disable Hibernation
+
+Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hiberfil.sys``.  It is recommended to shut down instead of saving software state to disk. Open CMD as administrator and enter the command below.
+
+```bat
+powercfg /h off
+```
+
+## 11.16. Install Runtimes
 
 These are runtimes are common dependencies including a magnitude of applications.
 
@@ -904,7 +920,7 @@ These are runtimes are common dependencies including a magnitude of applications
 - [WebView](https://developer.microsoft.com/en-us/microsoft-edge/webview2)
 - [DirectX](https://www.microsoft.com/en-gb/download/details.aspx?id=8109) (game launchers typically install this silently)
 
-## 11.12. Handle Bloatware
+## 11.17. Handle Bloatware
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -957,11 +973,11 @@ I heavily discourage running debloating scripts or removing components other tha
 
 - You can use Task Manager to check for residual bloatware that is running in the background
 
-## 11.13. Optional Features
+## 11.18. Optional Features
 
 Optional features can be accessed by typing ``OptionalFeatures`` in ``Win+R``. Enable/disable features that you do/don't need. If Windows Update is disabled then you likely won't be able to install features and instead, must install an offline package using DISM.
 
-## 11.13.1. NET 3.5
+## 11.18.1. NET 3.5
 
 Some applications still utilize the NET 3.5 runtime so I would recommend installing it just in case. As mentioned previously, you won't be able to install it in the Optional Features window if Windows Update is disabled but can instead, be installed using an offline package.
 
@@ -971,16 +987,16 @@ For using the offline package, download and extract a Windows ISO (e.g. ``C:\EXT
 DISM /Online /Enable-Feature /FeatureName:NetFx3 /LimitAccess /Source:"C:\EXTRACTED_ISO\sources\sxs"
 ```
 
-## 11.14. Install 7-Zip
+## 11.19. Install 7-Zip
 
 Download and install [7-Zip](https://www.7-zip.org). Open ``C:\Program Files\7-Zip\7zFM.exe`` then navigate ``Tools -> Options`` and associate 7-Zip with all file extensions by clicking the ``+`` button. You may need to click it twice to override existing associated extensions.
 
-## 11.15. Configure the Graphics Driver
+## 11.20. Configure the Graphics Driver
 
 - See [docs/configure-nvidia.md](/docs/configure-nvidia.md)
 - See [docs/configure-amd.md](/docs/configure-amd.md)
 
-## 11.16. Configure MSI Afterburner
+## 11.21. Configure MSI Afterburner
 
 If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards), download and install it now.
 
@@ -992,7 +1008,7 @@ If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-ca
     "C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe" /Profile1 /Q
     ```
 
-## 11.17. Display Resolutions and Scaling Modes
+## 11.22. Display Resolutions and Scaling Modes
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1013,7 +1029,7 @@ You may have optionally found a stable overclock for your display in earlier sec
 
 - Ensure your resolution is configured properly by typing ``rundll32.exe display.dll,ShowAdapterSettings`` in ``Win+R``
 
-## 11.18. Install Open-Shell (Windows 8+)
+## 11.23. Install Open-Shell (Windows 8+)
 
 Open-Shell is a FOSS alternative to the Windows Start Menu.
 
@@ -1029,7 +1045,7 @@ Open-Shell is a FOSS alternative to the Windows Start Menu.
 
   - Open ``"C:\Program Files\Open-Shell\Start Menu Settings.lnk"``, enable ``Show all settings`` then navigate to the Windows 8 Settings section and set ``Disable active corners`` to ``All``
 
-## 11.19. Spectre, Meltdown and CPU Microcode
+## 11.24. Spectre, Meltdown and CPU Microcode
 
 > [!WARNING]
 > 🔒 Disabling Spectre and Meltdown may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -1055,14 +1071,14 @@ Disabling Spectre and Meltdown is an age-old trick familiar amongst many individ
 
 - Reboot and use [InSpectre](https://www.grc.com/inspectre.htm) and [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature to check the status or version after a reboot
 
-## 11.20. Configure Power Options
+## 11.25. Configure Power Options
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
 To be completed.
 
-## 11.21. Replace Task Manager with Process Explorer
+## 11.26. Replace Task Manager with Process Explorer
 
 Task Manager lacks several useful metrics compared to a tool such as Process Explorer. On Windows 8+, Task Manager reports CPU utility in % which provides misleading CPU utilization details ([1](https://aaron-margosis.medium.com/task-managers-cpu-numbers-are-all-but-meaningless-2d165b421e43)). On the other hand, Windows 7's Task Manager and Process Explorer report time-based busy utilization. This also explains as to why disabling idle states within the OS results in 100% CPU utilization in Task Manager.
 
@@ -1092,7 +1108,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
   - Enable the ``VirusTotal`` column
 
-## 11.22. Disable Process Mitigations (Windows 10 1709+)
+## 11.27. Disable Process Mitigations (Windows 10 1709+)
 
 > [!WARNING]
 > 🔒 Disabling process mitigations may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -1136,7 +1152,7 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "M
 exit /b 0
 ```
 
-## 11.23. Configure Memory Management Settings (Windows 8+)
+## 11.28. Configure Memory Management Settings (Windows 8+)
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1153,7 +1169,7 @@ exit /b 0
     Disable-MMAgent -MemoryCompression
     ```
 
-## 11.24. Configure the Network Adapter
+## 11.29. Configure the Network Adapter
 
 - Open ``Network Connections`` by typing ``ncpa.cpl`` in ``Win+R``
 
@@ -1165,7 +1181,7 @@ exit /b 0
 
   - See [DNS Resolvers - Recommended Providers | Privacy Guides](https://www.privacyguides.org/en/dns)
 
-## 11.25. Configure Audio Devices
+## 11.30. Configure Audio Devices
 
 - The sound control panel can be opened by typing ``mmsys.cpl`` in ``Win+R``
 
@@ -1179,7 +1195,7 @@ exit /b 0
 
   - Be warned regarding CPUs being reserved or underutilized with the usage of the mentioned programs ([1](https://github.com/miniant-git/REAL/issues/9))
 
-## 11.26. Configure Device Manager
+## 11.31. Configure Device Manager
 
 - Open Device Manager by typing ``devmgmt.msc`` in ``Win+R``
 
@@ -1200,7 +1216,7 @@ exit /b 0
 
 - Optionally use [DeviceCleanup](https://www.uwe-sieber.de/files/DeviceCleanup.zip) to remove hidden devices
 
-## 11.27. Disable Driver Power-Saving
+## 11.32. Disable Driver Power-Saving
 
 Open PowerShell and enter the command below to disable the ``Allow the computer to turn off this device to save power`` option for all applicable devices in Device Manager.
 
@@ -1210,7 +1226,7 @@ Re-plugging devices may cause this option to re-enable so either avoid doing so,
 Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }
 ```
 
-## 11.28. Configure Event Trace Sessions (ETS)
+## 11.33. Configure Event Trace Sessions (ETS)
 
 This section outlines instructions to mass-toggle Event Trace Sessions which can be viewed by typing ``perfmon`` in ``Win+R`` then navigating to ``Data Collector Sets -> Event Trace Sessions``. Programs that rely on event tracers will not be able to log data until the required sessions are restored which is the purpose of creating two registry files to toggle between them. Open CMD as administrator and enter the commands below to build the registry files in the ``C:\`` directory. These registry files must be run with Trusted Installer (use [NSudo](https://github.com/M2TeamArchived/NSudo/releases/latest)) to prevent permission errors.
 
@@ -1232,7 +1248,7 @@ This section outlines instructions to mass-toggle Event Trace Sessions which can
     for %a in ("SleepStudy" "Kernel-Processor-Power" "UserModePowerService") do (wevtutil sl Microsoft-Windows-%~a/Diagnostic /e:false)
     ```
 
-## 11.29. Optimize the File System
+## 11.34. Optimize the File System
 
 Open CMD as administrator and enter the commands below.
 
@@ -1252,7 +1268,7 @@ Open CMD as administrator and enter the commands below.
     fsutil behavior set disablelastaccess 1
     ```
 
-## 11.30. Message Signaled Interrupts
+## 11.35. Message Signaled Interrupts
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1275,7 +1291,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
     reg add "HKLM\SYSTEM\CurrentControlSet\Services\msisadrv" /v "Start" /t REG_DWORD /d "4" /f
     ```
 
-## 11.31. XHCI Interrupt Moderation (IMOD)
+## 11.36. XHCI Interrupt Moderation (IMOD)
 
 On most systems, Windows 7 uses an IMOD interval of 1ms whereas recent versions of Windows use 0.05ms (50us) unless specified by the installed USB driver. This means that after an interrupt has been generated, the XHCI controller waits (buffer period) for the specified interval for more data to arrive before generating another interrupt which reduces CPU utilization but potentially results in data from a given device being supplied at an inconsistent rate in the event of expecting data from other devices within the buffer period that are connected to the same XHCI controller.
 
@@ -1299,17 +1315,17 @@ As an example, 1ms IMOD interval with an 8kHz mouse is already problematic becau
 
 - To determine whether changing the IMOD interval is taking effect, you can temporarily set the interval to ``0xFA00`` (62.5Hz). If the mouse cursor is visibly stuttering upon movement, then the changes are successfully taking effect
 
-## 11.32. Configure Control Panel
+## 11.37. Configure Control Panel
 
 It isn't a bad idea to skim through both the legacy and immersive control panel to ensure nothing is misconfigured.
 
-## 11.33. Configuring Applications
+## 11.38. Configuring Applications
 
 - Install any programs and applications that you use (including games) to prepare us for the next steps
 
 - If applicable, favor portable editions of programs as installers tend to leave bloatware behind even after uninstalling them however, this can be circumvented by using programs such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 
-### 11.33.1. NVIDIA Reflex
+### 11.38.1. NVIDIA Reflex
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1318,7 +1334,7 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 - See [NVIDIA Reflex Low Latency - How It Works & Why You Want To Use It | Battle(non)sense](https://www.youtube.com/watch?v=QzmoLJwS6eQ)
 
-### 11.33.2. Framerate Limit
+### 11.38.2. Framerate Limit
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1329,7 +1345,7 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 - Capping your framerate with [RTSS](https://www.guru3d.com/files-details/rtss-rivatuner-statistics-server-download.html) instead of the in-game limiter will result in consistent frame pacing and a smoother experience as it utilizes busy-wait which offers higher precision than 100% passive-waiting but at the cost of noticeably higher latency and potentially greater CPU overhead ([1](https://www.youtube.com/watch?t=377&v=T2ENf9cigSk), [2](https://en.wikipedia.org/wiki/Busy_waiting)). Disabling the ``Enable dedicated encoder server service`` setting prevents ``EncoderServer.exe`` from running
 
-### 11.33.3. Presentation Mode
+### 11.38.3. Presentation Mode
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1360,17 +1376,17 @@ This is not a recommendation of what presentation mode to use and is instead, he
     reg add "HKLM\SOFTWARE\Microsoft\Windows\Dwm" /v "OverlayTestMode" /t REG_DWORD /d "5" /f
     ```
 
-### 11.33.4. Game Mode
+### 11.38.4. Game Mode
 
 Ensure that Xbox Game Bar acknowledges that the game that you are running or have installed. If not, open Game Bar by pressing ``Win+G`` and enabling ``Remember this is a game`` while it is open. This also ensures that Game Mode functions properly.
 
-### 11.33.5. Media Player
+### 11.38.5. Media Player
 
 - [mpv](https://mpv.io) or [mpv.net](https://github.com/stax76/mpv.net)
 - [mpc-hc](https://mpc-hc.org) ([updated fork](https://github.com/clsid2/mpc-hc))
 - [VLC](https://www.videolan.org)
 
-### 11.33.6. QoS Policies
+### 11.38.6. QoS Policies
 
 QoS DSCP policies allow Windows to prioritize packets of an application.
 
@@ -1382,7 +1398,7 @@ QoS DSCP policies allow Windows to prioritize packets of an application.
 
 - See [How Can You Verify Whether a DSCP QoS Policy Is Working?](/docs/research.md#2-how-can-you-verify-whether-a-dscp-qos-policy-is-working)
 
-## 11.34. Kernel-Mode Scheduling (Interrupts, DPCs and more)
+## 11.39. Kernel-Mode Scheduling (Interrupts, DPCs and more)
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1399,15 +1415,15 @@ Windows schedules interrupts and DPCs on CPU 0 for several kernel-mode modules b
 
 - Use [Microsoft Interrupt Affinity Tool](https://www.techpowerup.com/download/microsoft-interrupt-affinity-tool) or [GoInterruptPolicy](https://github.com/spddl/GoInterruptPolicy) to configure driver affinities. The device can be identified by cross-checking the ``Location`` in the ``Properties -> General`` section of a device in Device Manager
 
-### 11.34.1.  GPU and DirectX Graphics Kernel
+### 11.39.1.  GPU and DirectX Graphics Kernel
 
 AutoGpuAffinity can be used to benchmark the most performant CPUs that the GPU-related modules are assigned to. Configure the ``custom_cpus`` option in the config file if applicable. This option is useful for selecting a certain set of cores to benchmark such as P-Cores or a specific CCX/CCD.
 
-### 11.34.2. XHCI and Audio Controller
+### 11.39.2. XHCI and Audio Controller
 
 The XHCI and audio controller related modules generate a substantial amount of interrupts upon interaction respective of the relevant device. Isolating the related modules to an underutilized CPU is beneficial for reducing contention.
 
-### 11.34.3. Network Interface Card
+### 11.39.3. Network Interface Card
 
 The NIC must support MSI-X for Receive Side Scaling to function properly ([1](https://old.reddit.com/r/intel/comments/9uc03d/the_i219v_nic_on_your_new_z390_motherboard_and)). In most cases, RSS base CPU is enough to migrate DPCs and ISRs for the NIC driver which eliminates the need for an interrupt affinity policy. However, if you are having trouble migrating either to other CPUs, try configuring both.
 
@@ -1423,7 +1439,7 @@ The command below can be used to configure RSS base CPU. Ensure to change the dr
 
 - If RSS is not functioning as expected, see [this](https://github.com/djdallmann/GamingPCSetup/blob/master/CONTENT/RESEARCH/NETWORK/README.md#q-my-onboard-network-adapter-i225-v-supports-rss-msi-and-msi-x-but-why-is-my-indirection-table-missing-that-gives-proper-support-for-rss-in-microsoft-windows) for a potential workaround
 
-## 11.35. User-Mode Scheduling (Processes, Threads)
+## 11.40. User-Mode Scheduling (Processes, Threads)
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1438,7 +1454,7 @@ There are several methods to set affinities for processes. One of which is Task 
 
 - It may be worth benchmarking the performance scaling of your application against core count as it may behave differently due to poor scheduling implementations from the application and/or OS. In some cases, it is possible that the application may perform better with fewer cores assigned to it via an affinity mask ([1](https://developer.nvidia.com/blog/limiting-cpu-threads-for-better-game-performance)). This will also give you a rough idea as to how many cores you can reserve with ReservedCpuSets
 
-### 11.35.1. Starting a Process with a Specified Affinity Mask
+### 11.40.1. Starting a Process with a Specified Affinity Mask
 
 The command below starts ``notepad.exe`` with an affinity of CPU 1 and CPU 2 as an example which will reflect in Task Manager. This command can be placed in a batch script for easy access and must be used each time to start the desired application with the specified affinity.
 
@@ -1446,7 +1462,7 @@ The command below starts ``notepad.exe`` with an affinity of CPU 1 and CPU 2 as 
 start /affinity 0x6 notepad.exe
 ```
 
-### 11.35.2. Specifying an Affinity Mask for Running Processes
+### 11.40.2. Specifying an Affinity Mask for Running Processes
 
 Sometimes, the processes that you would like to set an affinity mask to are already running, so the previous command is not applicable here. As a random example, the command below sets the affinity mask of the ``svchost.exe`` and ``audiodg.exe`` processes to CPU 3. Use this example to create a PowerShell script then have it run at startup using Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)).
 
@@ -1454,7 +1470,7 @@ Sometimes, the processes that you would like to set an affinity mask to are alre
 Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Object { $_.ProcessorAffinity=0x8 }
 ```
 
-## 11.36. Reserved CPU Sets (Windows 10+)
+## 11.41. Reserved CPU Sets (Windows 10+)
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1472,23 +1488,23 @@ ReservedCpuSets can be used to prevent Windows routing ISRs, DPCs and scheduling
 > [!IMPORTANT]
 > Unexpected behavior occurs when a process affinity is set to both reserved and unreserved CPUs. Ensure to set the affinity to either reserved or unreserved CPUs, not a combination of both.
 
-### 11.36.1. Use Cases
+### 11.41.1. Use Cases
 
 - Hinting to the OS to schedule tasks on a group of CPUs. An example of this with modern platforms could be reserving E-Cores (efficiency cores) or either CCX/CCDs so that tasks are scheduled on P-Cores (performance cores) or other CCX/CCDs by default. With this approach, you can explicitly enforce background and unimportant tasks to be scheduled on the reserved CPUs. Note that this is purely an example and the logic can be flipped, but some latency-sensitive processes and modules are protected so affinity policies may fail which is a major limitation. There are several possibilities and trade-offs to consider
 
 - Reserving CPUs that have specific modules assigned to be scheduled on them
 
-## 11.37. Analyze Event Viewer
+## 11.42. Analyze Event Viewer
 
 This step isn't required, but can help to justify unexplained performance issues or issues in general. Ensure that there are no errors present on Event Viewer by typing ``eventvwr.msc`` in ``Win+R`` as anything you may have changed to your operating system could lead to internal errors or exceptions being thrown periodically.
 
 - Merge the ``ets-enable.reg`` file that was generated in the [Configure Event Trace Sessions (ETS)](#1128-configure-event-trace-sessions-ets) section as it is required for event logging
 
-## 11.38. Virtualization Based Security (VBS)
+## 11.43. Virtualization Based Security (VBS)
 
 Virtualization Based Security negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled ([instructions](https://www.tomshardware.com/how-to/disable-vbs-windows-11)) if required.
 
-## 11.39. Cleanup and Maintenance
+## 11.44. Cleanup and Maintenance
 
 - Use [Autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) to remove any unwanted programs from launching at startup and check it often, especially after installing a program
 
