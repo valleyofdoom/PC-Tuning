@@ -792,7 +792,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``allocate processor resources primarily to programs``|On client editions of Windows, this has no effect from the default behavior but is changed to ensure consistency between all editions including Windows Server|``true``|
 |``disable widgets``|Security risk ([1](https://www.youtube.com/watch?v=m9d-fXl3Z8k))|``true``|
 
-## 11.4.2. Apply Options
+### 11.4.2. Apply Options
 
 - Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection in Windows Defender (Windows 10 1909+). If that doesn't work, reboot then re-execute the command again
 
