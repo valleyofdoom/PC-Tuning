@@ -813,7 +813,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - See [Chipset Device "Drivers" (= INF files) | Fernando](https://winraid.level1techs.com/t/intel-chipset-device-drivers-inf-files/30920)
 
-- GPU drivers will be installed in the [Configure the Graphics Driver](#1115-configure-the-graphics-driver) section so do not install them at this stage
+- GPU drivers will be installed in the [Configure the Graphics Driver](#1120-configure-the-graphics-driver) section so do not install them at this stage
 
 - You can find drivers by searching for drivers that are compatible with your device's HWID. See [media/device-hwid-example.png](/assets/images/find-driver-key-example.png) in regard to finding your HWID in Device Manager for a given device
 
@@ -931,7 +931,7 @@ These are runtimes are common dependencies including a magnitude of applications
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, use [Process Explorer](#1121-replace-task-manager-with-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
+I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, use [Process Explorer](#1126-replace-task-manager-with-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
 
 - AppxPackagesManager can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store))
 
@@ -1169,7 +1169,7 @@ exit /b 0
     Get-MMAgent
     ```
 
-- Optionally use the command below as an example to disable a given setting. If you left Superfetch/Prefetch enabled in the [Miscellaneous](#1110-miscellaneous) section, then you likely want the prefetching related features enabled
+- Optionally use the command below as an example to disable a given setting. If you left Superfetch and Prefetch enabled in the [Disable Superfetch and Prefetch](#1112-disable-superfetch-and-prefetch) section, then you likely want the prefetching related features enabled
 
     ```powershell
     Disable-MMAgent -MemoryCompression
@@ -1483,7 +1483,7 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 
 [ReservedCpuSets](https://github.com/valleyofdoom/ReservedCpuSets) can be used to prevent Windows routing ISRs, DPCs and scheduling other threads on specific CPUs. Isolating modules from user and kernel-level disturbances helps reduce contention, jitter and allows time-sensitive modules to get the CPU time they require.
 
-- As mentioned in the [User-Mode Scheduling (Processes, Threads)](#1135-user-mode-scheduling-processes-threads) section, you should determine how well or poorly your application's performance scales with core count to give you a rough idea as to how many cores you can afford to reserve
+- As mentioned in the [User-Mode Scheduling (Processes, Threads)](#1140-user-mode-scheduling-processes-threads) section, you should determine how well or poorly your application's performance scales with core count to give you a rough idea as to how many cores you can afford to reserve
 
 - As interrupt affinity policies, process and thread affinities have higher precedence, you can use this hand in hand with user-defined affinities to go a step further and ensure that nothing except what you assigned to specific CPUs will be scheduled on those CPUs
 
@@ -1504,7 +1504,7 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 
 This step isn't required, but can help to justify unexplained performance issues or issues in general. Ensure that there are no errors present on Event Viewer by typing ``eventvwr.msc`` in ``Win+R`` as anything you may have changed to your operating system could lead to internal errors or exceptions being thrown periodically.
 
-- Merge the ``ets-enable.reg`` file that was generated in the [Configure Event Trace Sessions (ETS)](#1128-configure-event-trace-sessions-ets) section as it is required for event logging
+- Merge the ``ets-enable.reg`` file that was generated in the [Configure Event Trace Sessions (ETS)](#1133-configure-event-trace-sessions-ets) section as it is required for event logging
 
 ## 11.43. Virtualization Based Security (VBS)
 
