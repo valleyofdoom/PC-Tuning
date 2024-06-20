@@ -1364,7 +1364,7 @@ This is not a recommendation of what presentation mode to use and is instead, he
 
   - See [Presentation Model | Special K Wiki](https://wiki.special-k.info/en/Presentation_Model)
 
-- If there are no results after searching for the application's binary name in ``HKCU\SYSTEM\GameConfigStore`` within registry, you may need to register the game by pressing ``Win+R`` and enabling ``Remember this is a game`` while it is open. Check whether the entry has been created under the aforementioned registry key once completed
+- If there are no results after searching for the application's binary name in ``HKCU\SYSTEM\GameConfigStore`` within registry, you may need to register the game by pressing ``Win+G`` and enabling ``Remember this is a game`` while it is open. Check whether the entry has been created under the aforementioned registry key once completed
 
 - If you want to use the ``Hardware: Legacy Flip`` presentation mode, tick the ``Disable fullscreen optimizations`` checkbox. If that doesn't work, try running the commands below in CMD and reboot. These registry keys are typically accessed by the game and Windows upon launch
 
