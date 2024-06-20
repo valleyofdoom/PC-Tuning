@@ -2,6 +2,7 @@
 
 ## 1. Table of Contents
 
+- [1. Table of Contents](#1-table-of-contents)
 - [2. Strip and Install the Driver](#2-strip-and-install-the-driver)
 - [3. Configure NVIDIA Control Panel](#3-configure-nvidia-control-panel)
   - [3.1. Manage 3D Settings](#31-manage-3d-settings)

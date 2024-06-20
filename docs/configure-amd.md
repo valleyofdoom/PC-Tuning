@@ -8,6 +8,7 @@
 
 ## 1. Table of Contents
 
+- [1. Table of Contents](#1-table-of-contents)
 - [2. Strip and Install the Driver](#2-strip-and-install-the-driver)
 
 ## 2. Strip and Install the Driver

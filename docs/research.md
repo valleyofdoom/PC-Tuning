@@ -2,6 +2,7 @@
 
 ## 1. Table of Contents
 
+- [1. Table of Contents](#1-table-of-contents)
 - [2. How Can You Verify Whether a DSCP QoS Policy Is Working?](#2-how-can-you-verify-whether-a-dscp-qos-policy-is-working)
 - [3. What TscSyncPolicy Does Windows Use by Default?](#3-what-tscsyncpolicy-does-windows-use-by-default)
 - [4. How many RSS Queues do you need?](#4-how-many-rss-queues-do-you-need)
