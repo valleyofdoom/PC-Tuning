@@ -120,7 +120,10 @@
     - [11.41.1. Use Cases](#11411-use-cases)
   - [11.42. Analyze Event Viewer](#1142-analyze-event-viewer)
   - [11.43. Virtualization Based Security (VBS)](#1143-virtualization-based-security-vbs)
-  - [11.44. Cleanup and Maintenance](#1144-cleanup-and-maintenance)
+  - [11.44. CPU Idle States](#1144-cpu-idle-states)
+    - [11.44.1. Enable Idle States (default)](#11441-enable-idle-states-default)
+    - [11.44.2. Disable Idle States](#11442-disable-idle-states)
+  - [11.45. Cleanup and Maintenance](#1145-cleanup-and-maintenance)
 
 ---
 
@@ -1513,7 +1516,28 @@ This step isn't required, but can help to justify unexplained performance issues
 
 Virtualization Based Security negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled ([instructions](https://www.tomshardware.com/how-to/disable-vbs-windows-11)) if required.
 
-## 11.44. Cleanup and Maintenance
+## 11.44. CPU Idle States
+
+> [!CAUTION]
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+
+Disabling idle states forces C-State 0, which can be seen in [HWiNFO](https://www.hwinfo.com), and is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Forcing C-State 0 mitigates the undesirable delay to execute new instructions on a CPU that has entered a deeper power-saving state at the expense of higher temperatures and power consumption. Therefore, I would recommend keeping idle states enabled for the majority of readers as other problems can occur due to these side effects (e.g. throttling, power issues). The CPU temperature should not increase to the point of thermal throttling because you should have already assessed that in the [Stability, Hardware Clocking and Thermal Performance](#9-stability-hardware-clocking-and-thermal-performance) section.
+
+If a static CPU frequency is not set, the effects of forcing C-State 0 should be assessed in terms of frequency boosting behavior. For example, you certainly wouldn't want to disable idle states when relying on Precision Boost Overdrive (PBO), Turbo Boost or similar features. Avoid disabling idle states with Hyper-Threading/Simultaneous Multithreading enabled as single-threaded performance is usually negatively impacted.
+
+### 11.44.1. Enable Idle States (default)
+
+```bat
+powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 0 && powercfg /setactive scheme_current
+```
+
+### 11.44.2. Disable Idle States
+
+```bat
+powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 1 && powercfg /setactive scheme_current
+```
+
+## 11.45. Cleanup and Maintenance
 
 - Use [Autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) to remove any unwanted programs from launching at startup and check it often, especially after installing a program
 
