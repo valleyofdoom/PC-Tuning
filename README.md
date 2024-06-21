@@ -609,7 +609,7 @@ Ensure to download an ISO that contains an edition with group policy support as 
 - [Fido](https://github.com/pbatard/Fido)
 - [UUP dump](https://uupdump.net)
 
-## 10.5. ISO Preparation (required)
+## 10.5. ISO Preparation (Required)
 
 <details>
 <summary>Windows 7</summary>
@@ -648,6 +648,9 @@ If you are configuring Windows 8.1, I recommend using the ``en_windows_8_1_x64_d
 
 No additional steps are required for Windows 10+ versions. [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)) can be used to integrate the latest updates if desired but this is not required if you plan on keeping Windows Update enabled once booted in the ISO. Additionally, ISOs build using UUP dump ship with the latest updates assuming that you build the latest version.
 </details>
+
+> [!IMPORTANT]
+> The presence of OEMs keys can force the installation of specific editions of Windows editions (e.g. Home) which is problematic because an edition that supports group policies is required as mentioned in the [Download and Prepare a Stock Windows ISO](#103-download-and-prepare-a-stock-windows-iso) section. To circumvent this, you can either customize ``EI.cfg`` and ``PID.txt`` ([instructions](https://www.youtube.com/watch?v=R3yM3AV6q-8)) or remove every edition apart from the edition you would like to install using [NTLite](https://www.ntlite.com).
 
 ## 10.6. Fetching Required Files
 
