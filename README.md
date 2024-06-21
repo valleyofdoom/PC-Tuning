@@ -1570,4 +1570,6 @@ powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2
     DISM /Online /Cleanup-Image /StartComponentCleanup /ResetBase
     ```
 
+- Optionally delete obsolete system restore points in the ``System Protection`` tab by typing ``sysdm.cpl`` in ``Win+R``. It can be disabled completely if you don't use it
+
 - Favor tools such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller) to uninstall programs as the regular control panel does not remove residual files
