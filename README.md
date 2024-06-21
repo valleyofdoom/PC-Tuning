@@ -810,6 +810,9 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - After and only after a restart, you can establish an internet connection as the Windows update policies will take effect
 
+> [!NOTE]
+> To the maintainers and contributors, the features and options should be tested as listed in the table above. It is inevitable that more steps are required to achieve the same goal with operating system updates and upgrades over time (e.g. manual maintenance of a list of services relating to disabling Windows Defender).
+
 ## 11.5. Install Drivers
 
 > [!CAUTION]
