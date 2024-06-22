@@ -117,7 +117,7 @@ fffff802`3a72e874  0c 18 24
 
 ``0c 18 24`` is equivalent to ``12 24 36`` and PsPrioritySeparation returns ``1`` which corresponds to long, variable, 2:1. Nothing special as it seems, this is equivalent to values less than the maximum documented value as shown in [this csv](https://raw.githubusercontent.com/djdallmann/GamingPCSetup/master/CONTENT/RESEARCH/FINDINGS/win32prisep0to271.csv). I had the same results while testing various other values.
 
-Conclusion: Why does Windows allow us to enter values greater than 0x3F (63 decimal) if any value greater than this is equivalent to values less than the maximum documented value? The reason behind this is that the maximum value for a REG_DWORD is 0xFFFFFFFF (4294967295 decimal) and there are no restrictions in place to prevent users to entering an illogical value, so when the kernel reads the Win32PrioritySeparation registry key, it must account for invalid values, so it only reads a portion of the entered value. The portion it chooses to read is the first 6-bits of the bitmask which means values greater than 63 are recurring values. The table below consists of all possible values (consistent between client and server editions of Windows as ``00`` or ``11`` were not used in ``AABB`` of ``AABBCC`` in the bitmask which have different meanings on client/server). The time in milliseconds are based on the modern x86/x64 multiprocessor timer resolution.
+Conclusion: Why does Windows allow us to enter values greater than 0x3F (63 decimal) if any value greater than this is equivalent to values less than the maximum documented value? The reason behind this is that the maximum value for a REG_DWORD is 0xFFFFFFFF (4294967295 decimal) and there are no restrictions in place to prevent users to entering an illogical value, so when the kernel reads the Win32PrioritySeparation registry key, it must account for invalid values, so it only reads a portion of the entered value. The portion it chooses to read is the first 6-bits of the bitmask which means values greater than 63 are recurring values. The table below consists of all possible values (consistent between client and server editions of Windows as ``00`` or ``11`` were not used in ``XXYY`` of ``XXYYZZ`` in the bitmask which have different meanings on client/server). The time in milliseconds are based on the modern x86/x64 multiprocessor timer resolution.
 
 Although a foreground boost can not be used when using a fixed length interval in terms of the quantum, PsPrioritySeparation still changes, and another thread priority boosting mechanism just happens to use the value of it so in reality, a fixed 3:1 quantum should have a perceivable difference compared to a fixed 1:1 quantum. See the paragraph below from Windows Internals.
 
@@ -130,25 +130,25 @@ threads of foreground applications. However, in this case, it is being used as a
 
 |**Hexadecimal**|**Decimal**|**Binary**|**Interval**|**Length**|**PsPrioSep**|**ForegroundQU**|**BackgroundQU**|**TotalQU**|
 |---|---|---|---|---|---|---|---|---|
-|0x14|20|010100|Long|Variable|0|12 (62.50ms)|12 (62.50ms)|24 (125.00ms)
-|0x15|21|010101|Long|Variable|1|24 (125.00ms)|12 (62.50ms)|36 (187.50ms)
-|0x16|22|010110|Long|Variable|2|36 (187.50ms)|12 (62.50ms)|48 (250.00ms)
-|0x18|24|011000|Long|Fixed|0|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)
-|0x19|25|011001|Long|Fixed|1|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)
-|0x1A|26|011010|Long|Fixed|2|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)
-|0x24|36|100100|Short|Variable|0|6 (31.25ms)|6 (31.25ms)|12 (62.50ms)
-|0x25|37|100101|Short|Variable|1|12 (62.50ms)|6 (31.25ms)|18 (93.75ms)
-|0x26|38|100110|Short|Variable|2|18 (93.75ms)|6 (31.25ms)|24 (125.00ms)
-|0x28|40|101000|Short|Fixed|0|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)
-|0x29|41|101001|Short|Fixed|1|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)
-|0x2A|42|101010|Short|Fixed|2|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)
+|0x14|20|0b010100|Long|Variable|0|12 (62.50ms)|12 (62.50ms)|24 (125.00ms)|
+|0x15|21|0b010101|Long|Variable|1|24 (125.00ms)|12 (62.50ms)|36 (187.50ms)|
+|0x16|22|0b010110|Long|Variable|2|36 (187.50ms)|12 (62.50ms)|48 (250.00ms)|
+|0x18|24|0b011000|Long|Fixed|0|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
+|0x19|25|0b011001|Long|Fixed|1|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
+|0x1A|26|0b011010|Long|Fixed|2|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
+|0x24|36|0b100100|Short|Variable|0|6 (31.25ms)|6 (31.25ms)|12 (62.50ms)|
+|0x25|37|0b100101|Short|Variable|1|12 (62.50ms)|6 (31.25ms)|18 (93.75ms)|
+|0x26|38|0b100110|Short|Variable|2|18 (93.75ms)|6 (31.25ms)|24 (125.00ms)|
+|0x28|40|0b101000|Short|Fixed|0|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
+|0x29|41|0b101001|Short|Fixed|1|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
+|0x2A|42|0b101010|Short|Fixed|2|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
 
 ## 6. Fixing Timing Precision in Windows After “The Great Rule Change”
 
 Starting with 2004, the calling process attempting to raise the timer resolution no longer functions on a global level and is independent of other processes running on the system. A recent comment on the [Great Rule Change](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change) article suggested a registry key which supposedly restores the old implementation, so I decided to investigate.
 
 ```
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+[HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
 "GlobalTimerResolutionRequests"=dword:00000001
 ```
 
@@ -344,7 +344,7 @@ Identity scaling, sometimes referred to as *real no scaling*, is the operation w
 After monitoring registry activity while changing the scaling mode in the GPU control panel, the ``Scaling`` registry key is modified which align with the values in the [DISPLAYCONFIG_SCALING enum](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ne-wingdi-displayconfig_scaling) documentation. The comments below indicate what the GPU control panel options correspond to.
 
 ```
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Configuration\<id>]
+[HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Configuration\<id>]
 "Scaling"=dword:00000002
 ```
 

@@ -167,13 +167,6 @@ $entries = @{
             )
         }
     }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WSearch"                                                                          = @{
-        "Start" = @{
-            "value"    = 4
-            "type"     = "REG_DWORD"
-            "apply_if" = @("disable search indexing")
-        }
-    }
     "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat"                                                                       = @{
         "DisablePCA" = @{
             "value"    = 1
@@ -307,15 +300,6 @@ $entries = @{
             "apply_if" = @("disable windows error reporting")
         }
     }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"                                              = @{
-        "SystemResponsiveness" = @{
-            "value"    = 10
-            "type"     = "REG_DWORD"
-            "apply_if" = @(
-                "reserve 10% of CPU resources for low-priority tasks instead of the default 20%"
-            )
-        }
-    }
     "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance"                                                                 = @{
         "fAllowToGetHelp" = @{
             "value"    = 0
@@ -328,22 +312,6 @@ $entries = @{
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("show file extensions")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ImmersiveShell\EdgeUi"                                                     = @{
-        "DisableTLCorner" = @{
-            "min_version" = 9200
-            "max_version" = 9600
-            "value"       = 1
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("disable corner navigation")
-        }
-        "DisableTRCorner" = @{
-            "min_version" = 9200
-            "max_version" = 9600
-            "value"       = 1
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("disable corner navigation")
         }
     }
     "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter"                                                                         = @{
@@ -502,178 +470,6 @@ $entries = @{
             )
         }
     }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Photo Viewer\Capabilities\FileAssociations"                                              = @{
-        ".tif"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".tiff" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".bmp"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".dib"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".gif"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".jfif" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".jpe"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".jpeg" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".jpg"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".jxr"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-        ".png"  = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.jpg"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.jpeg"                                                                                              = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.gif"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.png"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.bmp"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.tiff"                                                                                              = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.ico"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.tif"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.wdp"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.jfif"                                                                                              = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.dib"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.jpe"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Classes\.jxr"                                                                                               = @{
-        "@" = @{
-            "min_version" = 10240
-            "value"       = "PhotoViewer.FileAssoc.Tiff"
-            "type"        = "REG_SZ"
-            "apply_if"    = @("enable the legacy photo viewer")
-        }
-    }
     "HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings"                                                                                   = @{
         "InsightsEnabled" = @{
             "min_version" = 10240
@@ -712,13 +508,6 @@ $entries = @{
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
-        }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl"                                                                   = @{
-        "Win32PrioritySeparation" = @{
-            "value"    = 38
-            "type"     = "REG_DWORD"
-            "apply_if" = @("allocate processor resources primarily to programs")
         }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT"                                                                                    = @{
