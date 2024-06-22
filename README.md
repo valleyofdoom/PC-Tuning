@@ -945,7 +945,7 @@ These are runtimes are common dependencies including a magnitude of applications
 
 I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, use [Process Explorer](#1127-replace-task-manager-with-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
 
-- AppxPackagesManager can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store))
+- [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager) can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store))
 
 - Removing OneDrive involves opening CMD as administrator and entering the command below
 
@@ -975,12 +975,12 @@ I heavily discourage running debloating scripts or removing components other tha
 
   - Windows 10 Only:
 
-    - Uninstall bloatware in ``Apps -> Apps and Features`` by pressing ``Win+I`` (this can also be managed in AppxPackagesManager)
+    - Uninstall bloatware in ``Apps -> Apps and Features`` by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
     - In the ``Optional features`` section, you can uninstall everything that you don't need if desired
 
   - Windows 11 Only:
 
-    - Uninstall bloatware in ``Apps -> Installed apps`` by pressing ``Win+I`` (this can also be managed in AppxPackagesManager)
+    - Uninstall bloatware in ``Apps -> Installed apps`` by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
     - In the ``System -> Optional features`` section, you can uninstall everything that you don't need if desired
 
 - If Windows Defender was disabled in the [Merge the Registry Options](#114-merge-the-registry-options) section,``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
