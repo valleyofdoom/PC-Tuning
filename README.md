@@ -1316,8 +1316,8 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
     reg add "HKLM\SYSTEM\CurrentControlSet\Services\msisadrv" /v "Start" /t REG_DWORD /d "4" /f
     ```
 
-    > [!IMPORTANT]
-    > To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This can be achieved by pressing ``Ctrl+F`` and searching for the service that you want to disable in the ``Dependencies`` column which will tell you whether any services depend on the one you want to disable (the one you are searching for). These services should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
+> [!IMPORTANT]
+> To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This can be achieved by pressing ``Ctrl+F`` and searching for the service that you want to disable in the ``Dependencies`` column which will tell you whether any services depend on the one you want to disable (the one you are searching for). These services should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
 ## 11.37. XHCI Interrupt Moderation (IMOD)
 
