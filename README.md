@@ -843,7 +843,14 @@ Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win
 
 ## 11.7. Search Indexing
 
-To be completed.
+Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using [Process Explorer](#1127-replace-task-manager-with-process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
+
+  ```bat
+  reg add "HKLM\SYSTEM\CurrentControlSet\Services\WSearch" /v "Start" /t REG_DWORD /d "4" /f
+  ```
+
+> [!IMPORTANT]
+> To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
 ## 11.8. Time, Language and Region
 
@@ -1308,6 +1315,9 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
     ```bat
     reg add "HKLM\SYSTEM\CurrentControlSet\Services\msisadrv" /v "Start" /t REG_DWORD /d "4" /f
     ```
+
+    > [!IMPORTANT]
+    > To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This can be achieved by pressing ``Ctrl+F`` and searching for the service that you want to disable in the ``Dependencies`` column which will tell you whether any services depend on the one you want to disable (the one you are searching for). These services should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
 ## 11.37. XHCI Interrupt Moderation (IMOD)
 
