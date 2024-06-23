@@ -152,7 +152,7 @@ Starting with 2004, the calling process attempting to raise the timer resolution
 "GlobalTimerResolutionRequests"=dword:00000001
 ```
 
-I wrote two programs similar to Bruce Dawson's [measure_interval.cpp](https://github.com/randomascii/blogstuff/blob/main/timer_interval/measure_interval.cpp) and [change_interval.cpp](https://github.com/randomascii/blogstuff/blob/main/timer_interval/change_interval.cpp) program to benchmark how long the system sleeps for in reality when trying to sleep for 1ms by calling Sleep(1) and to raise the timer resolution. Compiled binaries and the source code can be found in the TimerResolution repository. As the minimum resolution is 15.625ms, Sleep(1) has the potential to sleep up to ~16ms depending on the current resolution. We can determine whether another process calling for a higher resolution increases the sleep precision of our measure program.
+I wrote two programs similar to Bruce Dawson's [measure_interval.cpp](https://github.com/randomascii/blogstuff/blob/main/timer_interval/measure_interval.cpp) and [change_interval.cpp](https://github.com/randomascii/blogstuff/blob/main/timer_interval/change_interval.cpp) program to benchmark how long the system sleeps for in reality when trying to sleep for 1ms by calling Sleep(1) and to raise the timer resolution. Compiled binaries and the source code can be found in the [TimerResolution](https://github.com/valleyofdoom/TimerResolution) repository. As the minimum resolution is 15.625ms, Sleep(1) has the potential to sleep up to ~16ms depending on the current resolution. We can determine whether another process calling for a higher resolution increases the sleep precision of our measure program.
 
 **MeasureSleep.cpp**:
 
@@ -278,7 +278,7 @@ Resolution: 0.500000ms, Sleep(1) slept 1.494400ms (delta: 0.494400)
 
 Everyone is aware that raising the timer resolution/timer resolution results in higher precision. On most systems, 0.5ms is the maximum supported resolution, but what advantage does micro-adjusting the resolution bring to the table?
 
-During a period of testing, I mistakenly set the timer resolution to arbitrary value instead of the maximum supported and noticed that the sleep delays being measured in the MeasureSleep program were reproducibly lower compared to any resolution that was requested before. The results below consist of the sleep delays with different requested resolutions.
+During a period of testing, I mistakenly set the timer resolution to arbitrary value instead of the maximum supported and noticed that the sleep delays being measured in the [MeasureSleep](https://github.com/valleyofdoom/TimerResolution) program were reproducibly lower compared to any resolution that was requested before. The results below consist of the sleep delays with different requested resolutions.
 
 **1.000ms**:
 
@@ -325,7 +325,7 @@ Resolution: 0.499200ms, Sleep(1) slept 1.497088ms (delta: 0.497088)
 Resolution: 0.499200ms, Sleep(1) slept 1.496832ms (delta: 0.496832)
 ```
 
-Despite 0.500ms being a higher resolution than 0.507ms, it offers worse precision compared to a slightly lower resolution which is 0.507ms in this case. Note that this is also an arbitrary value, going higher than ~0.502ms is where Sleep(1) sleeps the same amount of time as if 0.500ms was requested on my system. It's a matter of finding a sweet spot with a low STDEV. The micro-adjust-benchmark.ps1 script can be used to automate the process.
+Despite 0.500ms being a higher resolution than 0.507ms, it offers worse precision compared to a slightly lower resolution which is 0.507ms in this case. Note that this is also an arbitrary value, going higher than ~0.502ms is where Sleep(1) sleeps the same amount of time as if 0.500ms was requested on my system. It's a matter of finding a sweet spot with a low STDEV. The [micro-adjust-benchmark.ps1](https://github.com/valleyofdoom/TimerResolution) script can be used to automate the process.
 
 30+ candidates were asked to compare 0.500ms against 0.507ms on their system under load. The observations are listed below.
 

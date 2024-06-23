@@ -523,11 +523,11 @@ When overclocking the GPU, you may be required to flash a BIOS with a higher pow
 
 ## 9.8. Stress-Testing Tools
 
-- StresKit (bootable)
+- [StresKit]((https://github.com/valleyofdoom/StresKit)) (bootable)
 
 - Linpack
 
-  - StresKit's Linpack
+  - [StresKit](https://github.com/valleyofdoom/StresKit)'s Linpack
   - [Linpack-Extended](https://github.com/BoringBoredom/Linpack-Extended)
   - [Linpack Xtreme Bootable](https://www.techpowerup.com/download/linpack-xtreme)
   - Use a range of memory sizes
@@ -1048,7 +1048,7 @@ You may have optionally found a stable overclock for your display in earlier sec
 
   - See [What Is Identity Scaling and How Can You Use It?](/docs/research.md#8-what-is-identity-scaling-and-how-can-you-use-it)
 
-  - Optionally use QueryDisplayScaling to query the current scaling mode
+  - Optionally use [QueryDisplayScaling](https://github.com/valleyofdoom/QueryDisplayScaling) to query the current scaling mode
 
 - On systems with an NVIDIA GPU, ensure that the ``Display`` option for the ``Perform scaling on`` setting is still available. If it is not, then find out what change you made in CRU results in it not being accessible through trial and error. This can be accomplished by running ``reset.exe`` to reset the settings to default then re-configure CRU. After each change, run ``restart64.exe`` then check whether the option is still available
 
@@ -1445,7 +1445,7 @@ Windows schedules interrupts and DPCs on CPU 0 for several kernel-mode modules b
 
 ### 11.40.1. GPU and DirectX Graphics Kernel
 
-AutoGpuAffinity can be used to benchmark the most performant CPUs that the GPU-related modules are assigned to. Configure the ``custom_cpus`` option in the config file if applicable. This option is useful for selecting a certain set of cores to benchmark such as P-Cores or a specific CCX/CCD.
+[AutoGpuAffinity](https://github.com/valleyofdoom/AutoGpuAffinity) can be used to benchmark the most performant CPUs that the GPU-related modules are assigned to. Configure the ``custom_cpus`` option in the config file if applicable. This option is useful for selecting a certain set of cores to benchmark such as P-Cores or a specific CCX/CCD.
 
 ### 11.40.2. XHCI and Audio Controller
 
