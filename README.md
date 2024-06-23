@@ -16,7 +16,7 @@
   - [6.4. BIOS Updates](#64-bios-updates)
   - [6.5. BIOS Microcode](#65-bios-microcode)
   - [6.6. Accessing Hidden Options](#66-accessing-hidden-options)
-  - [6.7. Disable Unnecessary Devices](#67-disable-unnecessary-devices)
+  - [6.7. Unnecessary Devices](#67-unnecessary-devices)
   - [6.8. Resizable Bar](#68-resizable-bar)
   - [6.9. Hyper-Threading/Simultaneous Multithreading](#69-hyper-threadingsimultaneous-multithreading)
   - [6.10. Power States](#610-power-states)
@@ -28,18 +28,18 @@
   - [6.16. Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate)
   - [6.17. Spread Spectrum](#617-spread-spectrum)
   - [6.18. Legacy USB Support](#618-legacy-usb-support)
-  - [6.19. Disable Software Installation Options](#619-disable-software-installation-options)
-  - [6.20. Configure PCI Link Speed for Devices](#620-configure-pci-link-speed-for-devices)
+  - [6.19. Software Installation Options](#619-software-installation-options)
+  - [6.20. PCI Link Speed for Devices](#620-pci-link-speed-for-devices)
   - [6.21. Fan Curves](#621-fan-curves)
   - [6.22. BIOS Profiles and Backups](#622-bios-profiles-and-backups)
 - [7. Configure USB Port Layout](#7-configure-usb-port-layout)
-  - [7.1. Assess Accessible USB Ports](#71-assess-accessible-usb-ports)
+  - [7.1. Reviewing Accessible USB Ports](#71-reviewing-accessible-usb-ports)
   - [7.2. Layout Planning](#72-layout-planning)
   - [7.3. Plugging In Devices](#73-plugging-in-devices)
 - [8. Configure Peripherals](#8-configure-peripherals)
   - [8.1. Cleaning](#81-cleaning)
-  - [8.2. Configure Onboard Memory Profiles](#82-configure-onboard-memory-profiles)
-  - [8.3. Disable RGB Lighting Effects](#83-disable-rgb-lighting-effects)
+  - [8.2. Onboard Memory Profiles](#82-onboard-memory-profiles)
+  - [8.3. RGB Lighting Effects](#83-rgb-lighting-effects)
   - [8.4. DPI](#84-dpi)
   - [8.5. Report Rate](#85-report-rate)
   - [8.6. Polling Stability Analysis](#86-polling-stability-analysis)
@@ -54,55 +54,55 @@
   - [9.7. RAM/CPU](#97-ramcpu)
   - [9.8. Stress-Testing Tools](#98-stress-testing-tools)
 - [10. Install Windows](#10-install-windows)
-  - [10.1. Configure Storage Partitions](#101-configure-storage-partitions)
+  - [10.1. Storage Partitions](#101-storage-partitions)
   - [10.2. What Version of Windows Should You Use?](#102-what-version-of-windows-should-you-use)
-  - [10.3. Download and Prepare a Stock Windows ISO](#103-download-and-prepare-a-stock-windows-iso)
+  - [10.3. Downloading and Preparing a Stock Windows ISO](#103-downloading-and-preparing-a-stock-windows-iso)
   - [10.4. ISO Sources](#104-iso-sources)
   - [10.5. ISO Preparation (required)](#105-iso-preparation-required)
   - [10.6. Fetching Required Files](#106-fetching-required-files)
-  - [10.7. Boot Into the ISO](#107-boot-into-the-iso)
+  - [10.7. Booting Into the ISO](#107-booting-into-the-iso)
 - [11. Configure Windows](#11-configure-windows)
   - [11.1 OOBE Setup](#111-oobe-setup)
   - [11.2. Unrestricted PowerShell Execution Policy](#112-unrestricted-powershell-execution-policy)
-  - [11.3. Import ``bin`` Folder](#113-import-bin-folder)
-  - [11.4. Merge the Registry Options](#114-merge-the-registry-options)
+  - [11.3. Importing ``bin`` Folder](#113-importing-bin-folder)
+  - [11.4. Merging Registry Options](#114-merging-registry-options)
     - [11.4.1. Registry Options Documentation (Required Reading)](#1141-registry-options-documentation-required-reading)
-    - [11.4.2. Apply Options](#1142-apply-options)
-  - [11.5. Install Drivers](#115-install-drivers)
+    - [11.4.2. Applying Options](#1142-applying-options)
+  - [11.5. Installing Drivers](#115-installing-drivers)
   - [11.6. Privacy Options (Windows 8+)](#116-privacy-options-windows-8)
   - [11.7. Search Indexing](#117-search-indexing)
   - [11.8. Time, Language and Region](#118-time-language-and-region)
-  - [11.9. Configure a Web Browser](#119-configure-a-web-browser)
+  - [11.9. Web Browser](#119-web-browser)
   - [11.10. Scheduled Tasks](#1110-scheduled-tasks)
   - [11.11. Activate Windows](#1111-activate-windows)
   - [11.12. Miscellaneous](#1112-miscellaneous)
-  - [11.13. Disable Superfetch and Prefetch](#1113-disable-superfetch-and-prefetch)
+  - [11.13. Superfetch and Prefetch](#1113-superfetch-and-prefetch)
   - [11.14. Operating System and Partition Name](#1114-operating-system-and-partition-name)
   - [11.15. Show Tray Icons](#1115-show-tray-icons)
-  - [11.16. Disable Hibernation](#1116-disable-hibernation)
-  - [11.17. Install Runtimes](#1117-install-runtimes)
-  - [11.18. Handle Bloatware](#1118-handle-bloatware)
+  - [11.16. Hibernation](#1116-hibernation)
+  - [11.17. Runtimes](#1117-runtimes)
+  - [11.18. Handling Bloatware](#1118-handling-bloatware)
   - [11.19. Optional Features](#1119-optional-features)
     - [11.19.1. NET 3.5](#11191-net-35)
-  - [11.20. Install 7-Zip](#1120-install-7-zip)
-  - [11.21. Configure the Graphics Driver](#1121-configure-the-graphics-driver)
-  - [11.22. Configure MSI Afterburner](#1122-configure-msi-afterburner)
+  - [11.20. 7-Zip](#1120-7-zip)
+  - [11.21. Graphics Driver](#1121-graphics-driver)
+  - [11.22. MSI Afterburner](#1122-msi-afterburner)
   - [11.23. Display Resolutions and Scaling Modes](#1123-display-resolutions-and-scaling-modes)
-  - [11.24. Install Open-Shell (Windows 8+)](#1124-install-open-shell-windows-8)
+  - [11.24. Open-Shell (Windows 8+)](#1124-open-shell-windows-8)
   - [11.25. Spectre, Meltdown and CPU Microcode](#1125-spectre-meltdown-and-cpu-microcode)
-  - [11.26. Configure Power Options](#1126-configure-power-options)
-  - [11.27. Replace Task Manager with Process Explorer](#1127-replace-task-manager-with-process-explorer)
-  - [11.28. Disable Process Mitigations (Windows 10 1709+)](#1128-disable-process-mitigations-windows-10-1709)
-  - [11.29. Configure Memory Management Settings (Windows 8+)](#1129-configure-memory-management-settings-windows-8)
-  - [11.30. Configure the Network Adapter](#1130-configure-the-network-adapter)
-  - [11.31. Configure Audio Devices](#1131-configure-audio-devices)
-  - [11.32. Configure Device Manager](#1132-configure-device-manager)
-  - [11.33. Disable Driver Power-Saving](#1133-disable-driver-power-saving)
-  - [11.34. Configure Event Trace Sessions (ETS)](#1134-configure-event-trace-sessions-ets)
-  - [11.35. Optimize the File System](#1135-optimize-the-file-system)
+  - [11.26. Power Options](#1126-power-options)
+  - [11.27. Process Explorer](#1127-process-explorer)
+  - [11.28. Process Mitigations (Windows 10 1709+)](#1128-process-mitigations-windows-10-1709)
+  - [11.29. Memory Management Settings (Windows 8+)](#1129-memory-management-settings-windows-8)
+  - [11.30. Network Adapter Options](#1130-network-adapter-options)
+  - [11.31. Audio Devices](#1131-audio-devices)
+  - [11.32. Device Manager](#1132-device-manager)
+  - [11.33. Device Power-Saving](#1133-device-power-saving)
+  - [11.34. Event Trace Sessions (ETS)](#1134-event-trace-sessions-ets)
+  - [11.35. File System](#1135-file-system)
   - [11.36. Message Signaled Interrupts](#1136-message-signaled-interrupts)
   - [11.37. XHCI Interrupt Moderation (IMOD)](#1137-xhci-interrupt-moderation-imod)
-  - [11.38. Configure Control Panel](#1138-configure-control-panel)
+  - [11.38. Control Panel](#1138-control-panel)
   - [11.39. Configuring Applications](#1139-configuring-applications)
     - [11.39.1 NVIDIA Reflex](#11391-nvidia-reflex)
     - [11.39.2 Framerate Limit](#11392-framerate-limit)
@@ -111,7 +111,7 @@
     - [11.39.5. Media Player](#11395-media-player)
     - [11.39.6. QoS Policies](#11396-qos-policies)
   - [11.40. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#1140-kernel-mode-scheduling-interrupts-dpcs-and-more)
-    - [11.40.1.  GPU and DirectX Graphics Kernel](#11401--gpu-and-directx-graphics-kernel)
+    - [11.40.1. GPU and DirectX Graphics Kernel](#11401-gpu-and-directx-graphics-kernel)
     - [11.40.2. XHCI and Audio Controller](#11402-xhci-and-audio-controller)
     - [11.40.3. Network Interface Card](#11403-network-interface-card)
   - [11.41. User-Mode Scheduling (Processes, Threads)](#1141-user-mode-scheduling-processes-threads)
@@ -119,7 +119,7 @@
     - [11.41.2. Specifying an Affinity Mask for Running Processes](#11412-specifying-an-affinity-mask-for-running-processes)
   - [11.42. Reserved CPU Sets (Windows 10+)](#1142-reserved-cpu-sets-windows-10)
     - [11.42.1. Use Cases](#11421-use-cases)
-  - [11.43. Analyze Event Viewer](#1143-analyze-event-viewer)
+  - [11.43. Analyzing Event Viewer](#1143-analyzing-event-viewer)
   - [11.44. Virtualization Based Security (VBS)](#1144-virtualization-based-security-vbs)
   - [11.45. CPU Idle States](#1145-cpu-idle-states)
     - [11.45.1. Enable Idle States (default)](#11451-enable-idle-states-default)
@@ -300,7 +300,7 @@ On much older platforms and CPUs, BIOS-level Spectre, Meltdown and other CPU mic
 
 Motherboard vendors hide and lock a lot of settings so that they aren't visible to a regular user. For clarification, unlocking BIOS corresponds to making hidden settings visible and accessible. The easiest approach to take is to change the access levels within the BIOS using [UEFI-Editor](https://github.com/BoringBoredom/UEFI-Editor#usage-guide) then flash it which will result in hidden options available in the UEFI. An alternative approach is to configure what is already accessible in UEFI then access hidden options by reading and writing to NVRAM using [GRUB](https://github.com/BoringBoredom/UEFI-Editor#how-to-change-hidden-settings-without-flashing-a-modded-bios) or [SCEWIN](https://github.com/ab3lkaizen/SCEHUB).
 
-## 6.7. Disable Unnecessary Devices
+## 6.7. Unnecessary Devices
 
 Generally, follow the rule of "If you're not using it, disable it". It is preferable to physically disconnect components if possible, but this typically includes NICs, WLAN, Bluetooth, High Definition Audio (if you are not utilizing motherboard audio) controllers, integrated graphics, SATA, RAM slots, onboard devices visible in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) (e.g. LED controllers, IR receivers) and more. Keep in mind that some motherboards have the High Definition Audio controller linked to the USB controller ([1](https://www.igorslab.de/en/the-old-alc4080-on-the-new-intel-boards-demystified-and-the-differences-from-alc1220-insider)) so don't get confused if this is encountered in the USB device tree.
 
@@ -372,11 +372,11 @@ Disable Spread Spectrum and ensure BCLK frequency is close to the desired value 
 
 Disable Legacy USB Support as it may cause the system to enter System Management Mode (SMM) via System Management Interrupts (SMIs) ([1](https://patents.google.com/patent/US6067589), [2](https://www.kernel.org/doc/Documentation/x86/usb-legacy-support.txt)) which are high priority unmaskable hardware interrupts which cause the CPU to immediately suspend all other activities, including the operating system ([1](https://wiki.linuxfoundation.org/realtime/documentation/howto/debugging/smi-latency/smi)). You may need to turn this on to install a new operating system, access BIOS or USB devices in some cases.
 
-## 6.19. Disable Software Installation Options
+## 6.19. Software Installation Options
 
 If there are options relating to software installation (e.g. ASUS Armoury Crate), then disable them. These types of software are typically in-line with other bloatware which can safely be avoided and are present in various BIOSes ([ASUS](https://www.asus.com/support/faq/1043788), [Gigabyte](https://old.reddit.com/r/gigabyte/comments/106d9ns/gigabyte_control_center_prompt_to_install_every/ja0gc6l), [MSI](https://old.reddit.com/r/MSI_Gaming/comments/14s7so7/how_to_disable_autoinstall_of_msi_center/l6zoigh), [ASRock](https://old.reddit.com/r/ASRock/comments/1bxf8jt/asrock_auto_driver_install_app/kyc904r)).
 
-## 6.20. Configure PCI Link Speed for Devices
+## 6.20. PCI Link Speed for Devices
 
 Set PCIe link speed to the maximum supported such as ``Gen 4.0``. This may be represented as gigatransfers per second (GT/s) ([1](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)). This helps with alleviating unexpected behavior and issues.
 
@@ -394,7 +394,7 @@ In my experience on various motherboards, loading a saved profile fails to resto
 
 # 7. Configure USB Port Layout
 
-## 7.1. Assess Accessible USB Ports
+## 7.1. Reviewing Accessible USB Ports
 
 Firstly, familiarize yourself with which USB ports correspond to given USB controllers as some ports shown in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) may not be physically accessible. I recommended plugging a device into every accessible port on your system such as the ones on the motherboard I/O and front panels, then take a note of which controller and port each physical port corresponds to in USB Device Tree Viewer
 
@@ -417,11 +417,11 @@ Lastly, plug the devices into the ports and USB controllers that you have decide
 
 Carefully use an [air dust blower](https://www.amazon.com/s?k=air+dust+blower) to remove dirt and debris from the mouse sensor lens without damage.
 
-## 8.2. Configure Onboard Memory Profiles
+## 8.2. Onboard Memory Profiles
 
 Most modern peripherals support onboard memory profiles such as mice and keyboards. Configure them before configuring the OS as you will not be required to install the bloatware such as Razer Synapse to change the settings later. Details for separating bloat-free and bloated environments using a dual-boot will be discussed in later steps. Alternatively, limit the bloated software to a bootable Windows USB ([Windows To Go](https://www.youtube.com/watch?v=w34x1kBZN6c)).
 
-## 8.3. Disable RGB Lighting Effects
+## 8.3. RGB Lighting Effects
 
 USB 2/3 are limited to 0.5A/0.9A respectively ([1](https://en.wikipedia.org/wiki/USB)) and RGB requires unnecessary power. Turn off lighting effects or strip the LED from the peripheral as running an RGB effect/animation can take a great toll on the MCU and will delay other processes ([1](https://wooting.io/post/what-influences-keyboard-speed), [2](https://www.techpowerup.com/review/endgame-gear-xm1-rgb/5.html#:~:text=tracking%20quality%20takes%20a%20hit%20as%20soon%20as%20RGB%20is%20enabled), [3](https://www.techpowerup.com/review/roccat-kone-pro-air/5.html#:~:text=after%20having%20disabled%20all%20RGB%20lighting,%20these%20outliers%20disappeared%20entirely)).
 
@@ -556,7 +556,7 @@ When overclocking the GPU, you may be required to flash a BIOS with a higher pow
 
 # 10. Install Windows
 
-## 10.1. Configure Storage Partitions
+## 10.1. Storage Partitions
 
 Set up a [multi-boot](https://en.wikipedia.org/wiki/Multi-booting) system to maintain separate environments for work/bloatware and gaming, ensuring the latter one remains free of bloatware. This allows you to keep the gaming partition clean and free of unnecessary software, as discussed in earlier sections. By doing so, you avoid installing bloatware on the same partition where you use real-time applications without sacrificing usability. To achieve this, shrink a volume in Disk Management ([instructions](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/shrink-a-basic-volume)) to create unallocated space for installing the new operating system.
 
@@ -598,7 +598,7 @@ Set up a [multi-boot](https://en.wikipedia.org/wiki/Multi-booting) system to mai
 
 - AllowTelemetry can be set to 0 on Windows Server editions ([1](https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.DataCollection::AllowTelemetry))
 
-## 10.3. Download and Prepare a Stock Windows ISO
+## 10.3. Downloading and Preparing a Stock Windows ISO
 
 In order to install Windows, an installation media must be created using an ISO file. Upon downloading ISOs, ensure to cross-check the hashes for the file with official sources to verify that it is genuine and not corrupted. Use the command ``certutil -hashfile <file>`` in CMD to obtain the hashes of the file.
 
@@ -621,7 +621,7 @@ Ensure to download an ISO that contains an edition with group policy support as 
 <details>
 <summary>Windows 7</summary>
 
-If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)). Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be integrated into the ISO to physically be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection and unusable USB input, unless you plan on installing the ISO with DISM as described in the [Boot Into the ISO](#107-boot-into-the-iso) section because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try to integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
+If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)). Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be integrated into the ISO to physically be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection and unusable USB input, unless you plan on installing the ISO with DISM as described in the [10.7. Booting Into the ISO](#107-booting-into-the-iso) section because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try to integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
 
 |Knowledge Base (KB) ID|Notes|
 |---|---|
@@ -666,7 +666,7 @@ There are primarily two prerequisites before installing Windows. These can be do
 1. Download your NIC driver as it may not be packaged with Windows and must be installed in order to connect to a network
 2. The ``bin`` folder from this repository which can be downloaded [here](https://github.com/valleyofdoom/PC-Tuning/archive/refs/heads/main.zip)
 
-## 10.7. Boot Into the ISO
+## 10.7. Booting Into the ISO
 
 This section covers booting into the ISO retrieved and prepared in the previous section. For the next steps, you are required to disconnect the Ethernet cable and not be connected to the internet during the installation process. This will allow us to bypass the forced Microsoft login during OOBE, allowing us to use Windows with a local account along with preventing installation of unwanted updates and drivers. There are two options when it comes to installing Windows, installing using USB storage or using DISM (without USB storage). Either option can be used. The latter option requires dual-booting.
 
@@ -750,11 +750,11 @@ This is required to execute the scripts within the repository. Open PowerShell a
 Set-ExecutionPolicy Unrestricted
 ```
 
-## 11.3. Import ``bin`` Folder
+## 11.3. Importing ``bin`` Folder
 
 Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in the [Fetching Required Files](#106-fetching-required-files) section. If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
 
-## 11.4. Merge the Registry Options
+## 11.4. Merging Registry Options
 
 > [!WARNING]
 > 🔒 Some changes outlined in the table below may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -797,7 +797,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable suggestions in the search box and in search home``|Telemetry and intrusive|``true``|
 |``disable PC is out of support message``|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
 
-### 11.4.2. Apply Options
+### 11.4.2. Applying Options
 
 - Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection in Windows Defender (Windows 10 1909+). If that doesn't work, reboot then re-execute the command again
 
@@ -812,7 +812,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 > [!NOTE]
 > To the maintainers and contributors, the features and options should be tested as listed in the table above. It is inevitable that more steps are required to achieve the same goal with operating system updates and upgrades over time (e.g. manual maintenance of a list of services relating to disabling Windows Defender).
 
-## 11.5. Install Drivers
+## 11.5. Installing Drivers
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -862,7 +862,7 @@ Certain directories on the file system are indexed for search features in Window
 
     - If you intend to exclusively use one language and keyboard layout, ensure that is the case in actuality so that you don't need to toggle the language bar hotkeys which can become intrusive as the hotkey can be accidentally pressed
 
-## 11.9. Configure a Web Browser
+## 11.9. Web Browser
 
 Configure a browser of your choice.
 
@@ -904,7 +904,7 @@ slmgr /ato
 
   - To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
 
-## 11.13. Disable Superfetch and Prefetch
+## 11.13. Superfetch and Prefetch
 
 If a HDD isn't present in the system then Superfetch and Prefetch can be disabled with the command below in CMD. Disabling SysMain is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)) and the ``C:\Windows\Prefetch`` folder should no longer be populated.
 
@@ -928,7 +928,7 @@ Configure the operating system and drive's partition name. It is recommended to 
 
 I would recommend enabling the ``Always show all icons in the notification area`` for better process management. Hiding icons in the tray area can partially be considered a security risk since you won't be aware of potentially malicious or unwanted programs running silently.
 
-## 11.16. Disable Hibernation
+## 11.16. Hibernation
 
 Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hiberfil.sys``.  It is recommended to shut down instead of saving software state to disk. Open CMD as administrator and enter the command below.
 
@@ -936,7 +936,7 @@ Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hi
 powercfg /h off
 ```
 
-## 11.17. Install Runtimes
+## 11.17. Runtimes
 
 These are runtimes are common dependencies including a magnitude of applications.
 
@@ -945,7 +945,7 @@ These are runtimes are common dependencies including a magnitude of applications
 - [WebView](https://developer.microsoft.com/en-us/microsoft-edge/webview2)
 - [DirectX](https://www.microsoft.com/en-gb/download/details.aspx?id=8109) (game launchers typically install this silently)
 
-## 11.18. Handle Bloatware
+## 11.18. Handling Bloatware
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1012,16 +1012,16 @@ For using the offline package, download and extract a Windows ISO (e.g. ``C:\EXT
 DISM /Online /Enable-Feature /FeatureName:NetFx3 /LimitAccess /Source:"C:\EXTRACTED_ISO\sources\sxs"
 ```
 
-## 11.20. Install 7-Zip
+## 11.20. 7-Zip
 
 Download and install [7-Zip](https://www.7-zip.org). Open ``C:\Program Files\7-Zip\7zFM.exe`` then navigate ``Tools -> Options`` and associate 7-Zip with all file extensions by clicking the ``+`` button. You may need to click it twice to override existing associated extensions.
 
-## 11.21. Configure the Graphics Driver
+## 11.21. Graphics Driver
 
 - See [docs/configure-nvidia.md](/docs/configure-nvidia.md)
 - See [docs/configure-amd.md](/docs/configure-amd.md)
 
-## 11.22. Configure MSI Afterburner
+## 11.22. MSI Afterburner
 
 If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards), download and install it now.
 
@@ -1054,7 +1054,7 @@ You may have optionally found a stable overclock for your display in earlier sec
 
 - Ensure your resolution is configured properly by typing ``rundll32.exe display.dll,ShowAdapterSettings`` in ``Win+R``
 
-## 11.24. Install Open-Shell (Windows 8+)
+## 11.24. Open-Shell (Windows 8+)
 
 Open-Shell is a FOSS alternative to the Windows Start Menu.
 
@@ -1096,14 +1096,14 @@ Disabling Spectre and Meltdown is an age-old trick familiar amongst many individ
 
 - Reboot and use [InSpectre](https://www.grc.com/inspectre.htm) and [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature to check the status or version after a reboot
 
-## 11.26. Configure Power Options
+## 11.26. Power Options
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
 To be completed.
 
-## 11.27. Replace Task Manager with Process Explorer
+## 11.27. Process Explorer
 
 Task Manager lacks several useful metrics compared to a tool such as Process Explorer. On Windows 8+, Task Manager reports CPU utility in % which provides misleading CPU utilization details ([1](https://aaron-margosis.medium.com/task-managers-cpu-numbers-are-all-but-meaningless-2d165b421e43)). On the other hand, Windows 7's Task Manager and Process Explorer report time-based busy utilization. This also explains as to why disabling idle states within the OS results in 100% CPU utilization in Task Manager.
 
@@ -1133,7 +1133,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
   - Enable the ``VirusTotal`` column
 
-## 11.28. Disable Process Mitigations (Windows 10 1709+)
+## 11.28. Process Mitigations (Windows 10 1709+)
 
 > [!WARNING]
 > 🔒 Disabling process mitigations may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -1177,7 +1177,7 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "M
 exit /b 0
 ```
 
-## 11.29. Configure Memory Management Settings (Windows 8+)
+## 11.29. Memory Management Settings (Windows 8+)
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1194,7 +1194,7 @@ exit /b 0
     Disable-MMAgent -MemoryCompression
     ```
 
-## 11.30. Configure the Network Adapter
+## 11.30. Network Adapter Options
 
 - Open ``Network Connections`` by typing ``ncpa.cpl`` in ``Win+R``
 
@@ -1206,7 +1206,7 @@ exit /b 0
 
   - See [DNS Resolvers - Recommended Providers | Privacy Guides](https://www.privacyguides.org/en/dns)
 
-## 11.31. Configure Audio Devices
+## 11.31. Audio Devices
 
 - The sound control panel can be opened by typing ``mmsys.cpl`` in ``Win+R``
 
@@ -1220,7 +1220,7 @@ exit /b 0
 
   - Be warned regarding CPUs being reserved or underutilized with the usage of the mentioned programs ([1](https://github.com/miniant-git/REAL/issues/9))
 
-## 11.32. Configure Device Manager
+## 11.32. Device Manager
 
 - Open Device Manager by typing ``devmgmt.msc`` in ``Win+R``
 
@@ -1241,7 +1241,7 @@ exit /b 0
 
 - Optionally use [DeviceCleanup](https://www.uwe-sieber.de/files/DeviceCleanup.zip) to remove hidden devices
 
-## 11.33. Disable Driver Power-Saving
+## 11.33. Device Power-Saving
 
 Open PowerShell and enter the command below to disable the ``Allow the computer to turn off this device to save power`` option for all applicable devices in Device Manager.
 
@@ -1251,7 +1251,7 @@ Re-plugging devices may cause this option to re-enable so either avoid doing so,
 Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }
 ```
 
-## 11.34. Configure Event Trace Sessions (ETS)
+## 11.34. Event Trace Sessions (ETS)
 
 This section outlines instructions to mass-toggle Event Trace Sessions which can be viewed by typing ``perfmon`` in ``Win+R`` then navigating to ``Data Collector Sets -> Event Trace Sessions``. Programs that rely on event tracers will not be able to log data until the required sessions are restored which is the purpose of creating two registry files to toggle between them. Open CMD as administrator and enter the commands below to build the registry files in the ``C:\`` directory. These registry files must be run with Trusted Installer (use [NSudo](https://github.com/M2TeamArchived/NSudo/releases/latest)) to prevent permission errors.
 
@@ -1273,13 +1273,13 @@ This section outlines instructions to mass-toggle Event Trace Sessions which can
     for %a in ("SleepStudy" "Kernel-Processor-Power" "UserModePowerService") do (wevtutil sl Microsoft-Windows-%~a/Diagnostic /e:false)
     ```
 
-## 11.35. Optimize the File System
+## 11.35. File System
 
 Open CMD as administrator and enter the commands below.
 
 - Disable the creation of 8.3 character-length file names on FAT and NTFS-formatted volumes
 
-  - See [Should you disable 8dot3 for performance and security? | TCAT Shelbyville](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security)
+  - See [Should You Disable 8dot3 for Performance and Security? | TCAT Shelbyville](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security)
 
   - See [Windows Short (8.3) Filenames – A Security Nightmare? | Bogdan Calin](https://www.acunetix.com/blog/articles/windows-short-8-3-filenames-web-security-problem)
 
@@ -1343,7 +1343,7 @@ As an example, 1ms IMOD interval with an 8kHz mouse is already problematic becau
 
 - To determine whether changing the IMOD interval is taking effect, you can temporarily set the interval to ``0xFA00`` (62.5Hz). If the mouse cursor is visibly stuttering upon movement, then the changes are successfully taking effect
 
-## 11.38. Configure Control Panel
+## 11.38. Control Panel
 
 It isn't a bad idea to skim through both the legacy and immersive control panel to ensure nothing is misconfigured.
 
@@ -1443,7 +1443,7 @@ Windows schedules interrupts and DPCs on CPU 0 for several kernel-mode modules b
 
 - Use [Microsoft Interrupt Affinity Tool](https://www.techpowerup.com/download/microsoft-interrupt-affinity-tool) or [GoInterruptPolicy](https://github.com/spddl/GoInterruptPolicy) to configure driver affinities. The device can be identified by cross-checking the ``Location`` in the ``Properties -> General`` section of a device in Device Manager
 
-### 11.40.1.  GPU and DirectX Graphics Kernel
+### 11.40.1. GPU and DirectX Graphics Kernel
 
 AutoGpuAffinity can be used to benchmark the most performant CPUs that the GPU-related modules are assigned to. Configure the ``custom_cpus`` option in the config file if applicable. This option is useful for selecting a certain set of cores to benchmark such as P-Cores or a specific CCX/CCD.
 
@@ -1522,7 +1522,7 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 
 - Reserving CPUs that have specific modules assigned to be scheduled on them
 
-## 11.43. Analyze Event Viewer
+## 11.43. Analyzing Event Viewer
 
 This step isn't required, but can help to justify unexplained performance issues or issues in general. Ensure that there are no errors present on Event Viewer by typing ``eventvwr.msc`` in ``Win+R`` as anything you may have changed to your operating system could lead to internal errors or exceptions being thrown periodically.
 
