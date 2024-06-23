@@ -276,7 +276,7 @@ If you aren't already using the partition style you would like to be using, you 
 
 ## 6.2. Consider Windows Version
 
-Consider what Windows version you will be using because some settings listed in this section depend on the Windows version being used (search for *"Windows"* in this section). Read the [What Version of Windows Should You Use?](#102-what-version-of-windows-should-you-use) section to help decide what to use.
+Consider what Windows version you will be using because some settings listed in this section depend on the Windows version being used (search for *"Windows"* in this section). Read section [10.2. What Version of Windows Should You Use?](#102-what-version-of-windows-should-you-use) to help decide which version best suits your requirements.
 
 ## 6.3. BIOS Recovery Methods
 
@@ -463,7 +463,7 @@ I would highly recommend configuring a temporary dual-boot with a fresh installa
 
 - Verify and validate changes within software to avoid unexpected results and behavior (e.g. frequency, voltages, timings)
 
-- Save a BIOS profile before each change when overclocking such as changing CPU/RAM frequency and RAM timings so that you don't lose progress if you need to clear CMOS. Refer to the [BIOS Profiles and Backups](#622-bios-profiles-and-backups) section regarding restoring settings properly
+- Save a BIOS profile before each change when overclocking such as changing CPU/RAM frequency and RAM timings so that you don't lose progress if you need to clear CMOS. Refer to section [6.22. BIOS Profiles and Backups](#622-bios-profiles-and-backups) regarding restoring settings properly
 
 - When overclocking, you may be required to raise various power limits if the default limits are exceeded
 
@@ -621,7 +621,7 @@ Ensure to download an ISO that contains an edition with group policy support as 
 <details>
 <summary>Windows 7</summary>
 
-If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)). Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be integrated into the ISO to physically be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection and unusable USB input, unless you plan on installing the ISO with DISM as described in the [10.7. Booting Into the ISO](#107-booting-into-the-iso) section because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try to integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
+If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)). Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be integrated into the ISO to physically be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection and unusable USB input, unless you plan on installing the ISO with DISM as described in section [10.7. Booting Into the ISO](#107-booting-into-the-iso) because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try to integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
 
 |Knowledge Base (KB) ID|Notes|
 |---|---|
@@ -657,7 +657,7 @@ No additional steps are required for Windows 10+ versions. [NTLite](https://www.
 </details>
 
 > [!IMPORTANT]
-> The presence of OEMs keys can force the installation of specific editions of Windows editions (e.g. Home) which is problematic because an edition that supports group policies is required as mentioned in the [Download and Prepare a Stock Windows ISO](#103-download-and-prepare-a-stock-windows-iso) section. To circumvent this, you can either customize ``EI.cfg`` and ``PID.txt`` ([instructions](https://www.youtube.com/watch?v=R3yM3AV6q-8)) or remove every edition apart from the edition you would like to install using [NTLite](https://www.ntlite.com).
+> The presence of OEMs keys can force the installation of specific editions of Windows editions (e.g. Home) which is explained in section [10.3. Downloading and Preparing a Stock Windows ISO](#103-downloading-and-preparing-a-stock-windows-iso). To circumvent this, you can either customize ``EI.cfg`` and ``PID.txt`` ([instructions](https://www.youtube.com/watch?v=R3yM3AV6q-8)) or remove every edition apart from the edition you would like to install using [NTLite](https://www.ntlite.com).
 
 ## 10.6. Fetching Required Files
 
@@ -752,7 +752,7 @@ Set-ExecutionPolicy Unrestricted
 
 ## 11.3. Importing ``bin`` Folder
 
-Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in the [Fetching Required Files](#106-fetching-required-files) section. If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
+Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in section [10.6. Fetching Required Files](#106-fetching-required-files). If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
 
 ## 11.4. Merging Registry Options
 
@@ -770,14 +770,14 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |---|---|---|
 |``disable windows update``|🔒 A value of ``true`` may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.<br><br>Telemetry, intrusive, prevents CPU overhead and installation of unwanted updates. Disabling Windows Update is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Alternatively automatic updates can be disabled instead of disabling Windows Update completely which achieves the same effect by configuring ``disable windows update`` to ``false`` and ``disable automatic windows updates`` to ``true``<br><br>This option does not affect upgrades which can be controlled using group policies ([instructions](https://www.tenforums.com/tutorials/159624-how-specify-target-feature-update-version-windows-10-a.html)). However, you are limited to preventing upgrades until the specified version reaches end-of-life|``false``|
 |``disable automatic windows updates``|Prevents automatic download and installation of Windows updates as the process can be intrusive compared to disabling Windows Update completely. This option is overridden if ``disable windows update`` is set to ``true``<br><br>This option does not affect upgrades which can be controlled using group policies ([instructions](https://www.tenforums.com/tutorials/159624-how-specify-target-feature-update-version-windows-10-a.html)). However, you are limited to preventing upgrades until the specified version reaches end-of-life|``true``|
-|``disable driver installation via windows update``|Prevents outdated, vulnerable and bloated drivers from being installed via Windows Update. It is recommended to manually only install ones that you require along with the latest version directly from the manufacture's website as outlined in the [Install Drivers](#115-install-drivers) section. This option is overridden if ``disable windows update`` is set to ``true``|``true``|
+|``disable driver installation via windows update``|Prevents outdated, vulnerable and bloated drivers from being installed via Windows Update. It is recommended to manually only install ones that you require along with the latest version directly from the manufacture's website as outlined in section [11.5. Installing Drivers](#115-installing-drivers). This option is overridden if ``disable windows update`` is set to ``true``|``true``|
 |``disable user account control``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Eliminates [this](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/user-account-control/how-it-works#uac-elevation-prompts) subjectively intrusive UAC elevation prompt. Disabling UAC may negatively impact security as all processes are run with administrator privileges by default ([1](https://www.howtogeek.com/124754/htg-explains-why-you-shouldnt-disable-uac/), [2](https://raptor.solutions/the-risks-of-disabling-uac-in-windows-10/)). If you choose to leave UAC enabled, I would recommend setting it to the highest level (most restrictive) in control panel as the default level can be exploited ([1](https://devblogs.microsoft.com/oldnewthing/20160816-00/?p=94105))|``false``|
 |``disable windows marking file attachments with information about their zone of origin``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevents [this](https://www.tenforums.com/tutorials/85418-how-disable-downloaded-files-being-blocked-windows.html) intrusive security warning as downloaded files are constantly required to be unblocked however this may negatively impact security as the user will not be notified of blocked files via a security warning prompt ([1](https://www.tenforums.com/tutorials/85418-how-disable-downloaded-files-being-blocked-windows.html))|``true``|
 |``disable windows defender``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevents CPU overhead and interferes with the CPU operating in C-State 0 ([1](https://www.techpowerup.com/295877/windows-defender-can-significantly-impact-intel-cpu-performance-we-have-the-fix)). Instead, run system scans frequently, keep UAC enabled and favor free, open source and reputable software. Stay away from proprietary software where you can and ensure to scan files and executables with [VirusTotal](https://www.virustotal.com/gui/home/upload) before opening them|``true``|
 |``disable malicious software removal tool updates``|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevent Windows offering Malicious Software Removal Tool through Windows Update|``true``|
 |``disable sticky keys``|Disables the *Do you want to turn on Sticky Keys?* promt when the hotkey is pressed a certain number of times. This is severely intrusive in applications that utilize the ``Shift`` key for controls such as games|``true``|
 |``disable pointer acceleration``|Ensures one-to-one mouse response for games that do not subscribe to raw input events and on Desktop|``true``|
-|``disable fast startup``|Interferes with shutting down in the sense that the system does not enter S5 which can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)). See the [Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate) section for related information. It is possible to shut down  properly without disabling Fast Startup by holding ``Shift`` while clicking ``Shut down`` in the start menu. However, the downside to this is that you may forget to hold the ``Shift`` key.|``true``|
+|``disable fast startup``|Interferes with shutting down in the sense that the system does not enter S5 which can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)). See section [6.16. Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate) for related information. It is possible to shut down  properly without disabling Fast Startup by holding ``Shift`` while clicking ``Shut down`` in the start menu. However, the downside to this is that you may forget to hold the ``Shift`` key.|``true``|
 |``disable automatic maintenance``|Intrusive|``true``|
 |``disable program compatibility assistant``|Prevent Windows applying changes anonymously after running troubleshooters|``true``|
 |``disable fault tolerant heap``|Prevents Windows autonomously applying mitigations to prevent future crashes on a per-application basis ([1](https://learn.microsoft.com/en-us/windows/win32/win7appqual/fault-tolerant-heap))|``true``|
@@ -821,7 +821,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - See [Chipset Device "Drivers" (= INF files) | Fernando](https://winraid.level1techs.com/t/intel-chipset-device-drivers-inf-files/30920)
 
-- GPU drivers will be installed in the [Configure the Graphics Driver](#1121-configure-the-graphics-driver) section so do not install them at this stage
+- GPU drivers will be installed in section [11.21. Graphics Driver](#1121-graphics-driver) so do not install them at this stage
 
 - You can find drivers by searching for drivers that are compatible with your device's HWID. See [media/device-hwid-example.png](/assets/images/find-driver-key-example.png) in regard to finding your HWID in Device Manager for a given device
 
@@ -831,7 +831,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
   - Network Interface Controller. If you do not have internet access at this stage, you will need to download your NIC driver from another device or dual-boot as they may not be packaged at all with Windows
 
-  - [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) and [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (if you are configuring Windows 7, both may have already been integrated in the [Download and Prepare a Stock Windows ISO](#103-download-and-prepare-a-stock-windows-iso) section)
+  - [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) and [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (if you are configuring Windows 7, both may have already been integrated in section [10.3. Downloading and Preparing a Stock Windows ISO](#103-downloading-and-preparing-a-stock-windows-iso))
 
   - [SATA](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (required on Windows 7 as the stock driver does not support Message Signaled Interrupts)
 
@@ -843,7 +843,7 @@ Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win
 
 ## 11.7. Search Indexing
 
-Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using [Process Explorer](#1127-replace-task-manager-with-process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
+Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using Process Explorer as described in section [11.27. Process Explorer](#1127-process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
 
   ```bat
   reg add "HKLM\SYSTEM\CurrentControlSet\Services\WSearch" /v "Start" /t REG_DWORD /d "4" /f
@@ -950,7 +950,7 @@ These are runtimes are common dependencies including a magnitude of applications
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, use [Process Explorer](#1127-replace-task-manager-with-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
+I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, setup Process Explorer as described in [11.27. Process Explorer](#1127-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
 
 - [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager) can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store))
 
@@ -990,7 +990,7 @@ I heavily discourage running debloating scripts or removing components other tha
     - Uninstall bloatware in ``Apps -> Installed apps`` by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
     - In the ``System -> Optional features`` section, you can uninstall everything that you don't need if desired
 
-- If Windows Defender was disabled in the [Merge the Registry Options](#114-merge-the-registry-options) section,``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
+- If Windows Defender was disabled in section [11.4. Merging Registry Options](#114-merging-registry-options),``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
 
     ```bat
     taskkill /f /im smartscreen.exe > nul 2>&1 & ren C:\Windows\System32\smartscreen.exe smartscreen.exee
@@ -1188,7 +1188,7 @@ exit /b 0
     Get-MMAgent
     ```
 
-- Optionally use the command below as an example to disable a given setting. If you left Superfetch and Prefetch enabled in the [Disable Superfetch and Prefetch](#1113-disable-superfetch-and-prefetch) section, then you likely want the prefetching related features enabled
+- Optionally use the command below as an example to disable a given setting. If you left Superfetch and Prefetch enabled in section [11.13. Superfetch and Prefetch](#1113-superfetch-and-prefetch), then you likely want the prefetching related features enabled
 
     ```powershell
     Disable-MMAgent -MemoryCompression
@@ -1304,7 +1304,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
 
 - MSIs can be enabled on devices that support it. It is worth noting that it may be in the developer's intention to not enable MSIs in the driver INF file hence MSIs will be disabled by default once the driver is installed. Namely, NVIDIA seems to selectively enable MSIs depending on the GPU architecture ([1](https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/528356)). Exercise with due care and carry out tests to determine whether changes result in positive performance scaling
 
-  - You will BSOD if you enable MSIs for the stock Windows 7 SATA driver which you should have already updated as mentioned in the [Install Drivers](#115-install-drivers) section
+  - You will BSOD if you enable MSIs for the stock Windows 7 SATA driver which you should have already updated as mentioned in section [11.5. Installing Drivers](#115-installing-drivers)
 
 - To verify whether a device is utilizing MSIs, restart your PC and check whether the given device has a negative IRQ in MSI Utility
 
@@ -1505,7 +1505,7 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 
 [ReservedCpuSets](https://github.com/valleyofdoom/ReservedCpuSets) can be used to prevent Windows routing ISRs, DPCs and scheduling other threads on specific CPUs. Isolating modules from user and kernel-level disturbances helps reduce contention, jitter and allows time-sensitive modules to get the CPU time they require.
 
-- As mentioned in the [User-Mode Scheduling (Processes, Threads)](#1141-user-mode-scheduling-processes-threads) section, you should determine how well or poorly your application's performance scales with core count to give you a rough idea as to how many cores you can afford to reserve
+- As mentioned in section [11.41. User-Mode Scheduling (Processes, Threads)](#1141-user-mode-scheduling-processes-threads), you should determine how well or poorly your application's performance scales with core count to give you a rough idea as to how many cores you can afford to reserve
 
 - As interrupt affinity policies, process and thread affinities have higher precedence, you can use this hand in hand with user-defined affinities to go a step further and ensure that nothing except what you assigned to specific CPUs will be scheduled on those CPUs
 
@@ -1526,7 +1526,7 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 
 This step isn't required, but can help to justify unexplained performance issues or issues in general. Ensure that there are no errors present on Event Viewer by typing ``eventvwr.msc`` in ``Win+R`` as anything you may have changed to your operating system could lead to internal errors or exceptions being thrown periodically.
 
-- Merge the ``ets-enable.reg`` file that was generated in the [Configure Event Trace Sessions (ETS)](#1134-configure-event-trace-sessions-ets) section as it is required for event logging
+- Merge the ``ets-enable.reg`` file that was generated in section [11.34. Event Trace Sessions (ETS)](#1134-event-trace-sessions-ets) if applicable as it is required for event logging
 
 ## 11.44. Virtualization Based Security (VBS)
 
@@ -1537,7 +1537,7 @@ Virtualization Based Security negatively impacts performance ([1](https://www.to
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-Disabling idle states forces C-State 0, which can be seen in [HWiNFO](https://www.hwinfo.com), and is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Forcing C-State 0 mitigates the undesirable delay to execute new instructions on a CPU that has entered a deeper power-saving state at the expense of higher temperatures and power consumption. Therefore, I would recommend keeping idle states enabled for the majority of readers as other problems can occur due to these side effects (e.g. throttling, power issues). The CPU temperature should not increase to the point of thermal throttling because you should have already assessed that in the [Stability, Hardware Clocking and Thermal Performance](#9-stability-hardware-clocking-and-thermal-performance) section.
+Disabling idle states forces C-State 0, which can be seen in [HWiNFO](https://www.hwinfo.com), and is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Forcing C-State 0 mitigates the undesirable delay to execute new instructions on a CPU that has entered a deeper power-saving state at the expense of higher temperatures and power consumption. Therefore, I would recommend keeping idle states enabled for the majority of readers as other problems can occur due to these side effects (e.g. throttling, power issues). The CPU temperature should not increase to the point of thermal throttling because you should have already assessed that in section [9. Stability, Hardware Clocking and Thermal Performance](#9-stability-hardware-clocking-and-thermal-performance).
 
 If a static CPU frequency is not set, the effects of forcing C-State 0 should be assessed in terms of frequency boosting behavior. For example, you certainly wouldn't want to disable idle states when relying on Precision Boost Overdrive (PBO), Turbo Boost or similar features. Avoid disabling idle states with Hyper-Threading/Simultaneous Multithreading enabled as single-threaded performance is usually negatively impacted.
 
