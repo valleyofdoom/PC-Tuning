@@ -912,6 +912,9 @@ If a HDD isn't present in the system then Superfetch and Prefetch can be disable
   reg add "HKLM\SYSTEM\CurrentControlSet\Services\SysMain" /v "Start" /t REG_DWORD /d "4" /f
   ```
 
+> [!IMPORTANT]
+> To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
+
 ## 11.14. Operating System and Partition Name
 
 Configure the operating system and drive's partition name. It is recommended to set it to something meaningful or unique such has ``W10 22H2 Work`` or ``W10 22H2 Gaming`` for clarity when dual-booting or when multiple drives are present. Open CMD as administrator and enter the commands below.
