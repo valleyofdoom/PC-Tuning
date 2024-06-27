@@ -533,6 +533,14 @@ $entries = @{
             "apply_if"    = @("disable transparency effects")
         }
     }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore"                                                                           = @{
+        "AutoDownload" = @{
+            "min_version" = 9600
+            "value"       = 4
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable automatic store app updates")
+        }
+    }
 }
 
 function Is-Admin() {
