@@ -722,11 +722,11 @@ function main() {
                     $hasMaxVer = $key.Contains("max_version")
 
                     if ($hasMinVer -and $hasMaxVer) {
-                        $keyString += " ;versions $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) - $(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"])"
+                        $keyString += " ; versions $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) - $(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"])"
                     } elseif ($hasMinVer -and -not $hasMaxVer) {
-                        $keyString += " ;$(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) or later"
+                        $keyString += " ; $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) or later"
                     } elseif (-not $hasMinVer -and $hasMaxVer) {
-                        $keyString += " ;$(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"]) and earlier"
+                        $keyString += " ; $(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"]) and earlier"
                     }
 
                     Add-Content -Path $mdfile -Value $keyString
