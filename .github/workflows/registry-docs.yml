@@ -1,0 +1,30 @@
+name: Build Docs
+run-name: Build Docs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "bin/apply-registry.ps1"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build registry options documentation
+        run: .\bin\apply-registry.ps1 -build_docs
+
+- name: Commit changes
+  uses: stefanzweifel/git-auto-commit-action@v5
+  with:
+    file_pattern: "docs/registry-opts.md"

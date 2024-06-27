@@ -1,7 +1,8 @@
 param(
     [string]$get_option_keys,
     [int]$windows_build,
-    [switch]$entries_json
+    [switch]$entries_json,
+    [switch]$build_docs
 )
 
 $entries = @{
@@ -587,9 +588,147 @@ function Get-Option-Keys($optionName, $windowsBuild) {
     }
 }
 
+function Get-Key-String($keyName, $keyData) {
+    # default key does not have extra quotes
+    if ($keyName -eq "@") {
+        $line = "@"
+    } else {
+        $line = "`"$($keyName)`""
+    }
+
+    switch ($keyData["type"]) {
+        "REG_DWORD" {
+            $hexValue = "{0:X8}" -f $keyData["value"]
+            $line += "=dword:$($hexValue)"
+        }
+        "REG_SZ" {
+            $line += "=`"$($keyData["value"])`""
+        }
+        "REG_DELETE" {
+            $line += "=-"
+        }
+        default {
+            Write-Host "error: unrecognized type $($keyData["type"]) for key $($keyName)"
+            return $null
+        }
+    }
+
+    return $line
+}
+
+function ConvertTo-TitleCase($string) {
+    # define small words that should remain lowercase
+    $smallWords = @("a", "an", "and", "as", "at", "but", "by", "for", "if", "in", "nor", "of", "on", "or", "so", "the", "to", "up", "yet")
+
+    # split the input string into an array of words
+    $words = $string -split '\s+'
+
+    # initialize an empty array to store capitalized words
+    $capitalizedWords = @()
+
+    # loop through each word and capitalize appropriately
+    for ($i = 0; $i -lt $words.Length; $i++) {
+        if ($i -eq 0 -or $i -eq ($words.Length - 1) -or $smallWords -notcontains $words[$i]) {
+            # capitalize the first letter of the word
+            $capitalizedWords += $words[$i].Substring(0, 1).ToUpper() + $words[$i].Substring(1).ToLower()
+        } else {
+            # keep the word as lowercase
+            $capitalizedWords += $words[$i].ToLower()
+        }
+    }
+
+    $capitalizedString = $capitalizedWords -join " "
+
+    return $capitalizedString
+}
+
 function main() {
+    Set-Location $PSScriptRoot
+
     if ($entries_json) {
         Write-Host ($entries | ConvertTo-Json -Depth 100 -Compress)
+        return 0
+    }
+
+    if ($build_docs) {
+        # an ordered hashmap must be used to preserve the order of config options
+        $options = New-Object System.Collections.Specialized.OrderedDictionary
+
+        $config = Get-Content -Path "registry-options.json" -Raw | ConvertFrom-Json
+
+        # get all option names in the sorted hashmap
+        foreach ($option in $config.options.PSObject.Properties.Name) {
+            $options.Add($option, @{})
+        }
+
+        # populate the hashmap with all the option paths and keys
+        foreach ($path in $entries.Keys) {
+            foreach ($keyName in $entries[$path].Keys) {
+                $key = $entries[$path][$keyName]
+
+                foreach ($applyIfOption in $key["apply_if"]) {
+                    # initialize path if it doesn't
+                    if (-not ($options[$applyIfOption].Contains($path))) {
+                        $options[$applyIfOption].Add($path, @{})
+                    }
+
+                    $options[$applyIfOption][$path].Add($keyName, $key)
+                }
+            }
+        }
+
+        $hasError = $false
+        $mdfile = "..\docs\registry-opts.md"
+
+        Set-Content -Path $mdfile -Value "# Registry Options`n"
+
+        foreach ($option in $options.Keys) {
+            # create option name subheading
+            $optionSubheading = ConvertTo-TitleCase -string $option
+
+            Add-Content -Path $mdfile -Value "## $($optionSubheading)`n"
+
+            # start code block
+            Add-Content -Path $mdfile -Value "``````"
+
+            foreach ($path in $options[$option].Keys) {
+                # write path
+                Add-Content -Path $mdfile -Value "[$($path)]"
+
+                foreach ($keyName in $options[$option][$path].Keys) {
+                    $key = $options[$option][$path][$keyName]
+
+                    $keyString = Get-Key-String -keyName $keyName -keyData $key
+
+                    if ($null -eq $keyString) {
+                        $hasError = $true
+                    }
+
+                    $hasMinVer = $key.Contains("min_version")
+                    $hasMaxVer = $key.Contains("max_version")
+
+                    if ($hasMinVer -and $hasMaxVer) {
+                        $keyString += " ; versions $($key["min_version"]) - $($key["max_version"])"
+                    } elseif ($hasMinVer -and -not $hasMaxVer) {
+                        $keyString += " ; $($key["min_version"]) or earlier"
+                    } elseif (-not $hasMinVer -and $hasMaxVer) {
+                        $keyString += " ; $($key["max_version"]) and later"
+                    }
+
+                    Add-Content -Path $mdfile -Value $keyString
+                }
+
+                Add-Content -Path $mdfile -Value ""
+            }
+
+            # end code block
+            Add-Content -Path $mdfile -Value "```````n"
+        }
+
+        if ($hasError) {
+            return 1
+        }
+
         return 0
     }
 
@@ -622,8 +761,6 @@ function main() {
         Write-Host "error: administrator privileges required"
         return 1
     }
-
-    Set-Location $PSScriptRoot
 
     if (-not (Test-Path "registry-options.json")) {
         Write-Host "error: registry-options.json not found"
@@ -719,31 +856,13 @@ function main() {
         foreach ($keyName in $filteredEntries[$path].Keys) {
             $key = $filteredEntries[$path][$keyName]
 
-            # default key does not have extra quotes
-            if ($keyName -eq "@") {
-                $line = "@"
-            } else {
-                $line = "`"$($keyName)`""
+            $keyString = Get-Key-String -keyName $keyName -keyData $key
+
+            if ($null -eq $keyString) {
+                $hasError = $true
             }
 
-            switch ($key["type"]) {
-                "REG_DWORD" {
-                    $hexValue = "{0:X8}" -f $key["value"]
-                    $line += "=dword:$($hexValue)"
-                }
-                "REG_SZ" {
-                    $line += "=`"$($key["value"])`""
-                }
-                "REG_DELETE" {
-                    $line += "=-"
-                }
-                default {
-                    Write-Host "error: unrecognized type $($key["type"]) for key $($keyName)"
-                    $hasError = $true
-                }
-            }
-
-            Add-Content -Path $registryFile -Value $line
+            Add-Content -Path $registryFile -Value $keyString
         }
 
         # new line between paths
