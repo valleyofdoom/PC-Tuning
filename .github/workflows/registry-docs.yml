@@ -24,7 +24,7 @@ jobs:
       - name: Build registry options documentation
         run: .\bin\apply-registry.ps1 -build_docs
 
-- name: Commit changes
-  uses: stefanzweifel/git-auto-commit-action@v5
-  with:
-    file_pattern: "docs/registry-opts.md"
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: "docs/registry-opts.md"
