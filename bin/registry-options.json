@@ -2,8 +2,8 @@
   "options": {
     "disable windows update": false,
     "disable automatic windows updates": true,
-    "disable automatic store app updates": true,
     "disable driver installation via windows update": true,
+    "disable automatic store app updates": true,
     "disable user account control": false,
     "disable windows marking file attachments with information about their zone of origin": true,
     "disable windows defender": true,
