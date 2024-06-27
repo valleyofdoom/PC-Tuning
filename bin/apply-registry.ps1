@@ -707,9 +707,9 @@ function main() {
                     if ($hasMinVer -and $hasMaxVer) {
                         $keyString += " ; versions $($key["min_version"]) - $($key["max_version"])"
                     } elseif ($hasMinVer -and -not $hasMaxVer) {
-                        $keyString += " ; $($key["min_version"]) or earlier"
+                        $keyString += " ; $($key["min_version"]) or later"
                     } elseif (-not $hasMinVer -and $hasMaxVer) {
-                        $keyString += " ; $($key["max_version"]) and later"
+                        $keyString += " ; $($key["max_version"]) and earlier"
                     }
 
                     Add-Content -Path $mdfile -Value $keyString
