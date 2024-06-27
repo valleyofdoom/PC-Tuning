@@ -641,6 +641,23 @@ function ConvertTo-TitleCase($string) {
     return $capitalizedString
 }
 
+function Get-WinVer($windowsBuild) {
+    $version = ""
+
+    switch ($windowsBuild) {
+        { $_ -ge 22000 } { $version = "Windows 11"; break }
+        { $_ -ge 10240 } { $version = "Windows 10"; break }
+        { $_ -ge 9600 } { $version = "Windows 8.1"; break }
+        { $_ -ge 9200 } { $version = "Windows 8"; break }
+        { $_ -ge 7600 } { $version = "Windows 7"; break }
+        default {
+            Write-Host "error: unrecognized windows build $($windowsBuild)"
+        }
+    }
+
+    return $version
+}
+
 function main() {
     Set-Location $PSScriptRoot
 
@@ -705,11 +722,11 @@ function main() {
                     $hasMaxVer = $key.Contains("max_version")
 
                     if ($hasMinVer -and $hasMaxVer) {
-                        $keyString += " ; versions $($key["min_version"]) - $($key["max_version"])"
+                        $keyString += " ;versions $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) - $(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"])"
                     } elseif ($hasMinVer -and -not $hasMaxVer) {
-                        $keyString += " ; $($key["min_version"]) or later"
+                        $keyString += " ;$(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) or later"
                     } elseif (-not $hasMinVer -and $hasMaxVer) {
-                        $keyString += " ; $($key["max_version"]) and earlier"
+                        $keyString += " ;$(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"]) and earlier"
                     }
 
                     Add-Content -Path $mdfile -Value $keyString
