@@ -1,7 +1,6 @@
 param(
     [string]$get_option_keys,
     [int]$windows_build,
-    [switch]$entries_json,
     [switch]$build_docs
 )
 
@@ -644,11 +643,6 @@ function ConvertTo-TitleCase($string) {
 
 function main() {
     Set-Location $PSScriptRoot
-
-    if ($entries_json) {
-        Write-Host ($entries | ConvertTo-Json -Depth 100 -Compress)
-        return 0
-    }
 
     if ($build_docs) {
         # an ordered hashmap must be used to preserve the order of config options
