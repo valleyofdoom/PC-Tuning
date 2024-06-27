@@ -892,6 +892,8 @@ slmgr /ato
 
 - To declutter the interface, disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu
 
+- Disable transparency effects in settings as it results in reproducibly higher CPU overhead ([1](/assets/images/transparency-effects-benchmark.png))
+
 - Windows Server Only:
 
   - In Server Manager, navigate to ``Manage -> Server Manager Properties`` and enable the option to prevent Server Manager from starting automatically
