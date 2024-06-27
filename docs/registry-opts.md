@@ -3,36 +3,36 @@
 ## Disable Windows Update
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"WUStatusServer"=" "
-"ExcludeWUDriversInQualityUpdate"=dword:00000001 ; 10240 or earlier
-"UpdateServiceUrlAlternate"=" "
-"SetDisableUXWUAccess"=dword:00000001 ; 10240 or earlier
-"WUServer"=" "
-"DisableWindowsUpdateAccess"=dword:00000001
-"DisableOSUpgrade"=dword:00000001 ; 9200 or earlier
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
-"AUOptions"=dword:00000001 ; 9600 and later
-"AcceleratedInstallRequired"=- ; 9600 and later
-"SetupWizardLaunchTime"=- ; 9600 and later
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
-"PreventDeviceMetadataFromNetwork"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"NoAutoUpdate"=dword:00000001
-"UseWUServer"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000000
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
 "DontSearchWindowsUpdate"=dword:00000001
 "SearchOrderConfig"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
 "ExcludeWUDriversInQualityUpdate"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
+"NoAutoUpdate"=dword:00000001
+"UseWUServer"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
+"ExcludeWUDriversInQualityUpdate"=dword:00000001 ; 10240 or earlier
+"DisableOSUpgrade"=dword:00000001 ; 9200 or earlier
+"WUServer"=" "
+"DisableWindowsUpdateAccess"=dword:00000001
+"UpdateServiceUrlAlternate"=" "
+"SetDisableUXWUAccess"=dword:00000001 ; 10240 or earlier
+"WUStatusServer"=" "
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
+"PreventDeviceMetadataFromNetwork"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
+"AUOptions"=dword:00000001 ; 9600 and later
+"SetupWizardLaunchTime"=- ; 9600 and later
+"AcceleratedInstallRequired"=- ; 9600 and later
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
+"SearchOrderConfig"=dword:00000000
 
 ```
 
@@ -50,18 +50,18 @@
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
 "ExcludeWUDriversInQualityUpdate"=dword:00000001 ; 10240 or earlier
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
+"PreventDeviceMetadataFromNetwork"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
 "DontSearchWindowsUpdate"=dword:00000001
 "SearchOrderConfig"=dword:00000000
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
-"PreventDeviceMetadataFromNetwork"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
 "ExcludeWUDriversInQualityUpdate"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
+"SearchOrderConfig"=dword:00000000
 
 ```
 
@@ -92,66 +92,66 @@
 ## Disable Windows Defender
 
 ```
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot]
-"Start"=dword:00000004 ; 9200 or earlier
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense]
+"Start"=dword:00000004 ; 10240 or earlier
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv]
-"Start"=dword:00000004 ; 9200 or earlier
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter]
-"Start"=dword:00000004 ; 9200 or earlier
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\SmartScreenEnabled]
-@=dword:00000000 ; 10240 or earlier
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend]
+"Start"=dword:00000004
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy]
 "VerifiedAndReputablePolicyState"=dword:00000000 ; 22000 or earlier
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService]
-"Start"=dword:00000004 ; 10240 or earlier
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"SmartScreenEnabled"="Off" ; 10240 or earlier
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Real-Time Protection]
 "DisableScanOnRealtimeEnable"=dword:00000001
 "DisableOnAccessProtection"=dword:00000001
 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity]
+"Enabled"=dword:00000000 ; 10240 or earlier
+
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
 "DisableBehaviorMonitoring"=dword:00000001 ; 9200 or earlier
 "DisableScanOnRealtimeEnable"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
-"SmartScreenEnabled"="Off" ; 10240 or earlier
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
+"DisableAntiSpyware"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components]
-"ServiceEnabled"=dword:00000000 ; 22000 or earlier
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost]
+"EnableWebContentEvaluation"=dword:00000000 ; 10240 or earlier
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot]
+"Start"=dword:00000004 ; 9200 or earlier
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService]
+"Start"=dword:00000004 ; 10240 or earlier
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc]
+"Start"=dword:00000004
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv]
+"Start"=dword:00000004 ; 9200 or earlier
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
 "SecurityHealth"=- ; 10240 or earlier
 "WindowsDefender"=- ; 10240 or earlier
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc]
-"Start"=dword:00000004 ; 9200 or earlier
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost]
-"EnableWebContentEvaluation"=dword:00000000 ; 10240 or earlier
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet]
 "SpyNetReporting"=dword:00000000 ; 10240 or earlier
 "SubmitSamplesConsent"=dword:00000000 ; 10240 or earlier
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity]
-"Enabled"=dword:00000000 ; 10240 or earlier
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter]
+"Start"=dword:00000004 ; 9200 or earlier
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc]
-"Start"=dword:00000004
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components]
+"ServiceEnabled"=dword:00000000 ; 22000 or earlier
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
-"DisableAntiSpyware"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc]
+"Start"=dword:00000004 ; 9200 or earlier
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense]
-"Start"=dword:00000004 ; 10240 or earlier
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\SmartScreenEnabled]
+@=dword:00000000 ; 10240 or earlier
 
 ```
 
@@ -175,8 +175,8 @@
 
 ```
 [HKEY_CURRENT_USER\Control Panel\Mouse]
-"MouseThreshold1"="0"
 "MouseThreshold2"="0"
+"MouseThreshold1"="0"
 "MouseSpeed"="0"
 
 ```
@@ -264,11 +264,11 @@
 ## Disable Customer Experience Improvement Program
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM]
-"OptIn"=dword:00000000
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
 "CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM]
+"OptIn"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
 "CEIPEnable"=dword:00000000
@@ -278,11 +278,11 @@
 ## Disable Windows Error Reporting
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
-"DoReport"=dword:00000000
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
 "Disabled"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
+"DoReport"=dword:00000000
 
 ```
 
@@ -305,14 +305,14 @@
 ## Disable Telemetry
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
-"AllowTelemetry"=dword:00000000 ; 10240 or earlier
-
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment]
 "POWERSHELL_TELEMETRY_OPTOUT"="1"
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack]
 "Start"=dword:00000004 ; 10240 or earlier
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000 ; 10240 or earlier
 
 ```
 
@@ -340,7 +340,7 @@
 
 ```
 
-## Disable Pc Is Out of Support Message
+## Disable Computer Is Out of Support Message
 
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify]
