@@ -798,6 +798,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable typing insights``|Telemetry|``true``|
 |``disable suggestions in the search box and in search home``|Telemetry and intrusive|``true``|
 |``disable PC is out of support message``|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
+|``disable transparency effects``|Disables transparency effects in settings as it results in reproducibly higher CPU overhead ([1](/assets/images/transparency-effects-benchmark.png)) |``true``|
 
 ### 11.4.2. Applying Options
 
@@ -891,8 +892,6 @@ slmgr /ato
 ## 11.12. Miscellaneous
 
 - To declutter the interface, disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu
-
-- Disable transparency effects in settings as it results in reproducibly higher CPU overhead ([1](/assets/images/transparency-effects-benchmark.png))
 
 - Windows Server Only:
 

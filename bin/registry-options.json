@@ -27,6 +27,7 @@
     "disable retrieval of online tips and help in the immersive control panel": true,
     "disable typing insights": true,
     "disable suggestions in the search box and in search home": true,
-    "disable PC is out of support message": true
+    "disable PC is out of support message": true,
+    "disable transparency effects": true
   }
 }

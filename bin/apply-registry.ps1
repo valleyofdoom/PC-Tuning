@@ -525,6 +525,14 @@ $entries = @{
             "apply_if"    = @("disable widgets")
         }
     }
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"                                                        = @{
+        "EnableTransparency" = @{
+            "min_version" = 10240
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable transparency effects")
+        }
+    }
 }
 
 function Is-Admin() {
