@@ -1655,7 +1655,7 @@ To conclude my view on the topic, I recommend favoring the per-process (non-glob
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-For most readers, I would recommend keeping the paging file enabled which is the default state. There is an argument that it can be disabled if you have enough RAM for your applications however, many users have reported in-game stuttering in specific games with the paging file disabled despite being nowhere near maximum RAM load.
+For most readers, I would recommend keeping the paging file enabled which is the default state. There is an argument that it is preferable to disable it if you have enough RAM for your applications as it reduces I/O overhead and that system memory is faster than disk however, many users have reported in-game stuttering in specific games with the paging file disabled despite being nowhere near maximum RAM load.
 
 ## 11.49. Cleanup and Maintenance
 
