@@ -11,7 +11,7 @@ $entries = @{
             "max_version" = 9600
             "value"       = 1
             "type"        = "REG_DWORD"
-            "apply_if"    = @("disable PC is out of support message")
+            "apply_if"    = @("disable computer is out of support message")
         }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"                                                                  = @{
