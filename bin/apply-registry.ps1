@@ -691,6 +691,9 @@ function main() {
             # start code block
             Add-Content -Path $mdfile -Value "``````"
 
+            # used to keep track of last path
+            $keyCount = 0
+
             foreach ($path in $options[$option].Keys) {
                 # write path
                 Add-Content -Path $mdfile -Value "[$($path)]"
@@ -718,7 +721,14 @@ function main() {
                     Add-Content -Path $mdfile -Value $keyString
                 }
 
-                Add-Content -Path $mdfile -Value ""
+                $keyCount++
+
+                $isLastPath = $keyCount -eq $options[$option].Keys.Count
+
+                if (-not $isLastPath) {
+                    Add-Content -Path $mdfile -Value ""
+                }
+
             }
 
             # end code block
