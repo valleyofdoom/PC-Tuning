@@ -992,15 +992,8 @@ I heavily discourage running debloating scripts or removing components other tha
 
   - In the start menu, *uninstall* any residual links for applications. Keep in mind that these applications aren't actually installed, they get installed only if the user clicks on them so do not accidentally click on them
 
-  - Windows 10 Only:
-
-    - Uninstall bloatware in ``Apps -> Apps and Features`` by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
-    - In the ``Optional features`` section, you can uninstall everything that you don't need if desired
-
-  - Windows 11 Only:
-
-    - Uninstall bloatware in ``Apps -> Installed apps`` by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
-    - In the ``System -> Optional features`` section, you can uninstall everything that you don't need if desired
+  - Uninstall bloatware in the applications section in the immersive control panel by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
+  - In the ``Optional features`` section within the immersive control panel, you can uninstall everything that you don't need if desired
 
 - If Windows Defender was disabled in section [11.4. Merging Registry Options](#114-merging-registry-options),``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
 
@@ -1492,7 +1485,7 @@ There are several methods to set affinities for processes. One of which is Task 
 
   - [Process Hacker](https://processhacker.sourceforge.io) and [WindowsD](https://github.com/katlogic/WindowsD) can bypass several process-level protections through exploits but is not advised as they interfere with anticheats
 
-- It may be worth benchmarking the performance scaling of your application against core count as it may behave differently due to poor scheduling implementations from the application and/or OS. In some cases, it is possible that the application may perform better with fewer cores assigned to it via an affinity mask ([1](https://developer.nvidia.com/blog/limiting-cpu-threads-for-better-game-performance)). This will also give you a rough idea as to how many cores you can reserve with ReservedCpuSets
+- It may be worth benchmarking the performance scaling of your application against core count as it may behave differently due to poor scheduling implementations from the application and/or OS. In some cases, it is possible that the application may perform better with fewer cores assigned to it via an affinity mask ([1](https://developer.nvidia.com/blog/limiting-cpu-threads-for-better-game-performance)). This will also give you a rough idea as to how many cores you can reserve. In other cases, it can severely harm performance as there is a potential for the game to create more worker threads than CPUs due to the game only considering the amount of physical cores available hence, it is vital that performance scaling is measured
 
 ### 11.42.1. Starting a Process with a Specified Affinity Mask
 
