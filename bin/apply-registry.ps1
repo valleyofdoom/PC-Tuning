@@ -248,6 +248,14 @@ $entries = @{
             "apply_if" = @("disable windows defender")
         }
     }
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore"                                                                        = @{
+        "Start" = @{
+            "min_version" = 22000
+            "value"       = 4
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable windows defender")
+        }
+    }
     "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc"                                                                           = @{
         "Start" = @{
             "value"    = 4
