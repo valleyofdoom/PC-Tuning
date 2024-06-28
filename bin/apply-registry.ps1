@@ -677,7 +677,7 @@ function main() {
 
         # get all option names in the sorted hashmap
         foreach ($option in $config.options.PSObject.Properties.Name) {
-            $options.Add($option, @{})
+            $options.Add($option, (New-Object System.Collections.Specialized.OrderedDictionary))
         }
 
         # populate the hashmap with all the option paths and keys
@@ -688,7 +688,7 @@ function main() {
                 foreach ($applyIfOption in $key["apply_if"]) {
                     # initialize path if it doesn't
                     if (-not ($options[$applyIfOption].Contains($path))) {
-                        $options[$applyIfOption].Add($path, @{})
+                        $options[$applyIfOption].Add($path, (New-Object System.Collections.Specialized.OrderedDictionary))
                     }
 
                     $options[$applyIfOption][$path].Add($keyName, $key)
