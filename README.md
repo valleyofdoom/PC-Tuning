@@ -855,7 +855,7 @@ Certain directories on the file system are indexed for search features in Window
   ```
 
 > [!IMPORTANT]
-> To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
+> To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
 ## 11.8. Time, Language and Region
 
@@ -922,7 +922,7 @@ If a HDD isn't present in the system then Superfetch and Prefetch can be disable
   ```
 
 > [!IMPORTANT]
-> To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
+> To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
 ## 11.15. Operating System and Partition Name
 
@@ -1322,7 +1322,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
     ```
 
 > [!IMPORTANT]
-> To prevent unexpected breakage and problems due to dependency errors, assess the other services that depend on the service you want to disable. This can be achieved by pressing ``Ctrl+F`` and searching for the service that you want to disable in the ``Dependencies`` column which will tell you whether any services depend on the one you want to disable (the one you are searching for). These services should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
+> To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This can be achieved by pressing ``Ctrl+F`` and searching for the service that you want to disable in the ``Dependencies`` column which will tell you whether any services depend on the one you want to disable (the one you are searching for). These services should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
 ## 11.38. XHCI Interrupt Moderation (IMOD)
 
