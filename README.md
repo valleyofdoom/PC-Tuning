@@ -1372,7 +1372,7 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-- Cap your framerate at a multiple of your monitor refresh rate ([calculator](https://boringboredom.github.io/tools/fpscapcalculator)) to prevent frame mistiming and a rolling tearline ([1](https://www.youtube.com/watch?v=_73gFgNrYVQ), [2](https://github.com/BoringBoredom/PC-Optimization-Hub/blob/main/content/peripherals/mistiming/mistiming.md))
+- Cap your framerate at a multiple of your monitor refresh rate ([calculator](https://boringboredom.github.io/tools/fpscapcalculator)) to prevent frame mistiming and a rolling tearline ([1](https://www.youtube.com/watch?v=_73gFgNrYVQ), [2](https://github.com/BoringBoredom/PC-Optimization-Hub/blob/main/content/peripherals/mistiming/mistiming.md)). Reducing your refresh rate to avoid mismatching is also applicable ([instructions](https://forums.blurbusters.com/viewtopic.php?t=8946))
 
 - Ensure that the GPU isn't fully utilized as lower GPU utilization reduces system latency ([1](https://www.youtube.com/watch?v=8ZRuFaFZh5M&t=859s), [2](https://www.youtube.com/watch?v=7CKnJ5ujL_Q))
 
