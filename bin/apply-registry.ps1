@@ -139,11 +139,6 @@ $entries = @{
         }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"                                                          = @{
-        "EnableLUA"                     = @{
-            "value"    = 0
-            "type"     = "REG_DWORD"
-            "apply_if" = @("disable user account control")
-        }
         "DisableAutomaticRestartSignOn" = @{
             "min_version" = 18362
             "value"       = 1
