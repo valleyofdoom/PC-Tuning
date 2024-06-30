@@ -3,36 +3,36 @@
 ## Disable Windows Update
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
-"AcceleratedInstallRequired"=- ; Windows 8.1 9600 and earlier
-"AUOptions"=dword:00000001 ; Windows 8.1 9600 and earlier
-"SetupWizardLaunchTime"=- ; Windows 8.1 9600 and earlier
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
-"UpdateServiceUrlAlternate"=" "
 "WUServer"=" "
-"ExcludeWUDriversInQualityUpdate"=dword:00000001 ; Windows 10 10240 or later
 "WUStatusServer"=" "
+"UpdateServiceUrlAlternate"=" "
 "SetDisableUXWUAccess"=dword:00000001 ; Windows 10 10240 or later
-"DisableOSUpgrade"=dword:00000001 ; Windows 8 9200 or later
+"ExcludeWUDriversInQualityUpdate"=dword:00000001 ; Windows 10 10240 or later
 "DisableWindowsUpdateAccess"=dword:00000001
+"DisableOSUpgrade"=dword:00000001 ; Windows 8 9200 or later
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
 "SearchOrderConfig"=dword:00000000
 "DontSearchWindowsUpdate"=dword:00000001
 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
+"SearchOrderConfig"=dword:00000000
+
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
-"UseWUServer"=dword:00000001
 "NoAutoUpdate"=dword:00000001
+"UseWUServer"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
+"ExcludeWUDriversInQualityUpdate"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
 "PreventDeviceMetadataFromNetwork"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update]
+"SetupWizardLaunchTime"=- ; Windows 8.1 9600 and earlier
+"AUOptions"=dword:00000001 ; Windows 8.1 9600 and earlier
+"AcceleratedInstallRequired"=- ; Windows 8.1 9600 and earlier
 ```
 
 ## Disable Automatic Windows Updates
@@ -45,18 +45,18 @@
 ## Disable Driver Installation Via Windows Update
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
-"SearchOrderConfig"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
-"ExcludeWUDriversInQualityUpdate"=dword:00000001
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
 "ExcludeWUDriversInQualityUpdate"=dword:00000001 ; Windows 10 10240 or later
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching]
 "SearchOrderConfig"=dword:00000000
 "DontSearchWindowsUpdate"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching]
+"SearchOrderConfig"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
+"ExcludeWUDriversInQualityUpdate"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata]
 "PreventDeviceMetadataFromNetwork"=dword:00000001
@@ -69,11 +69,100 @@
 "AutoDownload"=dword:00000004 ; Windows 8.1 9600 or later
 ```
 
-## Disable User Account Control
+## Disable Windows Defender
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
-"EnableLUA"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"SmartScreenEnabled"="Off" ; Windows 10 10240 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv]
+"Start"=dword:00000004 ; Windows 8 9200 or later
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
+"WindowsDefender"=- ; Windows 10 10240 or later
+"SecurityHealth"=- ; Windows 10 10240 or later
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost]
+"EnableWebContentEvaluation"=dword:00000000 ; Windows 10 10240 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc]
+"Start"=dword:00000004
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter]
+"Start"=dword:00000004 ; Windows 8 9200 or later
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
+"DisableScanOnRealtimeEnable"=dword:00000001
+"DisableBehaviorMonitoring"=dword:00000001 ; Windows 8 9200 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot]
+"Start"=dword:00000004 ; Windows 8 9200 or later
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet]
+"SubmitSamplesConsent"=dword:00000000 ; Windows 10 10240 or later
+"SpyNetReporting"=dword:00000000 ; Windows 10 10240 or later
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Real-Time Protection]
+"DisableScanOnRealtimeEnable"=dword:00000001
+"DisableOnAccessProtection"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
+"DisableAntiSpyware"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense]
+"Start"=dword:00000004 ; Windows 10 10240 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore]
+"Start"=dword:00000004 ; Windows 11 22000 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity]
+"Enabled"=dword:00000000 ; Windows 10 10240 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService]
+"Start"=dword:00000004 ; Windows 10 10240 or later
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components]
+"ServiceEnabled"=dword:00000000 ; Windows 11 22000 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy]
+"VerifiedAndReputablePolicyState"=dword:00000000 ; Windows 11 22000 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend]
+"Start"=dword:00000004
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\SmartScreenEnabled]
+@=dword:00000000 ; Windows 10 10240 or later
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc]
+"Start"=dword:00000004 ; Windows 8 9200 or later
+```
+
+## Disable Gamebarpresencewriter
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter]
+"ActivationType"=dword:00000000 ; Windows 10 10240 or later
+```
+
+## Disable Background Apps
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy]
+"LetAppsRunInBackground"=dword:00000002 ; Windows 10 10240 or later
+```
+
+## Disable Notifications Network Usage
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
+"NoCloudApplicationNotification"=dword:00000001 ; Windows 8 9200 or later
+```
+
+## Disable Transparency Effects
+
+```
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"EnableTransparency"=dword:00000000 ; Windows 10 10240 or later
 ```
 
 ## Disable Windows Marking File Attachments With Information About Their Zone of Origin
@@ -81,74 +170,6 @@
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
 "SaveZoneInformation"=dword:00000001
-```
-
-## Disable Windows Defender
-
-```
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy]
-"VerifiedAndReputablePolicyState"=dword:00000000 ; Windows 11 22000 or later
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
-"SmartScreenEnabled"="Off" ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot]
-"Start"=dword:00000004 ; Windows 8 9200 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService]
-"Start"=dword:00000004 ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter]
-"Start"=dword:00000004 ; Windows 8 9200 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc]
-"Start"=dword:00000004 ; Windows 8 9200 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense]
-"Start"=dword:00000004 ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet]
-"SpyNetReporting"=dword:00000000 ; Windows 10 10240 or later
-"SubmitSamplesConsent"=dword:00000000 ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore]
-"Start"=dword:00000004 ; Windows 11 22000 or later
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run]
-"WindowsDefender"=- ; Windows 10 10240 or later
-"SecurityHealth"=- ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity]
-"Enabled"=dword:00000000 ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Real-Time Protection]
-"DisableScanOnRealtimeEnable"=dword:00000001
-"DisableOnAccessProtection"=dword:00000001
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\SmartScreenEnabled]
-@=dword:00000000 ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv]
-"Start"=dword:00000004 ; Windows 8 9200 or later
-
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost]
-"EnableWebContentEvaluation"=dword:00000000 ; Windows 10 10240 or later
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection]
-"DisableScanOnRealtimeEnable"=dword:00000001
-"DisableBehaviorMonitoring"=dword:00000001 ; Windows 8 9200 or later
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend]
-"Start"=dword:00000004
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components]
-"ServiceEnabled"=dword:00000000 ; Windows 11 22000 or later
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
-"DisableAntiSpyware"=dword:00000001
 ```
 
 ## Disable Malicious Software Removal Tool Updates
@@ -169,9 +190,9 @@
 
 ```
 [HKEY_CURRENT_USER\Control Panel\Mouse]
-"MouseSpeed"="0"
 "MouseThreshold1"="0"
 "MouseThreshold2"="0"
+"MouseSpeed"="0"
 ```
 
 ## Disable Fast Startup
@@ -193,20 +214,6 @@
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
 "DisablePCA"=dword:00000001
-```
-
-## Disable Gamebarpresencewriter
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter]
-"ActivationType"=dword:00000000 ; Windows 10 10240 or later
-```
-
-## Disable Background Apps
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy]
-"LetAppsRunInBackground"=dword:00000002 ; Windows 10 10240 or later
 ```
 
 ## Disable Remote Assistance
@@ -240,13 +247,13 @@
 ## Disable Customer Experience Improvement Program
 
 ```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
-"CEIPEnable"=dword:00000000
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM]
 "OptIn"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
+"CEIPEnable"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows]
 "CEIPEnable"=dword:00000000
 ```
 
@@ -265,13 +272,6 @@
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "ConnectedSearchUseWeb"=dword:00000000 ; Windows 8.1 9600 or later
-```
-
-## Disable Notifications Network Usage
-
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
-"NoCloudApplicationNotification"=dword:00000001 ; Windows 8 9200 or later
 ```
 
 ## Disable Telemetry
@@ -313,12 +313,5 @@
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify]
 "DiscontinueEOS"=dword:00000001 ; Windows 8.1 9600 and earlier
-```
-
-## Disable Transparency Effects
-
-```
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
-"EnableTransparency"=dword:00000000 ; Windows 10 10240 or later
 ```
 
