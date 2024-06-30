@@ -13,7 +13,6 @@
     "disable fast startup": true,
     "disable automatic maintenance": true,
     "disable program compatibility assistant": true,
-    "disable fault tolerant heap": true,
     "disable gamebarpresencewriter": true,
     "disable background apps": true,
     "disable remote assistance": true,

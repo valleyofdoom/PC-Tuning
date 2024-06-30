@@ -195,13 +195,6 @@ $entries = @{
             "apply_if" = @("disable customer experience improvement program")
         }
     }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH"                                                                                             = @{
-        "Enabled" = @{
-            "value"    = 0
-            "type"     = "REG_DWORD"
-            "apply_if" = @("disable fault tolerant heap")
-        }
-    }
     "HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys"                                                                              = @{
         "Flags" = @{
             "value"    = "506"

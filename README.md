@@ -784,7 +784,6 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable fast startup``|Interferes with shutting down in the sense that the system does not enter S5 which can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)). See section [6.16. Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate) for related information. It is possible to shut down  properly without disabling Fast Startup by holding ``Shift`` while clicking ``Shut down`` in the start menu. However, the downside to this is that you may forget to hold the ``Shift`` key.|``true``|
 |``disable automatic maintenance``|Intrusive|``true``|
 |``disable program compatibility assistant``|Prevent Windows applying changes anonymously after running troubleshooters|``true``|
-|``disable fault tolerant heap``|Prevents Windows autonomously applying mitigations to prevent future crashes on a per-application basis ([1](https://learn.microsoft.com/en-us/windows/win32/win7appqual/fault-tolerant-heap))|``true``|
 |``disable gamebarpresencewriter``|Prevents CPU overhead as the process runs constantly in the background and is not required for Game Mode or Game Bar to function from my testing|``true``|
 |``disable background apps``|Disabled via policies as the option is not available in the interface on Windows 11|``true``|
 |``disable remote assistance``|Security risk|``true``|
