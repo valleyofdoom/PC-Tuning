@@ -1265,7 +1265,7 @@ This section outlines instructions to mass-toggle Event Trace Sessions which can
 - ``ets-disable.reg``
 
     ```bat
-    >> "C:\ets-disable.reg" echo Windows Registry Editor Version 5.00 && >> "C:\ets-disable.reg" echo. && >> "C:\ets-disable.reg" echo [-HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger]
+    >> "C:\ets-disable.reg" echo Windows Registry Editor Version 5.00 && >> "C:\ets-disable.reg" echo. && >> "C:\ets-disable.reg" echo [-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger]
     ```
 
 - Additionally disable SleepStudy (UserNotPresentSession)
