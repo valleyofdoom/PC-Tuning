@@ -691,7 +691,7 @@ $entries = @{
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
-            "apply_if"    = @("disable autoplay")
+            "apply_if"    = @("disable mdm enrollment")
         }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PushToInstall"                                                                          = @{
