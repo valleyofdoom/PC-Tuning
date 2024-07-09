@@ -22,11 +22,20 @@
     "disable widgets": true,
     "disable customer experience improvement program": true,
     "disable windows error reporting": true,
-    "disable search the web or display web results in search": true,
     "disable telemetry": true,
     "disable retrieval of online tips and help in the immersive control panel": true,
     "disable typing insights": true,
     "disable suggestions in the search box and in search home": true,
-    "disable computer is out of support message": true
+    "disable computer is out of support message": true,
+    "disable clipboard history": true,
+    "disable activity feed": true,
+    "disable advertising id": true,
+    "disable autoplay": true,
+    "disable cloud content": true,
+    "disable account-based explorer features": true,
+    "disable mdm enrollment": true,
+    "disable microsoft store push to install feature": true,
+    "mitigate web-based search info": true,
+    "disable sending inking and typing data to microsoft": true
   }
 }

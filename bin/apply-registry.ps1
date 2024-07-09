@@ -190,6 +190,13 @@ $entries = @{
             "apply_if" = @("disable customer experience improvement program")
         }
     }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client"                                                                       = @{
+        "CEIP" = @{
+            "value"    = 2
+            "type"     = "REG_DWORD"
+            "apply_if" = @("disable customer experience improvement program")
+        }
+    }
     "HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys"                                                                              = @{
         "Flags" = @{
             "value"    = "506"
@@ -289,8 +296,24 @@ $entries = @{
             "apply_if" = @("disable windows error reporting")
         }
     }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"                                                = @{
+        "DefaultConsent" = @{
+            "max_version" = 9600
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable windows error reporting")
+        }
+    }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"                                                        = @{
         "Disabled" = @{
+            "value"    = 1
+            "type"     = "REG_DWORD"
+            "apply_if" = @("disable windows error reporting")
+        }
+
+    }
+    "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting"                                                                  = @{
+        "DontSendAdditionalData" = @{
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows error reporting")
@@ -343,11 +366,24 @@ $entries = @{
         }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search"                                                                 = @{
-        "ConnectedSearchUseWeb" = @{
+        "AllowCortana"           = @{
+            "min_version" = 10240
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("mitigate web-based search info")
+        }
+        "ConnectedSearchUseWeb"  = @{
             "min_version" = 9600
             "value"       = 0
             "type"        = "REG_DWORD"
-            "apply_if"    = @("disable search the web or display web results in search")
+            "apply_if"    = @("mitigate web-based search info")
+        }
+        "ConnectedSearchPrivacy" = @{
+            "min_version" = 9600
+            "max_version" = 9600
+            "value"       = 3
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("mitigate web-based search info")
         }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"                                               = @{
@@ -449,21 +485,55 @@ $entries = @{
         }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection"                                                                 = @{
-        "AllowTelemetry" = @{
+        "AllowTelemetry"                              = @{
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable telemetry")
         }
+        "LimitDiagnosticLogCollection"                = @{
+            "min_version" = 18363
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable telemetry")
+        }
+        "LimitDumpCollection"                         = @{
+            "min_version" = 18363
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable telemetry")
+        }
+        "LimitEnhancedDiagnosticDataWindowsAnalytics" = @{
+            "min_version" = 16299
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable telemetry")
+        }
+        "DoNotShowFeedbackNotifications"              = @{
+            "min_version" = 10240
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable telemetry")
+        }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"                                                        = @{
-        "AllowOnlineTips" = @{
+        "AllowOnlineTips"    = @{
             "min_version" = 16299
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @(
                 "disable retrieval of online tips and help in the immersive control panel"
             )
+        }
+        "NoDriveTypeAutoRun" = @{
+            "value"    = 255
+            "type"     = "REG_DWORD"
+            "apply_if" = @("disable autoplay")
+        }
+        "NoAutorun"          = @{
+            "value"    = 1
+            "type"     = "REG_DWORD"
+            "apply_if" = @("disable autoplay")
         }
     }
     "HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings"                                                                                   = @{
@@ -535,6 +605,109 @@ $entries = @{
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable automatic store app updates")
+        }
+    }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System"                                                                         = @{
+        "AllowClipboardHistory"     = @{
+            "min_version" = 10240
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable clipboard history")
+        }
+        "AllowCrossDeviceClipboard" = @{
+            "min_version" = 10240
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable clipboard history")
+        }
+        "EnableActivityFeed"        = @{
+            "min_version" = 10240
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable activity feed")
+        }
+        "PublishUserActivities"     = @{
+            "min_version" = 10240
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable activity feed")
+        }
+        "UploadUserActivities"      = @{
+            "min_version" = 10240
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable activity feed")
+        }
+    }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo"                                                                = @{
+        "DisabledByGroupPolicy" = @{
+            "min_version" = 9600
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable advertising id")
+        }
+    }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer"                                                                       = @{
+        "NoAutoplayfornonVolume"  = @{
+            "value"    = 1
+            "type"     = "REG_DWORD"
+            "apply_if" = @("disable autoplay")
+        }
+        "DisableGraphRecentItems" = @{
+            "min_version" = 22621
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable account-based explorer features")
+        }
+    }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent"                                                                   = @{
+        "DisableCloudOptimizedContent"       = @{
+            "min_version" = 18363
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable cloud content")
+        }
+        "DisableConsumerAccountStateContent" = @{
+            "min_version" = 18363
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable cloud content")
+        }
+        "DisableSoftLanding"                 = @{
+            "min_version" = 10240
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable cloud content")
+        }
+        "DisableWindowsConsumerFeatures"     = @{
+            "min_version" = 10240
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable cloud content")
+        }
+    }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\MDM"                                                             = @{
+        "DisableRegistration" = @{
+            "min_version" = 10240
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable autoplay")
+        }
+    }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PushToInstall"                                                                          = @{
+        "DisablePushToInstall" = @{
+            "min_version" = 10240
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable microsoft store push to install feature")
+        }
+    }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput"                                                       = @{
+        "AllowLinguisticDataCollection" = @{
+            "min_version" = 17134
+            "value"       = 0
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable sending inking and typing data to microsoft")
         }
     }
 }

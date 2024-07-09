@@ -732,7 +732,7 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - Windows Server may force you to enter a password which can be optionally be removed in later steps
 
-- If you are configuring Windows 11, press ``Shift+F10`` to open CMD and execute ``oobe\BypassNRO.cmd``. This will allow us to continue without an internet connection by unlocking the ``continue with limited setup`` option as demonstrated in the video examples below
+- If you are configuring Windows 11, press ``Shift+F10`` to open CMD and execute ``oobe\BypassNRO.cmd``. This will allow us to continue without an internet connection by unlocking the ``continue with limited setup`` option as demonstrated in the video examples below. With that said, this also removes the requirement to sign in with a Microsoft account which I highly advise against for privacy reasons generally speaking
 
 - See [assets/videos/oobe-windows7-example.mp4](/assets/videos/oobe-windows7-example.mp4)
 - See [assets/videos/oobe-windows8-example.mp4](/assets/videos/oobe-windows8-example.mp4)
@@ -791,14 +791,23 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable sign-in and lock last interactive user after a restart``|1. Mitigate security risk ([1](https://www.stigviewer.com/stig/windows_server_2012_2012_r2_member_server/2014-06-30/finding/V-43245))|N/A|``true``|
 |``show file extensions``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=nYdS3FIu3rI))|N/A |``true``|
 |``disable widgets``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=m9d-fXl3Z8k))|N/A|``true``|
-|``disable customer experience improvement program``|1. Mitigating telemetry and phoning home ([1](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj618322(v=ws.11)))|N/A|``true``|
-|``disable windows error reporting``|1. Mitigating telemetry and phoning home|N/A|``true``|
-|``disable search the web or display web results in search``|1. Mitigating telemetry and phoning home|N/A|``true``|
+|``disable customer experience improvement program``|1. Mitigating telemetry and phoning home ([1](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj618322(v=ws.11)))|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable windows error reporting``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable telemetry``|1. Mitigating telemetry and phoning home|N/A|``true``|
 |``disable retrieval of online tips and help in the immersive control panel``|1. Mitigating telemetry and phoning home|N/A|``true``|
 |``disable typing insights``|1. Mitigating telemetry and phoning home|N/A|``true``|
 |``disable suggestions in the search box and in search home``|1. Mitigating telemetry and phoning home<br><br>2. Reducing or disabling intrusive features|N/A|``true``|
 |``disable computer is out of support message``|1. Reducing or disabling intrusive features|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
+|``disable clipboard history``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable activity feed``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable advertising id``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable autoplay``|1. Mitigate security risk|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable cloud content``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable account-based explorer features``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable mdm enrollment``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable microsoft store push to install feature``|1. Mitigate security risk|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``mitigate web-based search info``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable sending inking and typing data to microsoft``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 
 ### 11.4.2. Applying Options
 
@@ -964,7 +973,7 @@ I heavily discourage running debloating scripts or removing components other tha
 
 - [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager) can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store)). If for whatever reason you removed the Microsoft Store, it can be restored with ``wsreset -i``
 
-- Removing OneDrive involves opening CMD as administrator and entering the command below
+- I highly recommend removing OneDrive for privacy reasons and instead, use OneDrive within a browser. Removing OneDrive involves opening CMD as administrator and entering the command below
 
     ```bat
     for %a in ("SysWOW64" "System32") do (if exist "%windir%\%~a\OneDriveSetup.exe" ("%windir%\%~a\OneDriveSetup.exe" /uninstall)) && reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
@@ -1531,7 +1540,7 @@ This step isn't required, but can help to justify unexplained performance issues
 
 ## 11.45. Virtualization Based Security (VBS)
 
-Virtualization Based Security negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled ([instructions](https://www.tomshardware.com/how-to/disable-vbs-windows-11)) if required.
+Virtualization Based Security negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled ([instructions](https://www.tomshardware.com/how-to/disable-vbs-windows-11)) if required. On the other hand, [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies/) recommend keeping it enabled.
 
 ## 11.46. CPU Idle States
 
