@@ -710,6 +710,13 @@ $entries = @{
             "apply_if"    = @("disable sending inking and typing data to microsoft")
         }
     }
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH"                                                                                             = @{
+        "Enabled" = @{
+            "value"    = 0
+            "type"     = "REG_DWORD"
+            "apply_if" = @("disable fault tolerant heap")
+        }
+    }
 }
 
 function Is-Admin() {

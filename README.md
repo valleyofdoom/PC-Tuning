@@ -808,6 +808,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable typing insights``|1. Mitigating telemetry and phoning home|N/A|``true``|
 |``disable suggestions in the search box and in search home``|1. Mitigating telemetry and phoning home<br><br>2. Reducing or disabling intrusive features|N/A|``true``|
 |``disable computer is out of support message``|1. Reducing or disabling intrusive features|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
+|``disable fault tolerant heap``|1. Gaining finer control over the feature in question|Prevents Windows autonomously applying mitigations to prevent future crashes on a per-application basis ([1](https://learn.microsoft.com/en-us/windows/win32/win7appqual/fault-tolerant-heap)) which can lead to issues ([1](https://www.mak.com/mak-one/support/help/knowledge/performance-issues-caused-by-the-fault-tolerant-heap-windows))|``true``|
 
 ### 11.4.2. Applying Options
 
