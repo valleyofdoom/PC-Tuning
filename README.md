@@ -785,19 +785,8 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable sticky keys``|1. Reducing or disabling intrusive features|Disables the *Do you want to turn on Sticky Keys?* promt when the hotkey is pressed a certain number of times. This is severely intrusive in applications that utilize the ``Shift`` key for controls such as games|``true``|
 |``disable pointer acceleration``|1. Reducing or disabling intrusive features|Ensures one-to-one mouse response for games that do not subscribe to raw input events and on Desktop|``true``|
 |``disable fast startup``|1. Reducing or disabling intrusive features|Interferes with shutting down in the sense that the system does not enter S5 which can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)). See section [6.16. Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate) for related information. It is possible to shut down  properly without disabling Fast Startup by holding ``Shift`` while clicking ``Shut down`` in the start menu. However, the downside to this is that you may forget to hold the ``Shift`` key|``true``|
-|``disable automatic maintenance``|1. Gaining finer control over the feature in question|N/A|``true``|
-|``disable program compatibility assistant``|1. Gaining finer control over the feature in question|Prevents Windows applying changes anonymously after running troubleshooters|``true``|
-|``disable remote assistance``|1. Mitigate security risk|N/A|``true``|
-|``disable sign-in and lock last interactive user after a restart``|1. Mitigate security risk ([1](https://www.stigviewer.com/stig/windows_server_2012_2012_r2_member_server/2014-06-30/finding/V-43245))|N/A|``true``|
-|``show file extensions``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=nYdS3FIu3rI))|N/A |``true``|
-|``disable widgets``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=m9d-fXl3Z8k))|N/A|``true``|
 |``disable customer experience improvement program``|1. Mitigating telemetry and phoning home ([1](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj618322(v=ws.11)))|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable windows error reporting``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
-|``disable telemetry``|1. Mitigating telemetry and phoning home|N/A|``true``|
-|``disable retrieval of online tips and help in the immersive control panel``|1. Mitigating telemetry and phoning home|N/A|``true``|
-|``disable typing insights``|1. Mitigating telemetry and phoning home|N/A|``true``|
-|``disable suggestions in the search box and in search home``|1. Mitigating telemetry and phoning home<br><br>2. Reducing or disabling intrusive features|N/A|``true``|
-|``disable computer is out of support message``|1. Reducing or disabling intrusive features|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
 |``disable clipboard history``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable activity feed``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable advertising id``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
@@ -808,6 +797,17 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable microsoft store push to install feature``|1. Mitigate security risk|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``mitigate web-based search info``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable sending inking and typing data to microsoft``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable automatic maintenance``|1. Gaining finer control over the feature in question|N/A|``true``|
+|``disable program compatibility assistant``|1. Gaining finer control over the feature in question|Prevents Windows applying changes anonymously after running troubleshooters|``true``|
+|``disable remote assistance``|1. Mitigate security risk|N/A|``true``|
+|``disable sign-in and lock last interactive user after a restart``|1. Mitigate security risk ([1](https://www.stigviewer.com/stig/windows_server_2012_2012_r2_member_server/2014-06-30/finding/V-43245))|N/A|``true``|
+|``show file extensions``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=nYdS3FIu3rI))|N/A |``true``|
+|``disable widgets``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=m9d-fXl3Z8k))|N/A|``true``|
+|``disable telemetry``|1. Mitigating telemetry and phoning home|N/A|``true``|
+|``disable retrieval of online tips and help in the immersive control panel``|1. Mitigating telemetry and phoning home|N/A|``true``|
+|``disable typing insights``|1. Mitigating telemetry and phoning home|N/A|``true``|
+|``disable suggestions in the search box and in search home``|1. Mitigating telemetry and phoning home<br><br>2. Reducing or disabling intrusive features|N/A|``true``|
+|``disable computer is out of support message``|1. Reducing or disabling intrusive features|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
 
 ### 11.4.2. Applying Options
 
