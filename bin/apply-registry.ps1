@@ -1001,9 +1001,22 @@ function main() {
                     $hasMaxVer = $key.Contains("max_version")
 
                     if ($hasMinVer -and $hasMaxVer) {
-                        $keyString += " ; versions $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) - $(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"])"
+                        $minVer = $key["min_version"]
+                        $maxVer = $key["max_version"]
+                        $minWinVer = Get-WinVer -windowsBuild $minVer
+                        $maxWinVer = Get-WinVer -windowsBuild $maxVer
+
+                        $keyString += "; $($minWinVer) $($minVer)"
+
+                        if ($minVer -eq $maxVer) {
+                            $keyString += " only"
+                        } elseif ($minWinVer -eq $maxWinVer) {
+                            $keyString += " - $($maxVer)"
+                        } else {
+                            $keyString += " - $($maxWinVer) $($maxVer)"
+                        }
                     } elseif ($hasMinVer -and -not $hasMaxVer) {
-                        $keyString += " ; $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) or later"
+                        $keyString += " ; $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) and later"
                     } elseif (-not $hasMinVer -and $hasMaxVer) {
                         $keyString += " ; $(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"]) and earlier"
                     }
