@@ -63,6 +63,13 @@ $entries = @{
                 "disable driver installation via windows update"
             )
         }
+        @{
+            "key_name"    = "DoNotConnectToWindowsUpdateInternetLocations"
+            "min_version" = 9600
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable windows update")
+        }
     )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"                                                               = @(
         @{
