@@ -5,48 +5,56 @@ param(
 )
 
 $entries = @{
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify"                                                                 = @{
-        "DiscontinueEOS" = @{
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify"                                                                 = @(
+        @{
+            "key_name"    = "DiscontinueEOS"
             "max_version" = 9600
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable computer is out of support message")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"                                                                  = @{
-        "WUServer"                        = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"                                                                  = @(
+        @{
+            "key_name" = "WUServer"
             "value"    = " "
             "type"     = "REG_SZ"
             "apply_if" = @("disable windows update")
         }
-        "WUStatusServer"                  = @{
+        @{
+            "key_name" = "WUStatusServer"
             "value"    = " "
             "type"     = "REG_SZ"
             "apply_if" = @("disable windows update")
         }
-        "UpdateServiceUrlAlternate"       = @{
+        @{
+            "key_name" = "UpdateServiceUrlAlternate"
             "value"    = " "
             "type"     = "REG_SZ"
             "apply_if" = @("disable windows update")
         }
-        "DisableWindowsUpdateAccess"      = @{
+        @{
+            "key_name" = "DisableWindowsUpdateAccess"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows update")
         }
-        "DisableOSUpgrade"                = @{
+        @{
+            "key_name"    = "DisableOSUpgrade"
             "min_version" = 9200
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows update")
         }
-        "SetDisableUXWUAccess"            = @{
+        @{
+            "key_name"    = "SetDisableUXWUAccess"
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows update")
         }
-        "ExcludeWUDriversInQualityUpdate" = @{
+        @{
+            "key_name"    = "ExcludeWUDriversInQualityUpdate"
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
@@ -55,9 +63,10 @@ $entries = @{
                 "disable driver installation via windows update"
             )
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"                                                               = @{
-        "NoAutoUpdate" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"                                                               = @(
+        @{
+            "key_name" = "NoAutoUpdate"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @(
@@ -65,33 +74,38 @@ $entries = @{
                 "disable automatic windows updates"
             )
         }
-        "UseWUServer"  = @{
+        @{
+            "key_name" = "UseWUServer"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows update")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update"                                                = @{
-        # not the same as "Configure Automatic Updates" policy. this key seems to be exclusive to Windows 7/8
-        "AUOptions"                  = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update"                                                = @(
+        @{
+            # not the same as "Configure Automatic Updates" policy. this key seems to be exclusive to Windows 7/8
+            "key_name"    = "AUOptions"
             "max_version" = 9600
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows update")
         }
-        "SetupWizardLaunchTime"      = @{
+        @{
+            "key_name"    = "SetupWizardLaunchTime"
             "max_version" = 9600
             "type"        = "REG_DELETE"
             "apply_if"    = @("disable windows update")
         }
-        "AcceleratedInstallRequired" = @{
+        @{
+            "key_name"    = "AcceleratedInstallRequired"
             "max_version" = 9600
             "type"        = "REG_DELETE"
             "apply_if"    = @("disable windows update")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching"                                                          = @{
-        "SearchOrderConfig" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching"                                                          = @(
+        @{
+            "key_name" = "SearchOrderConfig"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @(
@@ -99,9 +113,10 @@ $entries = @{
                 "disable driver installation via windows update"
             )
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata"                                                          = @{
-        "PreventDeviceMetadataFromNetwork" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata"                                                          = @(
+        @{
+            "key_name" = "PreventDeviceMetadataFromNetwork"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @(
@@ -109,9 +124,10 @@ $entries = @{
                 "disable driver installation via windows update"
             )
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching"                                                                = @{
-        "SearchOrderConfig"       = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DriverSearching"                                                                = @(
+        @{
+            "key_name" = "SearchOrderConfig"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @(
@@ -119,7 +135,8 @@ $entries = @{
                 "disable driver installation via windows update"
             )
         }
-        "DontSearchWindowsUpdate" = @{
+        @{
+            "key_name" = "DontSearchWindowsUpdate"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @(
@@ -127,9 +144,10 @@ $entries = @{
                 "disable driver installation via windows update"
             )
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"                                                                       = @{
-        "ExcludeWUDriversInQualityUpdate" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings"                                                                       = @(
+        @{
+            "key_name" = "ExcludeWUDriversInQualityUpdate"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @(
@@ -137,387 +155,441 @@ $entries = @{
                 "disable driver installation via windows update"
             )
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"                                                          = @{
-        "DisableAutomaticRestartSignOn" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"                                                          = @(
+        @{
+            "key_name"    = "DisableAutomaticRestartSignOn"
             "min_version" = 18362
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable sign-in and lock last interactive user after a restart")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance"                                                  = @{
-        "MaintenanceDisabled" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance"                                                  = @(
+        @{
+            "key_name" = "MaintenanceDisabled"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable automatic maintenance")
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments"                                                      = @{
-        "SaveZoneInformation" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments"                                                      = @(
+        @{
+            "key_name" = "SaveZoneInformation"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @(
                 "disable windows marking file attachments with information about their zone of origin"
             )
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat"                                                                       = @{
-        "DisablePCA" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat"                                                                       = @(
+        @{
+            "key_name" = "DisablePCA"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable program compatibility assistant")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows"                                                                               = @{
-        "CEIPEnable" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows"                                                                               = @(
+        @{
+            "key_name" = "CEIPEnable"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("disable customer experience improvement program")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows"                                                                      = @{
-        "CEIPEnable" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows"                                                                      = @(
+        @{
+            "key_name" = "CEIPEnable"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("disable customer experience improvement program")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM"                                                                   = @{
-        "OptIn" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VSCommon\15.0\SQM"                                                                   = @(
+        @{
+            "key_name" = "OptIn"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("disable customer experience improvement program")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client"                                                                       = @{
-        "CEIP" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client"                                                                       = @(
+        @{
+            "key_name" = "CEIP"
             "value"    = 2
             "type"     = "REG_DWORD"
             "apply_if" = @("disable customer experience improvement program")
         }
-    }
-    "HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys"                                                                              = @{
-        "Flags" = @{
+    )
+    "HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys"                                                                              = @(
+        @{
+            "key_name" = "Flags"
             "value"    = "506"
             "type"     = "REG_SZ"
             "apply_if" = @("disable sticky keys")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender"                                                                       = @{
-        "DisableAntiSpyware" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender"                                                                       = @(
+        @{
+            "key_name" = "DisableAntiSpyware"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Real-Time Protection"                                             = @{
-        "DisableScanOnRealtimeEnable" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Microsoft Antimalware\Real-Time Protection"                                             = @(
+        @{
+            "key_name" = "DisableScanOnRealtimeEnable"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows defender")
         }
-        "DisableOnAccessProtection"   = @{
+        @{
+            "key_name" = "DisableOnAccessProtection"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"                                                  = @{
-        "DisableScanOnRealtimeEnable" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"                                                  = @(
+        @{
+            "key_name" = "DisableScanOnRealtimeEnable"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows defender")
         }
-        "DisableBehaviorMonitoring"   = @{
+        @{
+            "key_name"    = "DisableBehaviorMonitoring"
             "min_version" = 9200
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend"                                                                        = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinDefend"                                                                        = @(
+        @{
+            "key_name" = "Start"
             "value"    = 4
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore"                                                                        = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MsSecCore"                                                                        = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 22000
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc"                                                                           = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\wscsvc"                                                                           = @(
+        @{
+            "key_name" = "Start"
             "value"    = 4
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"                                                       = @{
-        "POWERSHELL_TELEMETRY_OPTOUT" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"                                                       = @(
+        @{
+            "key_name" = "POWERSHELL_TELEMETRY_OPTOUT"
             "value"    = "1"
             "type"     = "REG_SZ"
             "apply_if" = @("disable telemetry")
         }
-    }
-    "HKEY_CURRENT_USER\Control Panel\Mouse"                                                                                                 = @{
-        "MouseSpeed"      = @{
+    )
+    "HKEY_CURRENT_USER\Control Panel\Mouse"                                                                                                 = @(
+        @{
+            "key_name" = "MouseSpeed"
             "value"    = "0"
             "type"     = "REG_SZ"
             "apply_if" = @("disable pointer acceleration")
         }
-        "MouseThreshold1" = @{
+        @{
+            "key_name" = "MouseThreshold1"
             "value"    = "0"
             "type"     = "REG_SZ"
             "apply_if" = @("disable pointer acceleration")
         }
-        "MouseThreshold2" = @{
+        @{
+            "key_name" = "MouseThreshold2"
             "value"    = "0"
             "type"     = "REG_SZ"
             "apply_if" = @("disable pointer acceleration")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power"                                                             = @{
-        "HiberbootEnabled" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power"                                                             = @(
+        @{
+            "key_name" = "HiberbootEnabled"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("disable fast startup")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting"                                                                = @{
-        "DoReport" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting"                                                                = @(
+        @{
+            "key_name" = "DoReport"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows error reporting")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"                                                = @{
-        "DefaultConsent" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"                                                = @(
+        @{
+            "key_name"    = "DefaultConsent"
             "max_version" = 9600
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows error reporting")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"                                                        = @{
-        "Disabled" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"                                                        = @(
+        @{
+            "key_name" = "Disabled"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows error reporting")
         }
 
-    }
-    "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting"                                                                  = @{
-        "DontSendAdditionalData" = @{
+    )
+    "HKEY_CURRENT_USER\Software\Microsoft\Windows\Windows Error Reporting"                                                                  = @(
+        @{
+            "key_name" = "DontSendAdditionalData"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable windows error reporting")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance"                                                                 = @{
-        "fAllowToGetHelp" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance"                                                                 = @(
+        @{
+            "key_name" = "fAllowToGetHelp"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("disable remote assistance")
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"                                                         = @{
-        "HideFileExt" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"                                                         = @(
+        @{
+            "key_name" = "HideFileExt"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("show file extensions")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter"                                                                         = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdFilter"                                                                         = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 9200
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot"                                                                           = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdBoot"                                                                           = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 9200
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc"                                                                         = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisSvc"                                                                         = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 9200
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv"                                                                         = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WdNisDrv"                                                                         = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 9200
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search"                                                                 = @{
-        "AllowCortana"           = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search"                                                                 = @(
+        @{
+            "key_name"    = "AllowCortana"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("mitigate web-based search info")
         }
-        "ConnectedSearchUseWeb"  = @{
+        @{
+            "key_name"    = "ConnectedSearchUseWeb"
             "min_version" = 9600
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("mitigate web-based search info")
         }
-        "ConnectedSearchPrivacy" = @{
+        @{
+            "key_name"    = "ConnectedSearchPrivacy"
             "min_version" = 9600
             "max_version" = 9600
             "value"       = 3
             "type"        = "REG_DWORD"
             "apply_if"    = @("mitigate web-based search info")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"                                               = @{
-        "NoCloudApplicationNotification" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"                                               = @(
+        @{
+            "key_name"    = "NoCloudApplicationNotification"
             "min_version" = 9200
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable notifications network usage")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService"                                                            = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SecurityHealthService"                                                            = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 10240
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense"                                                                            = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Sense"                                                                            = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 10240
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"                                                                      = @{
-        "SecurityHealth"  = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run"                                                                      = @(
+        @{
+            "key_name"    = "SecurityHealth"
             "min_version" = 10240
             "type"        = "REG_DELETE"
             "apply_if"    = @("disable windows defender")
         }
-        "WindowsDefender" = @{
+        @{
+            "key_name"    = "WindowsDefender"
             "min_version" = 10240
             "type"        = "REG_DELETE"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity"                             = @{
-        "Enabled" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity"                             = @(
+        @{
+            "key_name"    = "Enabled"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet"                                                                         = @{
-        "SpyNetReporting"      = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet"                                                                         = @(
+        @{
+            "key_name"    = "SpyNetReporting"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-        "SubmitSamplesConsent" = @{
+        @{
+            "key_name"    = "SubmitSamplesConsent"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer"                                                                 = @{
-        "SmartScreenEnabled" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer"                                                                 = @(
+        @{
+            "key_name"    = "SmartScreenEnabled"
             "min_version" = 10240
             "value"       = "Off"
             "type"        = "REG_SZ"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost"                                                                   = @{
-        "EnableWebContentEvaluation" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost"                                                                   = @(
+        @{
+            "key_name"    = "EnableWebContentEvaluation"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\SmartScreenEnabled"                                                                          = @{
-        "@" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Edge\SmartScreenEnabled"                                                                          = @(
+        @{
+            "key_name"    = "@"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter" = @{
-        "ActivationType" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter" = @(
+        @{
+            "key_name"    = "ActivationType"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable gamebarpresencewriter")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack"                                                                        = @{
-        "Start" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\DiagTrack"                                                                        = @(
+        @{
+            "key_name"    = "Start"
             "min_version" = 10240
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable telemetry")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection"                                                                 = @{
-        "AllowTelemetry"                              = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection"                                                                 = @(
+        @{
+            "key_name"    = "AllowTelemetry"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable telemetry")
         }
-        "LimitDiagnosticLogCollection"                = @{
+        @{
+            "key_name"    = "LimitDiagnosticLogCollection"
             "min_version" = 18363
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable telemetry")
         }
-        "LimitDumpCollection"                         = @{
+        @{
+            "key_name"    = "LimitDumpCollection"
             "min_version" = 18363
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable telemetry")
         }
-        "LimitEnhancedDiagnosticDataWindowsAnalytics" = @{
+        @{
+            "key_name"    = "LimitEnhancedDiagnosticDataWindowsAnalytics"
             "min_version" = 16299
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable telemetry")
         }
-        "DoNotShowFeedbackNotifications"              = @{
+        @{
+            "key_name"    = "DoNotShowFeedbackNotifications"
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable telemetry")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"                                                        = @{
-        "AllowOnlineTips"    = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"                                                        = @(
+        @{
+            "key_name"    = "AllowOnlineTips"
             "min_version" = 16299
             "value"       = 0
             "type"        = "REG_DWORD"
@@ -525,198 +597,225 @@ $entries = @{
                 "disable retrieval of online tips and help in the immersive control panel"
             )
         }
-        "NoDriveTypeAutoRun" = @{
+        @{
+            "key_name" = "NoDriveTypeAutoRun"
             "value"    = 255
             "type"     = "REG_DWORD"
             "apply_if" = @("disable autoplay")
         }
-        "NoAutorun"          = @{
+        @{
+            "key_name" = "NoAutorun"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable autoplay")
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings"                                                                                   = @{
-        "InsightsEnabled" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings"                                                                                   = @(
+        @{
+            "key_name"    = "InsightsEnabled"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable typing insights")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy"                                                                     = @{
-        "LetAppsRunInBackground" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy"                                                                     = @(
+        @{
+            "key_name"    = "LetAppsRunInBackground"
             "min_version" = 10240
             "value"       = 2
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable background apps")
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings"                                                            = @{
-        "IsDynamicSearchBoxEnabled" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings"                                                            = @(
+        @{
+            "key_name"    = "IsDynamicSearchBoxEnabled"
             "min_version" = 22000
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable suggestions in the search box and in search home")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components"                                                          = @{
-        "ServiceEnabled" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components"                                                          = @(
+        @{
+            "key_name"    = "ServiceEnabled"
             "min_version" = 22000
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy"                                                                         = @{
-        "VerifiedAndReputablePolicyState" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CI\Policy"                                                                         = @(
+        @{
+            "key_name"    = "VerifiedAndReputablePolicyState"
             "min_version" = 22000
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows defender")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT"                                                                                    = @{
-        "DontOfferThroughWUAU" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT"                                                                                    = @(
+        @{
+            "key_name" = "DontOfferThroughWUAU"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable malicious software removal tool updates")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh"                                                                                    = @{
-        "AllowNewsAndInterests" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh"                                                                                    = @(
+        @{
+            "key_name"    = "AllowNewsAndInterests"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable widgets")
         }
-    }
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"                                                        = @{
-        "EnableTransparency" = @{
+    )
+    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"                                                        = @(
+        @{
+            "key_name"    = "EnableTransparency"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable transparency effects")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore"                                                                           = @{
-        "AutoDownload" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore"                                                                           = @(
+        @{
+            "key_name"    = "AutoDownload"
             "min_version" = 9600
             "value"       = 4
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable automatic store app updates")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System"                                                                         = @{
-        "AllowClipboardHistory"     = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System"                                                                         = @(
+        @{
+            "key_name"    = "AllowClipboardHistory"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable clipboard history")
         }
-        "AllowCrossDeviceClipboard" = @{
+        @{
+            "key_name"    = "AllowCrossDeviceClipboard"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable clipboard history")
         }
-        "EnableActivityFeed"        = @{
+        @{
+            "key_name"    = "EnableActivityFeed"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable activity feed")
         }
-        "PublishUserActivities"     = @{
+        @{
+            "key_name"    = "PublishUserActivities"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable activity feed")
         }
-        "UploadUserActivities"      = @{
+        @{
+            "key_name"    = "UploadUserActivities"
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable activity feed")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo"                                                                = @{
-        "DisabledByGroupPolicy" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo"                                                                = @(
+        @{
+            "key_name"    = "DisabledByGroupPolicy"
             "min_version" = 9600
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable advertising id")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer"                                                                       = @{
-        "NoAutoplayfornonVolume"  = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer"                                                                       = @(
+        @{
+            "key_name" = "NoAutoplayfornonVolume"
             "value"    = 1
             "type"     = "REG_DWORD"
             "apply_if" = @("disable autoplay")
         }
-        "DisableGraphRecentItems" = @{
+        @{
+            "key_name"    = "DisableGraphRecentItems"
             "min_version" = 22621
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable account-based explorer features")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent"                                                                   = @{
-        "DisableCloudOptimizedContent"       = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent"                                                                   = @(
+        @{
+            "key_name"    = "DisableCloudOptimizedContent"
             "min_version" = 18363
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable cloud content")
         }
-        "DisableConsumerAccountStateContent" = @{
+        @{
+            "key_name"    = "DisableConsumerAccountStateContent"
             "min_version" = 18363
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable cloud content")
         }
-        "DisableSoftLanding"                 = @{
+        @{
+            "key_name"    = "DisableSoftLanding"
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable cloud content")
         }
-        "DisableWindowsConsumerFeatures"     = @{
+        @{
+            "key_name"    = "DisableWindowsConsumerFeatures"
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable cloud content")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\MDM"                                                             = @{
-        "DisableRegistration" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\MDM"                                                             = @(
+        @{
+            "key_name"    = "DisableRegistration"
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable mdm enrollment")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PushToInstall"                                                                          = @{
-        "DisablePushToInstall" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PushToInstall"                                                                          = @(
+        @{
+            "key_name"    = "DisablePushToInstall"
             "min_version" = 10240
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable microsoft store push to install feature")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput"                                                       = @{
-        "AllowLinguisticDataCollection" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput"                                                       = @(
+        @{
+            "key_name"    = "AllowLinguisticDataCollection"
             "min_version" = 17134
             "value"       = 0
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable sending inking and typing data to microsoft")
         }
-    }
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH"                                                                                             = @{
-        "Enabled" = @{
+    )
+    "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH"                                                                                             = @(
+        @{
+            "key_name" = "Enabled"
             "value"    = 0
             "type"     = "REG_DWORD"
             "apply_if" = @("disable fault tolerant heap")
         }
-    }
+    )
 }
 
 function Is-Admin() {
@@ -743,9 +842,7 @@ function Apply-Registry($filePath) {
 
 function Get-Option-Keys($optionName, $windowsBuild) {
     foreach ($path in $entries.Keys) {
-        foreach ($keyName in $entries[$path].Keys) {
-            $key = $entries[$path][$keyName]
-
+        foreach ($key in $entries[$path]) {
             # unspecified versions implies that they key should be applied to all versions
             $minVersion = if ($key.Contains("min_version")) { $key["min_version"] } else { $windowsBuild }
             $maxVersion = if ($key.Contains("max_version")) { $key["max_version"] } else { $windowsBuild }
@@ -756,6 +853,8 @@ function Get-Option-Keys($optionName, $windowsBuild) {
             # check if registry key is associated with option
             $isKeyAssociated = $key["apply_if"].Contains($optionName)
 
+            $keyName = $key["key_name"]
+
             if ($isWinverSupported -and $isKeyAssociated) {
                 Write-Host "$($path)`n    $(if ($keyName -eq "@") { "Default" } else { $keyName } ) $($key["type"]) $($key["value"])`n"
             }
@@ -763,8 +862,10 @@ function Get-Option-Keys($optionName, $windowsBuild) {
     }
 }
 
-function Get-Key-String($keyName, $keyData) {
+function Get-Key-String($keyData) {
     # default key does not have extra quotes
+    $keyName = $keyData["key_name"]
+
     if ($keyName -eq "@") {
         $line = "@"
     } else {
@@ -837,6 +938,13 @@ function Get-WinVer($windowsBuild) {
 function main() {
     Set-Location $PSScriptRoot
 
+    if (-not (Test-Path "registry-options.json")) {
+        Write-Host "error: registry-options.json not found"
+        return 1
+    }
+
+    $config = Get-Content -Path "registry-options.json" -Raw | ConvertFrom-Json
+
     if ($build_docs) {
         # an ordered hashmap must be used to preserve the order of config options
         $options = New-Object System.Collections.Specialized.OrderedDictionary
@@ -850,16 +958,14 @@ function main() {
 
         # populate the hashmap with all the option paths and keys
         foreach ($path in $entries.Keys) {
-            foreach ($keyName in $entries[$path].Keys) {
-                $key = $entries[$path][$keyName]
-
+            foreach ($key in $entries[$path]) {
                 foreach ($applyIfOption in $key["apply_if"]) {
                     # initialize path if it doesn't
                     if (-not ($options[$applyIfOption].Contains($path))) {
-                        $options[$applyIfOption].Add($path, (New-Object System.Collections.Specialized.OrderedDictionary))
+                        $options[$applyIfOption].Add($path, (New-Object System.Collections.ArrayList))
                     }
 
-                    $options[$applyIfOption][$path].Add($keyName, $key)
+                    $options[$applyIfOption][$path].Add($key)
                 }
             }
         }
@@ -872,7 +978,6 @@ function main() {
         foreach ($option in $options.Keys) {
             # create option name subheading
             $optionSubheading = ConvertTo-TitleCase -string $option
-
             Add-Content -Path $mdfile -Value "## $($optionSubheading)`n"
 
             # start code block
@@ -885,10 +990,8 @@ function main() {
                 # write path
                 Add-Content -Path $mdfile -Value "[$($path)]"
 
-                foreach ($keyName in $options[$option][$path].Keys) {
-                    $key = $options[$option][$path][$keyName]
-
-                    $keyString = Get-Key-String -keyName $keyName -keyData $key
+                foreach ($key in $options[$option][$path]) {
+                    $keyString = Get-Key-String -keyData $key
 
                     if ($null -eq $keyString) {
                         $hasError = $true
@@ -909,10 +1012,10 @@ function main() {
                 }
 
                 $keyCount++
-
                 $isLastPath = $keyCount -eq $options[$option].Keys.Count
 
                 if (-not $isLastPath) {
+                    # add new line if not last path
                     Add-Content -Path $mdfile -Value ""
                 }
 
@@ -959,11 +1062,6 @@ function main() {
         return 1
     }
 
-    if (-not (Test-Path "registry-options.json")) {
-        Write-Host "error: registry-options.json not found"
-        return 1
-    }
-
     if (-not (Test-Path "MinSudo.exe")) {
         Write-Host "error: MinSudo.exe not found in current directory"
         return 1
@@ -972,8 +1070,6 @@ function main() {
     # contains keys to apply after all version filtering and config validation
     $filteredEntries = @{}
 
-    $config = Get-Content -Path "registry-options.json" -Raw | ConvertFrom-Json
-
     # track seen options to find unrecognized options in registry-options.json
     $seenOptions = New-Object System.Collections.Generic.HashSet[string]
     $undefinedOptions = New-Object System.Collections.Generic.HashSet[string]
@@ -981,9 +1077,7 @@ function main() {
     Write-Host "info: parsing config"
 
     foreach ($path in $entries.Keys) {
-        foreach ($keyName in $entries[$path].Keys) {
-            $key = $entries[$path][$keyName]
-
+        foreach ($key in $entries[$path]) {
             $isUserApplyKey = $false
 
             foreach ($applyIfOption in $key["apply_if"]) {
@@ -1012,10 +1106,10 @@ function main() {
             if ($isUserApplyKey -and $isWinverSupported) {
                 # initialize path if it doesn't exist
                 if (-not $filteredEntries.Contains($path)) {
-                    $filteredEntries.Add($path, @{})
+                    $filteredEntries.Add($path, (New-Object System.Collections.ArrayList))
                 }
 
-                $filteredEntries[$path].Add($keyName, $key)
+                $filteredEntries[$path].Add($key)
             }
         }
     }
@@ -1050,10 +1144,8 @@ function main() {
     foreach ($path in $filteredEntries.Keys) {
         Add-Content -Path $registryFile -Value "[$($path)]"
 
-        foreach ($keyName in $filteredEntries[$path].Keys) {
-            $key = $filteredEntries[$path][$keyName]
-
-            $keyString = Get-Key-String -keyName $keyName -keyData $key
+        foreach ($key in $filteredEntries[$path]) {
+            $keyString = Get-Key-String -keyData $key
 
             if ($null -eq $keyString) {
                 $hasError = $true
