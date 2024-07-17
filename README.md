@@ -369,7 +369,7 @@ powercfg /h off
 
 ## 6.17. Spread Spectrum
 
-Disable Spread Spectrum and ensure BCLK frequency is close to the desired value as possible (e.g. 100.00MHz not 99.97MHz) in [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) however, this highly dependent on the system and motherboard.
+Disable Spread Spectrum ([read more](https://en.wikipedia.org/wiki/Spread_spectrum#Effect)) and ensure BCLK frequency is close to the desired value as possible (e.g. 100MHz not 99.97MHz) in [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) however, this highly dependent on the system and motherboard.
 
 ## 6.18. Legacy USB Support
 
