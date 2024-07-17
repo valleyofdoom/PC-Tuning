@@ -184,7 +184,7 @@
 
 ```
 [HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
-"Flags"="506"
+"Flags"="0"
 ```
 
 ## Disable Pointer Acceleration
@@ -201,6 +201,10 @@
 ```
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
 "HiberbootEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power]
+"HibernateEnabled"=dword:00000000
+"HibernateEnabledDefault"=dword:00000000
 ```
 
 ## Disable Customer Experience Improvement Program
