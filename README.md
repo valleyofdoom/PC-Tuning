@@ -1665,16 +1665,11 @@ For most readers, I would recommend keeping the paging file enabled which is the
 
 ## 11.50. Cleanup and Maintenance
 
+It isn't a bad idea to revisit this step every so often. Setting a reminder to do so can be helpful in maintaining a clean system.
+
+- Favor tools such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller) to uninstall programs as the regular control panel does not remove residual files
+
 - Use [Autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) to remove any unwanted programs from launching at startup and check it often, especially after installing a program
-
-- Some locations you may want to review for residual files
-
-  - ``C:\``
-  - ``C:\Windows\Prefetch``
-  - ``C:\Windows\SoftwareDistribution``
-  - ``C:\Windows\Temp``
-  - ``"%userprofile%\AppData\Local\Temp"``
-  - ``"%userprofile%\Downloads"``
 
 - Configure Disk Cleanup
 
@@ -1690,6 +1685,16 @@ For most readers, I would recommend keeping the paging file enabled which is the
       cleanmgr /sagerun:0
       ```
 
+- Some locations you may want to review for residual files
+
+  - ``C:\`` - residual junk
+  - ``C:\Windows\Prefetch`` - prefetch files (this folder should not be populated when superfetch is disabled)
+  - ``C:\Windows\SoftwareDistribution`` - Windows Update download cache
+  - ``C:\Windows\Temp`` - temporary files
+  - ``"%userprofile%"`` - residual junk
+  - ``"%userprofile%\AppData\Local\Temp"`` - temporary files
+  - ``"%userprofile%\Downloads"`` - residual junk
+
 - Optionally clean the WinSxS folder to reduce the size of it ([1](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11)) with the command below in CMD. Note that this can be a lengthy process
 
     ```bat
@@ -1697,5 +1702,3 @@ For most readers, I would recommend keeping the paging file enabled which is the
     ```
 
 - Optionally delete obsolete system restore points in the ``System Protection`` tab by typing ``sysdm.cpl`` in ``Win+R``. It can be disabled completely if you don't use it
-
-- Favor tools such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller) to uninstall programs as the regular control panel does not remove residual files
