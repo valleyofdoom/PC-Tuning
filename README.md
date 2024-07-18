@@ -1669,10 +1669,10 @@ For most readers, I would recommend keeping the paging file enabled which is the
 
 - Some locations you may want to review for residual files
 
-  - ``"C:\"``
-  - ``"C:\Windows\Prefetch"``
-  - ``"C:\Windows\SoftwareDistribution"``
-  - ``"C:\Windows\Temp"``
+  - ``C:\``
+  - ``C:\Windows\Prefetch``
+  - ``C:\Windows\SoftwareDistribution``
+  - ``C:\Windows\Temp``
   - ``"%userprofile%\AppData\Local\Temp"``
   - ``"%userprofile%\Downloads"``
 
