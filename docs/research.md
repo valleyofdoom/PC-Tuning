@@ -148,7 +148,7 @@ threads of foreground applications. However, in this case, it is being used as a
 Starting with 2004, the calling process attempting to raise the timer resolution no longer functions on a global level and is independent of other processes running on the system. A recent comment on the [Great Rule Change](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change) article suggested a registry key which supposedly restores the old implementation, so I decided to investigate.
 
 ```
-[HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
 "GlobalTimerResolutionRequests"=dword:00000001
 ```
 
@@ -344,7 +344,7 @@ Identity scaling, sometimes referred to as *real no scaling*, is the operation w
 After monitoring registry activity while changing the scaling mode in the GPU control panel, the ``Scaling`` registry key is modified which align with the values in the [DISPLAYCONFIG_SCALING enum](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ne-wingdi-displayconfig_scaling) documentation. The comments below indicate what the GPU control panel options correspond to.
 
 ```
-[HKLM\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Configuration\<id>]
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers\Configuration\<id>]
 "Scaling"=dword:00000002
 ```
 

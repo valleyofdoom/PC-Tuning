@@ -687,7 +687,7 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 - When installing Win11 with a USB, you may encounter system requirement issues. To bypass the checks, press ``Shift+F10`` to open CMD then type ``regedit`` and add the relevant registry keys listed below
 
     ```
-    [HKLM\SYSTEM\Setup\LabConfig]
+    [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
     "BypassTPMCheck"=dword:00000001
     "BypassRAMCheck"=dword:00000001
     "BypassSecureBootCheck"=dword:00000001
@@ -1572,7 +1572,7 @@ powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2
 A quantum is the time designated for which a thread can execute before the scheduler evaluates whether another thread with the same priority is scheduled to execute. If a thread finishes its quantum and no other threads at its priority level are ready to execute, the scheduler allows the thread to continue running for an additional quantum. The quantum can be controlled with the registry key below, in addition to defining how much time of the quantum is allocated to background and foreground threads. The value is represented as a 6-bit bitmask such that each of the three pairs of bits determine the quantum's characteristics and distribution of time between background and foreground threads. By default, it is set to ``0x2`` which corresponds to ``0b000010`` and has different meanings on client and server editions as explained shortly.
 
 ```
-[HKLM\SYSTEM\ControlSet001\Control\PriorityControl]
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl]
 "Win32PrioritySeparation"=dword:00000002
 ```
 
@@ -1646,7 +1646,7 @@ Applications that require higher precision than the default resolution of 15.625
 The implementation of timer resolution changed in Windows 10 2004+ such that the calling process raising the resolution does not affect the system on a global level meaning, process A raising the resolution to 1ms does not affect process B at the default 15.625ms resolution unlike before. This is a great change in and of itself because it reduces overhead as other processes such as idle background processes don't get serviced by the scheduler often and the calling process receives higher precision as needed. However as an end-user, this results in limitations when wanting to leverage higher resolutions such as 0.5ms.  Given that games are not open-source to modify the code along with anticheat limitations preventing DLL injection or binary patching to raise the resolution beyond 1ms the per-process way, the only other option is to resort to the global behavior which is applicable with the registry key below on Windows Server and Windows 11+ as explained in depth [here](/docs/research.md#6-fixing-timing-precision-in-windows-after-the-great-rule-change).
 
 ```
-[HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
 "GlobalTimerResolutionRequests"=dword:00000001
 ```
 
