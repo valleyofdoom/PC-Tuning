@@ -692,7 +692,7 @@ $entries = @{
         @{
             "key_name"    = "AutoDownload"
             "min_version" = 9600
-            "value"       = 4
+            "value"       = 2
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable automatic store app updates")
         }
