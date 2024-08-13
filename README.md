@@ -812,7 +812,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 ### 11.4.2. Applying Options
 
-- Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection in Windows Defender (Windows 10 1909+). If that doesn't work, reboot then re-execute the command again. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
+- Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender . If that doesn't work, reboot then re-execute the command again. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
 
     ```powershell
     C:\bin\apply-registry.ps1
