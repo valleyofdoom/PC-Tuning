@@ -654,7 +654,7 @@ If you are configuring Windows 8.1, I recommend using the ``en_windows_8_1_x64_d
 </details>
 
 <details>
-<summary>Windows 10</summary>
+<summary>Windows 10+</summary>
 
 No additional steps are required for Windows 10+ versions. The latest updates can be inegrated but this is not required if you plan on keeping Windows Update enabled once booted in the ISO. Additionally, ISOs build using UUP dump ship with the latest updates assuming that you build the latest version. This can be achieved using [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)) or DISM in CLI ([instructions](/docs/image-customization.md)), however NTLite is more user-friendly.
 </details>
