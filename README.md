@@ -1040,7 +1040,7 @@ If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-ca
 
 - I recommend configuring a static fan speed as using the fan curve feature requires the program to run continually however, it is up to you whether to use the curve or not
 
-- To automatically load profile 1 (as an example) when Windows boots, the command below can be used with Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to verify whether everything is working correctly after a system restart. You may need to enable the ``Run with highest privileges`` option if administrator privileges are required
+- To automatically load profile 1 (as an example) when Windows boots, the command below can be used with Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to wrap any paths with quotes if there are spaces in them. Ensure to verify whether everything is working correctly after a system restart. You need to enable the ``Run with highest privileges`` option if administrator privileges are required
 
     ```bat
     "C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe" /Profile1 /Q
@@ -1256,7 +1256,7 @@ exit /b 0
 
 Open PowerShell and enter the command below to disable the ``Allow the computer to turn off this device to save power`` option for all applicable devices in Device Manager.
 
-Re-plugging devices may cause this option to re-enable so either avoid doing so, run this command again each time or run it at system startup as a precautionary measure with Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to verify whether everything is working correctly after a system restart. You may need to enable the ``Run with highest privileges`` option if administrator privileges are required.
+Re-plugging devices may cause this option to re-enable so either avoid doing so, run this command again each time or place it in a script and run it at system startup as a precautionary measure with Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to wrap any paths with quotes if there are spaces in them. Ensure to verify whether everything is working correctly after a system restart. You need to enable the ``Run with highest privileges`` option if administrator privileges are required. For PowerShell scripts, set the program to start to ``PowerShell`` and the arguments to the path of the script (e.g. ``C:\device-power-saving.ps1``).
 
 ```powershell
 Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }
@@ -1346,7 +1346,7 @@ As an example, 1ms IMOD interval with an 8kHz mouse is already problematic becau
     reg add "HKLM\SYSTEM\CurrentControlSet\Control\CI\Config" /v "VulnerableDriverBlocklistEnable" /t REG_DWORD /d "0" /f
     ```
 
-- In some cases, the interrupter index can change after a reboot meaning the address will become invalid if it is hard-coded. To work around this, you can simply disable IMOD for all interrupters by placing the [XHCI-IMOD-Interval.ps1](/bin/XHCI-IMOD-Interval.ps1) script somewhere safe and launching it at startup with Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to verify whether everything is working correctly after a system restart. You may need to enable the ``Run with highest privileges`` option if administrator privileges are required
+- In some cases, the interrupter index can change after a reboot meaning the address will become invalid if it is hard-coded. To work around this, you can simply disable IMOD for all interrupters by placing the [XHCI-IMOD-Interval.ps1](/bin/XHCI-IMOD-Interval.ps1) script somewhere safe and launching it at startup with Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to wrap any paths with quotes if there are spaces in them. Ensure to verify whether everything is working correctly after a system restart. You need to enable the ``Run with highest privileges`` option if administrator privileges are required. For PowerShell scripts, set the program to start to ``PowerShell`` and the arguments to the path of the script (e.g. ``C:\XHCI-IMOD-Interval.ps1``)
 
   ```bat
   PowerShell C:\XHCI-IMOD-Interval.ps1
@@ -1503,7 +1503,7 @@ start /affinity 0x6 notepad.exe
 
 ### 11.42.2. Specifying an Affinity Mask for Running Processes
 
-Sometimes, the processes that you would like to set an affinity mask to are already running, so the previous command is not applicable here. As a random example, the command below sets the affinity mask of the ``svchost.exe`` and ``audiodg.exe`` processes to CPU 3. Use this example to create a PowerShell script then have it run at startup using Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to verify whether everything is working correctly after a system restart. You may need to enable the ``Run with highest privileges`` option if administrator privileges are required.
+Sometimes, the processes that you would like to set an affinity mask to are already running, so the previous command is not applicable here. As a random example, the command below sets the affinity mask of the ``svchost.exe`` and ``audiodg.exe`` processes to CPU 3. Use this example to create a PowerShell script then have it run at startup using Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to wrap any paths with quotes if there are spaces in them. Ensure to verify whether everything is working correctly after a system restart. You need to enable the ``Run with highest privileges`` option if administrator privileges are required. For PowerShell scripts, set the program to start to ``PowerShell`` and the arguments to the path of the script (e.g. ``C:\process-affinities.ps1``).
 
 ```powershell
 Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Object { $_.ProcessorAffinity=0x8 }
