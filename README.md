@@ -1,9 +1,18 @@
+# 0. Must-Reads
 
 > [!CAUTION]
-> **Do NOT** blindly trust or believe everything you see online (including this resource) and avoid applying or using random, unknown or undocumented changes, programs and scripts on your system without a comprehensive understanding of what they are changing and impact they have on security, privacy and performance. Instead, carry out research and benchmarks yourself to validate whatever you may have read.
+> This section contains must-reads for new readers delving into the topic of fine-tuning their system.
+
+- In order of performance scaling, Hardware > BIOS > Operating System
+- If your daily workflow supports Linux, then use it. Linux offers far more flexibility than Windows ever will in various aspects
+- **Do NOT** blindly trust or believe everything you read online (including this resource) and typically doubt everything. Insteadm, validate statements through research and benchmarks
+- **Do NOT** apply random, unknown or undocumented changes, programs and script to your system without a comprehensive understanding of what they are changing and impact they have on security, privacy and performance
+
+---
 
 # 1. Table of Contents
 
+- [0. Must-Reads](#0-must-reads)
 - [1. Table of Contents](#1-table-of-contents)
 - [2. Introduction](#2-introduction)
 - [3. Benchmarking](#3-benchmarking)
@@ -152,12 +161,13 @@ The reader is expected to follow the sections in sequential order as subsequent 
 
 # 3. Benchmarking
 
-Benchmarking is the process of evaluating the quality or characteristic of a given change. In the context of this resource, it typically refers to measuring performance scaling after making certain changes to your system. It is important to learn and understand what is involved in the benchmarking process as you will need to carry out your own experiments to assist in decision-making such as identifying whether a certain change results in a performance regression or what settings to use in-game. For given changes, ask yourself questions such as "*What am I trying to achieve?*", "*What is my goal?*", "*What am I trying to improve with this change?*", "*What is this change supposed to affect?*", "*How can the effects of this change be measured and demonstrated?*".
+Benchmarking is employed to objectively assess and eliminate the influence of potential placebo effects in system modifications while evaluating the quality or characteristic of a given change. In the context of this resource, it typically refers to measuring performance scaling after making certain changes to your system. It is important to learn and understand what is involved in the benchmarking process as you will need to carry out your own experiments to assist in decision-making such as identifying whether a certain change results in a performance regression or what settings to use in-game. For given changes, ask yourself questions such as "*What am I trying to achieve?*", "*What is my goal?*", "*What am I trying to improve with this change?*", "*What is this change supposed to affect?*", "*How can the effects of this change be measured and demonstrated?*".
 
 - [FrameView](https://www.nvidia.com/en-gb/geforce/technologies/frameview) - [PC Latency](https://images.nvidia.com/content/images/article/system-latency-optimization-guide/nvidia-latency-optimization-guide-pc-latency.png) in games that support [PC Latency Stats](https://www.nvidia.com/en-gb/geforce/technologies/reflex/supported-products) and frame pacing
+- [Frame Latency Meter](https://github.com/GPUOpen-Tools/frame_latency_meter)
 - [PresentMon](https://boringboredom.github.io/Frame-Time-Analysis) - Various metrics such as frame pacing and [GPU Busy](https://www.intel.com/content/www/us/en/docs/gpa/user-guide/2022-4/gpu-metrics.html). See a full list [here](https://github.com/GameTechDev/PresentMon/blob/main/README-CaptureApplication.md#metric-definitions)
-- [Windows Performance Toolkit](https://learn.microsoft.com/en-us/windows-hardware/test/wpt) - Advanced performance analysis library for Windows. Measure ISR/DPC execution times with [xperf](/bin/xperf-dpcisr.bat)
-- [Mouse Tester](https://github.com/valleyofdoom/MouseTester) - Polling interval, X/Y counts and more plots against time
+- [Windows Performance Toolkit](https://learn.microsoft.com/en-us/windows-hardware/test/wpt) - Advanced performance analysis library for Windows. Extract ISR/DPC execution time data with [xperf](/bin/xperf-dpcisr.bat)
+- [Mouse Tester](https://github.com/valleyofdoom/MouseTester) - Mice performance metrics (e.g. polling interval, X/Y counts and more plots against time)
 - [NVIDIA Reflex Analyzer](https://www.nvidia.com/en-gb/geforce/news/reflex-latency-analyzer-360hz-g-sync-monitors) - End-to-end latency
 - [Frame-Time-Analysis](https://boringboredom.github.io/Frame-Time-Analysis) - Analyze CSV data logged by the programs mentioned above including 1%, 0.1% lows metrics
 - [Latency Grapher](https://boringboredom.github.io/tools/latencygrapher) - Analyze latency results from RLA, FrameView and PresentMon
@@ -1091,23 +1101,11 @@ Open-Shell is a FOSS alternative to the Windows Start Menu.
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-Disabling Spectre and Meltdown is an age-old trick familiar amongst many individuals however with newer platforms and system architecture, there may be a performance regression ([1](https://www.phoronix.com/review/amd-zen4-spectrev2)). For this reason, extensive tests should be carried out to determine how performance is impacted and whether performance scales positively, negatively or not at all. Its state can be manipulated with the [InSpectre](https://www.grc.com/inspectre.htm) tool.
+Disabling Spectre and Meltdown is an age-old performance trick familiar amongst many individuals however with newer platforms and system architecture, there may be a performance regression ([1](https://www.phoronix.com/review/amd-zen4-spectrev2)). For this reason, extensive tests should be carried out to determine how performance is impacted and whether performance scales positively, negatively or not at all. Its state can be manipulated with the [InSpectre](https://www.grc.com/inspectre.htm) tool and/or by renaming the microcode DLLs within the OS depending on whether there is a microcode revision mismatch between the OS and BIOS ([1](https://superuser.com/a/895447), [2](https://support.mozilla.org/en-US/kb/microcode-update)).
 
-- AMD is unaffected by Meltdown
+Meltdown does not affect the AMD architecture ([1](https://www.theverge.com/2018/1/3/16844630/intel-processor-security-flaw-bug-kernel-windows-linux), [2](https://www.phoronix.com/news/x86-PTI-Initial-Gaming-Tests), [3](https://lkml.org/lkml/2018/1/3/425)) and is required for a minority of anticheats (FACEIT).
 
-- A minority of anticheats (FACEIT) require Meltdown to be enabled
-
-- If desired, the microcode update version loaded into the CPU can be manipulated depending on whether the operating system microcode version is newer than the microcode version on the motherboard by removing the DLLs ([1](https://www.pcgamingwiki.com/wiki/Windows#Force_the_use_of_the_motherboard_microcode_version_instead_of_the_one_from_the_OS)). This can be done by opening CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and entering the commands below
-
-    ```bat
-    ren C:\Windows\System32\mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.dlll
-    ```
-
-    ```bat
-    ren C:\Windows\System32\mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.dlll
-    ```
-
-- Reboot and use [InSpectre](https://www.grc.com/inspectre.htm) and [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature to check the status or version after a reboot
+Use [InSpectre](https://www.grc.com/inspectre.htm) and [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature to check the status or version before and after a reboot to verify expected behavior.
 
 ## 11.27. Power Options
 
