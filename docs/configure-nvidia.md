@@ -13,7 +13,7 @@
 
 ## 2. Strip and Install the Driver
 
-Download the latest game ready driver using the [advanced driver search](https://www.nvidia.com/download/find.aspx) page. DCH drivers are supported on Windows 10 1803+ ([1](https://nvidia.custhelp.com/app/answers/detail/a_id/4777/~/nvidia-dch%2Fstandard-display-drivers-for-windows-10-faq)).
+- Download the latest game ready driver using the [advanced driver search](https://www.nvidia.com/download/find.aspx) page. DCH drivers are supported on Windows 10 1803+ ([1](https://nvidia.custhelp.com/app/answers/detail/a_id/4777/~/nvidia-dch%2Fstandard-display-drivers-for-windows-10-faq)).
 
 - Extract the driver executable package with 7-Zip and remove all files and folders except the following:
 
