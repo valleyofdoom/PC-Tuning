@@ -1211,7 +1211,7 @@ exit /b 0
 
 - Disable any unused network adapters then right-click your main one then select ``Properties``
 
-- Disable ``NetBIOS over TCP/IP`` for all network adapters in ``Internet Protocol Version 4 (TCP/IPv4) -> Properties -> General -> Advanced -> WINS`` to prevent unnecessary system listening ([1](https://github.com/djdallmann/GamingPCSetup/blob/master/CONTENT/DOCS/NETWORK/README.md))
+- Disable ``NetBIOS over TCP/IP`` for all network adapters in ``Internet Protocol Version 4 (TCP/IPv4) -> Properties -> General -> Advanced -> WINS`` to prevent unnecessary system listening, typically on ports 137-139 which can be verified in a network monitoring tool such as [TCPView](https://learn.microsoft.com/en-us/sysinternals/downloads/tcpview) or [Wirehshark](https://www.wireshark.org). For future reference, this option has to be changed for newly installed network adapters
 
 - Optionally configure DNS settings
 
