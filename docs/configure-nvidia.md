@@ -43,13 +43,9 @@
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
 
-- Anisotropic filtering - Off
-
-- Antialiasing - Gamma correction - Off
-
 - Low Latency Mode - On
 
-    > If a game supports the NVIDIA Reflex Low Latency mode, we recommend using that mode over the Ultra Low Latency mode in the driver. However, if you leave both on, the Reflex Low Latency mode will take higher priority automatically for you ([1](https://www.nvidia.com/en-gb/geforce/news/reflex-low-latency-platform))
+  - If you leave both NVIDIA Reflex LLM and LLM in the driver on, NVIDIA Reflex LLM will take higher priority automatically ([1](https://www.nvidia.com/en-gb/geforce/news/reflex-low-latency-platform))
 
 - Power management mode - Prefer maximum performance
 
