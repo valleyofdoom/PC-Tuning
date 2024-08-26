@@ -216,6 +216,7 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
   - See [Waveform Bufferbloat and Internet Speed Test | Waveform](https://www.waveform.com/tools/bufferbloat)
   - See [How to test your Internet Ping (PingPlotter) | Netduma](https://support.netduma.com/support/solutions/articles/16000074717-how-to-test-your-internet-ping)
   - See [What Can I Do About Bufferbloat? | Bufferbloat.net](https://www.bufferbloat.net/projects/bloat/wiki/What_can_I_do_about_Bufferbloat)
+  - See [stoplagging.com](https://www.stoplagging.com)
 
 - Avoid daisy-chaining power cables anywhere in your setup
 
