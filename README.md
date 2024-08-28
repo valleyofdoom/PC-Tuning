@@ -1692,7 +1692,7 @@ It isn't a bad idea to revisit this step every so often. Setting a reminder to d
   - ``C:\Windows\Temp`` - temporary files
   - ``"%userprofile%"`` - residual junk
   - ``"%userprofile%\AppData\Local\Temp"`` - temporary files
-  - ``"%userprofile%\Downloads"`` - residual junk
+  - User directories - e.g. Downloads, Documents, Pictures, Music, Videos, Desktop
 
 - Optionally clean the WinSxS folder to reduce the size of it ([1](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11)) with the command below in CMD. Note that this can be a lengthy process
 
