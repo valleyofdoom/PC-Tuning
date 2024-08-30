@@ -274,7 +274,7 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 
 - Ensure not to overload the motherboard fan header, especially if you are using fan splitters
 
-- Use an M.2/NVMe heat sink and optionally mount a fan over it
+- Use an M.2/NVMe heat sink to reduce temperatures ([1](https://cdn.mos.cms.futurecdn.net/mftAb4ExpeZiqVnuHrAqwf-970-80.png)) and optionally mount a fan over it
 
 ---
 
