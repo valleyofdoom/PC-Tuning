@@ -971,7 +971,7 @@ powercfg /h off
 
 ## 11.18. Runtimes
 
-These are runtimes are common dependencies including a magnitude of applications.
+These are runtimes are common dependencies including a magnitude of applications. Typically, application installers automatically install its dependencies but this can't be said for some standalone applications.
 
 - [Visual C++ Redistributable](https://github.com/abbodi1406/vcredist)
 - [.NET 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) (ships with Windows 10 1909+)
