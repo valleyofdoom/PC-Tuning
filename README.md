@@ -1687,11 +1687,13 @@ It isn't a bad idea to revisit this step every so often. Setting a reminder to d
 - Some locations you may want to review for residual files
 
   - ``C:\`` - residual junk
+  - ``"C:\ProgramData\Microsoft\Windows\Start Menu\Programs"`` - start menu shortcuts (don't delete windows-related shortcuts)
   - ``C:\Windows\Prefetch`` - prefetch files (this folder should not be populated when superfetch is disabled)
   - ``C:\Windows\SoftwareDistribution`` - Windows Update download cache
   - ``C:\Windows\Temp`` - temporary files
   - ``"%userprofile%"`` - residual junk
   - ``"%userprofile%\AppData\Local\Temp"`` - temporary files
+  - ``"%userprofile%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs"`` - start menu shortcuts (don't delete windows-related shortcuts)
   - User directories - e.g. Downloads, Documents, Pictures, Music, Videos, Desktop
 
 - Optionally clean the WinSxS folder to reduce the size of it ([1](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/clean-up-the-winsxs-folder?view=windows-11)) with the command below in CMD. Note that this can be a lengthy process
