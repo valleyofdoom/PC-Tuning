@@ -886,6 +886,8 @@ Certain directories on the file system are indexed for search features in Window
 
     - If you intend to exclusively use one language and keyboard layout, ensure that is the case in actuality so that you don't need to toggle the language bar hotkeys which can become intrusive as the hotkey can be accidentally pressed
 
+- Ensure that the system time is synced and is correct
+
 ## 11.9. Web Browser
 
 Configure a browser of your choice.
