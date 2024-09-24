@@ -996,6 +996,11 @@ I heavily discourage running debloating scripts or removing components other tha
 
 - Disabling (not uninstalling) Chromium Microsoft Edge involves the steps below. The browser should be disabled instead of uninstalled to retain the WebView runtime
 
+  - In the Microsoft Edge settings, disable any startup options such as the ones listed below. Doing this prevents an autorun entry being created any time ``msedge.exe`` is started despite removing it in the next step with Autoruns
+
+    - ``Startup boost``
+    - ``Continue running background extensions and apps when Microsoft Edge is closed``
+
   - Download [Autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) and navigate to the ``Everything`` section then search for *"edge"*. Disable every item that appears in the filtered results
 
   - Updating the browser will revert some changes made in the previous step. You can ensure that it does not update if it is opened accidentally with the command below. If any errors occur, ensure that there aren't any hidden Microsoft Edge process running in Task Manager
