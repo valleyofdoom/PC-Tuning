@@ -67,7 +67,7 @@
   - [10.2. What Version of Windows Should You Use?](#102-what-version-of-windows-should-you-use)
   - [10.3. Downloading and Preparing a Stock Windows ISO](#103-downloading-and-preparing-a-stock-windows-iso)
   - [10.4. ISO Sources](#104-iso-sources)
-  - [10.5. ISO Preparation (required)](#105-iso-preparation-required)
+  - [10.5. ISO Preparation](#105-iso-preparation)
   - [10.6. Fetching Required Files](#106-fetching-required-files)
   - [10.7. Booting Into the ISO](#107-booting-into-the-iso)
 - [11. Configure Windows](#11-configure-windows)
@@ -630,7 +630,7 @@ Ensure to download an ISO that contains an edition with group policy support as 
 - [Fido](https://github.com/pbatard/Fido)
 - [UUP dump](https://uupdump.net)
 
-## 10.5. ISO Preparation (Required)
+## 10.5. ISO Preparation
 
 <details>
 <summary>Windows 7</summary>
