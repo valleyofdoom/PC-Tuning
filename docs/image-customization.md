@@ -145,7 +145,7 @@ DISM /Export-Image /SourceImageFile:"%EXTRACTED_ISO%\sources\install.wim" /Sourc
 
 ## 12. Convert to ISO
 
-Use the command below to pack the extracted contents back to a single ISO which will be created in the ``C:\`` drive.
+Use the command below to pack the extracted contents back to a single ISO which will be created in the ``C:`` drive.
 
 ```bat
 "%OSCDIMG%" -m -o -u2 -udfver102 -l"Final" -bootdata:2#p0,e,b"%EXTRACTED_ISO%\boot\etfsboot.com"#pEF,e,b"%EXTRACTED_ISO%\efi\microsoft\boot\efisys.bin" "%EXTRACTED_ISO%" "C:\Final.iso"
