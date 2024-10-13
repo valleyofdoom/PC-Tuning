@@ -74,35 +74,35 @@
   - [11.1 OOBE Setup](#111-oobe-setup)
   - [11.2. Unrestricted PowerShell Execution Policy](#112-unrestricted-powershell-execution-policy)
   - [11.3. Importing ``bin`` Folder](#113-importing-bin-folder)
-  - [11.29. Process Mitigations (Windows 10 1709+)](#1129-process-mitigations-windows-10-1709)
-  - [11.4. Merging Registry Options](#114-merging-registry-options)
-    - [11.4.1. Registry Options Documentation](#1141-registry-options-documentation)
-    - [11.4.2. Applying Options](#1142-applying-options)
-  - [11.5. Installing Drivers](#115-installing-drivers)
-  - [11.6. Privacy Options (Windows 8+)](#116-privacy-options-windows-8)
-  - [11.7. Search Indexing](#117-search-indexing)
-  - [11.8. Time, Language and Region](#118-time-language-and-region)
-  - [11.9. Web Browser](#119-web-browser)
-  - [11.10. Scheduled Tasks](#1110-scheduled-tasks)
-  - [11.11. Activate Windows](#1111-activate-windows)
-  - [11.12. Miscellaneous](#1112-miscellaneous)
-  - [11.13. Visual Effects](#1113-visual-effects)
-  - [11.14. Superfetch and Prefetch](#1114-superfetch-and-prefetch)
-  - [11.15. Operating System and Partition Name](#1115-operating-system-and-partition-name)
-  - [11.16. Show Tray Icons](#1116-show-tray-icons)
-  - [11.17. Hibernation](#1117-hibernation)
-  - [11.18. Runtimes](#1118-runtimes)
-  - [11.19. Handling Bloatware](#1119-handling-bloatware)
-  - [11.20. Optional Features](#1120-optional-features)
-    - [11.20.1. NET 3.5](#11201-net-35)
-  - [11.21. 7-Zip](#1121-7-zip)
-  - [11.22. Graphics Driver](#1122-graphics-driver)
-  - [11.23. MSI Afterburner](#1123-msi-afterburner)
-  - [11.24. Display Resolutions and Scaling Modes](#1124-display-resolutions-and-scaling-modes)
-  - [11.25. Open-Shell (Windows 8+)](#1125-open-shell-windows-8)
-  - [11.26. Spectre, Meltdown and CPU Microcode](#1126-spectre-meltdown-and-cpu-microcode)
-  - [11.27. Power Options](#1127-power-options)
-  - [11.28. Process Explorer](#1128-process-explorer)
+  - [11.4. Process Mitigations (Windows 10 1709+)](#114-process-mitigations-windows-10-1709)
+  - [11.5. Merging Registry Options](#115-merging-registry-options)
+    - [11.5.1. Registry Options Documentation](#1151-registry-options-documentation)
+    - [11.5.2. Applying Options](#1152-applying-options)
+  - [11.6. Installing Drivers](#116-installing-drivers)
+  - [11.7. Privacy Options (Windows 8+)](#117-privacy-options-windows-8)
+  - [11.8. Search Indexing](#118-search-indexing)
+  - [11.9. Time, Language and Region](#119-time-language-and-region)
+  - [11.10. Web Browser](#1110-web-browser)
+  - [11.11. Scheduled Tasks](#1111-scheduled-tasks)
+  - [11.12. Activate Windows](#1112-activate-windows)
+  - [11.13. Miscellaneous](#1113-miscellaneous)
+  - [11.14. Visual Effects](#1114-visual-effects)
+  - [11.15. Superfetch and Prefetch](#1115-superfetch-and-prefetch)
+  - [11.16. Operating System and Partition Name](#1116-operating-system-and-partition-name)
+  - [11.17. Show Tray Icons](#1117-show-tray-icons)
+  - [11.18. Hibernation](#1118-hibernation)
+  - [11.19. Runtimes](#1119-runtimes)
+  - [11.20. Handling Bloatware](#1120-handling-bloatware)
+  - [11.21. Optional Features](#1121-optional-features)
+    - [11.21.1. NET 3.5](#11211-net-35)
+  - [11.22. 7-Zip](#1122-7-zip)
+  - [11.23. Graphics Driver](#1123-graphics-driver)
+  - [11.24. MSI Afterburner](#1124-msi-afterburner)
+  - [11.25. Display Resolutions and Scaling Modes](#1125-display-resolutions-and-scaling-modes)
+  - [11.26. Open-Shell (Windows 8+)](#1126-open-shell-windows-8)
+  - [11.27. Spectre, Meltdown and CPU Microcode](#1127-spectre-meltdown-and-cpu-microcode)
+  - [11.28. Power Options](#1128-power-options)
+  - [11.29. Process Explorer](#1129-process-explorer)
   - [11.30. Memory Management Settings (Windows 8+)](#1130-memory-management-settings-windows-8)
   - [11.31. Network Adapter Options](#1131-network-adapter-options)
   - [11.32. Audio Devices](#1132-audio-devices)
@@ -769,7 +769,7 @@ Set-ExecutionPolicy Unrestricted
 
 Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in section [10.6. Fetching Required Files](#106-fetching-required-files). If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
 
-## 11.29. Process Mitigations (Windows 10 1709+)
+## 11.4. Process Mitigations (Windows 10 1709+)
 
 > [!WARNING]
 > 🔒 Disabling process mitigations may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -779,14 +779,14 @@ Move the ``bin`` folder that you downloaded prior to installing Windows to the `
 
 There are several OS-level mitigations ([1](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps#-disable)) that are enabled by default and may impact performance. If desired, these can be disabled in Windows Defender's "Exploit Protection" page. It should be apparent that disabling mitigations reduces security. This step is carried out now as if you choose to disable Windows Defender in the next steps, the interface will no longer be accessible however they can be toggled using the [Get-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/get-processmitigation?view=windowsserver2022-ps) and [Set-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps) commands in PowerShell. Some programs may require mitigations to be enabled and will break if they are disabled so proceed with caution.
 
-## 11.4. Merging Registry Options
+## 11.5. Merging Registry Options
 
 > [!WARNING]
 > 🔒 Some changes outlined in the table below may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied, there are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
 
-### 11.4.1. Registry Options Documentation
+### 11.5.1. Registry Options Documentation
 
 > [!IMPORTANT]
 > As of now, the script does not revert options if re-run. For example, if the script was run with an option set to ``true``, then running the script with a given option set to ``false`` will not revert the changed made as the script is unaware of the previous state of the registry keys associated with the option. This functionality may be implemented in the future but for now, use the ``-get_option_keys <option>`` argument with the script to get all relevant keys for a given option so that you can revert them manually.
@@ -795,7 +795,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |---|---|---|---|
 |``disable windows update``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|🔒 A value of ``true`` may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting<br><br>Disabling Windows Update is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Alternatively automatic updates can be disabled instead of disabling Windows Update completely which achieves the same effect in terms of reducing CPU overhead but still being able to update Windows by configuring ``disable windows update`` to ``false`` and ``disable automatic windows updates`` to ``true``. The Windows Update processes are known to use a lot of CPU and memory resources. Disabling Windows Update breaks the Microsoft Store however you can download and install Appx packages directly ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store))|``false``|
 |``disable automatic windows updates``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|🔒 A value of ``true`` may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting<br><br>Prevents automatic download and installation of Windows updates rather than disabling Windows Update completely and instead, check for updates manually from time to time. Updates can occur at inconvenient times which leads to excessive CPU and memory usage at random intervals along with disrupting shutdowns in certain cases. This option is overridden if ``disable windows update`` is set to ``true``. <br><br>This option does not affect upgrades which can be controlled using group policies ([instructions](https://www.tenforums.com/tutorials/159624-how-specify-target-feature-update-version-windows-10-a.html)). However, you are limited to preventing upgrades until the specified version reaches end-of-life|``true``|
-|``disable driver installation via windows update``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|Prevents outdated, vulnerable and potentially poorly performing drivers from being installed via Windows Update. It is recommended to manually install only the bare minimum version of the ones that your system requires (as the full installer often installs other bloatware that persistently runs in the background) along with the latest version directly from the manufacture's website as outlined in section [11.5. Installing Drivers](#115-installing-drivers). This option is overridden if ``disable windows update`` is set to ``true``|``true``|
+|``disable driver installation via windows update``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|Prevents outdated, vulnerable and potentially poorly performing drivers from being installed via Windows Update. It is recommended to manually install only the bare minimum version of the ones that your system requires (as the full installer often installs other bloatware that persistently runs in the background) along with the latest version directly from the manufacture's website as outlined in section [11.6. Installing Drivers](#116-installing-drivers). This option is overridden if ``disable windows update`` is set to ``true``|``true``|
 |``disable automatic store app updates``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|🔒 A value of ``true`` may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting<br><br>Prevents automatic download and installation of store application updates compared to disabling app updates completely which is not desirable in terms of reducing CPU overhead. Instead, check for application updates manually from time to time|``true``|
 |``disable windows defender``|1. Reducing CPU overhead<br><br>2. Prevents issues with the CPU entering C-State 0 ([1](https://www.techpowerup.com/295877/windows-defender-can-significantly-impact-intel-cpu-performance-we-have-the-fix))|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>This option completely disables Windows Defender. Instead, run system scans frequently, use a hardened browser with [uBlock Origin](https://ublockorigin.com), keep UAC enabled and favor free, open source and reputable software. Stay away from proprietary software where you can and ensure to scan files and executables with [VirusTotal](https://www.virustotal.com/gui/home/upload) before opening them|``true``|
 |``disable gamebarpresencewriter``|1. Reducing CPU overhead|Process runs constantly in the background and is not required for Game Mode or Game Bar to function from my testing|``true``|
@@ -832,7 +832,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable computer is out of support message``|1. Reducing or disabling intrusive features|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
 |``disable fault tolerant heap``|1. Gaining finer control over the feature in question|Prevents Windows autonomously applying mitigations to prevent future crashes on a per-application basis ([1](https://learn.microsoft.com/en-us/windows/win32/win7appqual/fault-tolerant-heap)) which can lead to issues ([1](https://www.mak.com/mak-one/support/help/knowledge/performance-issues-caused-by-the-fault-tolerant-heap-windows))|``true``|
 
-### 11.4.2. Applying Options
+### 11.5.2. Applying Options
 
 - Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender . If that doesn't work, reboot then re-execute the command again. If none of the previous workarounds worked, then try run the command in safe-mode. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
 
@@ -847,7 +847,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 > [!NOTE]
 > To the maintainers and contributors, the features and options should be tested as listed in the table above. It is inevitable that more steps are required to achieve the same goal with operating system updates and upgrades over time (e.g. manual maintenance of a list of services relating to disabling Windows Defender).
 
-## 11.5. Installing Drivers
+## 11.6. Installing Drivers
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -856,7 +856,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - See [Chipset Device "Drivers" (= INF files) | Fernando](https://winraid.level1techs.com/t/intel-chipset-device-drivers-inf-files/30920)
 
-- GPU drivers will be installed in section [11.22. Graphics Driver](#1122-graphics-driver) so do not install them at this stage
+- GPU drivers will be installed in section [11.23. Graphics Driver](#1123-graphics-driver) so do not install them at this stage
 
 - You can find drivers by searching for drivers that are compatible with your device's HWID. See [media/device-hwid-example.png](/assets/images/find-driver-key-example.png) in regard to finding your HWID in Device Manager for a given device
 
@@ -872,13 +872,13 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - Other required drivers can be installed with [Snappy Driver Installer Origin](https://www.snappy-driver-installer.org)
 
-## 11.6. Privacy Options (Windows 8+)
+## 11.7. Privacy Options (Windows 8+)
 
 Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``.
 
-## 11.7. Search Indexing
+## 11.8. Search Indexing
 
-Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using Process Explorer as described in section [11.28. Process Explorer](#1128-process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
+Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using Process Explorer as described in section [11.29. Process Explorer](#1129-process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
 
   ```bat
   reg add "HKLM\SYSTEM\CurrentControlSet\Services\WSearch" /v "Start" /t REG_DWORD /d "4" /f
@@ -887,7 +887,7 @@ Certain directories on the file system are indexed for search features in Window
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-## 11.8. Time, Language and Region
+## 11.9. Time, Language and Region
 
 - Configure settings by typing ``intl.cpl`` and ``timedate.cpl`` in ``Win+R``
 
@@ -899,7 +899,7 @@ Certain directories on the file system are indexed for search features in Window
 
 - Ensure that the system time is synced and is correct
 
-## 11.9. Web Browser
+## 11.10. Web Browser
 
 Configure a browser of your choice.
 
@@ -907,11 +907,11 @@ Configure a browser of your choice.
 
 - See [Desktop Browsers | Privacy Guides](https://www.privacyguides.org/en/desktop-browsers)
 
-## 11.10. Scheduled Tasks
+## 11.11. Scheduled Tasks
 
 There are a handful of scheduled tasks that ship with Windows which can be assessed using [TaskSchedulerView](https://www.nirsoft.net/utils/task_scheduler_view.html). Assessing them can help in having finer control as to what runs on your system silently whether it be updates-related, telemetry-related, defender-related and more. Consider the ``Last Run``, ``Next Run`` and ``Triggers`` column to evaluate whether there is any point disabling the task in question.
 
-## 11.11. Activate Windows
+## 11.12. Activate Windows
 
 Use the commands below to activate Windows using your license key if you do not have one linked to your HWID. Ensure that the activation process was successful by verifying the activation status in computer properties. Open CMD as administrator and enter the commands below.
 
@@ -923,7 +923,7 @@ slmgr /ipk <license key>
 slmgr /ato
 ```
 
-## 11.12. Miscellaneous
+## 11.13. Miscellaneous
 
 - To declutter the interface, disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu
 
@@ -941,11 +941,11 @@ slmgr /ato
 
   - To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
 
-## 11.13. Visual Effects
+## 11.14. Visual Effects
 
 Visual effects options can be accessed by typing ``sysdm.cpl`` in ``Win+R``. This menu provides the ability to disable interface animations which contributes to perceived responsiveness when generally interacting with Windows. On Windows 7, desktop composition could natively be disabled here, but the option is no longer available in Windows 8+. The rest of the options are personal preference.
 
-## 11.14. Superfetch and Prefetch
+## 11.15. Superfetch and Prefetch
 
 If a HDD isn't present in the system then Superfetch and Prefetch can be disabled with the command below in CMD. Disabling SysMain is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)) and the ``C:\Windows\Prefetch`` folder should no longer be populated.
 
@@ -956,7 +956,7 @@ If a HDD isn't present in the system then Superfetch and Prefetch can be disable
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-## 11.15. Operating System and Partition Name
+## 11.16. Operating System and Partition Name
 
 Configure the operating system and drive's partition name. It is recommended to set it to something meaningful or unique such has ``W10 22H2 Work`` or ``W10 22H2 Gaming`` for clarity when dual-booting or when multiple drives are present. Open CMD as administrator and enter the commands below.
 
@@ -968,11 +968,11 @@ Configure the operating system and drive's partition name. It is recommended to 
   label C: "OS_NAME"
   ```
 
-## 11.16. Show Tray Icons
+## 11.17. Show Tray Icons
 
 I would recommend enabling the ``Always show all icons in the notification area`` for better process management. Hiding icons in the tray area can partially be considered a security risk since you won't be aware of potentially malicious or unwanted programs running silently.
 
-## 11.17. Hibernation
+## 11.18. Hibernation
 
 Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hiberfil.sys``.  It is recommended to shut down instead of saving software state to disk. Open CMD as administrator and enter the command below.
 
@@ -980,7 +980,7 @@ Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hi
 powercfg /h off
 ```
 
-## 11.18. Runtimes
+## 11.19. Runtimes
 
 These are runtimes are common dependencies including a magnitude of applications. Typically, application installers automatically install its dependencies but this can't be said for some standalone applications.
 
@@ -990,12 +990,12 @@ These are runtimes are common dependencies including a magnitude of applications
 - [WebView](https://developer.microsoft.com/en-us/microsoft-edge/webview2)
 - [DirectX](https://www.microsoft.com/en-gb/download/details.aspx?id=8109) (game launchers typically install this silently)
 
-## 11.19. Handling Bloatware
+## 11.20. Handling Bloatware
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, setup Process Explorer as described in [11.28. Process Explorer](#1128-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
+I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, setup Process Explorer as described in [11.29. Process Explorer](#1129-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
 
 - [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager) can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store)). If for whatever reason you removed the Microsoft Store, it can be restored with ``wsreset -i``
 
@@ -1033,7 +1033,7 @@ I heavily discourage running debloating scripts or removing components other tha
   - Uninstall bloatware in the applications section in the immersive control panel by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
   - In the ``Optional features`` section within the immersive control panel, you can uninstall everything that you don't need if desired
 
-- If Windows Defender was disabled in section [11.4. Merging Registry Options](#114-merging-registry-options), ``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
+- If Windows Defender was disabled in section [11.5. Merging Registry Options](#115-merging-registry-options), ``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
 
     ```bat
     taskkill /f /im smartscreen.exe > nul 2>&1 & ren C:\Windows\System32\smartscreen.exe smartscreen.exee
@@ -1041,11 +1041,11 @@ I heavily discourage running debloating scripts or removing components other tha
 
 - You can use Task Manager to check for residual bloatware that is running in the background
 
-## 11.20. Optional Features
+## 11.21. Optional Features
 
 Optional features can be accessed by typing ``OptionalFeatures`` in ``Win+R``. Enable/disable features that you do/don't need. If Windows Update is disabled then you likely won't be able to install features and instead, must install an offline package using DISM. On Windows Server, this can be accessed via the Server Manager dashboard by navigating to ``Manage -> Remove Roles and Features``.
 
-### 11.20.1. NET 3.5
+### 11.21.1. NET 3.5
 
 Some applications still utilize the NET 3.5 runtime so I would recommend installing it just in case. As mentioned previously, you won't be able to install it in the Optional Features window if Windows Update is disabled but can instead, be installed using an offline package.
 
@@ -1055,16 +1055,16 @@ For using the offline package, download and extract a Windows ISO (e.g. ``C:\EXT
 DISM /Online /Enable-Feature /FeatureName:NetFx3 /LimitAccess /Source:"C:\EXTRACTED_ISO\sources\sxs"
 ```
 
-## 11.21. 7-Zip
+## 11.22. 7-Zip
 
 Download and install [7-Zip](https://www.7-zip.org). Open ``C:\Program Files\7-Zip\7zFM.exe`` then navigate ``Tools -> Options`` and associate 7-Zip with all file extensions by clicking the ``+`` button. You may need to click it twice to override existing associated extensions.
 
-## 11.22. Graphics Driver
+## 11.23. Graphics Driver
 
 - See [docs/configure-nvidia.md](/docs/configure-nvidia.md)
 - See [docs/configure-amd.md](/docs/configure-amd.md)
 
-## 11.23. MSI Afterburner
+## 11.24. MSI Afterburner
 
 If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards), download and install it now.
 
@@ -1076,7 +1076,7 @@ If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-ca
     "C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe" /Profile1 /Q
     ```
 
-## 11.24. Display Resolutions and Scaling Modes
+## 11.25. Display Resolutions and Scaling Modes
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
@@ -1097,7 +1097,7 @@ You may have optionally found a stable overclock for your display in earlier sec
 
 - Ensure your resolution is configured properly by typing ``rundll32.exe display.dll,ShowAdapterSettings`` in ``Win+R``
 
-## 11.25. Open-Shell (Windows 8+)
+## 11.26. Open-Shell (Windows 8+)
 
 Open-Shell is a FOSS alternative to the Windows Start Menu.
 
@@ -1113,7 +1113,7 @@ Open-Shell is a FOSS alternative to the Windows Start Menu.
 
   - Open ``"C:\Program Files\Open-Shell\Start Menu Settings.lnk"``, enable ``Show all settings`` then navigate to the Windows 8 Settings section and set ``Disable active corners`` to ``All``
 
-## 11.26. Spectre, Meltdown and CPU Microcode
+## 11.27. Spectre, Meltdown and CPU Microcode
 
 > [!WARNING]
 > 🔒 Disabling Spectre and Meltdown may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -1127,14 +1127,14 @@ Meltdown does not affect the AMD architecture ([1](https://www.theverge.com/2018
 
 Use [InSpectre](https://www.grc.com/inspectre.htm) and [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature to check the status or version before and after a reboot to verify expected behavior.
 
-## 11.27. Power Options
+## 11.28. Power Options
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
 To be completed.
 
-## 11.28. Process Explorer
+## 11.29. Process Explorer
 
 Task Manager lacks several useful metrics compared to a tool such as Process Explorer. On Windows 8+, Task Manager reports CPU utility in % which provides misleading CPU utilization details ([1](https://aaron-margosis.medium.com/task-managers-cpu-numbers-are-all-but-meaningless-2d165b421e43)). On the other hand, Windows 7's Task Manager and Process Explorer report time-based busy utilization. This also explains as to why disabling idle states within the OS results in 100% CPU utilization in Task Manager.
 
@@ -1175,7 +1175,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
     Get-MMAgent
     ```
 
-- Optionally use the command below as an example to disable a given setting. If you left Superfetch and Prefetch enabled in section [11.14. Superfetch and Prefetch](#1114-superfetch-and-prefetch), then you likely want the prefetching related features enabled
+- Optionally use the command below as an example to disable a given setting. If you left Superfetch and Prefetch enabled in section [11.15. Superfetch and Prefetch](#1115-superfetch-and-prefetch), then you likely want the prefetching related features enabled
 
     ```powershell
     Disable-MMAgent -MemoryCompression
@@ -1289,7 +1289,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
 
 - MSIs can be enabled on devices that support it. It is worth noting that it may be in the developer's intention to not enable MSIs in the driver INF file hence MSIs will be disabled by default once the driver is installed. Namely, NVIDIA seems to selectively enable MSIs depending on the GPU architecture ([1](https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/528356)). Exercise with due care and carry out tests to determine whether changes result in positive performance scaling
 
-  - You will BSOD if you enable MSIs for the stock Windows 7 SATA driver which you should have already updated as mentioned in section [11.5. Installing Drivers](#115-installing-drivers)
+  - You will BSOD if you enable MSIs for the stock Windows 7 SATA driver which you should have already updated as mentioned in section [11.6. Installing Drivers](#116-installing-drivers)
 
 - To verify whether a device is utilizing MSIs, restart your PC and check whether the given device has a negative IRQ in MSI Utility
 
