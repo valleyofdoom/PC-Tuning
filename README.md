@@ -74,6 +74,7 @@
   - [11.1 OOBE Setup](#111-oobe-setup)
   - [11.2. Unrestricted PowerShell Execution Policy](#112-unrestricted-powershell-execution-policy)
   - [11.3. Importing ``bin`` Folder](#113-importing-bin-folder)
+  - [11.29. Process Mitigations (Windows 10 1709+)](#1129-process-mitigations-windows-10-1709)
   - [11.4. Merging Registry Options](#114-merging-registry-options)
     - [11.4.1. Registry Options Documentation](#1141-registry-options-documentation)
     - [11.4.2. Applying Options](#1142-applying-options)
@@ -102,7 +103,6 @@
   - [11.26. Spectre, Meltdown and CPU Microcode](#1126-spectre-meltdown-and-cpu-microcode)
   - [11.27. Power Options](#1127-power-options)
   - [11.28. Process Explorer](#1128-process-explorer)
-  - [11.29. Process Mitigations (Windows 10 1709+)](#1129-process-mitigations-windows-10-1709)
   - [11.30. Memory Management Settings (Windows 8+)](#1130-memory-management-settings-windows-8)
   - [11.31. Network Adapter Options](#1131-network-adapter-options)
   - [11.32. Audio Devices](#1132-audio-devices)
@@ -769,6 +769,16 @@ Set-ExecutionPolicy Unrestricted
 
 Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in section [10.6. Fetching Required Files](#106-fetching-required-files). If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
 
+## 11.29. Process Mitigations (Windows 10 1709+)
+
+> [!WARNING]
+> 🔒 Disabling process mitigations may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
+
+> [!CAUTION]
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+
+There are several OS-level mitigations ([1](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps#-disable)) that are enabled by default and may impact performance. If desired, these can be disabled in Windows Defender's "Exploit Protection" page. It should be apparent that disabling mitigations reduces security. This step is carried out now as if you choose to disable Windows Defender in the next steps, the interface will no longer be accessible however they can be toggled using the [Get-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/get-processmitigation?view=windowsserver2022-ps) and [Set-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps) commands in PowerShell. Some programs may require mitigations to be enabled and will break if they are disabled so proceed with caution.
+
 ## 11.4. Merging Registry Options
 
 > [!WARNING]
@@ -1153,50 +1163,6 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
     - Delta Other (Process I/O)
 
   - Enable the ``VirusTotal`` column
-
-## 11.29. Process Mitigations (Windows 10 1709+)
-
-> [!WARNING]
-> 🔒 Disabling process mitigations may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
-
-> [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
-
-The script below can be used to disable [process mitigations](https://docs.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps). Effects can be viewed with ``Get-ProcessMitigation -System`` in PowerShell or in Windows Defender's ``Exploit Protection`` page.
-
-```bat
-@echo off
-setlocal EnableDelayedExpansion
-
-DISM > nul 2>&1 || echo error: administrator privileges required && exit /b 1
-
-:: initialize mask to get mask length
-PowerShell Set-ProcessMitigation -System -Disable CFG
-if not %errorlevel% == 0 (
-    echo error: unsupported windows version >&2
-    exit /b 1
-)
-
-:: get current mask
-for /f "tokens=3 skip=2" %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "MitigationAuditOptions"') do (
-    set "mitigation_mask=%%a"
-)
-
-echo info: current mask - %mitigation_mask%
-
-:: set all values in current mask to 2 (disable all mitigations)
-for /L %%a in (0,1,9) do (
-    set "mitigation_mask=!mitigation_mask:%%a=2!"
-)
-
-echo info: modified mask - %mitigation_mask%
-
-:: apply mask to kernel
-reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "MitigationOptions" /t REG_BINARY /d "%mitigation_mask%" /f > nul 2>&1
-reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v "MitigationAuditOptions" /t REG_BINARY /d "%mitigation_mask%" /f > nul 2>&1
-
-exit /b 0
-```
 
 ## 11.30. Memory Management Settings (Windows 8+)
 
