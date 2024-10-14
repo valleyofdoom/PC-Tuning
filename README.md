@@ -852,7 +852,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
 
-- I would advise against installing drivers via Windows Update as they can be outdated compared to the ones provided by the vendor
+- I would advise against installing drivers via Windows Update as they can be outdated compared to the ones provided by the vendor. Driver updates via Windows Update should be blocked if ``disable driver installation via windows update`` was disabled in section [11.5. Merging Registry Options](#115-merging-registry-options)
 
 - See [Chipset Device "Drivers" (= INF files) | Fernando](https://winraid.level1techs.com/t/intel-chipset-device-drivers-inf-files/30920)
 
