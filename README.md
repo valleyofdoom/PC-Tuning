@@ -79,13 +79,14 @@
     - [11.5.1. Registry Options Documentation](#1151-registry-options-documentation)
     - [11.5.2. Applying Options](#1152-applying-options)
   - [11.6. Installing Drivers](#116-installing-drivers)
+  - [11.7. Windows Server Specific Options (Windows Server)](#117-windows-server-specific-options-windows-server)
   - [11.7. Privacy Options (Windows 8+)](#117-privacy-options-windows-8)
   - [11.8. Search Indexing](#118-search-indexing)
   - [11.9. Time, Language and Region](#119-time-language-and-region)
   - [11.10. Web Browser](#1110-web-browser)
   - [11.11. Scheduled Tasks](#1111-scheduled-tasks)
   - [11.12. Activate Windows](#1112-activate-windows)
-  - [11.13. Miscellaneous](#1113-miscellaneous)
+  - [11.13. Declutter Interface](#1113-declutter-interface)
   - [11.14. Visual Effects](#1114-visual-effects)
   - [11.15. Superfetch and Prefetch](#1115-superfetch-and-prefetch)
   - [11.16. Operating System and Partition Name](#1116-operating-system-and-partition-name)
@@ -750,10 +751,6 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 - See [assets/videos/oobe-windows8-example.mp4](/assets/videos/oobe-windows8-example.mp4)
 - See [assets/videos/oobe-windows10+-example.mp4](/assets/videos/oobe-windows10+-example.mp4)
 
-- Windows Server Only:
-
-  - To enable Wi-Fi, navigate to ``Manage -> Add Roles and Features`` in the Server Manager dashboard and enable ``Wireless LAN Service``
-
 ## 11.2. Unrestricted PowerShell Execution Policy
 
 > [!WARNING]
@@ -872,6 +869,22 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - Other required drivers can be installed with [Snappy Driver Installer Origin](https://www.snappy-driver-installer.org)
 
+## 11.7. Windows Server Specific Options (Windows Server)
+
+- To enable Wi-Fi, navigate to ``Manage -> Add Roles and Features`` in the Server Manager dashboard and enable ``Wireless LAN Service``
+
+- In Server Manager, navigate to ``Manage -> Server Manager Properties`` and enable the option to prevent Server Manager from starting automatically
+
+- Set the ``Windows Audio`` and ``Windows Audio Endpoint Builder`` services startup type to automatic by typing ``services.msc`` in ``Win+R``
+
+- Navigate to ``Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Password Policy`` by typing ``gpedit.msc`` in ``Win+R`` and disable ``Password must meet complexity requirements``
+
+  - Open CMD and type ``gpupdate /force`` to apply the changes immediately
+
+- Navigate to ``Computer Configuration -> Administrative Templates -> System`` by typing ``gpedit.msc`` in ``Win+R`` and disable ``Display Shutdown Event Tracker`` to disable the shutdown prompt
+
+- To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
+
 ## 11.7. Privacy Options (Windows 8+)
 
 Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``.
@@ -923,23 +936,9 @@ slmgr /ipk <license key>
 slmgr /ato
 ```
 
-## 11.13. Miscellaneous
+## 11.13. Declutter Interface
 
-- To declutter the interface, disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu
-
-- Windows Server Only:
-
-  - In Server Manager, navigate to ``Manage -> Server Manager Properties`` and enable the option to prevent Server Manager from starting automatically
-
-  - Set the ``Windows Audio`` and ``Windows Audio Endpoint Builder`` services startup type to automatic by typing ``services.msc`` in ``Win+R``
-
-  - Navigate to ``Computer Configuration -> Windows Settings -> Security Settings -> Account Policies -> Password Policy`` by typing ``gpedit.msc`` in ``Win+R`` and disable ``Password must meet complexity requirements``
-
-    - Open CMD and type ``gpupdate /force`` to apply the changes immediately
-
-  - Navigate to ``Computer Configuration -> Administrative Templates -> System`` by typing ``gpedit.msc`` in ``Win+R`` and disable ``Display Shutdown Event Tracker`` to disable the shutdown prompt
-
-  - To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
+Disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu. This is obviously personal preference.
 
 ## 11.14. Visual Effects
 
