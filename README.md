@@ -9,8 +9,6 @@
 > [!CAUTION]
 > **Do NOT** apply random, unknown or undocumented changes, programs and script to your system without a comprehensive understanding of what they are changing and impact they have on security, privacy and performance.
 
----
-
 # 1. Table of Contents
 
 - [1. Table of Contents](#1-table-of-contents)
@@ -142,8 +140,6 @@
   - [11.50. Paging File](#1150-paging-file)
   - [11.51. Cleanup and Maintenance](#1151-cleanup-and-maintenance)
 
----
-
 # 2. Introduction
 
 This resource can be used to whatever extent you prefer, but be sure to heed the warnings. The primary objective of this resource is to utilize an evidence-oriented approach to explore practices for tuning Windows-based systems for a variety of use cases, covering hardware, operating system, and software configurations. If your daily workflow allows for Linux, then use it. Linux offers far more flexibility than Windows ever will in various aspects. Especially for "power users". This resource is designed to accommodate a broad audience, addressing various goals such as enhancing security and privacy however, it generally favors and caters for gaining a competitive edge in games and executing real-time tasks. There is a strong emphasis on encouraging users to make the changes themselves, with minimal use of scripts to ensure transparency and prevent unintended modifications to the reader's system.
@@ -158,8 +154,6 @@ The reader is expected to follow the sections in sequential order as subsequent 
 - Windows Internals, Part 1: System Architecture, Processes, Threads, Memory Management, and More
 - Windows Internals, Part 2
 
----
-
 # 3. Benchmarking
 
 Benchmarking is employed to objectively assess and eliminate the influence of potential placebo effects in system modifications while evaluating the quality or characteristic of a given change. In the context of this resource, it typically refers to measuring performance scaling after making certain changes to your system. It is important to learn and understand what is involved in the benchmarking process as you will need to carry out your own experiments to assist in decision-making such as identifying whether a certain change results in a performance regression or what settings to use in-game. For given changes, ask yourself questions such as "*What am I trying to achieve?*", "*What is my goal?*", "*What am I trying to improve with this change?*", "*What is this change supposed to affect?*", "*How can the effects of this change be measured and demonstrated?*".
@@ -172,8 +166,6 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 - [NVIDIA Reflex Analyzer](https://www.nvidia.com/en-gb/geforce/news/reflex-latency-analyzer-360hz-g-sync-monitors) - End-to-end latency
 - [Frame-Time-Analysis](https://boringboredom.github.io/Frame-Time-Analysis) - Analyze CSV data logged by the programs mentioned above including 1%, 0.1% lows metrics
 - [Latency Grapher](https://boringboredom.github.io/tools/latencygrapher) - Analyze latency results from RLA, FrameView and PresentMon
-
----
 
 # 4. Physical Setup
 
@@ -237,8 +229,6 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 
 - Multi-monitor setups have the potential to introduce processing overhead ([1](https://www.youtube.com/watch?v=5wBxYQdN96s))
 
----
-
 # 5. Cooling
 
 > [!CAUTION]
@@ -276,8 +266,6 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 - Ensure not to overload the motherboard fan header, especially if you are using fan splitters
 
 - Use an M.2/NVMe heat sink to reduce temperatures ([1](https://cdn.mos.cms.futurecdn.net/mftAb4ExpeZiqVnuHrAqwf-970-80.png)) and optionally mount a fan over it
-
----
 
 # 6. BIOS/UEFI
 
@@ -405,8 +393,6 @@ Backup BIOS by saving the current settings to a profile or export one to local s
 
 In my experience on various motherboards, loading a saved profile fails to restore certain settings after clearing CMOS. I would recommend dumping NVRAM using a tool such as [SCEWIN](https://github.com/ab3lkaizen/SCEHUB) so that when you restore a profile, dump NVRAM again then compare it to the previous/original export to see whether anything failed to restore by using a text comparison tool such as the [Notepad++ Compare plugin](https://sourceforge.net/projects/npp-compare) or [Visual Studio Code](https://code.visualstudio.com/download).
 
----
-
 # 7. Configure USB Port Layout
 
 ## 7.1. Reviewing Accessible USB Ports
@@ -423,8 +409,6 @@ Secondly, plan and decide which USB controllers you would like to plug devices i
 ## 7.3. Plugging In Devices
 
 Lastly, plug the devices into the ports and USB controllers that you have decided to use. In any case, consider populating ones that are closest to the root of the USB controller's hub tree first. Additionally, I would also recommend avoiding internal hubs ([example](/assets/images/usb-hub-internal-headers.png)).
-
----
 
 # 8. Configure Peripherals
 
@@ -463,8 +447,6 @@ Use [Mouse Tester](https://github.com/valleyofdoom/MouseTester) to check whether
 Optionally reset your monitor to factory settings and reconfigure it in case anything was misconfigured initially. Overdrive/AMA reduces latency ([1](https://twitter.com/CaIypto/status/1464236780190851078)) however, it comes with the penalty of additional overshoot. Additionally, you can attempt to calibrate it. Optionally overclock your display with [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) and test for [frame skipping](https://www.testufo.com/frameskipping). Aim for an `actual` integer refresh rate such as 60.00/240.00, not 59.94/239.76.
 
 - See [Can You Calibrate a Monitor WITHOUT a Colorimeter? | techless](https://www.youtube.com/watch?v=avJTz1JhkR4)
-
----
 
 # 9. Stability, Hardware Clocking and Thermal Performance
 
@@ -566,8 +548,6 @@ When overclocking the GPU, you may be required to flash a BIOS with a higher pow
 - [OCCT](https://www.ocbase.com)
 
 - [memtest_vulkan](https://github.com/GpuZelenograd/memtest_vulkan)
-
----
 
 # 10. Install Windows
 
@@ -736,8 +716,6 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 - The installation process will begin after a system restart
 
 </details>
-
----
 
 # 11. Configure Windows
 
