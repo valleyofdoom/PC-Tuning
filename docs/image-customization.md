@@ -1,27 +1,27 @@
-# Image Customization
+<h1 id="image-customization">Image Customization</h1>
 
-## 1. Table of Contents
+<h2 id="table-of-contents">1. Table of Contents</h2>
 
-- [1. Table of Contents](#1-table-of-contents)
-- [2. Requirements](#2-requirements)
-- [3. Preparing the Build Environment](#3-preparing-the-build-environment)
-- [4. Removing Non-Essential Editions](#4-removing-non-essential-editions)
-- [5. Mounting the ISO](#5-mounting-the-iso)
-- [6. Integrating Drivers](#6-integrating-drivers)
-- [7. Integrating Updates](#7-integrating-updates)
-- [8. Enabling .NET 3.5 (Windows 8+)](#8-enabling-net-35-windows-8)
-- [9. Modifying ISO Contents](#9-modifying-iso-contents)
-- [10. Unmounting and Saving Changes](#10-unmounting-and-saving-changes)
-- [11. ISO Compression](#11-iso-compression)
-- [12. Convert to ISO](#12-convert-to-iso)
+- [1. Table of Contents](#table-of-contents)
+- [2. Requirements](#requirements)
+- [3. Preparing the Build Environment](#preparing-the-build-environment)
+- [4. Removing Non-Essential Editions](#removing-non-essential-editions)
+- [5. Mounting the ISO](#mounting-the-iso)
+- [6. Integrating Drivers](#integrating-drivers)
+- [7. Integrating Updates](#integrating-updates)
+- [8. Enabling .NET 3.5 (Windows 8+)](#enabling-net-35-windows-8)
+- [9. Modifying ISO Contents](#modifying-iso-contents)
+- [10. Unmounting and Saving Changes](#unmounting-and-saving-changes)
+- [11. ISO Compression](#iso-compression)
+- [12. Convert to ISO](#convert-to-iso)
 
-## 2. Requirements
+<h2 id="requirements">2. Requirements</h2>
 
 - Extraction tool - [7-Zip](https://www.7-zip.org) is recommended
 
 - [Windows ADK](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install) - Install Deployment Tools
 
-## 3. Preparing the Build Environment
+<h2 id="preparing-the-build-environment">3. Preparing the Build Environment</h2>
 
 - If Windows Defender is enabled, then consider disabling real-time protection as it can slow the mounting and unmounting process or cause issues in some cases
 
@@ -71,7 +71,7 @@
     if exist "%OSCDIMG%" (echo true) else (echo false)
     ```
 
-## 4. Removing Non-Essential Editions
+<h2 id="removing-non-essential-editions">4. Removing Non-Essential Editions</h2>
 
 Remove every edition except the desired edition by retrieving the indexes of every other edition and removing them with the commands below. Once completed, the only edition to exist should be the desired edition at index 1.
 
@@ -87,7 +87,7 @@ Remove every edition except the desired edition by retrieving the indexes of eve
     DISM /Delete-Image /ImageFile:"%EXTRACTED_ISO%\sources\install.wim" /Index:<index>
     ```
 
-## 5. Mounting the ISO
+<h2 id="mounting-the-iso">5. Mounting the ISO</h2>
 
 Mount the ISO with the command below.
 
@@ -95,7 +95,7 @@ Mount the ISO with the command below.
 DISM /Mount-Wim /WimFile:"%EXTRACTED_ISO%\sources\install.wim" /Index:1 /MountDir:"%MOUNT_DIR%"
 ```
 
-## 6. Integrating Drivers
+<h2 id="integrating-drivers">6. Integrating Drivers</h2>
 
 Place all the drivers that you want to integrate (if any) in a folder such as ``C:\drivers`` and use the command below to integrate them into the mounted ISO.
 
@@ -103,7 +103,7 @@ Place all the drivers that you want to integrate (if any) in a folder such as ``
 DISM /Image:"%MOUNT_DIR%" /Add-Driver /Driver:"C:\drivers" /Recurse /ForceUnsigned
 ```
 
-## 7. Integrating Updates
+<h2 id="integrating-updates">7. Integrating Updates</h2>
 
 Integrate the updates into the mounted ISO with the command below. The servicing stack must be installed before installing any cumulative updates.
 
@@ -111,7 +111,7 @@ Integrate the updates into the mounted ISO with the command below. The servicing
 DISM /Image:"%MOUNT_DIR%" /Add-Package /PackagePath=<path\to\update>
 ```
 
-## 8. Enabling .NET 3.5 (Windows 8+)
+<h2 id="enabling-net-35-windows-8">8. Enabling .NET 3.5 (Windows 8+)</h2>
 
 .NET 3.5 can be enabled using the command below which a minority of applications depend on.
 
@@ -119,7 +119,7 @@ DISM /Image:"%MOUNT_DIR%" /Add-Package /PackagePath=<path\to\update>
 DISM /Image:"%MOUNT_DIR%" /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:"%EXTRACTED_ISO%\sources\sxs"
 ```
 
-## 9. Modifying ISO Contents
+<h2 id="modifying-iso-contents">9. Modifying ISO Contents</h2>
 
 To modify the ISO contents, the directory can be opened with the command below.
 
@@ -127,7 +127,7 @@ To modify the ISO contents, the directory can be opened with the command below.
 explorer "%MOUNT_DIR%"
 ```
 
-## 10. Unmounting and Saving Changes
+<h2 id="unmounting-and-saving-changes">10. Unmounting and Saving Changes</h2>
 
 Run the command below to commit our changes to the ISO. If you get an error, check if the directory is empty to ensure the ISO is unmounted by typing ``explorer "%MOUNT_DIR%"``. If it is empty, you can likely ignore the error, otherwise try closing all open folders and running the command again.
 
@@ -135,7 +135,7 @@ Run the command below to commit our changes to the ISO. If you get an error, che
 DISM /Unmount-Wim /MountDir:"%MOUNT_DIR%" /Commit && rd /s /q "%MOUNT_DIR%"
 ```
 
-## 11. ISO Compression
+<h2 id="iso-compression">11. ISO Compression</h2>
 
 Compressing has no advantage other than reducing the size. Keep in mind that Windows setup must decompress the ISO upon installation which takes time. Use the command below to compress the ISO.
 
@@ -143,7 +143,7 @@ Compressing has no advantage other than reducing the size. Keep in mind that Win
 DISM /Export-Image /SourceImageFile:"%EXTRACTED_ISO%\sources\install.wim" /SourceIndex:1 /DestinationImageFile:"%EXTRACTED_ISO%\sources\install.esd" /Compress:recovery /CheckIntegrity && del /f /q "%EXTRACTED_ISO%\sources\install.wim"
 ```
 
-## 12. Convert to ISO
+<h2 id="convert-to-iso">12. Convert to ISO</h2>
 
 Use the command below to pack the extracted contents back to a single ISO which will be created in the ``C:`` drive.
 

@@ -1,4 +1,4 @@
-# Configure the AMD Driver
+<h1 id="configure-the-amd-driver">Configure the AMD Driver</h1>
 
 > [!IMPORTANT]
 > Disclaimer: I no longer own an AMD GPU meaning this section may be incomplete/unmaintained. For this reason, you can visit the AMD GPUs section in [Calypto's Latency Guide](https://calypto.us).
@@ -6,12 +6,12 @@
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
 
-## 1. Table of Contents
+<h2 id="table-of-contents">1. Table of Contents</h2>
 
-- [1. Table of Contents](#1-table-of-contents)
-- [2. Strip and Install the Driver](#2-strip-and-install-the-driver)
+- [1. Table of Contents](#table-of-contents)
+- [2. Strip and Install the Driver](#strip-and-install-the-driver)
 
-## 2. Strip and Install the Driver
+<h2 id="strip-and-install-the-driver">2. Strip and Install the Driver</h2>
 
 - Download and extract the latest recommended driver from the [AMD drivers and support page](https://www.amd.com/en/support)
 

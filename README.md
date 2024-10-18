@@ -9,144 +9,144 @@
 > [!CAUTION]
 > **Do NOT** apply random, unknown or undocumented changes, programs and script to your system without a comprehensive understanding of what they are changing and impact they have on security, privacy and performance.
 
-# 1. Table of Contents
+<h1 id="table-of-contents">1. Table of Contents</h1>
 
-- [1. Table of Contents](#1-table-of-contents)
-- [2. Introduction](#2-introduction)
-- [3. Benchmarking](#3-benchmarking)
-- [4. Physical Setup](#4-physical-setup)
-- [5. Cooling](#5-cooling)
-- [6. BIOS/UEFI](#6-biosuefi)
-  - [6.1. Partition Style](#61-partition-style)
-  - [6.2. Consider Windows Version](#62-consider-windows-version)
-  - [6.3. BIOS Recovery Methods](#63-bios-recovery-methods)
-  - [6.4. BIOS Updates](#64-bios-updates)
-  - [6.5. BIOS Microcode](#65-bios-microcode)
-  - [6.6. Accessing Hidden Options](#66-accessing-hidden-options)
-  - [6.7. Unnecessary Devices](#67-unnecessary-devices)
-  - [6.8. Resizable Bar](#68-resizable-bar)
-  - [6.9. Hyper-Threading/Simultaneous Multithreading](#69-hyper-threadingsimultaneous-multithreading)
-  - [6.10. Power States](#610-power-states)
-  - [6.11. Virtualization/SVM Mode](#611-virtualizationsvm-mode)
-  - [6.12. Power-Saving](#612-power-saving)
-  - [6.13. Trusted Platform Module (TPM)](#613-trusted-platform-module-tpm)
-  - [6.14. Compatibility Support Module (CSM)](#614-compatibility-support-module-csm)
-  - [6.15. Secure Boot](#615-secure-boot)
-  - [6.16. Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate)
-  - [6.17. Spread Spectrum](#617-spread-spectrum)
-  - [6.18. Legacy USB Support](#618-legacy-usb-support)
-  - [6.19. Software Installation Options](#619-software-installation-options)
-  - [6.20. PCI Link Speed for Devices](#620-pci-link-speed-for-devices)
-  - [6.21. Fan Curves](#621-fan-curves)
-  - [6.22. BIOS Profiles and Backups](#622-bios-profiles-and-backups)
-- [7. Configure USB Port Layout](#7-configure-usb-port-layout)
-  - [7.1. Reviewing Accessible USB Ports](#71-reviewing-accessible-usb-ports)
-  - [7.2. Layout Planning](#72-layout-planning)
-  - [7.3. Plugging In Devices](#73-plugging-in-devices)
-- [8. Configure Peripherals](#8-configure-peripherals)
-  - [8.1. Cleaning](#81-cleaning)
-  - [8.2. Onboard Memory Profiles](#82-onboard-memory-profiles)
-  - [8.3. RGB Lighting Effects](#83-rgb-lighting-effects)
-  - [8.4. DPI](#84-dpi)
-  - [8.5. Report Rate](#85-report-rate)
-  - [8.6. Polling Stability Analysis](#86-polling-stability-analysis)
-  - [8.7. Monitor](#87-monitor)
-- [9. Stability, Hardware Clocking and Thermal Performance](#9-stability-hardware-clocking-and-thermal-performance)
-  - [9.1. Temporary Operating System](#91-temporary-operating-system)
-  - [9.2. General Information](#92-general-information)
-  - [9.3. Error Correction](#93-error-correction)
-  - [9.4. Thermal Management](#94-thermal-management)
-  - [9.5. Load-line Calibration](#95-load-line-calibration)
-  - [9.6. GPU](#96-gpu)
-  - [9.7. RAM/CPU](#97-ramcpu)
-  - [9.8. Stress-Testing Tools](#98-stress-testing-tools)
-- [10. Install Windows](#10-install-windows)
-  - [10.1. Storage Partitions](#101-storage-partitions)
-  - [10.2. What Version of Windows Should You Use?](#102-what-version-of-windows-should-you-use)
-  - [10.3. Downloading and Preparing a Stock Windows ISO](#103-downloading-and-preparing-a-stock-windows-iso)
-  - [10.4. ISO Sources](#104-iso-sources)
-  - [10.5. ISO Preparation](#105-iso-preparation)
-  - [10.6. Fetching Required Files](#106-fetching-required-files)
-  - [10.7. Booting Into the ISO](#107-booting-into-the-iso)
-- [11. Configure Windows](#11-configure-windows)
-  - [11.1 OOBE Setup](#111-oobe-setup)
-  - [11.2. Unrestricted PowerShell Execution Policy](#112-unrestricted-powershell-execution-policy)
-  - [11.3. Importing ``bin`` Folder](#113-importing-bin-folder)
-  - [11.4. Process Mitigations (Windows 10 1709+)](#114-process-mitigations-windows-10-1709)
-  - [11.5. Merging Registry Options](#115-merging-registry-options)
-    - [11.5.1. Registry Options Documentation](#1151-registry-options-documentation)
-    - [11.5.2. Applying Options](#1152-applying-options)
-  - [11.6. Installing Drivers](#116-installing-drivers)
-  - [11.7. Windows Server Specific Options (Windows Server)](#117-windows-server-specific-options-windows-server)
-  - [11.8. Privacy Options (Windows 8+)](#118-privacy-options-windows-8)
-  - [11.9. Search Indexing](#119-search-indexing)
-  - [11.10. Time, Language and Region](#1110-time-language-and-region)
-  - [11.11. Web Browser](#1111-web-browser)
-  - [11.12. Scheduled Tasks](#1112-scheduled-tasks)
-  - [11.13. Activate Windows](#1113-activate-windows)
-  - [11.14. Declutter Interface](#1114-declutter-interface)
-  - [11.15. Visual Effects](#1115-visual-effects)
-  - [11.16. Superfetch and Prefetch](#1116-superfetch-and-prefetch)
-  - [11.17. Operating System and Partition Name](#1117-operating-system-and-partition-name)
-  - [11.18. Show Tray Icons](#1118-show-tray-icons)
-  - [11.19. Hibernation](#1119-hibernation)
-  - [11.20. Runtimes](#1120-runtimes)
-  - [11.21. Handling Bloatware](#1121-handling-bloatware)
-  - [11.22. Optional Features](#1122-optional-features)
-    - [11.22.1. NET 3.5](#11221-net-35)
-  - [11.23. 7-Zip](#1123-7-zip)
-  - [11.24. Graphics Driver](#1124-graphics-driver)
-  - [11.25. MSI Afterburner](#1125-msi-afterburner)
-  - [11.26. Display Resolutions and Scaling Modes](#1126-display-resolutions-and-scaling-modes)
-  - [11.27. Open-Shell (Windows 8+)](#1127-open-shell-windows-8)
-  - [11.28. Spectre, Meltdown and CPU Microcode](#1128-spectre-meltdown-and-cpu-microcode)
-  - [11.29. Power Options](#1129-power-options)
-  - [11.30. Process Explorer](#1130-process-explorer)
-  - [11.31. Memory Management Settings (Windows 8+)](#1131-memory-management-settings-windows-8)
-  - [11.32. Network Adapter Options](#1132-network-adapter-options)
-  - [11.33. Audio Devices](#1133-audio-devices)
-  - [11.34. Device Manager](#1134-device-manager)
-  - [11.35. Device Power-Saving](#1135-device-power-saving)
-  - [11.36. Event Trace Sessions (ETS)](#1136-event-trace-sessions-ets)
-  - [11.37. File System](#1137-file-system)
-  - [11.38. Message Signaled Interrupts](#1138-message-signaled-interrupts)
-  - [11.39. XHCI Interrupt Moderation (IMOD)](#1139-xhci-interrupt-moderation-imod)
-  - [11.40. Control Panel](#1140-control-panel)
-  - [11.41. Configuring Applications](#1141-configuring-applications)
-    - [11.41.1 NVIDIA Reflex](#11411-nvidia-reflex)
-    - [11.41.2 Framerate Limit](#11412-framerate-limit)
-    - [11.41.3 Presentation Mode](#11413-presentation-mode)
-    - [11.41.4. Game Mode](#11414-game-mode)
-    - [11.41.5. Media Player](#11415-media-player)
-    - [11.41.6. QoS Policies](#11416-qos-policies)
-  - [11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#1142-kernel-mode-scheduling-interrupts-dpcs-and-more)
-    - [11.42.1. GPU and DirectX Graphics Kernel](#11421-gpu-and-directx-graphics-kernel)
-    - [11.42.2. XHCI and Audio Controller](#11422-xhci-and-audio-controller)
-    - [11.42.3. Network Interface Card](#11423-network-interface-card)
-  - [11.43. User-Mode Scheduling (Processes, Threads)](#1143-user-mode-scheduling-processes-threads)
-    - [11.43.1. Starting a Process with a Specified Affinity Mask](#11431-starting-a-process-with-a-specified-affinity-mask)
-    - [11.43.2. Specifying an Affinity Mask for Running Processes](#11432-specifying-an-affinity-mask-for-running-processes)
-  - [11.44. Reserved CPU Sets (Windows 10+)](#1144-reserved-cpu-sets-windows-10)
-    - [11.44.1. Use Cases](#11441-use-cases)
-  - [11.45. Analyzing Event Viewer](#1145-analyzing-event-viewer)
-  - [11.46. Virtualization Based Security (VBS)](#1146-virtualization-based-security-vbs)
-  - [11.47. CPU Idle States](#1147-cpu-idle-states)
-    - [11.47.1. Enable Idle States (default)](#11471-enable-idle-states-default)
-    - [11.47.2. Disable Idle States](#11472-disable-idle-states)
-  - [11.48. Thread Quantums and Scheduling](#1148-thread-quantums-and-scheduling)
-    - [11.48.1. Bitmask Explaination](#11481-bitmask-explaination)
-    - [11.48.2. Win32PrioritySeparation Values](#11482-win32priorityseparation-values)
-  - [11.49. Clock Interrupt Frequency (Timer Resolution)](#1149-clock-interrupt-frequency-timer-resolution)
-  - [11.50. Paging File](#1150-paging-file)
-  - [11.51. Cleanup and Maintenance](#1151-cleanup-and-maintenance)
+- [1. Table of Contents](#table-of-contents)
+- [2. Introduction](#introduction)
+- [3. Benchmarking](#benchmarking)
+- [4. Physical Setup](#physical-setup)
+- [5. Cooling](#cooling)
+- [6. BIOS/UEFI](#biosuefi)
+  - [6.1. Partition Style](#partition-style)
+  - [6.2. Consider Windows Version](#consider-windows-version)
+  - [6.3. BIOS Recovery Methods](#bios-recovery-methods)
+  - [6.4. BIOS Updates](#bios-updates)
+  - [6.5. BIOS Microcode](#bios-microcode)
+  - [6.6. Accessing Hidden Options](#accessing-hidden-options)
+  - [6.7. Unnecessary Devices](#unnecessary-devices)
+  - [6.8. Resizable Bar](#resizable-bar)
+  - [6.9. Hyper-Threading/Simultaneous Multithreading](#hyper-threadingsimultaneous-multithreading)
+  - [6.10. Power States](#power-states)
+  - [6.11. Virtualization/SVM Mode](#virtualizationsvm-mode)
+  - [6.12. Power-Saving](#power-saving)
+  - [6.13. Trusted Platform Module (TPM)](#trusted-platform-module-tpm)
+  - [6.14. Compatibility Support Module (CSM)](#compatibility-support-module-csm)
+  - [6.15. Secure Boot](#secure-boot)
+  - [6.16. Fast Startup, Standby and Hibernate](#fast-startup-standby-and-hibernate)
+  - [6.17. Spread Spectrum](#spread-spectrum)
+  - [6.18. Legacy USB Support](#legacy-usb-support)
+  - [6.19. Software Installation Options](#software-installation-options)
+  - [6.20. PCI Link Speed for Devices](#pci-link-speed-for-devices)
+  - [6.21. Fan Curves](#fan-curves)
+  - [6.22. BIOS Profiles and Backups](#bios-profiles-and-backups)
+- [7. Configure USB Port Layout](#configure-usb-port-layout)
+  - [7.1. Reviewing Accessible USB Ports](#reviewing-accessible-usb-ports)
+  - [7.2. Layout Planning](#layout-planning)
+  - [7.3. Plugging In Devices](#plugging-in-devices)
+- [8. Configure Peripherals](#configure-peripherals)
+  - [8.1. Cleaning](#cleaning)
+  - [8.2. Onboard Memory Profiles](#onboard-memory-profiles)
+  - [8.3. RGB Lighting Effects](#rgb-lighting-effects)
+  - [8.4. DPI](#dpi)
+  - [8.5. Report Rate](#report-rate)
+  - [8.6. Polling Stability Analysis](#polling-stability-analysis)
+  - [8.7. Monitor](#monitor)
+- [9. Stability, Hardware Clocking and Thermal Performance](#stability-hardware-clocking-and-thermal-performance)
+  - [9.1. Temporary Operating System](#temporary-operating-system)
+  - [9.2. General Information](#general-information)
+  - [9.3. Error Correction](#error-correction)
+  - [9.4. Thermal Management](#thermal-management)
+  - [9.5. Load-line Calibration](#load-line-calibration)
+  - [9.6. GPU](#gpu)
+  - [9.7. RAM/CPU](#ramcpu)
+  - [9.8. Stress-Testing Tools](#stress-testing-tools)
+- [10. Install Windows](#install-windows)
+  - [10.1. Storage Partitions](#storage-partitions)
+  - [10.2. What Version of Windows Should You Use?](#what-version-of-windows-should-you-use)
+  - [10.3. Downloading and Preparing a Stock Windows ISO](#downloading-and-preparing-a-stock-windows-iso)
+  - [10.4. ISO Sources](#iso-sources)
+  - [10.5. ISO Preparation](#iso-preparation)
+  - [10.6. Fetching Required Files](#fetching-required-files)
+  - [10.7. Booting Into the ISO](#booting-into-the-iso)
+- [11. Configure Windows](#configure-windows)
+  - [11.1 OOBE Setup](#oobe-setup)
+  - [11.2. Unrestricted PowerShell Execution Policy](#unrestricted-powershell-execution-policy)
+  - [11.3. Importing ``bin`` Folder](#importing-bin-folder)
+  - [11.4. Process Mitigations (Windows 10 1709+)](#process-mitigations-windows-10-1709)
+  - [11.5. Merging Registry Options](#merging-registry-options)
+    - [11.5.1. Registry Options Documentation](#registry-options-documentation)
+    - [11.5.2. Applying Options](#applying-options)
+  - [11.6. Installing Drivers](#installing-drivers)
+  - [11.7. Windows Server Specific Options (Windows Server)](#windows-server-specific-options-windows-server)
+  - [11.8. Privacy Options (Windows 8+)](#privacy-options-windows-8)
+  - [11.9. Search Indexing](#search-indexing)
+  - [11.10. Time, Language and Region](#time-language-and-region)
+  - [11.11. Web Browser](#web-browser)
+  - [11.12. Scheduled Tasks](#scheduled-tasks)
+  - [11.13. Activate Windows](#activate-windows)
+  - [11.14. Declutter Interface](#declutter-interface)
+  - [11.15. Visual Effects](#visual-effects)
+  - [11.16. Superfetch and Prefetch](#superfetch-and-prefetch)
+  - [11.17. Operating System and Partition Name](#operating-system-and-partition-name)
+  - [11.18. Show Tray Icons](#show-tray-icons)
+  - [11.19. Hibernation](#hibernation)
+  - [11.20. Runtimes](#runtimes)
+  - [11.21. Handling Bloatware](#handling-bloatware)
+  - [11.22. Optional Features](#optional-features)
+    - [11.22.1. NET 3.5](#net-35)
+  - [11.23. 7-Zip](#7-zip)
+  - [11.24. Graphics Driver](#graphics-driver)
+  - [11.25. MSI Afterburner](#msi-afterburner)
+  - [11.26. Display Resolutions and Scaling Modes](#display-resolutions-and-scaling-modes)
+  - [11.27. Open-Shell (Windows 8+)](#open-shell-windows-8)
+  - [11.28. Spectre, Meltdown and CPU Microcode](#spectre-meltdown-and-cpu-microcode)
+  - [11.29. Power Options](#power-options)
+  - [11.30. Process Explorer](#process-explorer)
+  - [11.31. Memory Management Settings (Windows 8+)](#memory-management-settings-windows-8)
+  - [11.32. Network Adapter Options](#network-adapter-options)
+  - [11.33. Audio Devices](#audio-devices)
+  - [11.34. Device Manager](#device-manager)
+  - [11.35. Device Power-Saving](#device-power-saving)
+  - [11.36. Event Trace Sessions (ETS)](#event-trace-sessions-ets)
+  - [11.37. File System](#file-system)
+  - [11.38. Message Signaled Interrupts](#message-signaled-interrupts)
+  - [11.39. XHCI Interrupt Moderation (IMOD)](#xhci-interrupt-moderation-imod)
+  - [11.40. Control Panel](#control-panel)
+  - [11.41. Configuring Applications](#configuring-applications)
+    - [11.41.1 NVIDIA Reflex](#nvidia-reflex)
+    - [11.41.2 Framerate Limit](#framerate-limit)
+    - [11.41.3 Presentation Mode](#presentation-mode)
+    - [11.41.4. Game Mode](#game-mode)
+    - [11.41.5. Media Player](#media-player)
+    - [11.41.6. QoS Policies](#qos-policies)
+  - [11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#kernel-mode-scheduling-interrupts-dpcs-and-more)
+    - [11.42.1. GPU and DirectX Graphics Kernel](#gpu-and-directx-graphics-kernel)
+    - [11.42.2. XHCI and Audio Controller](#xhci-and-audio-controller)
+    - [11.42.3. Network Interface Card](#network-interface-card)
+  - [11.43. User-Mode Scheduling (Processes, Threads)](#user-mode-scheduling-processes-threads)
+    - [11.43.1. Starting a Process with a Specified Affinity Mask](#starting-a-process-with-a-specified-affinity-mask)
+    - [11.43.2. Specifying an Affinity Mask for Running Processes](#specifying-an-affinity-mask-for-running-processes)
+  - [11.44. Reserved CPU Sets (Windows 10+)](#reserved-cpu-sets-windows-10)
+    - [11.44.1. Use Cases](#use-cases)
+  - [11.45. Analyzing Event Viewer](#analyzing-event-viewer)
+  - [11.46. Virtualization Based Security (VBS)](#virtualization-based-security-vbs)
+  - [11.47. CPU Idle States](#cpu-idle-states)
+    - [11.47.1. Enable Idle States (default)](#enable-idle-states-default)
+    - [11.47.2. Disable Idle States](#disable-idle-states)
+  - [11.48. Thread Quantums and Scheduling](#thread-quantums-and-scheduling)
+    - [11.48.1. Bitmask Explaination](#bitmask-explaination)
+    - [11.48.2. Win32PrioritySeparation Values](#win32priorityseparation-values)
+  - [11.49. Clock Interrupt Frequency (Timer Resolution)](#clock-interrupt-frequency-timer-resolution)
+  - [11.50. Paging File](#paging-file)
+  - [11.51. Cleanup and Maintenance](#cleanup-and-maintenance)
 
-# 2. Introduction
+<h1 id="introduction">2. Introduction</h1>
 
 This resource can be used to whatever extent you prefer, but be sure to heed the warnings. The primary objective of this resource is to utilize an evidence-oriented approach to explore practices for tuning Windows-based systems for a variety of use cases, covering hardware, operating system, and software configurations. If your daily workflow allows for Linux, then use it. Linux offers far more flexibility than Windows ever will in various aspects. Especially for "power users". This resource is designed to accommodate a broad audience, addressing various goals such as enhancing security and privacy however, it generally favors and caters for gaining a competitive edge in games and executing real-time tasks. There is a strong emphasis on encouraging users to make the changes themselves, with minimal use of scripts to ensure transparency and prevent unintended modifications to the reader's system.
 
 The reader is expected to follow the sections in sequential order as subsequent steps are contingent upon the completion of preceding steps. Therefore, each section is numbered.
 
-## 2.1. Other Resources
+<h2 id="other-resources">2.1. Other Resources</h2>
 
 - [BoringBoredom/PC-Optimization-Hub](https://github.com/BoringBoredom/PC-Optimization-Hub)
 - [Calypto's Latency Guide](https://calypto.us)
@@ -154,7 +154,7 @@ The reader is expected to follow the sections in sequential order as subsequent 
 - Windows Internals, Part 1: System Architecture, Processes, Threads, Memory Management, and More
 - Windows Internals, Part 2
 
-# 3. Benchmarking
+<h1 id="benchmarking">3. Benchmarking</h1>
 
 Benchmarking is employed to objectively assess and eliminate the influence of potential placebo effects in system modifications while evaluating the quality or characteristic of a given change. In the context of this resource, it typically refers to measuring performance scaling after making certain changes to your system. It is important to learn and understand what is involved in the benchmarking process as you will need to carry out your own experiments to assist in decision-making such as identifying whether a certain change results in a performance regression or what settings to use in-game. For given changes, ask yourself questions such as "*What am I trying to achieve?*", "*What is my goal?*", "*What am I trying to improve with this change?*", "*What is this change supposed to affect?*", "*How can the effects of this change be measured and demonstrated?*".
 
@@ -167,10 +167,10 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 - [Frame-Time-Analysis](https://boringboredom.github.io/Frame-Time-Analysis) - Analyze CSV data logged by the programs mentioned above including 1%, 0.1% lows metrics
 - [Latency Grapher](https://boringboredom.github.io/tools/latencygrapher) - Analyze latency results from RLA, FrameView and PresentMon
 
-# 4. Physical Setup
+<h1 id="physical-setup">4. Physical Setup</h1>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 - New installations of Windows are recommended after major hardware changes including but not limited to motherboards, CPUs, platforms and chipsets
 
@@ -229,10 +229,10 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 
 - Multi-monitor setups have the potential to introduce processing overhead ([1](https://www.youtube.com/watch?v=5wBxYQdN96s))
 
-# 5. Cooling
+<h1 id="cooling">5. Cooling</h1>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 - If you plan on overclocking, consider the points below to maximize temperature headroom and overclocking potential. It is important to note that lower temperatures can affect other variables even if you are not overclocking such as CPU boosting behavior as the boosting algorithm is affected by temperature and much more
 
@@ -267,97 +267,97 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 
 - Use an M.2/NVMe heat sink to reduce temperatures ([1](https://cdn.mos.cms.futurecdn.net/mftAb4ExpeZiqVnuHrAqwf-970-80.png)) and optionally mount a fan over it
 
-# 6. BIOS/UEFI
+<h1 id="biosuefi">6. BIOS/UEFI</h1>
 
 As a general rule of thumb, ensure that the settings you are changing results in positive performance scaling and make note of them for future reference/backtracking to resolve potential issues. I would recommend resetting settings to factory defaults to work with a clean slate in case anything was misconfigured initially.
 
-## 6.1. Partition Style
+<h2 id="partition-style">6.1. Partition Style</h2>
 
 If you aren't already using the partition style you would like to be using, you should switch now because some settings listed in this section depend on the partition style (search for *"GPT/UEFI"* in this section). GPT/UEFI is recommended for most systems as it offers the most compatibility ([1](https://www.diskpart.com/gpt-mbr/mbr-vs-gpt-1004.html)). The current partition style can be determined by typing ``msinfo32`` in ``Win+R``. The recommended method to convert the partition style is to wipe and convert the disk using diskpart within Windows setup ([1](https://learn.microsoft.com/en-us/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk)).
 
 - See [How To Convert MBR to GPT During Windows 10/8/7 Installation | MDTechVideos](https://www.youtube.com/watch?v=f81qKAJUdKc)
 
-## 6.2. Consider Windows Version
+<h2 id="consider-windows-version">6.2. Consider Windows Version</h2>
 
-Consider what Windows version you will be using because some settings listed in this section depend on the Windows version being used (search for *"Windows"* in this section). Read section [10.2. What Version of Windows Should You Use?](#102-what-version-of-windows-should-you-use) to help decide which version best suits your requirements.
+Consider what Windows version you will be using because some settings listed in this section depend on the Windows version being used (search for *"Windows"* in this section). Read section [10.2. What Version of Windows Should You Use?](#what-version-of-windows-should-you-use) to help decide which version best suits your requirements.
 
-## 6.3. BIOS Recovery Methods
+<h2 id="bios-recovery-methods">6.3. BIOS Recovery Methods</h2>
 
 Modifying BIOS is never without risks. Explore methods to flash a stock BIOS such as USB flashback or a [CH341A](https://www.techinferno.com/index.php?/topic/12230-some-guide-how-to-use-spi-programmer-ch341a) programmer if [clearing CMOS](https://www.intel.co.uk/content/www/uk/en/support/articles/000025368/processors.html) does not restore everything to its original state.
 
-## 6.4. BIOS Updates
+<h2 id="bios-updates">6.4. BIOS Updates</h2>
 
 Check for BIOS updates and positive changes in the change logs (e.g. increased memory stability). Beware of problems brought up in reviews and forums regarding specific BIOS versions if applicable.
 
-## 6.5. BIOS Microcode
+<h2 id="bios-microcode">6.5. BIOS Microcode</h2>
 
 > [!WARNING]
 > 🔒 Upgrading or downgrading microcode may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 On much older platforms and CPUs, BIOS-level Spectre, Meltdown and other CPU microcode patches had the ability to drastically influence performance which isn't so much the case with modern systems nowadays. [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature exposes the microcode version and it was possible to manipulate microcode and their versions within the BIOS using tools such as [MMTool](https://www.ami.com/blog/2017/10/30/what-is-mmtool). Nonetheless, this is not necessarily required to be changed on modern platforms and is here as an informative note.
 
-## 6.6. Accessing Hidden Options
+<h2 id="accessing-hidden-options">6.6. Accessing Hidden Options</h2>
 
 Motherboard vendors hide and lock a lot of settings so that they aren't visible to a regular user. For clarification, unlocking BIOS corresponds to making hidden settings visible and accessible. The easiest approach to take is to change the access levels within the BIOS using [UEFI-Editor](https://github.com/BoringBoredom/UEFI-Editor#usage-guide) then flash it which will result in hidden options available in the UEFI. An alternative approach is to configure what is already accessible in UEFI then access hidden options by reading and writing to NVRAM using [GRUB](https://github.com/BoringBoredom/UEFI-Editor#how-to-change-hidden-settings-without-flashing-a-modded-bios) or [SCEWIN](https://github.com/ab3lkaizen/SCEHUB).
 
-## 6.7. Unnecessary Devices
+<h2 id="unnecessary-devices">6.7. Unnecessary Devices</h2>
 
 Generally, follow the rule of "If you're not using it, disable it". It is preferable to physically disconnect components if possible, but this typically includes NICs, WLAN, Bluetooth, High Definition Audio (if you are not utilizing motherboard audio) controllers, integrated graphics, SATA, RAM slots, onboard devices visible in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) (e.g. LED controllers, IR receivers) and more. Keep in mind that some motherboards have the High Definition Audio controller linked to the USB controller ([1](https://www.igorslab.de/en/the-old-alc4080-on-the-new-intel-boards-demystified-and-the-differences-from-alc1220-insider)) so don't get confused if this is encountered in the USB device tree.
 
-## 6.8. Resizable Bar
+<h2 id="resizable-bar">6.8. Resizable Bar</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Resizable Bar requires the GPT/UEFI BIOS mode and `Above 4G Decoding` to be enabled. For unsupported motherboards, consider viewing [ReBarUEFI](https://github.com/xCuri0/ReBarUEFI)/[NvStrapsReBar](https://github.com/terminatorul/NvStrapsReBar). To verify that Resizable Bar is enabled, check the status with [GPU-Z](https://www.techpowerup.com/gpuz).
 
-## 6.9. Hyper-Threading/Simultaneous Multithreading
+<h2 id="hyper-threadingsimultaneous-multithreading">6.9. Hyper-Threading/Simultaneous Multithreading</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 If you have enough CPUs for your application then consider disabling [Hyper-Threading (HT)/Simultaneous Multithreading (SMT)](https://en.wikipedia.org/wiki/Hyper-threading). This feature is beneficial for highly threaded operations such as encoding, compiling and rendering however using multiple execution threads per CPU increases contention on processor resources and is a potential source of system latency and jitter ([1](https://www.intel.com/content/www/us/en/developer/articles/technical/optimizing-computer-applications-for-latency-part-1-configuring-the-hardware.html)). Disabling HT/SMT has the additional benefit of increased overclocking potential due to lower temperatures which can affect performance positively or negatively in some games hence, I would recommend benchmarking these options thoroughly and not blindly disabling them.
 
-## 6.10. Power States
+<h2 id="power-states">6.10. Power States</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 To be completed.
 
-## 6.11. Virtualization/SVM Mode
+<h2 id="virtualizationsvm-mode">6.11. Virtualization/SVM Mode</h2>
 
 Disable [Virtualization/SVM Mode](https://en.wikipedia.org/wiki/Desktop_virtualization) and [Intel VT-d/AMD-Vi](https://en.wikipedia.org/wiki/X86_virtualization#I/O_MMU_virtualization_(AMD-Vi_and_Intel_VT-d)) if applicable as they can cause a difference in latency for memory access ([1](https://web.archive.org/web/20190403122634/https://www.amd.com/system/files/TechDocs/56263-EPYC-performance-tuning-app-note.pdf)). Virtualization also has the potential to affect BCLK ([1](https://linustechtips.com/topic/1479168-issue-enabling-svm-virtualization-causes-bclk-to-fluctuate-a-lot)). The virtualization status can be verified using Task Manager's CPU section.
 
-## 6.12. Power-Saving
+<h2 id="power-saving">6.12. Power-Saving</h2>
 
 Power-saving has no place on a machine executing real-time tasks. These features can be named differently, including but not limited to [ASPM (Active State Power Management)](https://en.wikipedia.org/wiki/Active_State_Power_Management) (e.g. search for *L0*, *L1*), [ALPM (Aggressive Link Power Management)](https://en.wikipedia.org/wiki/Aggressive_Link_Power_Management), Power/Clock Gating and more. You can also look out for options named *power management* or *power saving*. Search the internet if you are unsure whether a given setting is power-saving related.
 
-## 6.13. Trusted Platform Module (TPM)
+<h2 id="trusted-platform-module-tpm">6.13. Trusted Platform Module (TPM)</h2>
 
 > [!WARNING]
 > 🔒 Disabling TPM may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Disable Trusted Platform Module as it may cause the system to enter System Management Mode (SMM) via System Management Interrupts (SMIs) ([1](https://youtu.be/X72LgcMpM9k?si=A5Kl5NmU5f1WzZP4&t=2060)) which are high priority unmaskable hardware interrupts which cause the CPU to immediately suspend all other activities, including the operating system ([1](https://wiki.linuxfoundation.org/realtime/documentation/howto/debugging/smi-latency/smi)). On Windows 11, a minority of anticheats (Vanguard, FACEIT) require it to be enabled and its status can be verified by typing ``tpm.msc`` in ``Win+R``.
 
-## 6.14. Compatibility Support Module (CSM)
+<h2 id="compatibility-support-module-csm">6.14. Compatibility Support Module (CSM)</h2>
 
 MBR/Legacy requires Compatibility Support Module to be enabled and typically, only the storage and PCIe OpROMs are required, but you can enable all of them if you are unsure. Disable CSM if you are using GPT/UEFI with the exception being Windows 7 GPT/UEFI as it requires CSM and OpROMs unless you are using [uefiseven](https://github.com/manatails/uefiseven).
 
-## 6.15. Secure Boot
+<h2 id="secure-boot">6.15. Secure Boot</h2>
 
 > [!WARNING]
 > 🔒 Disabling Secure Boot may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 On Windows 11, a minority of anticheats (Vanguard, FACEIT, THE FINALS) require Secure Boot to be enabled. If something fails due to Secure Boot being enabled such as bootable tools, I recommended temporarily disabling it rather than resorting to alternative solutions such as enrolling keys as they can lead to issues. If Secure Boot is not required, it can be disabled to avoid various issues. Its status can be verified by typing ``msinfo32`` in ``Win+R``.
 
-## 6.16. Fast Startup, Standby and Hibernate
+<h2 id="fast-startup-standby-and-hibernate">6.16. Fast Startup, Standby and Hibernate</h2>
 
 This boils down to personal preference, perceptions and experiences however, some individuals prefer not to utilize features such as Fast Startup, standby and hibernation, as they can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)), while preferring to perform clean system boots instead of saving and restoring kernel and software state thus limiting the system power states to S0 (working state) and S5 (soft off). Learn about system power states and their meaning [here](https://learn.microsoft.com/en-us/windows/win32/power/system-power-states) and [here](https://www.sciencedirect.com/topics/computer-science/sleeping-state). These options in BIOS are often named Fast Startup, Suspend to RAM, S-States (search for *S1*, *S2*, *S3*, *S4*, *S5*), standby or similar options. S-State status can be verified with ``powercfg /a`` in CMD.
 
@@ -367,100 +367,100 @@ Windows also has a toggle that disables Fast Startup, hibernation and removes ``
 powercfg /h off
 ```
 
-## 6.17. Spread Spectrum
+<h2 id="spread-spectrum">6.17. Spread Spectrum</h2>
 
 Disable Spread Spectrum ([read more](https://en.wikipedia.org/wiki/Spread_spectrum#Effect)) and ensure BCLK frequency is close to the desired value as possible (e.g. 100MHz not 99.97MHz) in [CPU-Z](https://www.cpuid.com/softwares/cpu-z.html) however, this highly dependent on the system and motherboard.
 
-## 6.18. Legacy USB Support
+<h2 id="legacy-usb-support">6.18. Legacy USB Support</h2>
 
 Disable Legacy USB Support as it may cause the system to enter System Management Mode (SMM) via System Management Interrupts (SMIs) ([1](https://patents.google.com/patent/US6067589), [2](https://www.kernel.org/doc/Documentation/x86/usb-legacy-support.txt)) which are high priority unmaskable hardware interrupts which cause the CPU to immediately suspend all other activities, including the operating system ([1](https://wiki.linuxfoundation.org/realtime/documentation/howto/debugging/smi-latency/smi)). You may need to turn this on to install a new operating system, access BIOS or USB devices in some cases.
 
-## 6.19. Software Installation Options
+<h2 id="software-installation-options">6.19. Software Installation Options</h2>
 
 If there are options relating to software installation (e.g. ASUS Armoury Crate), then disable them. These types of software are typically in-line with other bloatware which can safely be avoided and are present in various BIOSes ([ASUS](https://www.asus.com/support/faq/1043788), [Gigabyte](https://old.reddit.com/r/gigabyte/comments/106d9ns/gigabyte_control_center_prompt_to_install_every/ja0gc6l), [MSI](https://old.reddit.com/r/MSI_Gaming/comments/14s7so7/how_to_disable_autoinstall_of_msi_center/l6zoigh), [ASRock](https://old.reddit.com/r/ASRock/comments/1bxf8jt/asrock_auto_driver_install_app/kyc904r)).
 
-## 6.20. PCI Link Speed for Devices
+<h2 id="pci-link-speed-for-devices">6.20. PCI Link Speed for Devices</h2>
 
 Set PCIe link speed to the maximum supported such as ``Gen 4.0``. This may be represented as gigatransfers per second (GT/s) ([1](https://en.wikipedia.org/wiki/PCI_Express#Comparison_table)). This helps with alleviating unexpected behavior and issues.
 
-## 6.21. Fan Curves
+<h2 id="fan-curves">6.21. Fan Curves</h2>
 
 To maximize cooling potential, configure fan curves ([example](https://imgur.com/a/2UDYXp0)) or set a static, high, noise-acceptable RPM. Set your AIO pump speed to full if applicable.
 
-## 6.22. BIOS Profiles and Backups
+<h2 id="bios-profiles-and-backups">6.22. BIOS Profiles and Backups</h2>
 
 Backup BIOS by saving the current settings to a profile or export one to local storage as clearing CMOS will wipe all settings if you need to do so (e.g. while overclocking).
 
 In my experience on various motherboards, loading a saved profile fails to restore certain settings after clearing CMOS. I would recommend dumping NVRAM using a tool such as [SCEWIN](https://github.com/ab3lkaizen/SCEHUB) so that when you restore a profile, dump NVRAM again then compare it to the previous/original export to see whether anything failed to restore by using a text comparison tool such as the [Notepad++ Compare plugin](https://sourceforge.net/projects/npp-compare) or [Visual Studio Code](https://code.visualstudio.com/download).
 
-# 7. Configure USB Port Layout
+<h1 id="configure-usb-port-layout">7. Configure USB Port Layout</h1>
 
-## 7.1. Reviewing Accessible USB Ports
+<h2 id="reviewing-accessible-usb-ports">7.1. Reviewing Accessible USB Ports</h2>
 
 Firstly, familiarize yourself with which USB ports correspond to given USB controllers as some ports shown in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) may not be physically accessible. I recommended plugging a device into every accessible port on your system such as the ones on the motherboard I/O and front panels, then take a note of which controller and port each physical port corresponds to in USB Device Tree Viewer.
 
-## 7.2. Layout Planning
+<h2 id="layout-planning">7.2. Layout Planning</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Secondly, plan and decide which USB controllers you would like to plug devices into but don't plug them in yet. As for which USB controllers should be used, that is up to you. If you have more than one USB controller, you can isolate devices such as your mouse, keyboard and audio devices onto another USB controller as they have the potential to interfere with polling consistency ([1](https://forums.blurbusters.com/viewtopic.php?f=10&t=7618#p58449)). More USB controllers may be made available by using PCIe expansion cards or external USB 2.0 and 3.0 headers on your motherboard. Always verify with [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html). Ryzen systems have a USB controller that is directly connected to the CPU ([1](https://hexus.net/tech/features/mainboard/131789-amd-ryzen-3000-supporting-x570-chipset-examined)) which can be identified under the PCIe Bus category in [HWiNFO](https://www.hwinfo.com). It is usually the USB controller that is connected to an ``Internal PCIe Bridge to bus`` which is also labelled with the CPU architecture ([example](/assets/images/ryzen-cpu-usb-controller.png)).
 
-## 7.3. Plugging In Devices
+<h2 id="plugging-in-devices">7.3. Plugging In Devices</h2>
 
 Lastly, plug the devices into the ports and USB controllers that you have decided to use. In any case, consider populating ones that are closest to the root of the USB controller's hub tree first. Additionally, I would also recommend avoiding internal hubs ([example](/assets/images/usb-hub-internal-headers.png)).
 
-# 8. Configure Peripherals
+<h1 id="configure-peripherals">8. Configure Peripherals</h1>
 
-## 8.1. Cleaning
+<h2 id="cleaning">8.1. Cleaning</h2>
 
 Carefully use an [air dust blower](https://www.amazon.com/s?k=air+dust+blower) to remove dirt and debris from the mouse sensor lens without damage.
 
-## 8.2. Onboard Memory Profiles
+<h2 id="onboard-memory-profiles">8.2. Onboard Memory Profiles</h2>
 
 Most modern peripherals support onboard memory profiles such as mice and keyboards. Configure them before configuring the OS as you will not be required to install the bloatware such as Razer Synapse to change the settings later. Details for separating bloat-free and bloated environments using a dual-boot will be discussed in later steps. Alternatively, limit the bloated software to a bootable Windows USB ([Windows To Go](https://www.youtube.com/watch?v=w34x1kBZN6c)).
 
-## 8.3. RGB Lighting Effects
+<h2 id="rgb-lighting-effects">8.3. RGB Lighting Effects</h2>
 
 USB 2/3 are limited to 0.5A/0.9A respectively ([1](https://en.wikipedia.org/wiki/USB)) and RGB requires unnecessary power. Turn off lighting effects or strip the LED from the peripheral as running an RGB effect/animation can take a great toll on the MCU and will delay other processes ([1](https://wooting.io/post/what-influences-keyboard-speed), [2](https://www.techpowerup.com/review/endgame-gear-xm1-rgb/5.html#:~:text=tracking%20quality%20takes%20a%20hit%20as%20soon%20as%20RGB%20is%20enabled), [3](https://www.techpowerup.com/review/roccat-kone-pro-air/5.html#:~:text=after%20having%20disabled%20all%20RGB%20lighting,%20these%20outliers%20disappeared%20entirely)).
 
-## 8.4. DPI
+<h2 id="dpi">8.4. DPI</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Higher sensor DPI reduces latency and helps in saturating polls with motion data ([1](https://www.youtube.com/watch?v=6AoRfv9W110), [2](https://www.youtube.com/watch?v=mwf_F2VboFQ&t=458s), [3](https://www.youtube.com/watch?v=imYBTj2RXFs&t=275s)). Avoid jitter reduction (e.g. DPI downshift) and [sensor smoothing](https://old.reddit.com/r/MouseReview/comments/5haxn4/sensor_smoothing) kicking in with higher DPI values. If your game uses raw input, you can [reduce the pointer speed](https://boringboredom.github.io/tools/winsenscalculator) in Windows to offset the sensitivity from higher DPI. Otherwise, leave the slider at the default position as input will be negatively affected due to scaling. One way to determine whether a given application is using raw input is to spy on the raw input API calls with [API Monitor](http://www.rohitab.com/apimonitor) or check whether the ``enhance pointer precision`` option has any effect in-game. If you are still unsure or have doubts, leave the slider at the default position.
 
-## 8.5. Report Rate
+<h2 id="report-rate">8.5. Report Rate</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Higher polling rates reduce jitter and latency ([1](https://www.youtube.com/watch?app=desktop&v=djCLZ6qEVuA), [2](https://www.youtube.com/watch?v=mwf_F2VboFQ&t=458s), [3](https://www.youtube.com/watch?v=mwf_F2VboFQ&t=618s)). Higher polling rates may negatively impact performance depending on your hardware and general configuration so adjust accordingly.
 
-## 8.6. Polling Stability Analysis
+<h2 id="polling-stability-analysis">8.6. Polling Stability Analysis</h2>
 
 Use [Mouse Tester](https://github.com/valleyofdoom/MouseTester) to check whether each poll contains data. As an example, if the interval is spiking to 2ms (500Hz) or higher from 1ms (1kHz), this is not the expected behavior and is problematic. This may be due to several variables such as the device itself (e.g. sensor fault), cable, power issues, hardware, operating system and more. You may need to lower or disable USB interrupt moderation using the [XHCI-IMOD-Interval.ps1](/bin/XHCI-IMOD-Interval.ps1) script if there are multiple devices generating interrupts on the same USB controller and/or the mouse interrupts are being generated at a rate greater than or equal to the default IMOD interval during the benchmark resulting in IMOD kicking in.
 
-## 8.7. Monitor
+<h2 id="monitor">8.7. Monitor</h2>
 
 Optionally reset your monitor to factory settings and reconfigure it in case anything was misconfigured initially. Overdrive/AMA reduces latency ([1](https://twitter.com/CaIypto/status/1464236780190851078)) however, it comes with the penalty of additional overshoot. Additionally, you can attempt to calibrate it. Optionally overclock your display with [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) and test for [frame skipping](https://www.testufo.com/frameskipping). Aim for an `actual` integer refresh rate such as 60.00/240.00, not 59.94/239.76.
 
 - See [Can You Calibrate a Monitor WITHOUT a Colorimeter? | techless](https://www.youtube.com/watch?v=avJTz1JhkR4)
 
-# 9. Stability, Hardware Clocking and Thermal Performance
+<h1 id="stability-hardware-clocking-and-thermal-performance">9. Stability, Hardware Clocking and Thermal Performance</h1>
 
 Ensure that all of your hardware is stable before configuring a new operating system as unstable hardware can lead to crashes, data corruption, worse performance or indirectly irreversible damage to hardware. The effectiveness of testing for instability varies between tools which is why it is important to use a range of them for a sufficient amount of time (a non-exhaustive list of recommended tools is listed below).
 
-## 9.1. Temporary Operating System
+<h2 id="temporary-operating-system">9.1. Temporary Operating System</h2>
 
 I would highly recommend configuring a temporary dual-boot with a fresh installation of Windows or a bootable Windows USB ([Windows To Go](https://www.youtube.com/watch?v=w34x1kBZN6c)) to avoid corrupting your main operating system while stress-testing and overclocking. In terms of memory stress-testing, this also allows the stress-test to use more RAM as it isn't being hogged by potential bloatware on your current installation. Safe mode can also serve as a minimal testing environment but certain software may not work.
 
-## 9.2. General Information
+<h2 id="general-information">9.2. General Information</h2>
 
 - Verify and validate changes within software to avoid unexpected results and behavior (e.g. frequency, voltages, timings)
 
-- Save a BIOS profile before each change when overclocking such as changing CPU/RAM frequency and RAM timings so that you don't lose progress if you need to clear CMOS. Refer to section [6.22. BIOS Profiles and Backups](#622-bios-profiles-and-backups) regarding restoring settings properly
+- Save a BIOS profile before each change when overclocking such as changing CPU/RAM frequency and RAM timings so that you don't lose progress if you need to clear CMOS. Refer to section [6.22. BIOS Profiles and Backups](#bios-profiles-and-backups) regarding restoring settings properly
 
 - When overclocking, you may be required to raise various power limits if the default limits are exceeded
 
@@ -472,17 +472,17 @@ I would highly recommend configuring a temporary dual-boot with a fresh installa
 
 - There are countless factors that contribute to stability such as temperature, power delivery, quality of hardware in general, silicon lottery and more
 
-## 9.3. Error Correction
+<h2 id="error-correction">9.3. Error Correction</h2>
 
 Overclocking does not necessarily mean that the system will perform better due to factors such as error correction where applicable. You should verify whether whatever you are changing scales positively by adopting a systematic benchmarking methodology.
 
-## 9.4. Thermal Management
+<h2 id="thermal-management">9.4. Thermal Management</h2>
 
 Avoid thermal throttling at all costs. As a reminder, ambient temperature will generally increase during the summer. Deliberately underclock if your cooler is inadequate. A thermally stable component with an overall lower frequency is preferable compared to thermal throttling at a higher frequency/voltage. To apply additional thermal stress when tuning any component (e.g. CPU, RAM, GPU), consider turning off case, RAM fans or reducing RPM along with generating extra heat (e.g. GPU load, room heaters) while stress-testing.
 
 - See [RAM Overclock Stability and Heat Management | buildzoid](https://www.youtube.com/watch?v=iCD0ih4qzHw)
 
-## 9.5. Load-line Calibration
+<h2 id="load-line-calibration">9.5. Load-line Calibration</h2>
 
 This is not a recommendation of what LLC mode to use and is instead, here for informative purposes.
 
@@ -490,10 +490,10 @@ This is not a recommendation of what LLC mode to use and is instead, here for in
 - See [Vdroop setting and it’s impact on CPU operation | xDevs](https://xdevs.com/guide/e399ocg/#vdroop)
 - See [Why Vdroop is good for overclocking and taking a look at Gigabyte's Override Vcore mode | buildzoid](https://www.youtube.com/watch?v=zqvNkh4TVw8)
 
-## 9.6. GPU
+<h2 id="gpu">9.6. GPU</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 When overclocking the GPU, you may be required to flash a BIOS with a higher power limit or raise them.
 
@@ -501,10 +501,10 @@ When overclocking the GPU, you may be required to flash a BIOS with a higher pow
 - See [A Slightly Better Way To Overclock and Tweak Your Nvidia GPU | Cancerogeno](https://docs.google.com/document/d/14ma-_Os3rNzio85yBemD-YSpF_1z75mZJz1UdzmW8GE/edit)
 - See [LunarPSD/NvidiaOverclocking](https://github.com/LunarPSD/NvidiaOverclocking/blob/main/Nvidia%20Overclocking.md)
 
-## 9.7. RAM/CPU
+<h2 id="ramcpu">9.7. RAM/CPU</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 - Ensure that your CPU is able to boost correctly before starting in case you have disabled options such as SpeedStep and Speed Shift which can prevent the processor from exceeding its base frequency
 
@@ -518,7 +518,7 @@ When overclocking the GPU, you may be required to flash a BIOS with a higher pow
 
 - The previous two bullet points affect each other in terms of stability which means that your RAM overclock may become unstable after tuning the CPU, so run RAM stress-tests again and adjust your CPU settings if required
 
-## 9.8. Stress-Testing Tools
+<h2 id="stress-testing-tools">9.8. Stress-Testing Tools</h2>
 
 - [StresKit]((https://github.com/valleyofdoom/StresKit)) (bootable)
 
@@ -549,13 +549,13 @@ When overclocking the GPU, you may be required to flash a BIOS with a higher pow
 
 - [memtest_vulkan](https://github.com/GpuZelenograd/memtest_vulkan)
 
-# 10. Install Windows
+<h1 id="install-windows">10. Install Windows</h1>
 
-## 10.1. Storage Partitions
+<h2 id="storage-partitions">10.1. Storage Partitions</h2>
 
 Set up a [multi-boot](https://en.wikipedia.org/wiki/Multi-booting) system to maintain separate environments for work/bloatware and gaming, ensuring the latter one remains free of bloatware. This allows you to keep the gaming partition clean and free of unnecessary software, as discussed in earlier sections. By doing so, you avoid installing bloatware on the same partition where you use real-time applications without sacrificing usability. To achieve this, shrink a volume in Disk Management ([instructions](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/shrink-a-basic-volume)) to create unallocated space for installing the new operating system.
 
-## 10.2. What Version of Windows Should You Use?
+<h2 id="what-version-of-windows-should-you-use">10.2. What Version of Windows Should You Use?</h2>
 
 - Earlier versions of Windows lack anticheat support (due to lack of security updates from end-of-life OSes), driver support (commonly GPU, NIC) and application support in general, so some users are forced to use newer builds. See the table below of the minimum version required to install drivers for given GPUs
 
@@ -593,7 +593,7 @@ Set up a [multi-boot](https://en.wikipedia.org/wiki/Multi-booting) system to mai
 
 - AllowTelemetry can be set to 0 on Windows Server editions ([1](https://admx.help/?Category=Windows_10_2016&Policy=Microsoft.Policies.DataCollection::AllowTelemetry))
 
-## 10.3. Downloading and Preparing a Stock Windows ISO
+<h2 id="downloading-and-preparing-a-stock-windows-iso">10.3. Downloading and Preparing a Stock Windows ISO</h2>
 
 In order to install Windows, an installation media must be created using an ISO file. Upon downloading ISOs, ensure to cross-check the hashes for the file with official sources to verify that it is genuine and not corrupted. Use the command ``certutil -hashfile <file>`` in CMD to obtain the hashes of the file.
 
@@ -602,7 +602,7 @@ Ensure to download an ISO that contains an edition with group policy support as 
 - Client editions: Professional
 - Server editions: Standard (Desktop Experience)
 
-## 10.4. ISO Sources
+<h2 id="iso-sources">10.4. ISO Sources</h2>
 
 - [os.click](https://os.click)
 - [New Download Links](https://docs.google.com/spreadsheets/d/1zTF5uRJKfZ3ziLxAZHh47kF85ja34_OFB5C5bVSPumk)
@@ -611,12 +611,12 @@ Ensure to download an ISO that contains an edition with group policy support as 
 - [Fido](https://github.com/pbatard/Fido)
 - [UUP dump](https://uupdump.net)
 
-## 10.5. ISO Preparation
+<h2 id="iso-preparation">10.5. ISO Preparation</h2>
 
 <details>
 <summary>Windows 7</summary>
 
-If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)) or DISM in CLI ([instructions](/docs/image-customization.md)), however NTLite is more user-friendly. Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be integrated into the ISO to even be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection issues and unusable USB input, unless you plan on installing the ISO with DISM as described in section [10.7. Booting Into the ISO](#107-booting-into-the-iso) because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try to integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
+If you are configuring Windows 7, I recommend using the ``en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/11ad6502-c2aa-261c-8c3f-c81477b21dd2?lang=en-us)). Aditionally, you won't be able to boot into the ISO on modern hardware without integrating necessary drivers and updates which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)) or DISM in CLI ([instructions](/docs/image-customization.md)), however NTLite is more user-friendly. Typically, only [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) and [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) drivers are required to be integrated into the ISO to even be able to boot into it. Ensure to integrate the drivers in Windows Setup as well otherwise you may have storage detection issues and unusable USB input, unless you plan on installing the ISO with DISM as described in section [10.7. Booting Into the ISO](#booting-into-the-iso) because it completely bypasses traditional Windows Setup and the ``boot.wim``. To find drivers that are compatible with your device, search for ones that support your device's HWID ([example](/assets/images/device-hwid-example.png)). If you are unable to find a USB driver for your HWID, try to integrate the [generic USB driver](https://forums.mydigitallife.net/threads/usb-3-xhci-driver-stack-for-windows-7.81934) and the ``KB2864202`` update. Below is a table of updates that I recommend integrating into the ISO.
 
 |Knowledge Base (KB) ID|Notes|
 |---|---|
@@ -653,16 +653,16 @@ No additional steps are required for Windows 10+ versions. The latest updates ca
 </details>
 
 > [!IMPORTANT]
-> The presence of OEMs keys can force the installation of specific editions of Windows editions (e.g. Home) which is explained in section [10.3. Downloading and Preparing a Stock Windows ISO](#103-downloading-and-preparing-a-stock-windows-iso). To circumvent this, you can either customize ``EI.cfg`` and ``PID.txt`` ([instructions](https://www.youtube.com/watch?v=R3yM3AV6q-8)) or remove every edition apart from the edition you would like to install using [NTLite](https://www.ntlite.com) or DISM in CLI ([instructions](/docs/image-customization.md)), however NTLite is more user-friendly.
+> The presence of OEMs keys can force the installation of specific editions of Windows editions (e.g. Home) which is explained in section [10.3. Downloading and Preparing a Stock Windows ISO](#downloading-and-preparing-a-stock-windows-iso). To circumvent this, you can either customize ``EI.cfg`` and ``PID.txt`` ([instructions](https://www.youtube.com/watch?v=R3yM3AV6q-8)) or remove every edition apart from the edition you would like to install using [NTLite](https://www.ntlite.com) or DISM in CLI ([instructions](/docs/image-customization.md)), however NTLite is more user-friendly.
 
-## 10.6. Fetching Required Files
+<h2 id="fetching-required-files">10.6. Fetching Required Files</h2>
 
 There are primarily two prerequisites before installing Windows. These can be done later if you are willing to fetch them from another system but I would recommend getting them now. Store these somewhere that you can access offline after installing Windows such as a USB storage device as the installation process consists of not being connected to a network in the initial steps.
 
 1. Download your NIC driver as it may not be packaged with Windows and must be installed in order to connect to a network
 2. The ``bin`` folder from this repository which can be downloaded [here](https://github.com/valleyofdoom/PC-Tuning/archive/refs/heads/main.zip)
 
-## 10.7. Booting Into the ISO
+<h2 id="booting-into-the-iso">10.7. Booting Into the ISO</h2>
 
 This section covers booting into the ISO retrieved and prepared in the previous section. For the next steps, you are required to disconnect the Ethernet cable and not be connected to the internet during the installation process. This will allow us to bypass the forced Microsoft login during OOBE, allowing us to use Windows with a local account along with preventing installation of unwanted updates and drivers. There are two options when it comes to installing Windows, installing using USB storage or using DISM (without USB storage). Either option can be used. The latter option requires dual-booting.
 
@@ -717,9 +717,9 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 </details>
 
-# 11. Configure Windows
+<h1 id="configure-windows">11. Configure Windows</h1>
 
-## 11.1 OOBE Setup
+<h2 id="oobe-setup">11.1 OOBE Setup</h2>
 
 - Windows Server may force you to enter a password which can be optionally be removed in later steps
 
@@ -729,7 +729,7 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 - See [assets/videos/oobe-windows8-example.mp4](/assets/videos/oobe-windows8-example.mp4)
 - See [assets/videos/oobe-windows10+-example.mp4](/assets/videos/oobe-windows10+-example.mp4)
 
-## 11.2. Unrestricted PowerShell Execution Policy
+<h2 id="unrestricted-powershell-execution-policy">11.2. Unrestricted PowerShell Execution Policy</h2>
 
 > [!WARNING]
 > 🔒 Setting the PowerShell Execution Policy to Unrestricted may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting. Alternatively, ``-ExecutionPolicy Bypass`` can be used when starting a PowerShell instance instead of configuring it globally.
@@ -740,28 +740,28 @@ This is required to execute the scripts within the repository. Open PowerShell a
 Set-ExecutionPolicy Unrestricted
 ```
 
-## 11.3. Importing ``bin`` Folder
+<h2 id="importing-bin-folder">11.3. Importing ``bin`` Folder</h2>
 
-Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in section [10.6. Fetching Required Files](#106-fetching-required-files). If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
+Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in section [10.6. Fetching Required Files](#fetching-required-files). If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
 
-## 11.4. Process Mitigations (Windows 10 1709+)
+<h2 id="process-mitigations-windows-10-1709">11.4. Process Mitigations (Windows 10 1709+)</h2>
 
 > [!WARNING]
 > 🔒 Disabling process mitigations may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 There are several OS-level mitigations ([1](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps#-disable)) that are enabled by default and may impact performance. If desired, these can be disabled in Windows Defender's "Exploit Protection" page. It should be apparent that disabling mitigations reduces security. This step is carried out now as if you choose to disable Windows Defender in the next steps, the interface will no longer be accessible however they can be toggled using the [Get-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/get-processmitigation?view=windowsserver2022-ps) and [Set-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps) commands in PowerShell. Some programs may require mitigations to be enabled and will break if they are disabled so proceed with caution.
 
-## 11.5. Merging Registry Options
+<h2 id="merging-registry-options">11.5. Merging Registry Options</h2>
 
 > [!WARNING]
 > 🔒 Some changes outlined in the table below may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied, there are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
 
-### 11.5.1. Registry Options Documentation
+<h3 id="registry-options-documentation">11.5.1. Registry Options Documentation</h3>
 
 > [!IMPORTANT]
 > As of now, the script does not revert options if re-run. For example, if the script was run with an option set to ``true``, then running the script with a given option set to ``false`` will not revert the changed made as the script is unaware of the previous state of the registry keys associated with the option. This functionality may be implemented in the future but for now, use the ``-get_option_keys <option>`` argument with the script to get all relevant keys for a given option so that you can revert them manually.
@@ -770,7 +770,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |---|---|---|---|
 |``disable windows update``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|🔒 A value of ``true`` may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting<br><br>Disabling Windows Update is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Alternatively automatic updates can be disabled instead of disabling Windows Update completely which achieves the same effect in terms of reducing CPU overhead but still being able to update Windows by configuring ``disable windows update`` to ``false`` and ``disable automatic windows updates`` to ``true``. The Windows Update processes are known to use a lot of CPU and memory resources. Disabling Windows Update breaks the Microsoft Store however you can download and install Appx packages directly ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store))|``false``|
 |``disable automatic windows updates``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|🔒 A value of ``true`` may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting<br><br>Prevents automatic download and installation of Windows updates rather than disabling Windows Update completely and instead, check for updates manually from time to time. Updates can occur at inconvenient times which leads to excessive CPU and memory usage at random intervals along with disrupting shutdowns in certain cases. This option is overridden if ``disable windows update`` is set to ``true``. <br><br>This option does not affect upgrades which can be controlled using group policies ([instructions](https://www.tenforums.com/tutorials/159624-how-specify-target-feature-update-version-windows-10-a.html)). However, you are limited to preventing upgrades until the specified version reaches end-of-life|``true``|
-|``disable driver installation via windows update``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|Prevents outdated, vulnerable and potentially poorly performing drivers from being installed via Windows Update. It is recommended to manually install only the bare minimum version of the ones that your system requires (as the full installer often installs other bloatware that persistently runs in the background) along with the latest version directly from the manufacture's website as outlined in section [11.6. Installing Drivers](#116-installing-drivers). This option is overridden if ``disable windows update`` is set to ``true``|``true``|
+|``disable driver installation via windows update``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|Prevents outdated, vulnerable and potentially poorly performing drivers from being installed via Windows Update. It is recommended to manually install only the bare minimum version of the ones that your system requires (as the full installer often installs other bloatware that persistently runs in the background) along with the latest version directly from the manufacture's website as outlined in section [11.6. Installing Drivers](#installing-drivers). This option is overridden if ``disable windows update`` is set to ``true``|``true``|
 |``disable automatic store app updates``|1. Reducing CPU overhead<br><br>2. Gaining finer control over the feature in question|🔒 A value of ``true`` may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting<br><br>Prevents automatic download and installation of store application updates compared to disabling app updates completely which is not desirable in terms of reducing CPU overhead. Instead, check for application updates manually from time to time|``true``|
 |``disable windows defender``|1. Reducing CPU overhead<br><br>2. Prevents issues with the CPU entering C-State 0 ([1](https://www.techpowerup.com/295877/windows-defender-can-significantly-impact-intel-cpu-performance-we-have-the-fix))|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>This option completely disables Windows Defender. Instead, run system scans frequently, use a hardened browser with [uBlock Origin](https://ublockorigin.com), keep UAC enabled and favor free, open source and reputable software. Stay away from proprietary software where you can and ensure to scan files and executables with [VirusTotal](https://www.virustotal.com/gui/home/upload) before opening them|``true``|
 |``disable gamebarpresencewriter``|1. Reducing CPU overhead|Process runs constantly in the background and is not required for Game Mode or Game Bar to function from my testing|``true``|
@@ -781,7 +781,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable malicious software removal tool updates``|1. Gaining finer control over the feature in question|🔒 A value of ``true`` may negatively impact security. Users should assess the security risk involved with modifying the mentioned setting<br><br>Prevent Windows offering Malicious Software Removal Tool through Windows Update|``true``|
 |``disable sticky keys``|1. Reducing or disabling intrusive features|Disables the *Do you want to turn on Sticky Keys?* promt when the hotkey is pressed a certain number of times. This is severely intrusive in applications that utilize the ``Shift`` key for controls such as games|``true``|
 |``disable pointer acceleration``|1. Reducing or disabling intrusive features|Ensures one-to-one mouse response for games that do not subscribe to raw input events and on Desktop|``true``|
-|``disable fast startup``|1. Reducing or disabling intrusive features|Interferes with shutting down in the sense that the system does not enter S5 which can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)). See section [6.16. Fast Startup, Standby and Hibernate](#616-fast-startup-standby-and-hibernate) for related information. It is possible to shut down  properly without disabling Fast Startup by holding ``Shift`` while clicking ``Shut down`` in the start menu. However, the downside to this is that you may forget to hold the ``Shift`` key|``true``|
+|``disable fast startup``|1. Reducing or disabling intrusive features|Interferes with shutting down in the sense that the system does not enter S5 which can lead to unexpected issues ([explanation](https://www.youtube.com/watch?v=OBGxt8zhbRk)). See section [6.16. Fast Startup, Standby and Hibernate](#fast-startup-standby-and-hibernate) for related information. It is possible to shut down  properly without disabling Fast Startup by holding ``Shift`` while clicking ``Shut down`` in the start menu. However, the downside to this is that you may forget to hold the ``Shift`` key|``true``|
 |``disable customer experience improvement program``|1. Mitigating telemetry and phoning home ([1](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj618322(v=ws.11)))|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable windows error reporting``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable clipboard history``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
@@ -807,7 +807,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable computer is out of support message``|1. Reducing or disabling intrusive features|Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
 |``disable fault tolerant heap``|1. Gaining finer control over the feature in question|Prevents Windows autonomously applying mitigations to prevent future crashes on a per-application basis ([1](https://learn.microsoft.com/en-us/windows/win32/win7appqual/fault-tolerant-heap)) which can lead to issues ([1](https://www.mak.com/mak-one/support/help/knowledge/performance-issues-caused-by-the-fault-tolerant-heap-windows))|``true``|
 
-### 11.5.2. Applying Options
+<h3 id="applying-options">11.5.2. Applying Options</h3>
 
 - Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender . If that doesn't work, reboot then re-execute the command again. If none of the previous workarounds worked, then try run the command in safe-mode. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
 
@@ -822,16 +822,16 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 > [!NOTE]
 > To the maintainers and contributors, the features and options should be tested as listed in the table above. It is inevitable that more steps are required to achieve the same goal with operating system updates and upgrades over time (e.g. manual maintenance of a list of services relating to disabling Windows Defender).
 
-## 11.6. Installing Drivers
+<h2 id="installing-drivers">11.6. Installing Drivers</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-- I would advise against installing drivers via Windows Update as they can be outdated compared to the ones provided by the vendor. Driver updates via Windows Update should be blocked if ``disable driver installation via windows update`` was disabled in section [11.5. Merging Registry Options](#115-merging-registry-options)
+- I would advise against installing drivers via Windows Update as they can be outdated compared to the ones provided by the vendor. Driver updates via Windows Update should be blocked if ``disable driver installation via windows update`` was disabled in section [11.5. Merging Registry Options](#merging-registry-options)
 
 - See [Chipset Device "Drivers" (= INF files) | Fernando](https://winraid.level1techs.com/t/intel-chipset-device-drivers-inf-files/30920)
 
-- GPU drivers will be installed in section [11.24. Graphics Driver](#1124-graphics-driver) so do not install them at this stage
+- GPU drivers will be installed in section [11.24. Graphics Driver](#graphics-driver) so do not install them at this stage
 
 - You can find drivers by searching for drivers that are compatible with your device's HWID. See [media/device-hwid-example.png](/assets/images/find-driver-key-example.png) in regard to finding your HWID in Device Manager for a given device
 
@@ -841,13 +841,13 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
   - Network Interface Controller. If you do not have internet access at this stage, you will need to download your NIC driver from another device or dual-boot as they may not be packaged at all with Windows
 
-  - [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) and [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (if you are configuring Windows 7, both may have already been integrated in section [10.3. Downloading and Preparing a Stock Windows ISO](#103-downloading-and-preparing-a-stock-windows-iso))
+  - [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) and [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (if you are configuring Windows 7, both may have already been integrated in section [10.3. Downloading and Preparing a Stock Windows ISO](#downloading-and-preparing-a-stock-windows-iso))
 
   - [SATA](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (required on Windows 7 as the stock driver does not support Message Signaled Interrupts)
 
 - Other required drivers can be installed with [Snappy Driver Installer Origin](https://www.snappy-driver-installer.org)
 
-## 11.7. Windows Server Specific Options (Windows Server)
+<h2 id="windows-server-specific-options-windows-server">11.7. Windows Server Specific Options (Windows Server)</h2>
 
 - To enable Wi-Fi, navigate to ``Manage -> Add Roles and Features`` in the Server Manager dashboard and enable ``Wireless LAN Service``
 
@@ -863,13 +863,13 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
 
-## 11.8. Privacy Options (Windows 8+)
+<h2 id="privacy-options-windows-8">11.8. Privacy Options (Windows 8+)</h2>
 
 Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``.
 
-## 11.9. Search Indexing
+<h2 id="search-indexing">11.9. Search Indexing</h2>
 
-Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using Process Explorer as described in section [11.30. Process Explorer](#1130-process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
+Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using Process Explorer as described in section [11.30. Process Explorer](#process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
 
   ```bat
   reg add "HKLM\SYSTEM\CurrentControlSet\Services\WSearch" /v "Start" /t REG_DWORD /d "4" /f
@@ -878,7 +878,7 @@ Certain directories on the file system are indexed for search features in Window
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-## 11.10. Time, Language and Region
+<h2 id="time-language-and-region">11.10. Time, Language and Region</h2>
 
 - Configure settings by typing ``intl.cpl`` and ``timedate.cpl`` in ``Win+R``
 
@@ -890,7 +890,7 @@ Certain directories on the file system are indexed for search features in Window
 
 - Ensure that the system time is synced and is correct
 
-## 11.11. Web Browser
+<h2 id="web-browser">11.11. Web Browser</h2>
 
 Configure a browser of your choice.
 
@@ -898,11 +898,11 @@ Configure a browser of your choice.
 
 - See [Desktop Browsers | Privacy Guides](https://www.privacyguides.org/en/desktop-browsers)
 
-## 11.12. Scheduled Tasks
+<h2 id="scheduled-tasks">11.12. Scheduled Tasks</h2>
 
 There are a handful of scheduled tasks that ship with Windows which can be assessed using [TaskSchedulerView](https://www.nirsoft.net/utils/task_scheduler_view.html). Assessing them can help in having finer control as to what runs on your system silently whether it be updates-related, telemetry-related, defender-related and more. Consider the ``Last Run``, ``Next Run`` and ``Triggers`` column to evaluate whether there is any point disabling the task in question.
 
-## 11.13. Activate Windows
+<h2 id="activate-windows">11.13. Activate Windows</h2>
 
 Use the commands below to activate Windows using your license key if you do not have one linked to your HWID. Ensure that the activation process was successful by verifying the activation status in computer properties. Open CMD as administrator and enter the commands below.
 
@@ -914,15 +914,15 @@ slmgr /ipk <license key>
 slmgr /ato
 ```
 
-## 11.14. Declutter Interface
+<h2 id="declutter-interface">11.14. Declutter Interface</h2>
 
 Disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu. This is obviously personal preference.
 
-## 11.15. Visual Effects
+<h2 id="visual-effects">11.15. Visual Effects</h2>
 
 Visual effects options can be accessed by typing ``sysdm.cpl`` in ``Win+R``. This menu provides the ability to disable interface animations which contributes to perceived responsiveness when generally interacting with Windows. On Windows 7, desktop composition could natively be disabled here, but the option is no longer available in Windows 8+. The rest of the options are personal preference.
 
-## 11.16. Superfetch and Prefetch
+<h2 id="superfetch-and-prefetch">11.16. Superfetch and Prefetch</h2>
 
 If a HDD isn't present in the system then Superfetch and Prefetch can be disabled with the command below in CMD. Disabling SysMain is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)) and the ``C:\Windows\Prefetch`` folder should no longer be populated.
 
@@ -933,7 +933,7 @@ If a HDD isn't present in the system then Superfetch and Prefetch can be disable
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This is shown in the ``Properties -> Dependencies`` for the service you want to disable by typing ``services.msc`` in ``Win+R``. The box that is titled "*the following system components depend on this service*" describes the services that rely on the service you want to disable. To avoid dependency errors, the services in this box should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-## 11.17. Operating System and Partition Name
+<h2 id="operating-system-and-partition-name">11.17. Operating System and Partition Name</h2>
 
 Configure the operating system and drive's partition name. It is recommended to set it to something meaningful or unique such has ``W10 22H2 Work`` or ``W10 22H2 Gaming`` for clarity when dual-booting or when multiple drives are present. Open CMD as administrator and enter the commands below.
 
@@ -945,11 +945,11 @@ Configure the operating system and drive's partition name. It is recommended to 
   label C: "OS_NAME"
   ```
 
-## 11.18. Show Tray Icons
+<h2 id="show-tray-icons">11.18. Show Tray Icons</h2>
 
 I would recommend enabling the ``Always show all icons in the notification area`` for better process management. Hiding icons in the tray area can partially be considered a security risk since you won't be aware of potentially malicious or unwanted programs running silently.
 
-## 11.19. Hibernation
+<h2 id="hibernation">11.19. Hibernation</h2>
 
 Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hiberfil.sys``.  It is recommended to shut down instead of saving software state to disk. Open CMD as administrator and enter the command below.
 
@@ -957,7 +957,7 @@ Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hi
 powercfg /h off
 ```
 
-## 11.20. Runtimes
+<h2 id="runtimes">11.20. Runtimes</h2>
 
 These are runtimes are common dependencies including a magnitude of applications. Typically, application installers automatically install its dependencies but this can't be said for some standalone applications.
 
@@ -967,12 +967,12 @@ These are runtimes are common dependencies including a magnitude of applications
 - [WebView](https://developer.microsoft.com/en-us/microsoft-edge/webview2)
 - [DirectX](https://www.microsoft.com/en-gb/download/details.aspx?id=8109) (game launchers typically install this silently)
 
-## 11.21. Handling Bloatware
+<h2 id="handling-bloatware">11.21. Handling Bloatware</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, setup Process Explorer as described in [11.30. Process Explorer](#1130-process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
+I heavily discourage running debloating scripts or removing components other than actual bloatware such as Candy Crush or whatever may be packaged with Windows these days to avoid breaking your operating system. It can be argued that removing these applications have no performance benefit if they don't actively run in the background which can be assessed in Task Manager. To adopt the approach of only removing or disabling what actively runs in the background, setup Process Explorer as described in [11.30. Process Explorer](#process-explorer) and sort processes by either ``Context Switch Delta`` or ``Cycles Delta`` to assess what can be removed. The update speed can be changed in ``View -> Update Speed`` depending on your tolerance.
 
 - [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager) can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store)). If for whatever reason you removed the Microsoft Store, it can be restored with ``wsreset -i``
 
@@ -1010,7 +1010,7 @@ I heavily discourage running debloating scripts or removing components other tha
   - Uninstall bloatware in the applications section in the immersive control panel by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
   - In the ``Optional features`` section within the immersive control panel, you can uninstall everything that you don't need if desired
 
-- If Windows Defender was disabled in section [11.5. Merging Registry Options](#115-merging-registry-options), ``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
+- If Windows Defender was disabled in section [11.5. Merging Registry Options](#merging-registry-options), ``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
 
     ```bat
     taskkill /f /im smartscreen.exe > nul 2>&1 & ren C:\Windows\System32\smartscreen.exe smartscreen.exee
@@ -1018,11 +1018,11 @@ I heavily discourage running debloating scripts or removing components other tha
 
 - You can use Task Manager to check for residual bloatware that is running in the background
 
-## 11.22. Optional Features
+<h2 id="optional-features">11.22. Optional Features</h2>
 
 Optional features can be accessed by typing ``OptionalFeatures`` in ``Win+R``. Enable/disable features that you do/don't need. If Windows Update is disabled then you likely won't be able to install features and instead, must install an offline package using DISM. On Windows Server, this can be accessed via the Server Manager dashboard by navigating to ``Manage -> Remove Roles and Features``.
 
-### 11.22.1. NET 3.5
+<h3 id="net-35">11.22.1. NET 3.5</h3>
 
 Some applications still utilize the NET 3.5 runtime so I would recommend installing it just in case. As mentioned previously, you won't be able to install it in the Optional Features window if Windows Update is disabled but can instead, be installed using an offline package.
 
@@ -1032,16 +1032,16 @@ For using the offline package, download and extract a Windows ISO (e.g. ``C:\EXT
 DISM /Online /Enable-Feature /FeatureName:NetFx3 /LimitAccess /Source:"C:\EXTRACTED_ISO\sources\sxs"
 ```
 
-## 11.23. 7-Zip
+<h2 id="7-zip">11.23. 7-Zip</h2>
 
 Download and install [7-Zip](https://www.7-zip.org). Open ``C:\Program Files\7-Zip\7zFM.exe`` then navigate ``Tools -> Options`` and associate 7-Zip with all file extensions by clicking the ``+`` button. You may need to click it twice to override existing associated extensions.
 
-## 11.24. Graphics Driver
+<h2 id="graphics-driver">11.24. Graphics Driver</h2>
 
 - See [docs/configure-nvidia.md](/docs/configure-nvidia.md)
 - See [docs/configure-amd.md](/docs/configure-amd.md)
 
-## 11.25. MSI Afterburner
+<h2 id="msi-afterburner">11.25. MSI Afterburner</h2>
 
 If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards), download and install it now.
 
@@ -1053,10 +1053,10 @@ If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-ca
     "C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe" /Profile1 /Q
     ```
 
-## 11.26. Display Resolutions and Scaling Modes
+<h2 id="display-resolutions-and-scaling-modes">11.26. Display Resolutions and Scaling Modes</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 You may have optionally found a stable overclock for your display in earlier sections using [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) which you can dial in now.
 
@@ -1074,7 +1074,7 @@ You may have optionally found a stable overclock for your display in earlier sec
 
 - Ensure your resolution is configured properly by typing ``rundll32.exe display.dll,ShowAdapterSettings`` in ``Win+R``
 
-## 11.27. Open-Shell (Windows 8+)
+<h2 id="open-shell-windows-8">11.27. Open-Shell (Windows 8+)</h2>
 
 Open-Shell is a FOSS alternative to the Windows Start Menu.
 
@@ -1090,13 +1090,13 @@ Open-Shell is a FOSS alternative to the Windows Start Menu.
 
   - Open ``"C:\Program Files\Open-Shell\Start Menu Settings.lnk"``, enable ``Show all settings`` then navigate to the Windows 8 Settings section and set ``Disable active corners`` to ``All``
 
-## 11.28. Spectre, Meltdown and CPU Microcode
+<h2 id="spectre-meltdown-and-cpu-microcode">11.28. Spectre, Meltdown and CPU Microcode</h2>
 
 > [!WARNING]
 > 🔒 Disabling Spectre and Meltdown may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Disabling Spectre and Meltdown is an age-old performance trick familiar amongst many individuals however with newer platforms and system architecture, there may be a performance regression ([1](https://www.phoronix.com/review/amd-zen4-spectrev2)). For this reason, extensive tests should be carried out to determine how performance is impacted and whether performance scales positively, negatively or not at all. Its state can be manipulated with the [InSpectre](https://www.grc.com/inspectre.htm) tool and/or by renaming the microcode DLLs within the OS depending on whether there is a microcode revision mismatch between the OS and BIOS ([1](https://superuser.com/a/895447), [2](https://support.mozilla.org/en-US/kb/microcode-update)).
 
@@ -1104,14 +1104,14 @@ Meltdown does not affect the AMD architecture ([1](https://www.theverge.com/2018
 
 Use [InSpectre](https://www.grc.com/inspectre.htm) and [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature to check the status or version before and after a reboot to verify expected behavior.
 
-## 11.29. Power Options
+<h2 id="power-options">11.29. Power Options</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 To be completed.
 
-## 11.30. Process Explorer
+<h2 id="process-explorer">11.30. Process Explorer</h2>
 
 Task Manager lacks several useful metrics compared to a tool such as Process Explorer. On Windows 8+, Task Manager reports CPU utility in % which provides misleading CPU utilization details ([1](https://aaron-margosis.medium.com/task-managers-cpu-numbers-are-all-but-meaningless-2d165b421e43)). On the other hand, Windows 7's Task Manager and Process Explorer report time-based busy utilization. This also explains as to why disabling idle states within the OS results in 100% CPU utilization in Task Manager.
 
@@ -1141,10 +1141,10 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
   - Enable the ``VirusTotal`` column
 
-## 11.31. Memory Management Settings (Windows 8+)
+<h2 id="memory-management-settings-windows-8">11.31. Memory Management Settings (Windows 8+)</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 - Open PowerShell and enter the command below to review memory management options
 
@@ -1152,13 +1152,13 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
     Get-MMAgent
     ```
 
-- Optionally use the command below as an example to disable a given setting. If you left Superfetch and Prefetch enabled in section [11.16. Superfetch and Prefetch](#1116-superfetch-and-prefetch), then you likely want the prefetching related features enabled
+- Optionally use the command below as an example to disable a given setting. If you left Superfetch and Prefetch enabled in section [11.16. Superfetch and Prefetch](#superfetch-and-prefetch), then you likely want the prefetching related features enabled
 
     ```powershell
     Disable-MMAgent -MemoryCompression
     ```
 
-## 11.32. Network Adapter Options
+<h2 id="network-adapter-options">11.32. Network Adapter Options</h2>
 
 - Open ``Network Connections`` by typing ``ncpa.cpl`` in ``Win+R``
 
@@ -1170,7 +1170,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
   - See [DNS Resolvers - Recommended Providers | Privacy Guides](https://www.privacyguides.org/en/dns)
 
-## 11.33. Audio Devices
+<h2 id="audio-devices">11.33. Audio Devices</h2>
 
 - The sound control panel can be opened by typing ``mmsys.cpl`` in ``Win+R``
 
@@ -1182,7 +1182,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
 - Minimize the size of the audio buffer with [LowAudioLatency](https://github.com/spddl/LowAudioLatency) or on your DAC ([1](https://www.youtube.com/watch?v=JTuZvRF-OgE&t=464s)). Beware of audio dropouts due to the CPU not being able to keep up under load
 
-## 11.34. Device Manager
+<h2 id="device-manager">11.34. Device Manager</h2>
 
 - Open Device Manager by typing ``devmgmt.msc`` in ``Win+R``
 
@@ -1203,7 +1203,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
 - Optionally use [DeviceCleanup](https://www.uwe-sieber.de/files/DeviceCleanup.zip) to remove hidden devices
 
-## 11.35. Device Power-Saving
+<h2 id="device-power-saving">11.35. Device Power-Saving</h2>
 
 Open PowerShell and enter the command below to disable the ``Allow the computer to turn off this device to save power`` option for all applicable devices in Device Manager.
 
@@ -1213,7 +1213,7 @@ Re-plugging devices may cause this option to re-enable so either avoid doing so,
 Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }
 ```
 
-## 11.36. Event Trace Sessions (ETS)
+<h2 id="event-trace-sessions-ets">11.36. Event Trace Sessions (ETS)</h2>
 
 This section outlines instructions to mass-toggle Event Trace Sessions which can be viewed by typing ``perfmon`` in ``Win+R`` then navigating to ``Data Collector Sets -> Event Trace Sessions``. Programs that rely on event tracers will not be able to log data until the required sessions are restored (e.g. Windows Event Logging) which is the purpose of creating two registry files to toggle between them. Open CMD as administrator and enter the commands below to build the registry files in the ``C:\`` directory. These registry files must be run with Trusted Installer (use [NSudo](https://github.com/M2TeamArchived/NSudo/releases/latest)) to prevent permission errors.
 
@@ -1235,7 +1235,7 @@ This section outlines instructions to mass-toggle Event Trace Sessions which can
     for %a in ("SleepStudy" "Kernel-Processor-Power" "UserModePowerService") do (wevtutil sl Microsoft-Windows-%~a/Diagnostic /e:false)
     ```
 
-## 11.37. File System
+<h2 id="file-system">11.37. File System</h2>
 
 Open CMD as administrator and enter the commands below.
 
@@ -1255,10 +1255,10 @@ Open CMD as administrator and enter the commands below.
     fsutil behavior set disablelastaccess 1
     ```
 
-## 11.38. Message Signaled Interrupts
+<h2 id="message-signaled-interrupts">11.38. Message Signaled Interrupts</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Message signaled interrupts (MSIs) are faster than traditional line-based interrupts and may also resolve the issue of shared interrupts which are often the cause of high interrupt latency and stability ([1](https://repo.zenk-security.com/Linux%20et%20systemes%20d.exploitations/Windows%20Internals%20Part%201_6th%20Edition.pdf)).
 
@@ -1266,7 +1266,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
 
 - MSIs can be enabled on devices that support it. It is worth noting that it may be in the developer's intention to not enable MSIs in the driver INF file hence MSIs will be disabled by default once the driver is installed. Namely, NVIDIA seems to selectively enable MSIs depending on the GPU architecture ([1](https://www.nvidia.com/en-us/geforce/forums/game-ready-drivers/13/528356)). Exercise with due care and carry out tests to determine whether changes result in positive performance scaling
 
-  - You will BSOD if you enable MSIs for the stock Windows 7 SATA driver which you should have already updated as mentioned in section [11.6. Installing Drivers](#116-installing-drivers)
+  - You will BSOD if you enable MSIs for the stock Windows 7 SATA driver which you should have already updated as mentioned in section [11.6. Installing Drivers](#installing-drivers)
 
 - To verify whether a device is utilizing MSIs, restart your PC and check whether the given device has a negative IRQ in MSI Utility
 
@@ -1281,7 +1281,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This can be achieved by pressing ``Ctrl+F`` and searching for the service that you want to disable in the ``Dependencies`` column which will tell you whether any services depend on the one you want to disable (the one you are searching for). These services should also be disabled. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-## 11.39. XHCI Interrupt Moderation (IMOD)
+<h2 id="xhci-interrupt-moderation-imod">11.39. XHCI Interrupt Moderation (IMOD)</h2>
 
 On most systems, Windows 7 uses an IMOD interval of 1ms whereas recent versions of Windows use 0.05ms (50us) unless specified by the installed USB driver. This means that after an interrupt has been generated, the XHCI controller waits (buffer period) for the specified interval for more data to arrive before generating another interrupt which reduces CPU utilization but potentially results in data from a given device being supplied at an inconsistent rate in the event of expecting data from other devices within the buffer period that are connected to the same XHCI controller.
 
@@ -1305,29 +1305,29 @@ As an example, 1ms IMOD interval with an 8kHz mouse is already problematic becau
 
 - To determine whether changing the IMOD interval is taking effect, you can temporarily set the interval to ``0xFA00`` (62.5Hz). If the mouse cursor is visibly stuttering upon movement, then the changes are successfully taking effect
 
-## 11.40. Control Panel
+<h2 id="control-panel">11.40. Control Panel</h2>
 
 It isn't a bad idea to skim through both the legacy and immersive control panel to ensure nothing is misconfigured.
 
-## 11.41. Configuring Applications
+<h2 id="configuring-applications">11.41. Configuring Applications</h2>
 
 - Install any programs and applications that you use (including games) to prepare us for the next steps
 
 - If applicable, favor portable editions of programs as installers tend to leave bloatware behind even after uninstalling them however, this can be circumvented by using programs such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 
-### 11.41.1. NVIDIA Reflex
+<h3 id="nvidia-reflex">11.41.1. NVIDIA Reflex</h3>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 [NVIDIA Reflex](https://www.nvidia.com/en-us/geforce/news/reflex-low-latency-platform) minimizes queued frames in the GPU render queue by dynamically adjusting the framerate in GPU-intensive gaming scenarios and can be enabled in-game if the developer has added support for it. Although this minimizes latency, it acts as a dynamic framerate limiter and can result in minor stuttering or frametime variance. For this reason, I would recommend extensively benchmarking this rather than blindly enabling it in your chosen games.
 
 - See [NVIDIA Reflex Low Latency - How It Works & Why You Want To Use It | Battle(non)sense](https://www.youtube.com/watch?v=QzmoLJwS6eQ)
 
-### 11.41.2. Framerate Limit
+<h3 id="framerate-limit">11.41.2. Framerate Limit</h3>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 - If you cap your framerate, ensure to set it at a multiple of your monitor refresh rate ([calculator](https://boringboredom.github.io/tools/fpscapcalculator)) to prevent frame mistiming and a rolling tearline ([1](https://www.youtube.com/watch?v=_73gFgNrYVQ), [2](https://github.com/BoringBoredom/PC-Optimization-Hub/blob/main/content/peripherals/mistiming/mistiming.md)). Reducing your refresh rate to avoid mismatching is also applicable ([instructions](https://forums.blurbusters.com/viewtopic.php?t=8946)). Other options include Variable Refresh Rate
 
@@ -1335,10 +1335,10 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 - Capping your framerate with [RTSS](https://www.guru3d.com/files-details/rtss-rivatuner-statistics-server-download.html) instead of the in-game limiter will result in consistent frame pacing and a smoother experience as it utilizes busy-wait which offers higher precision than 100% passive-waiting but at the cost of noticeably higher latency and potentially greater CPU overhead ([1](https://www.youtube.com/watch?t=377&v=T2ENf9cigSk), [2](https://en.wikipedia.org/wiki/Busy_waiting)). Disabling the ``Enable dedicated encoder server service`` setting prevents ``EncoderServer.exe`` from running
 
-### 11.41.3. Presentation Mode
+<h3 id="presentation-mode">11.41.3. Presentation Mode</h3>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 This is not a recommendation of what presentation mode to use and is instead, here for informative purposes.
 
@@ -1366,17 +1366,17 @@ This is not a recommendation of what presentation mode to use and is instead, he
     reg add "HKLM\SOFTWARE\Microsoft\Windows\Dwm" /v "OverlayTestMode" /t REG_DWORD /d "5" /f
     ```
 
-### 11.41.4. Game Mode
+<h3 id="game-mode">11.41.4. Game Mode</h3>
 
 Ensure that Xbox Game Bar acknowledges that the game that you are running or have installed. If not, open Game Bar by pressing ``Win+G`` and enabling ``Remember this is a game`` while it is open. This also ensures that Game Mode functions properly.
 
-### 11.41.5. Media Player
+<h3 id="media-player">11.41.5. Media Player</h3>
 
 - [mpv](https://mpv.io) or [mpv.net](https://github.com/stax76/mpv.net)
 - [mpc-hc](https://mpc-hc.org) ([updated fork](https://github.com/clsid2/mpc-hc))
 - [VLC](https://www.videolan.org)
 
-### 11.41.6. QoS Policies
+<h3 id="qos-policies">11.41.6. QoS Policies</h3>
 
 QoS DSCP policies allow Windows to prioritize packets of an application.
 
@@ -1388,10 +1388,10 @@ QoS DSCP policies allow Windows to prioritize packets of an application.
 
 - See [How Can You Verify Whether a DSCP QoS Policy Is Working?](/docs/research.md#2-how-can-you-verify-whether-a-dscp-qos-policy-is-working)
 
-## 11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)
+<h2 id="kernel-mode-scheduling-interrupts-dpcs-and-more">11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Windows schedules interrupts and DPCs on CPU 0 for several kernel-mode modules by default. In any case, scheduling many tasks on a single CPU can introduce additional overhead and increased jitter due to them competing for CPU time. To alleviate this, affinities can be configured to isolate given modules from disturbances including servicing time-sensitive modules on underutilized CPUs instead of clumping everything on a single CPU.
 
@@ -1405,15 +1405,15 @@ Windows schedules interrupts and DPCs on CPU 0 for several kernel-mode modules b
 
 - Use [Microsoft Interrupt Affinity Tool](https://www.techpowerup.com/download/microsoft-interrupt-affinity-tool) or [GoInterruptPolicy](https://github.com/spddl/GoInterruptPolicy) to configure driver affinities. The device can be identified by cross-checking the ``Location`` in the ``Properties -> General`` section of a device in Device Manager
 
-### 11.42.1. GPU and DirectX Graphics Kernel
+<h3 id="gpu-and-directx-graphics-kernel">11.42.1. GPU and DirectX Graphics Kernel</h3>
 
 [AutoGpuAffinity](https://github.com/valleyofdoom/AutoGpuAffinity) can be used to benchmark the most performant CPUs that the GPU-related modules are assigned to. Configure the ``custom_cpus`` option in the config file if applicable. This option is useful for selecting a certain set of cores to benchmark such as P-Cores or a specific CCX/CCD.
 
-### 11.42.2. XHCI and Audio Controller
+<h3 id="xhci-and-audio-controller">11.42.2. XHCI and Audio Controller</h3>
 
 The XHCI and audio controller related modules generate a substantial amount of interrupts upon interaction respective of the relevant device. Isolating the related modules to an underutilized CPU is beneficial for reducing contention.
 
-### 11.42.3. Network Interface Card
+<h3 id="network-interface-card">11.42.3. Network Interface Card</h3>
 
 The NIC must support MSI-X for Receive Side Scaling to function properly ([1](https://old.reddit.com/r/intel/comments/9uc03d/the_i219v_nic_on_your_new_z390_motherboard_and)). In most cases, RSS base CPU is enough to migrate DPCs and ISRs for the NIC driver which eliminates the need for an interrupt affinity policy. However, if you are having trouble migrating either to other CPUs, try configuring both.
 
@@ -1429,10 +1429,10 @@ The command below can be used to configure RSS base CPU. Ensure to change the dr
 
 - If RSS is not functioning as expected, see [this](https://github.com/djdallmann/GamingPCSetup/blob/master/CONTENT/RESEARCH/NETWORK/README.md#q-my-onboard-network-adapter-i225-v-supports-rss-msi-and-msi-x-but-why-is-my-indirection-table-missing-that-gives-proper-support-for-rss-in-microsoft-windows) for a potential workaround
 
-## 11.43. User-Mode Scheduling (Processes, Threads)
+<h2 id="user-mode-scheduling-processes-threads">11.43. User-Mode Scheduling (Processes, Threads)</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 There are several methods to set affinities for processes. One of which is Task Manager but only persists until the process is closed. A more popular and permanent solution is [Process Lasso](https://bitsum.com) which allows the configuration to be saved however, a process must run continually in the background which introduces minor overhead. To work around this, you can simply launch the application with a specified CPU affinity which eliminates the requirement of programs such as Process Lasso for affinity management at the expense of usability.
 
@@ -1444,7 +1444,7 @@ There are several methods to set affinities for processes. One of which is Task 
 
 - It may be worth benchmarking the performance scaling of your application against core count as it may behave differently due to poor scheduling implementations from the application and/or OS. In some cases, it is possible that the application may perform better with fewer cores assigned to it via an affinity mask ([1](https://developer.nvidia.com/blog/limiting-cpu-threads-for-better-game-performance)). This will also give you a rough idea as to how many cores you can reserve. In other cases, it can severely harm performance as there is a potential for the game to create more worker threads than CPUs due to the game only considering the amount of physical cores available hence, it is vital that performance scaling is measured
 
-### 11.43.1. Starting a Process with a Specified Affinity Mask
+<h3 id="starting-a-process-with-a-specified-affinity-mask">11.43.1. Starting a Process with a Specified Affinity Mask</h3>
 
 The command below starts ``notepad.exe`` with an affinity of CPU 1 and CPU 2 as an example which will reflect in Task Manager. This command can be placed in a batch script for easy access and must be used each time to start the desired application with the specified affinity.
 
@@ -1452,7 +1452,7 @@ The command below starts ``notepad.exe`` with an affinity of CPU 1 and CPU 2 as 
 start /affinity 0x6 notepad.exe
 ```
 
-### 11.43.2. Specifying an Affinity Mask for Running Processes
+<h3 id="specifying-an-affinity-mask-for-running-processes">11.43.2. Specifying an Affinity Mask for Running Processes</h3>
 
 Sometimes, the processes that you would like to set an affinity mask to are already running, so the previous command is not applicable here. As a random example, the command below sets the affinity mask of the ``svchost.exe`` and ``audiodg.exe`` processes to CPU 3. Use this example to create a PowerShell script then have it run at startup using Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to wrap any paths with quotes if there are spaces in them. Ensure to verify whether everything is working correctly after a system restart. You need to enable the ``Run with highest privileges`` option if administrator privileges are required. For PowerShell scripts, set the program to start to ``PowerShell`` and the arguments to the path of the script (e.g. ``C:\process-affinities.ps1``).
 
@@ -1460,14 +1460,14 @@ Sometimes, the processes that you would like to set an affinity mask to are alre
 Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Object { $_.ProcessorAffinity=0x8 }
 ```
 
-## 11.44. Reserved CPU Sets (Windows 10+)
+<h2 id="reserved-cpu-sets-windows-10">11.44. Reserved CPU Sets (Windows 10+)</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 [ReservedCpuSets](https://github.com/valleyofdoom/ReservedCpuSets) can be used to prevent Windows routing ISRs, DPCs and scheduling other threads on specific CPUs. Isolating modules from user and kernel-level disturbances helps reduce contention, jitter and allows time-sensitive modules to get the CPU time they require.
 
-- As mentioned in section [11.43. User-Mode Scheduling (Processes, Threads)](#1143-user-mode-scheduling-processes-threads), you should determine how well or poorly your application's performance scales with core count to give you a rough idea as to how many cores you can afford to reserve
+- As mentioned in section [11.43. User-Mode Scheduling (Processes, Threads)](#user-mode-scheduling-processes-threads), you should determine how well or poorly your application's performance scales with core count to give you a rough idea as to how many cores you can afford to reserve
 
 - As interrupt affinity policies, process and thread affinities have higher precedence, you can use this hand in hand with user-defined affinities to go a step further and ensure that nothing except what you assigned to specific CPUs will be scheduled on those CPUs
 
@@ -1478,47 +1478,47 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 > [!IMPORTANT]
 > Unexpected behavior occurs when a process affinity is set to both reserved and unreserved CPUs. Ensure to set the affinity to either reserved or unreserved CPUs, not a combination of both.
 
-### 11.44.1. Use Cases
+<h3 id="use-cases">11.44.1. Use Cases</h3>
 
 - Hinting to the OS to schedule tasks on a group of CPUs. An example of this with modern platforms could be reserving E-Cores (efficiency cores) or either CCX/CCDs so that tasks are scheduled on P-Cores (performance cores) or other CCX/CCDs by default. With this approach, you can explicitly enforce background and unimportant tasks to be scheduled on the reserved CPUs. Note that this is purely an example and the logic can be flipped, but some latency-sensitive processes and modules are protected so affinity policies may fail which is a major limitation. There are several possibilities and trade-offs to consider. Note that performance can degrade when reserving E-Cores or other CCX/CCDs as applications may make use of them. Therefore, it is vital that you measure performance scaling when reserving cores whether it be one, a few or a set of CPUs. Another way of severly degrading performance by reserving E-Cores or CCX/CCDs is that the scheduler or applications can specifically target reserved cores for work to be scheduled on them as the ``RealTime`` field is set to 1 in the [SYSTEM_CPU_SET_INFORMATION](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-system_cpu_set_information) struct
 
 - Reserving CPUs that have specific modules assigned to be scheduled on them
 
-## 11.45. Analyzing Event Viewer
+<h2 id="analyzing-event-viewer">11.45. Analyzing Event Viewer</h2>
 
 This step isn't required, but can help to justify unexplained performance issues or issues in general. Ensure that there are no errors present on Event Viewer by typing ``eventvwr.msc`` in ``Win+R`` as anything you may have changed to your operating system could lead to internal errors or exceptions being thrown periodically.
 
-- Merge the ``ets-enable.reg`` file that was generated in section [11.36. Event Trace Sessions (ETS)](#1136-event-trace-sessions-ets) if applicable as it is required for event logging
+- Merge the ``ets-enable.reg`` file that was generated in section [11.36. Event Trace Sessions (ETS)](#event-trace-sessions-ets) if applicable as it is required for event logging
 
-## 11.46. Virtualization Based Security (VBS)
+<h2 id="virtualization-based-security-vbs">11.46. Virtualization Based Security (VBS)</h2>
 
 Virtualization Based Security negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)) if required. On the other hand, [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies/) recommend keeping it enabled.
 
-## 11.47. CPU Idle States
+<h2 id="cpu-idle-states">11.47. CPU Idle States</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-Disabling idle states forces C-State 0, which can be seen in [HWiNFO](https://www.hwinfo.com), and is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Forcing C-State 0 mitigates the undesirable delay to execute new instructions on a CPU that has entered a deeper power-saving state at the expense of higher temperatures and power consumption. Therefore, I would recommend keeping idle states enabled for the majority of readers as other problems can occur due to these side effects (e.g. throttling, power issues). The CPU temperature should not increase to the point of thermal throttling because you should have already assessed that in section [9. Stability, Hardware Clocking and Thermal Performance](#9-stability-hardware-clocking-and-thermal-performance).
+Disabling idle states forces C-State 0, which can be seen in [HWiNFO](https://www.hwinfo.com), and is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)). Forcing C-State 0 mitigates the undesirable delay to execute new instructions on a CPU that has entered a deeper power-saving state at the expense of higher temperatures and power consumption. Therefore, I would recommend keeping idle states enabled for the majority of readers as other problems can occur due to these side effects (e.g. throttling, power issues). The CPU temperature should not increase to the point of thermal throttling because you should have already assessed that in section [9. Stability, Hardware Clocking and Thermal Performance](#stability-hardware-clocking-and-thermal-performance).
 
 If a static CPU frequency is not set, the effects of forcing C-State 0 should be assessed in terms of frequency boosting behavior. For example, you certainly wouldn't want to disable idle states when relying on Precision Boost Overdrive (PBO), Turbo Boost or similar features. Avoid disabling idle states with Hyper-Threading/Simultaneous Multithreading enabled as single-threaded performance is usually negatively impacted.
 
-### 11.47.1. Enable Idle States (default)
+<h3 id="enable-idle-states-default">11.47.1. Enable Idle States (default)</h3>
 
 ```bat
 powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 0 && powercfg /setactive scheme_current
 ```
 
-### 11.47.2. Disable Idle States
+<h3 id="disable-idle-states">11.47.2. Disable Idle States</h3>
 
 ```bat
 powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 1 && powercfg /setactive scheme_current
 ```
 
-## 11.48. Thread Quantums and Scheduling
+<h2 id="thread-quantums-and-scheduling">11.48. Thread Quantums and Scheduling</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 A quantum is the time designated for which a thread can execute before the scheduler evaluates whether another thread with the same priority is scheduled to execute. If a thread finishes its quantum and no other threads at its priority level are ready to execute, the scheduler allows the thread to continue running for an additional quantum. The quantum can be controlled with the registry key below, in addition to defining how much time of the quantum is allocated to background and foreground threads. The value is represented as a 6-bit bitmask such that each of the three pairs of bits determine the quantum's characteristics and distribution of time between background and foreground threads. By default, it is set to ``0x2`` which corresponds to ``0b000010`` and has different meanings on client and server editions as explained shortly.
 
@@ -1527,7 +1527,7 @@ A quantum is the time designated for which a thread can execute before the sched
 "Win32PrioritySeparation"=dword:00000002
 ```
 
-### 11.48.1. Bitmask Explaination
+<h3 id="bitmask-explaination">11.48.1. Bitmask Explaination</h3>
 
 - The leftmost bit pair (**XX**YYZZ) determine the quantum length. This is represented by ``PspForegroundQuantum``
 
@@ -1555,7 +1555,7 @@ A quantum is the time designated for which a thread can execute before the sched
 
 - Using the information above, the default value of ``0x2`` corresponds to short, variable-length, 3:1 on Windows Client and long, fixed-length, 3:1 on Windows Server
 
-### 11.48.2. Win32PrioritySeparation Values
+<h3 id="win32priorityseparation-values">11.48.2. Win32PrioritySeparation Values</h3>
 
 The table below consists of all possible values that are consistent between client and server editions of Windows as ``00`` or ``11`` were not used in **XXYY**ZZ of the bitmask which have different meanings on client and server editions. Any value not specified in the table is identical to one that is stated in the table as explained [here](/docs/research.md#5-ambiguous-win32priorityseparation-values-explained), hence the values in the table are the only ones that should be used. The time in milliseconds are based on the modern x86/x64 multiprocessor timer resolution.
 
@@ -1585,10 +1585,10 @@ For the majority of readers, I would simply recommend leaving it at default. Alt
 |0x29|41|0b101001|Short|Fixed|1|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
 |0x2A|42|0b101010|Short|Fixed|2|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
 
-## 11.49. Clock Interrupt Frequency (Timer Resolution)
+<h2 id="clock-interrupt-frequency-timer-resolution">11.49. Clock Interrupt Frequency (Timer Resolution)</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 The clock interrupt frequency is the rate at which the system's hardware clock generates interrupts which allow the scheduler to perform various tasks such as timekeeping. On most systems by default, the minimum frequency is 64Hz, meaning that a clock interrupt is generated every 15.625ms. A lower frequency results in reduced CPU overhead and power consumption due to fewer interrupts but reduces timing precision and results in potentially less responsive multitasking. The maximum frequency is 2kHz, meaning that a clock interrupt is generated every 0.5ms. A higher frequency results in higher timing precision, potentially higher multitasking responsiveness but increases CPU overhead and power consumption. The minimum, current and maximum resolutions can be viewed in [ClockRes](https://learn.microsoft.com/en-us/sysinternals/downloads/clockres).
 
@@ -1607,14 +1607,14 @@ A higher resolution results in higher precision, but in some cases, the maximum 
 
 To conclude my view on the topic, I recommend favoring the per-process (non-global) implementation where applicable as it reduces overhead and instead use [RTSS](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download) for precise framerate limiting. It is worth noting that it can introduce noticeably higher latency ([1](https://www.youtube.com/watch?t=377&v=T2ENf9cigSk), [2](https://en.wikipedia.org/wiki/Busy_waiting)) therefore I recommend comparing and benchmarking it against micro-adjusting the requested resolution for higher precision with the global behavior. It is possible that frametime stability is unaffected by raising the resolution beyond 1ms due to improvements in the in-game framerate limiter which in that case, no action is required. The primary point I want to convey is to compare all available options, with a preference of using the per-process behavior which is the default on Windows 10 2004+ if you find that raising the resolution further has little to no impact.
 
-## 11.50. Paging File
+<h2 id="paging-file">11.50. Paging File</h2>
 
 > [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#3-benchmarking)).
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 For most readers, I would recommend keeping the paging file enabled which is the default state. There is an argument that it is preferable to disable it if you have enough RAM for your applications as it reduces I/O overhead and that system memory is faster than disk however, many users have reported in-game stuttering in specific games with the paging file disabled despite being nowhere near maximum RAM load. Windows appears to allocate the page file to secondary drives sometimes which can be problematic if one of the drives is a HDD. This can be resolved by allocating the page file to an SSD and its size to "system managed size" then deallocating it on other drives.
 
-## 11.51. Cleanup and Maintenance
+<h2 id="cleanup-and-maintenance">11.51. Cleanup and Maintenance</h2>
 
 It isn't a bad idea to revisit this step every so often. Setting a reminder to do so can be helpful in maintaining a clean system.
 

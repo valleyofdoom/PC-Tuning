@@ -1,17 +1,17 @@
-# Configure the NVIDIA Driver
+<h1 id="configure-the-nvidia-driver">Configure the NVIDIA Driver</h1>
 
-## 1. Table of Contents
+<h2 id="table-of-contents">1. Table of Contents</h2>
 
-- [1. Table of Contents](#1-table-of-contents)
-- [2. Strip and Install the Driver](#2-strip-and-install-the-driver)
-- [3. Configure NVIDIA Control Panel](#3-configure-nvidia-control-panel)
-  - [3.1. Manage 3D Settings](#31-manage-3d-settings)
-  - [3.2. Change Resolution](#32-change-resolution)
-  - [3.3. Adjust Video  Settings](#33-adjust-video-color-settings)
-  - [3.4. Lock GPU Clocks/P-State 0](#34-lock-gpu-clocksp-state-0)
-- [3.5. Configure NVIDIA Inspector](#35-configure-nvidia-inspector)
+- [1. Table of Contents](#table-of-contents)
+- [2. Strip and Install the Driver](#strip-and-install-the-driver)
+- [3. Configure NVIDIA Control Panel](#configure-nvidia-control-panel)
+  - [3.1. Manage 3D Settings](#manage-3d-settings)
+  - [3.2. Change Resolution](#change-resolution)
+  - [3.3. Adjust Video  Settings](#adjust-video-color-settings)
+  - [3.4. Lock GPU Clocks/P-State 0](#lock-gpu-clocksp-state-0)
+- [3.5. Configure NVIDIA Inspector](#configure-nvidia-inspector)
 
-## 2. Strip and Install the Driver
+<h2 id="strip-and-install-the-driver">2. Strip and Install the Driver</h2>
 
 - Download the latest game ready driver using the [advanced driver search](https://www.nvidia.com/download/find.aspx) page. DCH drivers are supported on Windows 10 1803+ ([1](https://nvidia.custhelp.com/app/answers/detail/a_id/4777/~/nvidia-dch%2Fstandard-display-drivers-for-windows-10-faq)).
 
@@ -36,9 +36,9 @@
 
 - Run ``setup.exe`` to install the driver
 
-## 3. Configure NVIDIA Control Panel
+<h2 id="configure-nvidia-control-panel">3. Configure NVIDIA Control Panel</h2>
 
-### 3.1. Manage 3D Settings
+<h3 id="manage-3d-settings">3.1. Manage 3D Settings</h3>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
@@ -57,15 +57,15 @@
 
 - Ensure that settings aren't being overridden for programs in the ``Program Settings`` tab, such as Image Sharpening for some EAC games to prevent unexpected results
 
-### 3.2. Change Resolution
+<h3 id="change-resolution">3.2. Change Resolution</h3>
 
 - Output dynamic range - Full
 
-### 3.3. Adjust Video Color Settings
+<h3 id="adjust-video-color-settings">3.3. Adjust Video Color Settings</h3>
 
 - Dynamic range - Full
 
-## 3.4. Lock GPU Clocks/P-State 0
+<h2 id="lock-gpu-clocksp-state-0">3.4. Lock GPU Clocks/P-State 0</h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
@@ -78,7 +78,7 @@ On some GPUs, the clock frequency may exceed what you have set by a small margin
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000" /v "DisableDynamicPstate" /t REG_DWORD /d "1" /f
 ```
 
-## 3.5. Configure NVIDIA Inspector
+<h2 id="configure-nvidia-inspector">3.5. Configure NVIDIA Inspector</h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](/README.md#3-benchmarking)).
@@ -95,4 +95,4 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08
 
   - rBAR - Size Limit
 
-- Disable ``CUDA - Force P2 State`` to prevent the memory clock frequency from downclocking during CUDA workloads as it enters P-State 2 despite following the steps in the [Lock GPU Clocks/P-State 0](#34-lock-gpu-clocksp-state-0) section ([1](/assets/images/cuda-force-p2-state-analysis.png))
+- Disable ``CUDA - Force P2 State`` to prevent the memory clock frequency from downclocking during CUDA workloads as it enters P-State 2 despite following the steps in the [Lock GPU Clocks/P-State 0](#lock-gpu-clocksp-state-0) section ([1](/assets/images/cuda-force-p2-state-analysis.png))
