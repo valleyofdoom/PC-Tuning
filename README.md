@@ -71,7 +71,7 @@
 - [11. Configure Windows](#configure-windows)
   - [11.1 OOBE Setup](#oobe-setup)
   - [11.2. Unrestricted PowerShell Execution Policy](#unrestricted-powershell-execution-policy)
-  - [11.3. Importing ``bin`` Folder](#importing-bin-folder)
+  - [11.3. Importing bin Folder](#importing-bin-folder)
   - [11.4. Process Mitigations (Windows 10 1709+)](#process-mitigations-windows-10-1709)
   - [11.5. Merging Registry Options](#merging-registry-options)
     - [11.5.1. Registry Options Documentation](#registry-options-documentation)
@@ -740,7 +740,7 @@ This is required to execute the scripts within the repository. Open PowerShell a
 Set-ExecutionPolicy Unrestricted
 ```
 
-<h2 id="importing-bin-folder">11.3. Importing ``bin`` Folder</h2>
+<h2 id="importing-bin-folder">11.3. Importing bin Folder</h2>
 
 Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in section [Fetching Required Files](#fetching-required-files). If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
 
