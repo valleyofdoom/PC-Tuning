@@ -557,6 +557,8 @@ Set up a [multi-boot](https://en.wikipedia.org/wiki/Multi-booting) system to mai
 
 <h2 id="what-version-of-windows-should-you-use">10.2. What Version of Windows Should You Use?</h2>
 
+This section contains important points to consider that have been collected over the years in regard to Windows versions, compatibility and exclusive features.
+
 - Earlier versions of Windows lack anticheat support (due to lack of security updates from end-of-life OSes), driver support (commonly GPU, NIC) and application support in general, so some users are forced to use newer builds. See the table below of the minimum version required to install drivers for given GPUs. Subject to change
 
     |GPU|Minimum Windows Version|
