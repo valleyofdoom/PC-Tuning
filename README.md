@@ -1419,17 +1419,11 @@ The XHCI and audio controller related modules generate a substantial amount of i
 
 The NIC must support MSI-X for Receive Side Scaling to function properly ([1](https://old.reddit.com/r/intel/comments/9uc03d/the_i219v_nic_on_your_new_z390_motherboard_and)). In most cases, RSS base CPU is enough to migrate DPCs and ISRs for the NIC driver which eliminates the need for an interrupt affinity policy. However, if you are having trouble migrating either to other CPUs, try configuring both.
 
-The command below can be used to configure RSS base CPU. Ensure to change the driver key to the one that corresponds to the correct NIC. Keep in mind that the amount of RSS queues determines the amount of consecutive CPUs that the network driver is scheduled on. For example, the driver will be scheduled on CPU 2/3/4/5 (2/4/6/8 with HT/SMT enabled) if RSS base CPU is set to 2 along with 4 RSS queues configured.
+Keep in mind that the amount of RSS queues determines the amount of consecutive CPUs that the network driver is scheduled on. For example, the driver will be scheduled on CPU 2/3/4/5 (2/4/6/8 with HT/SMT enabled) if RSS base CPU is set to 2 along with 4 RSS queues configured.
 
 - See [How many RSS Queues do you need?](/docs/research.md#4-how-many-rss-queues-do-you-need)
 
-- See [assets/images/find-driver-key-example.png](/assets/images/find-driver-key-example.png) to obtain the correct driver key in Device Manager
-
-    ```bat
-    reg add "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}\0000" /v "*RssBaseProcNumber" /t REG_SZ /d "2" /f
-    ```
-
-- If RSS is not functioning as expected, see [this](https://github.com/djdallmann/GamingPCSetup/blob/master/CONTENT/RESEARCH/NETWORK/README.md#q-my-onboard-network-adapter-i225-v-supports-rss-msi-and-msi-x-but-why-is-my-indirection-table-missing-that-gives-proper-support-for-rss-in-microsoft-windows) for a potential workaround
+- See [Receive Side Scaling (RSS) Configuration](https://github.com/Duckleeng/TweakCollection#receive-side-scaling-rss-configuration)
 
 <h2 id="user-mode-scheduling-processes-threads">11.43. User-Mode Scheduling (Processes, Threads)</h2>
 
