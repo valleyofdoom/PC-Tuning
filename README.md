@@ -115,10 +115,11 @@
   - [11.41. Configuring Applications](#configuring-applications)
     - [11.41.1 NVIDIA Reflex](#nvidia-reflex)
     - [11.41.2 Framerate Limit](#framerate-limit)
-    - [11.41.3 Presentation Mode](#presentation-mode)
-    - [11.41.4. Game Mode](#game-mode)
-    - [11.41.5. Media Player](#media-player)
-    - [11.41.6. QoS Policies](#qos-policies)
+    - [11.41.3. Register Game in Config Store](#register-game)
+    - [11.41.4 Presentation Mode](#presentation-mode)
+    - [11.41.5. Game Mode](#game-mode)
+    - [11.41.6. Media Player](#media-player)
+    - [11.41.7. QoS Policies](#qos-policies)
   - [11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#kernel-mode-scheduling-interrupts-dpcs-and-more)
     - [11.42.1. GPU and DirectX Graphics Kernel](#gpu-and-directx-graphics-kernel)
     - [11.42.2. XHCI and Audio Controller](#xhci-and-audio-controller)
@@ -1352,7 +1353,11 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 - Capping your framerate with [RTSS](https://www.guru3d.com/files-details/rtss-rivatuner-statistics-server-download.html) instead of the in-game limiter will result in consistent frame pacing and a smoother experience as it utilizes busy-wait which offers higher precision than 100% passive-waiting but at the cost of noticeably higher latency and potentially greater CPU overhead ([1](https://www.youtube.com/watch?t=377&v=T2ENf9cigSk), [2](https://en.wikipedia.org/wiki/Busy_waiting)). Disabling the ``Enable dedicated encoder server service`` setting prevents ``EncoderServer.exe`` from running
 
-<h3 id="presentation-mode">11.41.3. Presentation Mode</h3>
+<h3 id="register-game">11.41.3. Register Game in Config Store</h3>
+
+Ensure that Xbox Game Bar acknowledges the game that you are running or have installed. If not, open Game Bar by pressing ``Win+G`` and enabling ``Remember this is a game`` while it is open. This also ensures that Game Mode functions properly if you choose to use it.
+
+<h3 id="presentation-mode">11.41.4. Presentation Mode</h3>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1383,17 +1388,22 @@ This is not a recommendation of what presentation mode to use and is instead, he
     reg add "HKLM\SOFTWARE\Microsoft\Windows\Dwm" /v "OverlayTestMode" /t REG_DWORD /d "5" /f
     ```
 
-<h3 id="game-mode">11.41.4. Game Mode</h3>
+<h3 id="game-mode">11.41.5. Game Mode</h3>
 
-Ensure that Xbox Game Bar acknowledges the game that you are running or have installed. If not, open Game Bar by pressing ``Win+G`` and enabling ``Remember this is a game`` while it is open. This also ensures that Game Mode functions properly.
+> [!CAUTION]
+> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-<h3 id="media-player">11.41.5. Media Player</h3>
+Game Mode prevents Windows Update running and certain notifications from being pushed to the user ([1](https://support.xbox.com/en-GB/help/games-apps/game-setup-and-play/use-game-mode-gaming-on-pc)).
+
+It is worth noting that Game Mode can intefere with process and thread priority boosts depending on the value of PsPrioritySeparation as explained in section [Thread Quantums and Scheduling](#thread-quantums-and-scheduling). This is evident by replicating the listening to thread priority boosts experiment in Windows Internals using Performance Monitor and the thread current priority performance counter. For this reason, you can experiment with Game Mode enabled and disabled.
+
+<h3 id="media-player">11.41.6. Media Player</h3>
 
 - [mpv](https://mpv.io) or [mpv.net](https://github.com/stax76/mpv.net)
 - [mpc-hc](https://mpc-hc.org) ([updated fork](https://github.com/clsid2/mpc-hc))
 - [VLC](https://www.videolan.org)
 
-<h3 id="qos-policies">11.41.6. QoS Policies</h3>
+<h3 id="qos-policies">11.41.7. QoS Policies</h3>
 
 QoS DSCP policies allow Windows to prioritize packets of an application.
 
