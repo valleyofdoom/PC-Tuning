@@ -1100,7 +1100,22 @@ Open-Shell is a FOSS alternative to the Windows Start Menu.
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-Disabling Spectre and Meltdown is an age-old performance trick familiar amongst many individuals however with newer platforms and system architecture, there may be a performance regression ([1](https://www.phoronix.com/review/amd-zen4-spectrev2)). For this reason, extensive tests should be carried out to determine how performance is impacted and whether performance scales positively, negatively or not at all. Its state can be manipulated with the [InSpectre](https://www.grc.com/inspectre.htm) tool and/or by renaming the microcode DLLs within the OS depending on whether there is a microcode revision mismatch between the OS and BIOS ([1](https://superuser.com/a/895447), [2](https://support.mozilla.org/en-US/kb/microcode-update)).
+Disabling Spectre and Meltdown is an age-old performance trick familiar amongst many individuals however with newer platforms and system architecture, there may be a performance regression ([1](https://www.phoronix.com/review/amd-zen4-spectrev2)). For this reason, extensive tests should be carried out to determine how performance is impacted and whether performance scales positively, negatively or not at all. Its state can be manipulated with the [InSpectre](https://www.grc.com/inspectre.htm) tool and/or by renaming the microcode DLLs within the OS depending on whether there is a microcode revision mismatch between the OS and BIOS ([1](https://superuser.com/a/895447), [2](https://support.mozilla.org/en-US/kb/microcode-update)). It is important to note that the microcode revisions are subject to change with Windows updates.
+
+<details>
+<summary>Instructions To Rename DLLs</summary>
+
+Open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below relevant to your CPU to remove the CPU microcode updates. To revert, simply swap the file names to restore the original DLL.
+
+```
+ren C:\Windows\System32\mcupdate_GenuineIntel.dll mcupdate_GenuineIntel.dlll
+```
+
+```
+ren C:\Windows\System32\mcupdate_AuthenticAMD.dll mcupdate_AuthenticAMD.dlll
+```
+
+</details>
 
 Meltdown does not affect the AMD architecture ([1](https://www.theverge.com/2018/1/3/16844630/intel-processor-security-flaw-bug-kernel-windows-linux), [2](https://www.phoronix.com/news/x86-PTI-Initial-Gaming-Tests), [3](https://lkml.org/lkml/2018/1/3/425)) and is required for a minority of anticheats (FACEIT).
 
