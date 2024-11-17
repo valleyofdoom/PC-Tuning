@@ -1206,7 +1206,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
 - Navigate to ``View -> Devices by type``
 
-  - In the ``Disk drives`` category, disable write-cache buffer flushing on all drives in the ``Properties -> Policies`` section
+  - In the ``Disk drives`` category, you can disable write-cache buffer flushing on all drives in the ``Properties -> Policies`` section if your system has a backup power supply or is not prone to power failures to prevent data loss
   - In the ``Network adapters`` category, navigate to ``Properties -> Advanced`` and disable any power-saving features
 
 - Navigate to ``View -> Devices by connection``
