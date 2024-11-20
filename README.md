@@ -1415,7 +1415,7 @@ Depending on your network and router configuration, QoS policies can be set in W
 
 - See [How Can You Verify Whether a DSCP QoS Policy Is Working?](/docs/research.md#2-how-can-you-verify-whether-a-dscp-qos-policy-is-working)
 
-- Microsoft recommend the registry entry below to ensure packets are correctly tagged with the DSCP value, especially when more than one network adapter is present or the policy is used outside a domain network profile ([1](https://learn.microsoft.com/en-us/skypeforbusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients))
+- Microsoft recommend the registry entry below to ensure packets are correctly tagged with the DSCP value, especially when more than one network adapter is present or the policy is used outside a domain ([1](https://learn.microsoft.com/en-us/skypeforbusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients))
 
   ```bat
   reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\QoS" /v "Do not use NLA" /t REG_SZ /d "1" /f
