@@ -1405,7 +1405,7 @@ It is worth noting that Game Mode can intefere with process and thread priority 
 
 <h3 id="qos-policies">11.41.7. QoS Policies</h3>
 
-QoS DSCP policies allow Windows to prioritize packets of an application.
+Depending on your network and router configuration, QoS policies can be set in Windows to prioritize packets of an application.
 
 - See [assets/images/dscp-46-qos-policy.png](/assets/images/dscp-46-qos-policy.png)
 
@@ -1414,6 +1414,12 @@ QoS DSCP policies allow Windows to prioritize packets of an application.
   - See [The QoS Expedited Forwarding (EF) Model | Network World](https://www.networkworld.com/article/761413/the-qos-expedited-forwarding-ef-model.html)
 
 - See [How Can You Verify Whether a DSCP QoS Policy Is Working?](/docs/research.md#2-how-can-you-verify-whether-a-dscp-qos-policy-is-working)
+
+- Microsoft recommend the registry entry below to ensure packets are correctly tagged with the DSCP value, especially when more than one network adapter is present or the policy is used outside a domain network profile ([1](https://learn.microsoft.com/en-us/skypeforbusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients))
+
+  ```bat
+  reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\QoS" /v "Do not use NLA" /t REG_SZ /d "1" /f
+  ```
 
 <h2 id="kernel-mode-scheduling-interrupts-dpcs-and-more">11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)</h2>
 
