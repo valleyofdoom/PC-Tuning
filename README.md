@@ -979,7 +979,7 @@ I heavily discourage running debloating scripts or removing components other tha
 
 - [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager) can be used to uninstall Appx packages which ship with Windows. I recommend keeping ``Microsoft.WindowsStore`` (Microsoft Store) at the very least so that you can download applications in the future. Appx packages can also be installed without the Microsoft Store ([instructions](https://superuser.com/questions/1721755/is-there-a-way-to-install-microsoft-store-exclusive-apps-without-store)). If for whatever reason you removed the Microsoft Store, it can be restored with ``wsreset -i``
 
-- I highly recommend removing OneDrive for privacy reasons and instead, use OneDrive within a browser. Removing OneDrive involves opening CMD as administrator and entering the command below
+- I highly recommend removing OneDrive for privacy reasons and if you must, use OneDrive within a browser. Removing OneDrive involves opening CMD as administrator and entering the command below
 
     ```bat
     for %a in ("SysWOW64" "System32") do (if exist "%windir%\%~a\OneDriveSetup.exe" ("%windir%\%~a\OneDriveSetup.exe" /uninstall)) && reg delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" /f
