@@ -87,12 +87,10 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08
 
 - Disable ``Enable Ansel`` as it is injected in all games by the display drivers, regardless if the game supports Ansel or not which may cause conflicts with third-party tools or injectors ([1](https://www.pcgamingwiki.com/wiki/Nvidia#Ansel))
 
-- If applicable, you can experiment with forcing Resizable BAR on unsupported games for a potential performance improvement by toggling the options below ([1](https://www.youtube.com/watch?v=ZTOtqWTFSK8))
+- If you have Resizable BAR set up properly, you can experiment with forcing it on unsupported games for a potential performance improvement by toggling the options below ([1](https://www.youtube.com/watch?v=ZTOtqWTFSK8)). It is worth noting that ReBAR can result in a performance regression in some games ([1](https://www.techspot.com/review/2234-nvidia-resizable-bar)) so carry out your own benchmarks.
 
   - rBAR - Feature
-
   - rBAR - Options
-
   - rBAR - Size Limit
 
 - Disable ``CUDA - Force P2 State`` to prevent the memory clock frequency from downclocking during CUDA workloads as it enters P-State 2 despite following the steps in the [Lock GPU Clocks/P-State 0](#lock-gpu-clocksp-state-0) section ([1](/assets/images/cuda-force-p2-state-analysis.png))

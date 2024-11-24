@@ -24,7 +24,7 @@
   - [6.5. BIOS Microcode](#bios-microcode)
   - [6.6. Accessing Hidden Options](#accessing-hidden-options)
   - [6.7. Unnecessary Devices](#unnecessary-devices)
-  - [6.8. Resizable Bar](#resizable-bar)
+  - [6.8. Resizable Bar (ReBAR)](#resizable-bar)
   - [6.9. Hyper-Threading/Simultaneous Multithreading](#hyper-threadingsimultaneous-multithreading)
   - [6.10. Power States](#power-states)
   - [6.11. Virtualization/SVM Mode](#virtualizationsvm-mode)
@@ -308,12 +308,14 @@ Motherboard vendors hide and lock a lot of settings so that they aren't visible 
 
 Generally, follow the rule of "If you're not using it, disable it". It is preferable to physically disconnect components if possible, but this typically includes NICs, WLAN, Bluetooth, High Definition Audio (if you are not utilizing motherboard audio) controllers, integrated graphics, SATA, RAM slots, onboard devices visible in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) (e.g. LED controllers, IR receivers) and more. Keep in mind that some motherboards have the High Definition Audio controller linked to the USB controller ([1](https://www.igorslab.de/en/the-old-alc4080-on-the-new-intel-boards-demystified-and-the-differences-from-alc1220-insider)) so don't get confused if this is encountered in the USB device tree.
 
-<h2 id="resizable-bar">6.8. Resizable Bar</h2>
+<h2 id="resizable-bar">6.8. Resizable Bar (ReBAR)</h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-Resizable Bar requires the GPT/UEFI BIOS mode and `Above 4G Decoding` to be enabled. For unsupported motherboards, consider viewing [ReBarUEFI](https://github.com/xCuri0/ReBarUEFI)/[NvStrapsReBar](https://github.com/terminatorul/NvStrapsReBar). To verify that Resizable Bar is enabled, check the status with [GPU-Z](https://www.techpowerup.com/gpuz).
+See [this](https://www.howtogeek.com/819578/what-is-resizable-bar-on-a-gpu) for an overview of what Resizable Bar is. It is worth noting that ReBAR can result in a performance regression in some games ([1](https://www.techspot.com/review/2234-nvidia-resizable-bar)) so carry out your own benchmarks.
+
+ReBAR requires the GPT/UEFI BIOS mode and `Above 4G Decoding` to be enabled. For unsupported motherboards, consider viewing [ReBarUEFI](https://github.com/xCuri0/ReBarUEFI)/[NvStrapsReBar](https://github.com/terminatorul/NvStrapsReBar). To verify that Resizable Bar is enabled, check the status with [GPU-Z](https://www.techpowerup.com/gpuz).
 
 <h2 id="hyper-threadingsimultaneous-multithreading">6.9. Hyper-Threading/Simultaneous Multithreading</h2>
 
@@ -349,7 +351,7 @@ Disable Trusted Platform Module as it may cause the system to enter System Manag
 
 <h2 id="compatibility-support-module-csm">6.14. Compatibility Support Module (CSM)</h2>
 
-MBR/Legacy requires Compatibility Support Module to be enabled and typically, only the storage and PCIe OpROMs are required, but you can enable all of them if you are unsure. Disable CSM if you are using GPT/UEFI with the exception being Windows 7 GPT/UEFI as it requires CSM and OpROMs unless you are using [uefiseven](https://github.com/manatails/uefiseven).
+MBR/Legacy requires Compatibility Support Module to be enabled and typically, only the storage and PCIe OpROMs are required, but you can enable all of them if you are unsure. Disable CSM if you are using GPT/UEFI with the exception being Windows 7 GPT/UEFI as it requires CSM and OpROMs unless you are using [uefiseven](https://github.com/manatails/uefiseven). Disable CSM if you are using Resizable Bar.
 
 <h2 id="secure-boot">6.15. Secure Boot</h2>
 
