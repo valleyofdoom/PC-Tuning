@@ -2,7 +2,7 @@ param(
     [switch]$verbose
 )
 
-# The variables starting with $GLOBAL store values that should be applied to all XHCI controllers by default.
+# The variable names starting with "$global" store values that should be applied to all XHCI controllers by default.
 # To override this default value on a per-controller basis, specify the DEV_XXXX hardware ID value for the XHCI controller along with its data
 # See the example below.
 #
@@ -24,7 +24,7 @@ param(
 # In this example, the IMOD interval, HCSPARAMS and RTSOFF offsets for all controllers will be treated as 0x0, 0x4 and 0x18 respectively.
 # However, the IMOD interval, HCSPARAMS and RTSOFF offsets for the DEV_8A4D XHCI controller will override the global values and will be treated
 # as 0xFFFF, 0x8, 0x12 respectively. Similarly with the DEV_4AC6 XHCI controller, only the IMOD interval will be overridden (0xFA00). The global
-# values will be used for each field that is not specified they are optional.
+# values will be used for each field that is not specified because they are optional.
 #
 # https://github.com/valleyofdoom/PC-Tuning/blob/main/bin/XHCI-IMOD-Interval.ps1
 #
