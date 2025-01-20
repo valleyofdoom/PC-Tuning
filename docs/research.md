@@ -1,6 +1,6 @@
-<h1 id="research">Research</h1>
+<h1 id="research">Research <a href="#research">(permalink)</a></h1>
 
-<h2 id="table-of-contents">1. Table of Contents</h2>
+<h2 id="table-of-contents">1. Table of Contents <a href="#table-of-contents">(permalink)</a></h2>
 
 - [1. Table of Contents](#table-of-contents)
 - [2. How Can You Verify Whether a DSCP QoS Policy Is Working?](#how-can-you-verify-whether-a-dscp-qos-policy-is-working)
@@ -11,7 +11,7 @@
 - [7. Micro-Adjusting Timer Resolution for Higher Precision](#micro-adjusting-timer-resolution-for-higher-precision)
 - [8. What Is Identity Scaling and How Can You Use It?](#what-is-identity-scaling-and-how-can-you-use-it)
 
-<h2 id="how-can-you-verify-whether-a-dscp-qos-policy-is-working">2. How Can You Verify Whether a DSCP QoS Policy Is Working?</h2>
+<h2 id="how-can-you-verify-whether-a-dscp-qos-policy-is-working">2. How Can You Verify Whether a DSCP QoS Policy Is Working? <a href="#how-can-you-verify-whether-a-dscp-qos-policy-is-working">(permalink)</a></h2>
 
 - Download and install [Microsoft Network Monitor 3.4](https://www.microsoft.com/en-us/download/details.aspx?id=4865)
 
@@ -27,7 +27,7 @@
     DifferentiatedServices Field: DSCP: 46, ECN: 0
     ```
 
-<h2 id="what-tscsyncpolicy-does-windows-use-by-default">3. What TscSyncPolicy Does Windows Use by Default?</h2>
+<h2 id="what-tscsyncpolicy-does-windows-use-by-default">3. What TscSyncPolicy Does Windows Use by Default? <a href="#what-tscsyncpolicy-does-windows-use-by-default">(permalink)</a></h2>
 
 After searching through the decompiled ``ntoskrnl.exe`` pseudocode in [Hex-Rays IDA](https://hex-rays.com/products/idahome), I noticed that HalpTscSyncPolicy is changed when TscSyncPolicy is configured by modifying the BCD store. Despite many claims of enhanced being the default value, there has not been evidence, so I decided to find out myself.
 
@@ -63,7 +63,7 @@ fffff802`2864a3ac  00000002
 
 In conclusion, Windows uses the default value, not enhanced or legacy. Although, the default value may correspond to another value which isn't exposed by reading the output of HalpTscSyncPolicy hence, further research is required.
 
-<h2 id="how-many-rss-queues-do-you-need">4. How many RSS Queues do you need?</h2>
+<h2 id="how-many-rss-queues-do-you-need">4. How many RSS Queues do you need? <a href="#how-many-rss-queues-do-you-need">(permalink)</a></h2>
 
 Receive side scaling (RSS) is a network driver technology that enables the efficient distribution of network receive processing across multiple CPUs in multiprocessor systems ([1](https://docs.microsoft.com/en-us/windows-hardware/drivers/network/introduction-to-receive-side-scaling)). The amount you should use or need depends on your typical network load. In server environments, a large amount of RSS queues is desirable as receive processing delays will be reduced and ensures that no CPU is heavily loaded. The same concept can be applied to a gaming machine however, the network load differs significantly making it an invalid comparison, so I decided to carry out some experiments to draw a reasonable conclusion.
 
@@ -79,7 +79,7 @@ As expected, this scenario demonstrates that both CPU 0 and CPU 1 are handling D
 
 Conclusion: During online matches, at most two RSS queues/CPUs are being utilized. However, there is no harm in using more than two, but it is important to be aware of the information above as people reserve consecutive CPUs specifically for the network driver when those CPUs could better be used for another driver or a real-time application. The amount of RSS queues a network adapter has may also determine the quality of the hardware, but this is yet to be explored but something to keep in mind.
 
-<h2 id="ambiguous-win32priorityseparation-values-explained">5. Ambiguous Win32PrioritySeparation Values Explained</h2>
+<h2 id="ambiguous-win32priorityseparation-values-explained">5. Ambiguous Win32PrioritySeparation Values Explained <a href="#ambiguous-win32priorityseparation-values-explained">(permalink)</a></h2>
 
 According to the documentation Windows allows up to 0x3F (63 decimal) because the bitmask is made up of 6-bits, so why do values above this exist? What happens if we enter a value greater than the (theoretically) maximum allowed?
 
@@ -143,7 +143,7 @@ threads of foreground applications. However, in this case, it is being used as a
 |0x29|41|0b101001|Short|Fixed|1|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
 |0x2A|42|0b101010|Short|Fixed|2|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
 
-<h2 id="fixing-timing-precision-in-windows-after-the-great-rule-change">6. Fixing Timing Precision in Windows After “The Great Rule Change”</h2>
+<h2 id="fixing-timing-precision-in-windows-after-the-great-rule-change">6. Fixing Timing Precision in Windows After “The Great Rule Change” <a href="#fixing-timing-precision-in-windows-after-the-great-rule-change">(permalink)</a></h2>
 
 Starting with 2004, the calling process attempting to raise the timer resolution no longer functions on a global level and is independent of other processes running on the system. A recent comment on the [Great Rule Change](https://randomascii.wordpress.com/2020/10/04/windows-timer-resolution-the-great-rule-change) article suggested a registry key which supposedly restores the old implementation, so I decided to investigate.
 
@@ -274,7 +274,7 @@ Resolution: 0.500000ms, Sleep(1) slept 1.495500ms (delta: 0.495500)
 Resolution: 0.500000ms, Sleep(1) slept 1.494400ms (delta: 0.494400)
 ```
 
-<h2 id="micro-adjusting-timer-resolution-for-higher-precision">7. Micro-Adjusting Timer Resolution for Higher Precision</h2>
+<h2 id="micro-adjusting-timer-resolution-for-higher-precision">7. Micro-Adjusting Timer Resolution for Higher Precision <a href="#micro-adjusting-timer-resolution-for-higher-precision">(permalink)</a></h2>
 
 Everyone is aware that raising the timer resolution/timer resolution results in higher precision. On most systems, 0.5ms is the maximum supported resolution, but what advantage does micro-adjusting the resolution bring to the table?
 
@@ -337,7 +337,7 @@ Despite 0.500ms being a higher resolution than 0.507ms, it offers worse precisio
 
 - 0.500ms resolution provided a high resolution for all candidates on Windows 7. There was not a case where 0.500ms resulted in ~0.49ms deltas as shown above
 
-<h2 id="what-is-identity-scaling-and-how-can-you-use-it">8. What Is Identity Scaling and How Can You Use It?</h2>
+<h2 id="what-is-identity-scaling-and-how-can-you-use-it">8. What Is Identity Scaling and How Can You Use It? <a href="#what-is-identity-scaling-and-how-can-you-use-it">(permalink)</a></h2>
 
 Identity scaling, sometimes referred to as *real no scaling*, is the operation which [SetDisplayConfig](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setdisplayconfig) uses when the desktop and monitor resolution are identical.
 
