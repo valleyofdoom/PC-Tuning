@@ -947,7 +947,7 @@ Configure the operating system and drive's partition name. It is recommended to 
   ```
 
   ```bat
-  label C: "OS_NAME"
+  label C: OS_NAME
   ```
 
 <h2 id="show-tray-icons">11.18. Show Tray Icons</h2>
