@@ -93,6 +93,8 @@ We can read PsPrioritySeparation and PspForegroundQuantum in a local kernel debu
 
 <img src="/assets/images/w32ps-quantum-index.png" width="600">
 
+Note: This table has changed in later versions of Windows 11 (24H2).
+
 Demonstration with the Windows default, 0x2 (2 decimal)
 
 ```
@@ -117,7 +119,7 @@ fffff802`3a72e874  0c 18 24
 
 ``0c 18 24`` is equivalent to ``12 24 36`` and PsPrioritySeparation returns ``1`` which corresponds to long, variable, 2:1. Nothing special as it seems, this is equivalent to values less than the maximum documented value as shown in [this csv](https://raw.githubusercontent.com/djdallmann/GamingPCSetup/master/CONTENT/RESEARCH/FINDINGS/win32prisep0to271.csv). I had the same results while testing various other values.
 
-Conclusion: Why does Windows allow us to enter values greater than 0x3F (63 decimal) if any value greater than this is equivalent to values less than the maximum documented value? The reason behind this is that the maximum value for a REG_DWORD is 0xFFFFFFFF (4294967295 decimal) and there are no restrictions in place to prevent users to entering an illogical value, so when the kernel reads the Win32PrioritySeparation registry key, it must account for invalid values, so it only reads a portion of the entered value. The portion it chooses to read is the first 6-bits of the bitmask which means values greater than 63 are recurring values. The table below consists of all possible values (consistent between client and server editions of Windows as ``00`` or ``11`` were not used in ``XXYY`` of ``XXYYZZ`` in the bitmask which have different meanings on client/server). The time in milliseconds are based on the modern x86/x64 multiprocessor timer resolution.
+Conclusion: Why does Windows allow us to enter values greater than 0x3F (63 decimal) if any value greater than this is equivalent to values less than the maximum documented value? The reason behind this is that the maximum value for a REG_DWORD is 0xFFFFFFFF (4294967295 decimal) and there are no restrictions in place to prevent users to entering an illogical value, so when the kernel reads the Win32PrioritySeparation registry key, it must account for invalid values, so it only reads a portion of the entered value. The portion it chooses to read is the first 6-bits of the bitmask which means values greater than 63 are recurring values. The table below consists of all possible values (consistent between client and server editions of Windows as ``00`` or ``11`` were not used in ``XXYY`` of ``XXYYZZ`` in the bitmask which have different meanings on client/server).
 
 Although a foreground boost can not be used when using a fixed length interval in terms of the quantum, PsPrioritySeparation still changes, and another thread priority boosting mechanism just happens to use the value of it so in reality, a fixed 3:1 quantum should have a perceivable difference compared to a fixed 1:1 quantum. See the paragraph below from Windows Internals.
 
@@ -128,20 +130,20 @@ considered to be in the foreground.) As described earlier in this chapter in the
 quantum,” PsPrioritySeparation reflects the quantum-table index used to select quantums for the
 threads of foreground applications. However, in this case, it is being used as a priority boost value.
 
-|**Hexadecimal**|**Decimal**|**Binary**|**Interval**|**Length**|**PsPrioSep**|**ForegroundQU**|**BackgroundQU**|**TotalQU**|
-|---|---|---|---|---|---|---|---|---|
-|0x14|20|0b010100|Long|Variable|0|12 (62.50ms)|12 (62.50ms)|24 (125.00ms)|
-|0x15|21|0b010101|Long|Variable|1|24 (125.00ms)|12 (62.50ms)|36 (187.50ms)|
-|0x16|22|0b010110|Long|Variable|2|36 (187.50ms)|12 (62.50ms)|48 (250.00ms)|
-|0x18|24|0b011000|Long|Fixed|0|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
-|0x19|25|0b011001|Long|Fixed|1|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
-|0x1A|26|0b011010|Long|Fixed|2|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
-|0x24|36|0b100100|Short|Variable|0|6 (31.25ms)|6 (31.25ms)|12 (62.50ms)|
-|0x25|37|0b100101|Short|Variable|1|12 (62.50ms)|6 (31.25ms)|18 (93.75ms)|
-|0x26|38|0b100110|Short|Variable|2|18 (93.75ms)|6 (31.25ms)|24 (125.00ms)|
-|0x28|40|0b101000|Short|Fixed|0|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
-|0x29|41|0b101001|Short|Fixed|1|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
-|0x2A|42|0b101010|Short|Fixed|2|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
+|**Hexadecimal**|**Decimal**|**Binary**|**Interval**|**Length**|**PsPrioSep**|
+|---|---|---|---|---|---|
+|0x14|20|0b010100|Long|Variable|0|
+|0x15|21|0b010101|Long|Variable|1|
+|0x16|22|0b010110|Long|Variable|2|
+|0x18|24|0b011000|Long|Fixed|0|
+|0x19|25|0b011001|Long|Fixed|1|
+|0x1A|26|0b011010|Long|Fixed|2|
+|0x24|36|0b100100|Short|Variable|0|
+|0x25|37|0b100101|Short|Variable|1|
+|0x26|38|0b100110|Short|Variable|2|
+|0x28|40|0b101000|Short|Fixed|0|
+|0x29|41|0b101001|Short|Fixed|1|
+|0x2A|42|0b101010|Short|Fixed|2|
 
 <h2 id="fixing-timing-precision-in-windows-after-the-great-rule-change">6. Fixing Timing Precision in Windows After “The Great Rule Change” <a href="#fixing-timing-precision-in-windows-after-the-great-rule-change">(permalink)</a></h2>
 

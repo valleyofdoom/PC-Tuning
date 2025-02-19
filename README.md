@@ -1586,7 +1586,7 @@ A quantum is the time designated for which a thread can execute before the sched
 
 <h3 id="win32priorityseparation-values">11.48.2. Win32PrioritySeparation Values <a href="#win32priorityseparation-values">(permalink)</a></h3>
 
-The table below consists of all possible values that are consistent between client and server editions of Windows as ``00`` or ``11`` were not used in **XXYY**ZZ of the bitmask which have different meanings on client and server editions. Any value not specified in the table is identical to one that is stated in the table as explained [here](/docs/research.md#5-ambiguous-win32priorityseparation-values-explained), hence the values in the table are the only ones that should be used. The time in milliseconds are based on the modern x86/x64 multiprocessor timer resolution.
+The table below consists of all possible values that are consistent between client and server editions of Windows as ``00`` or ``11`` were not used in **XXYY**ZZ of the bitmask which have different meanings on client and server editions. Any value not specified in the table is identical to one that is stated in the table as explained [here](/docs/research.md#5-ambiguous-win32priorityseparation-values-explained), hence the values in the table are the only ones that should be used for simplicity.
 
 Although a foreground boost can not be used when using a fixed length interval in terms of the quantum, PsPrioritySeparation still changes, and another thread priority boosting mechanism just happens to use the value of it so in reality, a fixed 3:1 quantum should have a perceivable difference compared to a fixed 1:1 quantum. See the paragraph below from Windows Internals.
 
@@ -1599,20 +1599,20 @@ threads of foreground applications. However, in this case, it is being used as a
 
 For the majority of readers, I would simply recommend leaving it at default. Although, a mixture of the quantum length and foreground/background time allocation ratio can influence how often a thread switches context depending on whether thread's runtime exceeds its allocated time in the quantum as described previously hence you can benchmark whether it influences performance in your chosen applications if desired. If you are using Windows Server on a desktop system, the value can be set to ``0x26`` which mimics the same behavior as ``0x2`` does on Windows Client editions.
 
-|**Hexadecimal**|**Decimal**|**Binary**|**Interval**|**Length**|**PsPrioSep**|**ForegroundQU**|**BackgroundQU**|**TotalQU**|
-|---|---|---|---|---|---|---|---|---|
-|0x14|20|0b010100|Long|Variable|0|12 (62.50ms)|12 (62.50ms)|24 (125.00ms)|
-|0x15|21|0b010101|Long|Variable|1|24 (125.00ms)|12 (62.50ms)|36 (187.50ms)|
-|0x16|22|0b010110|Long|Variable|2|36 (187.50ms)|12 (62.50ms)|48 (250.00ms)|
-|0x18|24|0b011000|Long|Fixed|0|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
-|0x19|25|0b011001|Long|Fixed|1|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
-|0x1A|26|0b011010|Long|Fixed|2|36 (187.50ms)|36 (187.50ms)|72 (375.00ms)|
-|0x24|36|0b100100|Short|Variable|0|6 (31.25ms)|6 (31.25ms)|12 (62.50ms)|
-|0x25|37|0b100101|Short|Variable|1|12 (62.50ms)|6 (31.25ms)|18 (93.75ms)|
-|0x26|38|0b100110|Short|Variable|2|18 (93.75ms)|6 (31.25ms)|24 (125.00ms)|
-|0x28|40|0b101000|Short|Fixed|0|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
-|0x29|41|0b101001|Short|Fixed|1|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
-|0x2A|42|0b101010|Short|Fixed|2|18 (93.75ms)|18 (93.75ms)|36 (187.5ms)|
+|**Hexadecimal**|**Decimal**|**Binary**|**Interval**|**Length**|**PsPrioSep**|
+|---|---|---|---|---|---|
+|0x14|20|0b010100|Long|Variable|0|
+|0x15|21|0b010101|Long|Variable|1|
+|0x16|22|0b010110|Long|Variable|2|
+|0x18|24|0b011000|Long|Fixed|0|
+|0x19|25|0b011001|Long|Fixed|1|
+|0x1A|26|0b011010|Long|Fixed|2|
+|0x24|36|0b100100|Short|Variable|0|
+|0x25|37|0b100101|Short|Variable|1|
+|0x26|38|0b100110|Short|Variable|2|
+|0x28|40|0b101000|Short|Fixed|0|
+|0x29|41|0b101001|Short|Fixed|1|
+|0x2A|42|0b101010|Short|Fixed|2|
 
 <h2 id="clock-interrupt-frequency-timer-resolution">11.49. Clock Interrupt Frequency (Timer Resolution) <a href="#clock-interrupt-frequency-timer-resolution">(permalink)</a></h2>
 
