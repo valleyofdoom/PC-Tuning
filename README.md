@@ -13,6 +13,7 @@
 
 - [1. Table of Contents](#table-of-contents)
 - [2. Introduction](#introduction)
+  - [2.1. Other Resources](#other-resources)
 - [3. Benchmarking](#benchmarking)
 - [4. Physical Setup](#physical-setup)
 - [5. Cooling](#cooling)
