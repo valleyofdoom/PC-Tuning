@@ -190,14 +190,6 @@ $entries = @{
             )
         }
     )
-    "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\AppCompat"                                                                       = @(
-        @{
-            "key_name" = "DisablePCA"
-            "value"    = 1
-            "type"     = "REG_DWORD"
-            "apply_if" = @("disable program compatibility assistant")
-        }
-    )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows"                                                                               = @(
         @{
             "key_name" = "CEIPEnable"
@@ -750,13 +742,6 @@ $entries = @{
             "type"     = "REG_DWORD"
             "apply_if" = @("disable autoplay")
         }
-        @{
-            "key_name"    = "DisableGraphRecentItems"
-            "min_version" = 22621
-            "value"       = 1
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("disable account-based explorer features")
-        }
     )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent"                                                                   = @(
         @{
@@ -786,24 +771,6 @@ $entries = @{
             "value"       = 1
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable cloud content")
-        }
-    )
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\MDM"                                                             = @(
-        @{
-            "key_name"    = "DisableRegistration"
-            "min_version" = 10240
-            "value"       = 1
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("disable mdm enrollment")
-        }
-    )
-    "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PushToInstall"                                                                          = @(
-        @{
-            "key_name"    = "DisablePushToInstall"
-            "min_version" = 10240
-            "value"       = 1
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("disable microsoft store push to install feature")
         }
     )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput"                                                       = @(

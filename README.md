@@ -800,13 +800,9 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable advertising id``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable autoplay``|1. Mitigate security risk|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable cloud content``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
-|``disable account-based explorer features``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
-|``disable mdm enrollment``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
-|``disable microsoft store push to install feature``|1. Mitigate security risk|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``mitigate web-based search info``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable sending inking and typing data to microsoft``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable automatic maintenance``|1. Gaining finer control over the feature in question|N/A|``true``|
-|``disable program compatibility assistant``|1. Gaining finer control over the feature in question|Prevents Windows applying changes anonymously after running troubleshooters|``true``|
 |``disable remote assistance``|1. Mitigate security risk|N/A|``true``|
 |``disable sign-in and lock last interactive user after a restart``|1. Mitigate security risk ([1](https://www.stigviewer.com/stig/windows_server_2012_2012_r2_member_server/2014-06-30/finding/V-43245))|N/A|``true``|
 |``show file extensions``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=nYdS3FIu3rI))|N/A |``true``|
