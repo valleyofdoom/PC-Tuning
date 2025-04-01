@@ -804,7 +804,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable sending inking and typing data to microsoft``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable automatic maintenance``|1. Gaining finer control over the feature in question|N/A|``true``|
 |``disable remote assistance``|1. Mitigate security risk|N/A|``true``|
-|``disable sign-in and lock last interactive user after a restart``|1. Mitigate security risk ([1](https://www.stigviewer.com/stig/windows_server_2012_2012_r2_member_server/2014-06-30/finding/V-43245))|N/A|``true``|
+|``disable sign-in and lock last interactive user after a restart``|1. Mitigate security risk ([1](https://web.archive.org/web/20241125194814/https://stigviewer.com/stig/windows_server_2012_2012_r2_member_server/2014-06-30/finding/V-43245))|N/A|``true``|
 |``show file extensions``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=nYdS3FIu3rI))|N/A |``true``|
 |``disable widgets``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=m9d-fXl3Z8k))|N/A|``true``|
 |``disable telemetry``|1. Mitigating telemetry and phoning home|N/A|``true``|
