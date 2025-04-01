@@ -729,7 +729,12 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - Windows Server may force you to enter a password which can be optionally be removed in later steps
 
-- If you are configuring Windows 11, press ``Shift+F10`` to open CMD and execute ``oobe\BypassNRO.cmd``. This will allow us to continue without an internet connection by unlocking the ``continue with limited setup`` option as demonstrated in the video examples below. With that said, this also removes the requirement to sign in with a Microsoft account which I highly advise against for privacy reasons generally speaking
+- If you are configuring Windows 11, press ``Shift+F10`` to open CMD, then type ``regedit`` to open the registy editor to add the registry entry below. This will allow us to continue without an internet connection by unlocking the ``continue with limited setup`` option as demonstrated in the video examples below. This removes the requirement to sign in with a Microsoft account which I highly advise against for privacy reasons generally speaking. After the registry entry has been applied, type ``shutdown /r /t 0`` in CMD to restart
+
+    ```
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE]
+    "BypassNRO"=dword:00000001
+    ```
 
 - See [assets/videos/oobe-windows7-example.mp4](/assets/videos/oobe-windows7-example.mp4)
 - See [assets/videos/oobe-windows8-example.mp4](/assets/videos/oobe-windows8-example.mp4)
