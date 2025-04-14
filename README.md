@@ -998,12 +998,6 @@ I heavily discourage running debloating scripts or removing components other tha
 
   - Download [Autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) and navigate to the ``Everything`` section then search for *"edge"*. Disable every item that appears in the filtered results
 
-  - Updating the browser will revert some changes made in the previous step. You can ensure that it does not update if it is opened accidentally with the command below. If any errors occur, ensure that there aren't any hidden Microsoft Edge process running in Task Manager
-
-      ```bat
-      rd /s /q "C:\Program Files (x86)\Microsoft\EdgeUpdate"
-      ```
-
   - Open CMD and enter the command below to remove all related shortcuts
 
       ```bat
