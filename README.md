@@ -70,7 +70,8 @@
   - [10.6. Fetching Required Files](#fetching-required-files)
   - [10.7. Booting Into the ISO](#booting-into-the-iso)
 - [11. Configure Windows](#configure-windows)
-  - [11.1 OOBE Setup](#oobe-setup)
+  - [11.1. OOBE Setup](#oobe-setup)
+  - [11.2. User Account Control](#user-account-control)
   - [11.2. Unrestricted PowerShell Execution Policy](#unrestricted-powershell-execution-policy)
   - [11.3. Importing bin Folder](#importing-bin-folder)
   - [11.4. Process Mitigations (Windows 10 1709+)](#process-mitigations-windows-10-1709)
@@ -739,6 +740,10 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 - See [assets/videos/oobe-windows7-example.mp4](/assets/videos/oobe-windows7-example.mp4)
 - See [assets/videos/oobe-windows8-example.mp4](/assets/videos/oobe-windows8-example.mp4)
 - See [assets/videos/oobe-windows10+-example.mp4](/assets/videos/oobe-windows10+-example.mp4)
+
+<h2 id="user-account-control">11.2. User Account Control <a href="#user-account-control">(permalink)</a></h2>
+
+Set the User Account Control (UAC) setting to "Always notify" (highest level) by typing ``useraccountcontrolsettings`` in ``Win+R``. This reduces the risk of a malicious program bypassing UAC, which can occur with the default setting ([1](https://devblogs.microsoft.com/oldnewthing/20160816-00/?p=94105), [2](https://github.com/hfiref0x/UACME#system-requirements)).
 
 <h2 id="unrestricted-powershell-execution-policy">11.2. Unrestricted PowerShell Execution Policy <a href="#unrestricted-powershell-execution-policy">(permalink)</a></h2>
 
