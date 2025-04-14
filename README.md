@@ -839,7 +839,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-- I would advise against installing drivers via Windows Update as they can be outdated compared to the ones provided by the vendor. Driver updates via Windows Update should be blocked if ``disable driver installation via windows update`` was disabled in section [Merging Registry Options](#merging-registry-options)
+- I would advise against installing drivers via Windows Update as they can be outdated compared to the ones provided by the vendor. Driver updates via Windows Update should be blocked if ``disable driver installation via windows update`` was set to ``true`` in section [Merging Registry Options](#merging-registry-options)
 
 - See [Chipset Device "Drivers" (= INF files) | Fernando](https://winraid.level1techs.com/t/intel-chipset-device-drivers-inf-files/30920)
 
@@ -1016,7 +1016,7 @@ I heavily discourage running debloating scripts or removing components other tha
   - Uninstall bloatware in the applications section in the immersive control panel by pressing ``Win+I`` (this can also be managed in [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager))
   - In the ``Optional features`` section within the immersive control panel, you can uninstall everything that you don't need if desired
 
-- If Windows Defender was disabled in section [Merging Registry Options](#merging-registry-options), ``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
+- If Windows Defender was disabled in section [Merging Registry Options](#merging-registry-options) by setting ``disable windows defender`` to ``true``, ``smartscreen.exe`` ignores the registry key that controls whether it runs in the background persistently on later versions of Windows. For this reason, open CMD as TrustedInstaller with ``C:\bin\MinSudo.exe --TrustedInstaller --Privileged`` and enter the command below to prevent it running in the background
 
     ```bat
     taskkill /f /im smartscreen.exe > nul 2>&1 & ren C:\Windows\System32\smartscreen.exe smartscreen.exee
@@ -1648,7 +1648,15 @@ For most readers, I would recommend keeping the paging file enabled which is the
 
 It isn't a bad idea to revisit this step every so often. Setting a reminder to do so can be helpful in maintaining a clean system.
 
-- Favor tools such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller) to uninstall programs as the regular control panel does not remove residual files
+- Updates
+
+  - Windows Update - if ``disable automatic windows updates`` was set to ``true`` in section [Merging Registry Options](#merging-registry-options), you need to manually check for updates
+
+  - Runtimes - as outlined in section [Runtimes](#runtimes)
+
+  - Microsoft Store Apps - if ``disable automatic store app updates`` was set to ``true`` in section [Merging Registry Options](#merging-registry-options), you need to manually check for updates
+
+- Uninstall unwanted programs with [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller) and [AppxPackagesManager](https://github.com/valleyofdoom/AppxPackagesManager)
 
 - Use [Autoruns](https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns) to remove any unwanted programs from launching at startup and check it often, especially after installing a program
 
