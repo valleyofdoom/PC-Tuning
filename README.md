@@ -1676,7 +1676,6 @@ It isn't a bad idea to revisit this step every so often. Setting a reminder to d
 
 - Some locations you may want to review for residual files
 
-  - ``C:\`` - residual junk
   - ``"C:\ProgramData\Microsoft\Windows\Start Menu\Programs"`` - start menu shortcuts (don't delete windows-related shortcuts)
   - ``C:\Windows\Prefetch`` - prefetch files (this folder should not be populated when superfetch is disabled)
   - ``C:\Windows\SoftwareDistribution`` - Windows Update download cache
