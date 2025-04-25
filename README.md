@@ -678,7 +678,9 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - Download [Ventoy](https://github.com/ventoy/Ventoy/releases) and launch ``Ventoy2Disk.exe``. Navigate to the option menu and select the correct partition style and disable Secure Boot support. The current partition style can be determined by typing ``msinfo32`` in ``Win+R``. Finally, select your USB storage and click install.
 
-- Move your Windows ISO into the USB storage in File Explorer
+- Move your Windows ISO into the USB storage in File Explorer and boot to the USB in UEFI.
+
+- Prevent Windows setup restarting automatically so that 8dot3 names can be stripped properly as explained in the next steps by pressing ``Shift+F10`` to open CMD then type ``setup /NoReboot``. Continue with setup but don't restart at the end
 
 - If Secure Boot is enabled, temporarily disable it for the installation process. Boot into Ventoy on your USB in BIOS and select your Windows ISO. Continue with setup as per usual. Once setup has finished, Secure Boot can be re-enabled if you had temporarily disabled it
 
@@ -692,6 +694,26 @@ This section covers booting into the ISO retrieved and prepared in the previous 
     "BypassRAMCheck"=dword:00000001
     "BypassSecureBootCheck"=dword:00000001
     ```
+
+- After the files are copied to the new partition and before restarting, you can prevent the creation and strip existing 8.3 character-length file names on the volume Windows was just installed to which aids performance and security ([1](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security)). This must be done now (before booting) to prevent file access errors as explained [here](https://schneegans.de/windows/no-8.3).
+
+  - Press ``Shift+F10`` to open CMD
+
+  - Determine the drive letter Windows was installed to by typing ``diskpart``, then type ``list volume`` and determine the correct drive letter. It will be a relatively large boot volume. Type ``exit`` to exit diskpart
+
+  - Disable the creation of 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter
+
+    ```bat
+    fsutil 8dot3name set <drive letter> 1
+    ```
+
+  - Strip existing 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter
+
+    ```bat
+    fsutil 8dot3name strip /s /f <drive letter>
+    ```
+
+  - Type ``wpeutil reboot`` to exit Windows setup and reboot
 
 </details>
 
@@ -720,7 +742,21 @@ This section covers booting into the ISO retrieved and prepared in the previous 
     bcdboot <windir>
     ```
 
-- The installation process will begin after a system restart
+- After the files are copied to the new partition and before restarting, you can prevent the creation and strip existing 8.3 character-length file names on the volume Windows was just installed to which aids performance and security ([1](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security)). This must be done now (before booting) to prevent file access errors as explained [here](https://schneegans.de/windows/no-8.3).
+
+  - Disable the creation of 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter
+
+    ```bat
+    fsutil 8dot3name set <drive letter> 1
+    ```
+
+  - Strip existing 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter
+
+    ```bat
+    fsutil 8dot3name strip /s /f <drive letter>
+    ```
+
+- The installation process will finish after a system restart
 
 </details>
 
@@ -1260,15 +1296,19 @@ This section outlines instructions to mass-toggle Event Trace Sessions which can
 
 Open CMD as administrator and enter the commands below.
 
-- Disable the creation of 8.3 character-length file names on FAT and NTFS-formatted volumes
+- Disable the creation of 8.3 character-length file names on FAT and NTFS-formatted volumes which aids performance and security ([1](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security))
 
-  - See [Should You Disable 8dot3 for Performance and Security? | TCAT Shelbyville](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security)
+  - Disable the creation of 8.3 character-length file names
 
-  - See [Windows Short (8.3) Filenames – A Security Nightmare? | Bogdan Calin](https://www.acunetix.com/blog/articles/windows-short-8-3-filenames-web-security-problem)
+    ```bat
+    fsutil 8dot3name set 1
+    ```
 
-      ```bat
-      fsutil behavior set disable8dot3 1
-      ```
+  - If the steps carried out in section [Booting Into the ISO](#booting-into-the-iso) to strip 8dot3 names was followed correctly, the command below should display a value close to 0 for "total 8dot3 names found". This command does not actually remove 8dot3 names because ``/t`` (test mode) is specified which is used to determine how many are present on the volume currently
+
+    ```bat
+    fsutil 8dot3name strip /s /f /t C:
+    ```
 
 - Disable updates to the Last Access Time stamp on each directory when directories are listed on an NTFS volume. Disabling the Last Access Time feature improves the speed of file and directory access ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks)). Beware that this may affect backup and remote storage programs as per the official remarks ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks))
 
