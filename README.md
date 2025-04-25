@@ -700,7 +700,7 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - As this method requires specifying an existing partition to apply the ISO to, create a new partition by [shrinking a volume](https://docs.microsoft.com/en-us/windows-server/storage/disk-management/shrink-a-basic-volume) if you haven't already, then assign the newly created unallocated space a drive letter
 
-- Extract the ISO if required then run the command below to apply the image to a given partition. Replace ``<path\to\wim>`` with the path to the ``install.wim`` or ``install.esd`` in each command
+- Extract the ISO if required then run the command below to apply the image to a given partition. Replace ``<path\to\wim>`` with the path to the ``install.wim`` or ``install.esd`` (which is located in the ``sources`` folder of the extracted ISO) in each command
 
   - Get all available editions and their corresponding indexes
 
