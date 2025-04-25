@@ -1304,10 +1304,10 @@ Open CMD as administrator and enter the commands below.
     fsutil 8dot3name set 1
     ```
 
-  - If the steps carried out in section [Booting Into the ISO](#booting-into-the-iso) to strip 8dot3 names was followed correctly, the command below should display a value close to 0 for "total 8dot3 names found". This command does not actually remove 8dot3 names because ``/t`` (test mode) is specified which is used to determine how many are present on the volume currently
+  - If the steps carried out in section [Booting Into the ISO](#booting-into-the-iso) to strip 8dot3 names was followed correctly, the command below should display a value close to 0 for "total 8dot3 names found"
 
     ```bat
-    fsutil 8dot3name strip /s /f /t C:
+    fsutil 8dot3name scan /s C:
     ```
 
 - Disable updates to the Last Access Time stamp on each directory when directories are listed on an NTFS volume. Disabling the Last Access Time feature improves the speed of file and directory access ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks)). Beware that this may affect backup and remote storage programs as per the official remarks ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks))
