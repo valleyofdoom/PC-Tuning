@@ -680,6 +680,8 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - Move your Windows ISO into the USB storage in File Explorer and boot to the USB in UEFI.
 
+- On Windows 10 24H2+ use the previous version of setup ([example](https://schneegans.de/windows/no-8.3/24h2.png))
+
 - Prevent Windows setup restarting automatically so that 8dot3 names can be stripped properly as explained in the next steps by pressing ``Shift+F10`` to open CMD then type ``setup /NoReboot``. Continue with setup but don't restart at the end
 
 - If Secure Boot is enabled, temporarily disable it for the installation process. Boot into Ventoy on your USB in BIOS and select your Windows ISO. Continue with setup as per usual. Once setup has finished, Secure Boot can be re-enabled if you had temporarily disabled it
