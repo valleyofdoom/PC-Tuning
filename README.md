@@ -181,7 +181,7 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 
 - Avoid multi-CCX/CCD Ryzen CPUs due to the latency penalty incurred from inter-CCX/CCD communication ([1](https://calypto.us), [2](https://www.anandtech.com/show/17585/amd-zen-4-ryzen-9-7950x-and-ryzen-5-7600x-review-retaking-the-high-end/10))
 
-- See [Low Latency Hardware | Calypto](https://calypto.us)
+- See [Low Latency Hardware | Calypto](https://docs.google.com/document/d/1c2-lUJq74wuYK1WrA_bIvgb89dUN0sj8-hO3vqmrau4/edit?tab=t.0#bookmark=kix.alwwrke7e395)
 
 - Avoid overtightening screws
 
@@ -210,7 +210,6 @@ Benchmarking is employed to objectively assess and eliminate the influence of po
 - Measure and minimize bufferbloat as it is a cause of high latency and jitter in packet-switched networks caused by excess buffering of packets ([1](https://en.wikipedia.org/wiki/Bufferbloat), [2](https://www.bufferbloat.net/projects))
 
   - See [Waveform Bufferbloat and Internet Speed Test | Waveform](https://www.waveform.com/tools/bufferbloat)
-  - See [How to test your Internet Ping (PingPlotter) | Netduma](https://support.netduma.com/support/solutions/articles/16000074717-how-to-test-your-internet-ping)
   - See [What Can I Do About Bufferbloat? | Bufferbloat.net](https://www.bufferbloat.net/projects/bloat/wiki/What_can_I_do_about_Bufferbloat)
   - See [stoplagging.com](https://www.stoplagging.com)
 
