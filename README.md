@@ -844,7 +844,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable cloud content``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``mitigate web-based search info``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable sending inking and typing data to microsoft``|1. Mitigating telemetry and phoning home|Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
-|``disable automatic maintenance``|1. Gaining finer control over the feature in question|N/A|``true``|
+|``disable automatic maintenance``|1. Gaining finer control over the feature in question|Maintenance tasks can be viewed by typing ``Get-ScheduledTask \| ? {$_.Settings.MaintenanceSettings}`` in PowerShell|``true``|
 |``disable remote assistance``|1. Mitigate security risk|N/A|``true``|
 |``disable sign-in and lock last interactive user after a restart``|1. Mitigate security risk ([1](https://web.archive.org/web/20241125194814/https://stigviewer.com/stig/windows_server_2012_2012_r2_member_server/2014-06-30/finding/V-43245))|N/A|``true``|
 |``show file extensions``|1. Mitigate security risk ([1](https://www.youtube.com/watch?v=nYdS3FIu3rI))|N/A |``true``|
@@ -1733,3 +1733,5 @@ It isn't a bad idea to revisit this step every so often. Setting a reminder to d
     ```
 
 - Optionally delete obsolete system restore points in the ``System Protection`` tab by typing ``sysdm.cpl`` in ``Win+R``. It can be disabled completely if you don't use it
+
+- If ``disable automatic maintenance`` was set to ``true`` in section [Merging Registry Options](#merging-registry-options), you need to manually trim your SSDs or defrag your HDDs as this is a task executed during automatic maintenance
