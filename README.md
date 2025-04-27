@@ -702,13 +702,13 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
   - Determine the drive letter Windows was installed to by typing ``diskpart``, then type ``list volume`` and determine the correct drive letter. It will be a relatively large boot volume. Type ``exit`` to exit diskpart
 
-  - Disable the creation of 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter
+  - Disable the creation of 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter (e.g. ``D:``)
 
     ```bat
     fsutil 8dot3name set <drive letter> 1
     ```
 
-  - Strip existing 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter
+  - Strip existing 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter (e.g. ``D:``)
 
     ```bat
     fsutil 8dot3name strip /s /f <drive letter>
@@ -745,13 +745,13 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - After the files are copied to the new partition and before restarting, you can prevent the creation and strip existing 8.3 character-length file names on the volume Windows was just installed to which aids performance and security ([1](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security)). This must be done now (before booting) to prevent file access errors as explained [here](https://schneegans.de/windows/no-8.3).
 
-  - Disable the creation of 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter. If the command below fails because the creation of 8dot3 names is globally disabled, first use ``fsutil 8dot3name set 2``, execute the command below, and then  disable it globally again with ``fsutil 8dot3name set 1``. This is only necessary if an error is displayed
+  - Disable the creation of 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter (e.g. ``D:``). If the command below fails because the creation of 8dot3 names is globally disabled, first use ``fsutil 8dot3name set 2``, execute the command below, and then  disable it globally again with ``fsutil 8dot3name set 1``. This is only necessary if an error is displayed
 
     ```bat
     fsutil 8dot3name set <drive letter> 1
     ```
 
-  - Strip existing 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter
+  - Strip existing 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter (e.g. ``D:``)
 
     ```bat
     fsutil 8dot3name strip /s /f <drive letter>
