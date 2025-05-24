@@ -641,7 +641,7 @@ If you are having trouble with Windows Setup when installing with a USB storage 
 <details>
 <summary>Windows 8.1</summary>
 
-If you are configuring Windows 8.1, I recommend using the ``en_windows_8_1_x64_dvd_2707217.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/406e60db-4275-7bf8-616f-56e88d9e0a4a?lang=en-us)). Additionally, the table below contains a list of updates that I recommend integrating into the ISO which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)) .
+If you are configuring Windows 8.1, I recommend using the ``en_windows_8_1_x64_dvd_2707217.iso`` ISO ([Adguard hashes](https://files.rg-adguard.net/file/406e60db-4275-7bf8-616f-56e88d9e0a4a?lang=en-us)). Additionally, the table below contains a list of updates that I recommend integrating into the ISO which can be accomplished using tools such as [NTLite](https://www.ntlite.com) ([instructions](https://winraid.level1techs.com/t/guide-integration-of-drivers-into-a-win7-11-image/30793)).
 
 |Knowledge Base (KB) ID|Notes|
 |---|---|
@@ -858,7 +858,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 <h3 id="applying-options">11.6.2. Applying Options <a href="#applying-options">(permalink)</a></h3>
 
-- Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender . If that doesn't work, reboot then re-execute the command again. If none of the previous workarounds worked, then try run the command in safe-mode. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
+- Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender. If that doesn't work, reboot then re-execute the command again. If none of the previous workarounds worked, then try run the command in safe-mode. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
 
     ```powershell
     C:\bin\apply-registry.ps1
