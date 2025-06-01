@@ -276,6 +276,8 @@ Resolution: 0.500000ms, Sleep(1) slept 1.495500ms (delta: 0.495500)
 Resolution: 0.500000ms, Sleep(1) slept 1.494400ms (delta: 0.494400)
 ```
 
+**See also: [ExSetTimerResolution](https://github.com/MicrosoftDocs/windows-driver-docs-ddi/blob/staging/wdk-ddi-src/content/wdm/nf-wdm-exsettimerresolution.md)**
+
 <h2 id="micro-adjusting-timer-resolution-for-higher-precision">7. Micro-Adjusting Timer Resolution for Higher Precision <a href="#micro-adjusting-timer-resolution-for-higher-precision">(permalink)</a></h2>
 
 Everyone is aware that raising the timer resolution/timer resolution results in higher precision. On most systems, 0.5ms is the maximum supported resolution, but what advantage does micro-adjusting the resolution bring to the table?
