@@ -683,7 +683,7 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - On Windows 10 24H2+ use the previous version of setup ([example](https://schneegans.de/windows/no-8.3/24h2.png))
 
-- Prevent Windows setup restarting automatically so that 8dot3 names can be stripped properly as explained in the next steps by pressing ``Shift+F10`` to open CMD then type ``setup /NoReboot``. Continue with setup but don't restart at the end
+- On the legacy language and keyboard selection page (not after this page as this won't work otherwise), prevent Windows setup restarting automatically so that 8dot3 names can be stripped properly as explained in the next steps by pressing ``Shift+F10`` to open CMD then type ``setup /NoReboot``. Continue with setup but don't restart at the end
 
 - When installing Windows 8 with a USB, you may be required to enter a key. Use the generic key ``GCRJD-8NW9H-F2CDX-CCM8D-9D6T9`` to bypass this step. This does not activate Windows
 
