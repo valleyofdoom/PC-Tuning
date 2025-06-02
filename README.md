@@ -677,13 +677,13 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - Download [Ventoy](https://github.com/ventoy/Ventoy/releases) and launch ``Ventoy2Disk.exe``. Navigate to the option menu and select the correct partition style and disable Secure Boot support. The current partition style can be determined by typing ``msinfo32`` in ``Win+R``. Finally, select your USB storage and click install.
 
-- Move your Windows ISO into the USB storage in File Explorer and boot to the USB in UEFI.
+- Move your Windows ISO into the USB storage in File Explorer
+
+- If Secure Boot is enabled, temporarily disable it for the installation process. Boot into Ventoy on your USB in BIOS and select your Windows ISO. Once setup has finished, Secure Boot can be re-enabled if you had temporarily disabled it
 
 - On Windows 10 24H2+ use the previous version of setup ([example](https://schneegans.de/windows/no-8.3/24h2.png))
 
 - Prevent Windows setup restarting automatically so that 8dot3 names can be stripped properly as explained in the next steps by pressing ``Shift+F10`` to open CMD then type ``setup /NoReboot``. Continue with setup but don't restart at the end
-
-- If Secure Boot is enabled, temporarily disable it for the installation process. Boot into Ventoy on your USB in BIOS and select your Windows ISO. Continue with setup as per usual. Once setup has finished, Secure Boot can be re-enabled if you had temporarily disabled it
 
 - When installing Windows 8 with a USB, you may be required to enter a key. Use the generic key ``GCRJD-8NW9H-F2CDX-CCM8D-9D6T9`` to bypass this step. This does not activate Windows
 
