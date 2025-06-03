@@ -24,15 +24,15 @@
     "mitigate web-based search info": true,
     "disable sending inking and typing data to microsoft": true,
     "disable automatic maintenance": true,
-    "disable remote assistance": true,
+    "disable computer is out of support message": true,
+    "disable fault tolerant heap": true,
     "disable sign-in and lock last interactive user after a restart": true,
     "show file extensions": true,
     "disable widgets": true,
+    "disable remote assistance": true,
     "disable telemetry": true,
     "disable retrieval of online tips and help in the immersive control panel": true,
     "disable typing insights": true,
-    "disable suggestions in the search box and in search home": true,
-    "disable computer is out of support message": true,
-    "disable fault tolerant heap": true
+    "disable suggestions in the search box and in search home": true
   }
 }
