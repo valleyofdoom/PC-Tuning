@@ -85,12 +85,6 @@ According to the documentation Windows allows up to 0x3F (63 decimal) because th
 
 We can read PsPrioritySeparation and PspForegroundQuantum in a local kernel debugger such as WinDbg in real-time and use the quantum index provided in the Windows internals book to find out the different values it returns with different Win32PrioritySeparation entries.
 
-|PsPrioritySeparation|Foreground boost|
-|---|---|
-|2|3:1|
-|1|2:1|
-|0|1:1|
-
 <img src="/assets/images/w32ps-quantum-index.png" width="600">
 
 Note: This table has changed in later versions of Windows 11 (24H2).
@@ -105,7 +99,7 @@ lkd> db PspForegroundQuantum L3
 fffff802`3a72e874  06 0c 12
 ```
 
-PspForegroundQuantum returns the values in hexadecimal, so we need to convert it to decimal in order to use the tables correctly. ``06 0c 12`` is equivalent to ``6 12 18`` and PsPrioritySeparation returns ``2``. In the tables, this corresponds to short, variable, 3:1. But we already knew this as it is documented by Microsoft, so now lets try an ambiguous value.
+PspForegroundQuantum returns the values in hexadecimal, so we need to convert it to decimal in order to use the tables correctly. ``06 0c 12`` is equivalent to ``6 12 18`` and PsPrioritySeparation returns ``2``. In the tables, this corresponds to short, variable, 3:1 (``18 / 6 = 3``). But we already knew this as it is documented by Microsoft, so now lets try an ambiguous value.
 
 ``0xffff3f91 (4294918033 decimal)``
 
@@ -117,7 +111,7 @@ lkd> db PspForegroundQuantum L3
 fffff802`3a72e874  0c 18 24
 ```
 
-``0c 18 24`` is equivalent to ``12 24 36`` and PsPrioritySeparation returns ``1`` which corresponds to long, variable, 2:1. Nothing special as it seems, this is equivalent to values less than the maximum documented value as shown in [this csv](https://raw.githubusercontent.com/djdallmann/GamingPCSetup/master/CONTENT/RESEARCH/FINDINGS/win32prisep0to271.csv). I had the same results while testing various other values.
+``0c 18 24`` is equivalent to ``12 24 36`` and PsPrioritySeparation returns ``1`` which corresponds to long, variable, 2:1 (``24 / 12 = 2``). Nothing special as it seems, this is equivalent to values less than the maximum documented value as shown in [this csv](https://raw.githubusercontent.com/djdallmann/GamingPCSetup/master/CONTENT/RESEARCH/FINDINGS/win32prisep0to271.csv). I had the same results while testing various other values.
 
 Conclusion: Why does Windows allow us to enter values greater than 0x3F (63 decimal) if any value greater than this is equivalent to values less than the maximum documented value? The reason behind this is that the maximum value for a REG_DWORD is 0xFFFFFFFF (4294967295 decimal) and there are no restrictions in place to prevent users to entering an illogical value, so when the kernel reads the Win32PrioritySeparation registry key, it must account for invalid values, so it only reads a portion of the entered value. The portion it chooses to read is the first 6-bits of the bitmask which means values greater than 63 are recurring values. The table below consists of all possible values (consistent between client and server editions of Windows as ``00`` or ``11`` were not used in ``XXYY`` of ``XXYYZZ`` in the bitmask which have different meanings on client/server).
 
