@@ -109,39 +109,35 @@
   - [11.34. Audio Devices](#audio-devices)
   - [11.35. Device Manager](#device-manager)
   - [11.36. Device Power-Saving](#device-power-saving)
-  - [11.37. Event Trace Sessions (ETS)](#event-trace-sessions-ets)
-  - [11.38. File System](#file-system)
-  - [11.39. Message Signaled Interrupts](#message-signaled-interrupts)
-  - [11.40. XHCI Interrupt Moderation (IMOD)](#xhci-interrupt-moderation-imod)
-  - [11.41. Control Panel](#control-panel)
-  - [11.42. Configuring Applications](#configuring-applications)
-    - [11.42.1 NVIDIA Reflex](#nvidia-reflex)
-    - [11.42.2 Framerate Limit](#framerate-limit)
-    - [11.42.3. Register Game in Config Store](#register-game)
-    - [11.42.4 Presentation Mode](#presentation-mode)
-    - [11.42.5. Game Mode](#game-mode)
-    - [11.42.6. Media Player](#media-player)
-    - [11.42.7. QoS Policies](#qos-policies)
-  - [11.43. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#kernel-mode-scheduling-interrupts-dpcs-and-more)
-    - [11.43.1. GPU and DirectX Graphics Kernel](#gpu-and-directx-graphics-kernel)
-    - [11.43.2. XHCI and Audio Controller](#xhci-and-audio-controller)
-    - [11.43.3. Network Interface Card](#network-interface-card)
-  - [11.44. User-Mode Scheduling (Processes, Threads)](#user-mode-scheduling-processes-threads)
-    - [11.44.1. Starting a Process with a Specified Affinity Mask](#starting-a-process-with-a-specified-affinity-mask)
-    - [11.44.2. Specifying an Affinity Mask for Running Processes](#specifying-an-affinity-mask-for-running-processes)
-  - [11.45. Reserved CPU Sets (Windows 10+)](#reserved-cpu-sets-windows-10)
-    - [11.45.1. Use Cases](#use-cases)
-  - [11.46. Analyzing Event Viewer](#analyzing-event-viewer)
-  - [11.47. Virtualization Based Security (VBS)](#virtualization-based-security-vbs)
-  - [11.48. CPU Idle States](#cpu-idle-states)
-    - [11.48.1. Enable Idle States (default)](#enable-idle-states-default)
-    - [11.48.2. Disable Idle States](#disable-idle-states)
-  - [11.49. Thread Quantums and Scheduling](#thread-quantums-and-scheduling)
-    - [11.49.1. Bitmask Explaination](#bitmask-explaination)
-    - [11.49.2. Win32PrioritySeparation Values](#win32priorityseparation-values)
-  - [11.50. Clock Interrupt Frequency (Timer Resolution)](#clock-interrupt-frequency-timer-resolution)
-  - [11.51. Paging File](#paging-file)
-  - [11.52. Cleanup and Maintenance](#cleanup-and-maintenance)
+  - [11.37. File System](#file-system)
+  - [11.38. Message Signaled Interrupts](#message-signaled-interrupts)
+  - [11.39. XHCI Interrupt Moderation (IMOD)](#xhci-interrupt-moderation-imod)
+  - [11.40. Control Panel](#control-panel)
+  - [11.41. Configuring Applications](#configuring-applications)
+    - [11.41.1 NVIDIA Reflex](#nvidia-reflex)
+    - [11.41.2 Framerate Limit](#framerate-limit)
+    - [11.41.3. Register Game in Config Store](#register-game)
+    - [11.41.4 Presentation Mode](#presentation-mode)
+    - [11.41.5. Game Mode](#game-mode)
+    - [11.41.6. Media Player](#media-player)
+    - [11.41.7. QoS Policies](#qos-policies)
+  - [11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#kernel-mode-scheduling-interrupts-dpcs-and-more)
+    - [11.42.1. GPU and DirectX Graphics Kernel](#gpu-and-directx-graphics-kernel)
+    - [11.42.2. XHCI and Audio Controller](#xhci-and-audio-controller)
+    - [11.42.3. Network Interface Card](#network-interface-card)
+  - [11.43. User-Mode Scheduling (Processes, Threads)](#user-mode-scheduling-processes-threads)
+    - [11.43.1. Starting a Process with a Specified Affinity Mask](#starting-a-process-with-a-specified-affinity-mask)
+    - [11.43.2. Specifying an Affinity Mask for Running Processes](#specifying-an-affinity-mask-for-running-processes)
+  - [11.44. Reserved CPU Sets (Windows 10+)](#reserved-cpu-sets-windows-10)
+    - [11.44.1. Use Cases](#use-cases)
+  - [11.45. Analyzing Event Viewer](#analyzing-event-viewer)
+  - [11.46. Virtualization Based Security (VBS)](#virtualization-based-security-vbs)
+  - [11.47. CPU Idle States](#cpu-idle-states)
+    - [11.47.1. Enable Idle States (default)](#enable-idle-states-default)
+    - [11.47.2. Disable Idle States](#disable-idle-states)
+  - [11.48. Clock Interrupt Frequency (Timer Resolution)](#clock-interrupt-frequency-timer-resolution)
+  - [11.49. Paging File](#paging-file)
+  - [11.50. Cleanup and Maintenance](#cleanup-and-maintenance)
 
 <h1 id="introduction">2. Introduction <a href="#introduction">(permalink)</a></h1>
 
@@ -1271,23 +1267,7 @@ Re-plugging devices may cause this option to re-enable so either avoid doing so,
 Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }
 ```
 
-<h2 id="event-trace-sessions-ets">11.37. Event Trace Sessions (ETS) <a href="#event-trace-sessions-ets">(permalink)</a></h2>
-
-This section outlines instructions to mass-toggle the majority of Event Trace Sessions which can be viewed by typing ``perfmon`` in ``Win+R`` then navigating to ``Data Collector Sets -> Event Trace Sessions``. Programs that rely on event tracers will not be able to log data until the required sessions are restored (e.g. Windows Event Logging) which is the purpose of creating two registry files to toggle between them. Open CMD as administrator and enter the commands below to build the registry files in the ``C:\`` directory. These registry files must be run with Trusted Installer (use [NSudo](https://github.com/M2TeamArchived/NSudo/releases/latest)) to prevent permission errors.
-
-- ``ets-enable.reg``
-
-    ```bat
-    reg export "HKLM\SYSTEM\CurrentControlSet\Control\WMI\Autologger" "C:\ets-enable.reg"
-    ```
-
-- ``ets-disable.reg``
-
-    ```bat
-    >> "C:\ets-disable.reg" echo Windows Registry Editor Version 5.00 && >> "C:\ets-disable.reg" echo. && >> "C:\ets-disable.reg" echo [-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger]
-    ```
-
-<h2 id="file-system">11.38. File System <a href="#file-system">(permalink)</a></h2>
+<h2 id="file-system">11.37. File System <a href="#file-system">(permalink)</a></h2>
 
 Open CMD as administrator and enter the commands below.
 
@@ -1311,7 +1291,7 @@ Open CMD as administrator and enter the commands below.
     fsutil behavior set disablelastaccess 1
     ```
 
-<h2 id="message-signaled-interrupts">11.39. Message Signaled Interrupts <a href="#message-signaled-interrupts">(permalink)</a></h2>
+<h2 id="message-signaled-interrupts">11.38. Message Signaled Interrupts <a href="#message-signaled-interrupts">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1337,7 +1317,7 @@ Message signaled interrupts (MSIs) are faster than traditional line-based interr
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This can be done by opening CMD as administrator then typing ``sc EnumDepend <service>`` which describes the services that rely on the service you want to disable. These services should be disabled to avoid dependency errors. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-<h2 id="xhci-interrupt-moderation-imod">11.40. XHCI Interrupt Moderation (IMOD) <a href="#xhci-interrupt-moderation-imod">(permalink)</a></h2>
+<h2 id="xhci-interrupt-moderation-imod">11.39. XHCI Interrupt Moderation (IMOD) <a href="#xhci-interrupt-moderation-imod">(permalink)</a></h2>
 
 On most systems, Windows 7 uses an IMOD interval of 1ms whereas recent versions of Windows use 0.05ms (50us) unless specified by the installed USB driver. This means that after an interrupt has been generated, the XHCI controller waits (buffer period) for the specified interval for more data to arrive before generating another interrupt which reduces CPU utilization but potentially results in data from a given device being supplied at an inconsistent rate in the event of expecting data from other devices within the buffer period that are connected to the same XHCI controller.
 
@@ -1361,17 +1341,17 @@ As an example, 1ms IMOD interval with an 8kHz mouse is already problematic becau
 
 - To determine whether changing the IMOD interval is taking effect, you can temporarily set the interval to ``0xFA00`` (62.5Hz). If the mouse cursor is visibly stuttering upon movement, then the changes are successfully taking effect
 
-<h2 id="control-panel">11.41. Control Panel <a href="#control-panel">(permalink)</a></h2>
+<h2 id="control-panel">11.40. Control Panel <a href="#control-panel">(permalink)</a></h2>
 
 It isn't a bad idea to skim through both the legacy and immersive control panel to ensure nothing is misconfigured.
 
-<h2 id="configuring-applications">11.42. Configuring Applications <a href="#configuring-applications">(permalink)</a></h2>
+<h2 id="configuring-applications">11.41. Configuring Applications <a href="#configuring-applications">(permalink)</a></h2>
 
 - Install any programs and applications that you use (including games) to prepare us for the next steps
 
 - If applicable, favor portable editions of programs as installers tend to leave bloatware behind even after uninstalling them however, this can be circumvented by using programs such as [Bulk-Crap-Uninstaller](https://github.com/Klocman/Bulk-Crap-Uninstaller)
 
-<h3 id="nvidia-reflex">11.42.1. NVIDIA Reflex <a href="#nvidia-reflex">(permalink)</a></h3>
+<h3 id="nvidia-reflex">11.41.1. NVIDIA Reflex <a href="#nvidia-reflex">(permalink)</a></h3>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1380,7 +1360,7 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 - See [NVIDIA Reflex Low Latency - How It Works & Why You Want To Use It | Battle(non)sense](https://www.youtube.com/watch?v=QzmoLJwS6eQ)
 
-<h3 id="framerate-limit">11.42.2. Framerate Limit <a href="#framerate-limit">(permalink)</a></h3>
+<h3 id="framerate-limit">11.41.2. Framerate Limit <a href="#framerate-limit">(permalink)</a></h3>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1391,11 +1371,11 @@ It isn't a bad idea to skim through both the legacy and immersive control panel 
 
 - Capping your framerate with [RTSS](https://www.guru3d.com/files-details/rtss-rivatuner-statistics-server-download.html) instead of the in-game limiter will result in consistent frame pacing and a smoother experience as it utilizes busy-wait which offers higher precision than 100% passive-waiting but at the cost of noticeably higher latency and potentially greater CPU overhead ([1](https://www.youtube.com/watch?t=377&v=T2ENf9cigSk), [2](https://en.wikipedia.org/wiki/Busy_waiting)). Disabling the ``Enable dedicated encoder server service`` setting prevents ``EncoderServer.exe`` from running
 
-<h3 id="register-game">11.42.3. Register Game in Config Store <a href="#register-game">(permalink)</a></h3>
+<h3 id="register-game">11.41.3. Register Game in Config Store <a href="#register-game">(permalink)</a></h3>
 
 Ensure that Xbox Game Bar acknowledges the game that you are running or have installed. If not, open Game Bar by pressing ``Win+G`` and enabling ``Remember this is a game`` while it is open. This also ensures that Game Mode functions properly if you choose to use it.
 
-<h3 id="presentation-mode">11.42.4. Presentation Mode <a href="#presentation-mode">(permalink)</a></h3>
+<h3 id="presentation-mode">11.41.4. Presentation Mode <a href="#presentation-mode">(permalink)</a></h3>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1426,22 +1406,22 @@ This is not a recommendation of what presentation mode to use and is instead, he
     reg add "HKLM\SOFTWARE\Microsoft\Windows\Dwm" /v "OverlayTestMode" /t REG_DWORD /d "5" /f
     ```
 
-<h3 id="game-mode">11.42.5. Game Mode <a href="#game-mode">(permalink)</a></h3>
+<h3 id="game-mode">11.41.5. Game Mode <a href="#game-mode">(permalink)</a></h3>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 Game Mode prevents Windows Update running and certain notifications from being pushed to the user ([1](https://support.xbox.com/en-GB/help/games-apps/game-setup-and-play/use-game-mode-gaming-on-pc)).
 
-It is worth noting that Game Mode can intefere with process and thread priority boosts depending on the value of PsPrioritySeparation as explained in section [Thread Quantums and Scheduling](#thread-quantums-and-scheduling). This is evident by replicating the listening to thread priority boosts experiment in Windows Internals using Performance Monitor and the thread current priority performance counter. For this reason, you can experiment with Game Mode enabled and disabled.
+It is worth noting that Game Mode can intefere with process and thread priority boosts. This is evident by replicating the listening to thread priority boosts experiment in Windows Internals using Performance Monitor and the thread current priority performance counter. For this reason, you can experiment with Game Mode enabled and disabled.
 
-<h3 id="media-player">11.42.6. Media Player <a href="#media-player">(permalink)</a></h3>
+<h3 id="media-player">11.41.6. Media Player <a href="#media-player">(permalink)</a></h3>
 
 - [mpv](https://mpv.io) or [mpv.net](https://github.com/stax76/mpv.net)
 - [mpc-hc](https://mpc-hc.org) ([updated fork](https://github.com/clsid2/mpc-hc))
 - [VLC](https://www.videolan.org)
 
-<h3 id="qos-policies">11.42.7. QoS Policies <a href="#qos-policies">(permalink)</a></h3>
+<h3 id="qos-policies">11.41.7. QoS Policies <a href="#qos-policies">(permalink)</a></h3>
 
 Depending on your network and router configuration, QoS policies can be set in Windows to prioritize packets of an application.
 
@@ -1459,7 +1439,7 @@ Depending on your network and router configuration, QoS policies can be set in W
   reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\QoS" /v "Do not use NLA" /t REG_SZ /d "1" /f
   ```
 
-<h2 id="kernel-mode-scheduling-interrupts-dpcs-and-more">11.43. Kernel-Mode Scheduling (Interrupts, DPCs and more) <a href="#kernel-mode-scheduling-interrupts-dpcs-and-more">(permalink)</a></h2>
+<h2 id="kernel-mode-scheduling-interrupts-dpcs-and-more">11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more) <a href="#kernel-mode-scheduling-interrupts-dpcs-and-more">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1476,15 +1456,15 @@ Windows schedules interrupts and DPCs on CPU 0 for several kernel-mode modules b
 
 - Use [Microsoft Interrupt Affinity Tool](https://www.techpowerup.com/download/microsoft-interrupt-affinity-tool) or [GoInterruptPolicy](https://github.com/spddl/GoInterruptPolicy) to configure driver affinities. The device can be identified by cross-checking the ``Location`` in the ``Properties -> General`` section of a device in Device Manager
 
-<h3 id="gpu-and-directx-graphics-kernel">11.43.1. GPU and DirectX Graphics Kernel <a href="#gpu-and-directx-graphics-kernel">(permalink)</a></h3>
+<h3 id="gpu-and-directx-graphics-kernel">11.42.1. GPU and DirectX Graphics Kernel <a href="#gpu-and-directx-graphics-kernel">(permalink)</a></h3>
 
 [AutoGpuAffinity](https://github.com/valleyofdoom/AutoGpuAffinity) can be used to benchmark the most performant CPUs that the GPU-related modules are assigned to. Configure the ``custom_cpus`` option in the config file if applicable. This option is useful for selecting a certain set of cores to benchmark such as P-Cores or a specific CCX/CCD.
 
-<h3 id="xhci-and-audio-controller">11.43.2. XHCI and Audio Controller <a href="#xhci-and-audio-controller">(permalink)</a></h3>
+<h3 id="xhci-and-audio-controller">11.42.2. XHCI and Audio Controller <a href="#xhci-and-audio-controller">(permalink)</a></h3>
 
 The XHCI and audio controller related modules generate a substantial amount of interrupts upon interaction respective of the relevant device. Isolating the related modules to an underutilized CPU is beneficial for reducing contention.
 
-<h3 id="network-interface-card">11.43.3. Network Interface Card <a href="#network-interface-card">(permalink)</a></h3>
+<h3 id="network-interface-card">11.42.3. Network Interface Card <a href="#network-interface-card">(permalink)</a></h3>
 
 The NIC must support MSI-X for Receive Side Scaling to function properly ([1](https://old.reddit.com/r/intel/comments/9uc03d/the_i219v_nic_on_your_new_z390_motherboard_and)). In most cases, RSS base CPU is enough to migrate DPCs and ISRs for the NIC driver which eliminates the need for an interrupt affinity policy. However, if you are having trouble migrating either to other CPUs, try configuring both.
 
@@ -1494,7 +1474,7 @@ Keep in mind that the amount of RSS queues determines the amount of consecutive 
 
 - See [Receive Side Scaling (RSS) Configuration](https://github.com/Duckleeng/TweakCollection#receive-side-scaling-rss-configuration)
 
-<h2 id="user-mode-scheduling-processes-threads">11.44. User-Mode Scheduling (Processes, Threads) <a href="#user-mode-scheduling-processes-threads">(permalink)</a></h2>
+<h2 id="user-mode-scheduling-processes-threads">11.43. User-Mode Scheduling (Processes, Threads) <a href="#user-mode-scheduling-processes-threads">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1509,7 +1489,7 @@ There are several methods to set affinities for processes. One of which is Task 
 
 - It may be worth benchmarking the performance scaling of your application against core count as it may behave differently due to poor scheduling implementations from the application and/or OS. In some cases, it is possible that the application may perform better with fewer cores assigned to it via an affinity mask ([1](https://developer.nvidia.com/blog/limiting-cpu-threads-for-better-game-performance)). This will also give you a rough idea as to how many cores you can reserve. In other cases, it can severely harm performance as there is a potential for the game to create more worker threads than CPUs due to the game only considering the amount of physical cores available hence, it is vital that performance scaling is measured
 
-<h3 id="starting-a-process-with-a-specified-affinity-mask">11.44.1. Starting a Process with a Specified Affinity Mask <a href="#starting-a-process-with-a-specified-affinity-mask">(permalink)</a></h3>
+<h3 id="starting-a-process-with-a-specified-affinity-mask">11.43.1. Starting a Process with a Specified Affinity Mask <a href="#starting-a-process-with-a-specified-affinity-mask">(permalink)</a></h3>
 
 The command below starts ``notepad.exe`` with an affinity of CPU 1 and CPU 2 as an example which will reflect in Task Manager. This command can be placed in a batch script for easy access and must be used each time to start the desired application with the specified affinity.
 
@@ -1517,7 +1497,7 @@ The command below starts ``notepad.exe`` with an affinity of CPU 1 and CPU 2 as 
 start /affinity 0x6 notepad.exe
 ```
 
-<h3 id="specifying-an-affinity-mask-for-running-processes">11.44.2. Specifying an Affinity Mask for Running Processes <a href="#specifying-an-affinity-mask-for-running-processes">(permalink)</a></h3>
+<h3 id="specifying-an-affinity-mask-for-running-processes">11.43.2. Specifying an Affinity Mask for Running Processes <a href="#specifying-an-affinity-mask-for-running-processes">(permalink)</a></h3>
 
 Sometimes, the processes that you would like to set an affinity mask to are already running, so the previous command is not applicable here. As a random example, the command below sets the affinity mask of the ``svchost.exe`` and ``audiodg.exe`` processes to CPU 3. Use this example to create a PowerShell script then have it run at startup using Task Scheduler ([instructions](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)). Ensure to wrap any paths with quotes if there are spaces in them. Ensure to verify whether everything is working correctly after a system restart. You need to enable the ``Run with highest privileges`` option if administrator privileges are required. For PowerShell scripts, set the program to start to ``PowerShell`` and the arguments to the path of the script (e.g. ``C:\process-affinities.ps1``).
 
@@ -1525,7 +1505,7 @@ Sometimes, the processes that you would like to set an affinity mask to are alre
 Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Object { $_.ProcessorAffinity=0x8 }
 ```
 
-<h2 id="reserved-cpu-sets-windows-10">11.45. Reserved CPU Sets (Windows 10+) <a href="#reserved-cpu-sets-windows-10">(permalink)</a></h2>
+<h2 id="reserved-cpu-sets-windows-10">11.44. Reserved CPU Sets (Windows 10+) <a href="#reserved-cpu-sets-windows-10">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1543,23 +1523,21 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 > [!IMPORTANT]
 > Unexpected behavior occurs when a process affinity is set to both reserved and unreserved CPUs. Ensure to set the affinity to either reserved or unreserved CPUs, not a combination of both.
 
-<h3 id="use-cases">11.45.1. Use Cases <a href="#use-cases">(permalink)</a></h3>
+<h3 id="use-cases">11.44.1. Use Cases <a href="#use-cases">(permalink)</a></h3>
 
 - Hinting to the OS to schedule tasks on a group of CPUs. An example of this with modern platforms could be reserving E-Cores (efficiency cores) or either CCX/CCDs so that tasks are scheduled on P-Cores (performance cores) or other CCX/CCDs by default. With this approach, you can explicitly enforce background and unimportant tasks to be scheduled on the reserved CPUs. Note that this is purely an example and the logic can be flipped, but some latency-sensitive processes and modules are protected so affinity policies may fail which is a major limitation. There are several possibilities and trade-offs to consider. Note that performance can degrade when reserving E-Cores or other CCX/CCDs as applications may make use of them. Therefore, it is vital that you measure performance scaling when reserving cores whether it be one, a few or a set of CPUs. Another way of severly degrading performance by reserving E-Cores or CCX/CCDs is that the scheduler or applications can specifically target reserved cores for work to be scheduled on them as the ``RealTime`` field is set to 1 in the [SYSTEM_CPU_SET_INFORMATION](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-system_cpu_set_information) struct
 
 - Reserving CPUs that have specific modules assigned to be scheduled on them
 
-<h2 id="analyzing-event-viewer">11.46. Analyzing Event Viewer <a href="#analyzing-event-viewer">(permalink)</a></h2>
+<h2 id="analyzing-event-viewer">11.45. Analyzing Event Viewer <a href="#analyzing-event-viewer">(permalink)</a></h2>
 
 This step isn't required, but can help to justify unexplained performance issues or issues in general. Ensure that there are no errors present on Event Viewer by typing ``eventvwr.msc`` in ``Win+R`` as anything you may have changed to your operating system could lead to internal errors or exceptions being thrown periodically.
 
-- Merge the ``ets-enable.reg`` file that was generated in section [Event Trace Sessions (ETS)](#event-trace-sessions-ets) if applicable as it is required for event logging
-
-<h2 id="virtualization-based-security-vbs">11.47. Virtualization Based Security (VBS) <a href="#virtualization-based-security-vbs">(permalink)</a></h2>
+<h2 id="virtualization-based-security-vbs">11.46. Virtualization Based Security (VBS) <a href="#virtualization-based-security-vbs">(permalink)</a></h2>
 
 Virtualization Based Security negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)) if required. On the other hand, [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies/) recommend keeping it enabled. VBS should be disabled when virtualization is disabled in BIOS, so be careful of VBS being enabled if you enable virtualization in BIOS for future reference.
 
-<h2 id="cpu-idle-states">11.48. CPU Idle States <a href="#cpu-idle-states">(permalink)</a></h2>
+<h2 id="cpu-idle-states">11.47. CPU Idle States <a href="#cpu-idle-states">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1568,89 +1546,19 @@ Disabling idle states forces C-State 0, which can be seen in [HWiNFO](https://ww
 
 If a static CPU frequency is not set, the effects of forcing C-State 0 should be assessed in terms of frequency boosting behavior. For example, you certainly wouldn't want to disable idle states when relying on Precision Boost Overdrive (PBO), Turbo Boost or similar features. Avoid disabling idle states with Hyper-Threading/Simultaneous Multithreading enabled as single-threaded performance is usually negatively impacted.
 
-<h3 id="enable-idle-states-default">11.48.1. Enable Idle States (default) <a href="#enable-idle-states-default">(permalink)</a></h3>
+<h3 id="enable-idle-states-default">11.47.1. Enable Idle States (default) <a href="#enable-idle-states-default">(permalink)</a></h3>
 
 ```bat
 powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 0 && powercfg /setactive scheme_current
 ```
 
-<h3 id="disable-idle-states">11.48.2. Disable Idle States <a href="#disable-idle-states">(permalink)</a></h3>
+<h3 id="disable-idle-states">11.47.2. Disable Idle States <a href="#disable-idle-states">(permalink)</a></h3>
 
 ```bat
 powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 1 && powercfg /setactive scheme_current
 ```
 
-<h2 id="thread-quantums-and-scheduling">11.49. Thread Quantums and Scheduling <a href="#thread-quantums-and-scheduling">(permalink)</a></h2>
-
-> [!CAUTION]
-> 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
-
-A quantum is the time designated for which a thread can execute before the scheduler evaluates whether another thread with the same priority is scheduled to execute. If a thread finishes its quantum and no other threads at its priority level are ready to execute, the scheduler allows the thread to continue running for an additional quantum. The quantum can be controlled with the registry key below, in addition to defining how much time of the quantum is allocated to background and foreground threads. The value is represented as a 6-bit bitmask such that each of the three pairs of bits determine the quantum's characteristics and distribution of time between background and foreground threads. By default, it is set to ``0x2`` which corresponds to ``0b000010`` and has different meanings on client and server editions as explained shortly.
-
-```
-[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\PriorityControl]
-"Win32PrioritySeparation"=dword:00000002
-```
-
-<h3 id="bitmask-explaination">11.49.1. Bitmask Explaination <a href="#bitmask-explaination">(permalink)</a></h3>
-
-- The leftmost bit pair (**XX**YYZZ) determine the quantum length. This is represented by ``PspForegroundQuantum``
-
-  |Value|Description|
-  |---|---|
-  |00/11|Short Intervals (Windows Client), Long Intervals (Windows Server)|
-  |01|Long Intervals|
-  |10|Short Intervals|
-
-- The middle bit pair (XX**YY**ZZ) determine whether the quantum length is variable or fixed. If a fixed-length quantum is used, then the rightmost bit pair is ignored as the ratio that determines the time allocated to background and foreground threads within the quantum is fixed. This is represented by ``PspForegroundQuantum``
-
-  |Value|Description|
-  |---|---|
-  |00/11|Variable-length (Windows Client), Fixed-length (Windows Server)|
-  |01|Variable-length|
-  |10|Fixed-length|
-
-- The rightmost bit pair (XXYY**ZZ**) determine the ratio of time in the quantum allocated to background and foreground threads in which, foreground threads can be allocated up to three times as much processor time than background threads. As mentioned previously, this can only be configured with variable-length quantums. This is represented by ``PsPrioritySeparation``
-
-  |Value|Description|
-  |---|---|
-  |00|1:1|
-  |01|2:1|
-  |10/11|3:1|
-
-- Using the information above, the default value of ``0x2`` corresponds to short, variable-length, 3:1 on Windows Client and long, fixed-length, 3:1 on Windows Server
-
-<h3 id="win32priorityseparation-values">11.49.2. Win32PrioritySeparation Values <a href="#win32priorityseparation-values">(permalink)</a></h3>
-
-The table below consists of all possible values that are consistent between client and server editions of Windows as ``00`` or ``11`` were not used in **XXYY**ZZ of the bitmask which have different meanings on client and server editions. Any value not specified in the table is identical to one that is stated in the table as explained [here](/docs/research.md#ambiguous-win32priorityseparation-values-explained), hence the values in the table are the only ones that should be used for simplicity.
-
-Although a foreground boost can not be used when using a fixed length interval in terms of the quantum, PsPrioritySeparation still changes, and another thread priority boosting mechanism just happens to use the value of it so in reality, a fixed 3:1 quantum should have a perceivable difference compared to a fixed 1:1 quantum. See the paragraph below from Windows Internals.
-
-> As will be described shortly, whenever a thread in the foreground process completes a wait operation on
-a kernel object, the kernel boosts its current (not base) priority by the current value of
-PsPrioritySeparation. (The windowing system is responsible for determining which process is
-considered to be in the foreground.) As described earlier in this chapter in the section “Controlling the
-quantum,” PsPrioritySeparation reflects the quantum-table index used to select quantums for the
-threads of foreground applications. However, in this case, it is being used as a priority boost value.
-
-For the majority of readers, I would simply recommend leaving it at default. Although, a mixture of the quantum length and foreground/background time allocation ratio can influence how often a thread switches context depending on whether thread's runtime exceeds its allocated time in the quantum as described previously hence you can benchmark whether it influences performance in your chosen applications if desired. If you are using Windows Server on a desktop system, the value can be set to ``0x26`` which mimics the same behavior as ``0x2`` does on Windows Client editions.
-
-|**Hexadecimal**|**Decimal**|**Binary**|**Interval**|**Length**|**PsPrioSep**|
-|---|---|---|---|---|---|
-|0x14|20|0b010100|Long|Variable|0|
-|0x15|21|0b010101|Long|Variable|1|
-|0x16|22|0b010110|Long|Variable|2|
-|0x18|24|0b011000|Long|Fixed|0|
-|0x19|25|0b011001|Long|Fixed|1|
-|0x1A|26|0b011010|Long|Fixed|2|
-|0x24|36|0b100100|Short|Variable|0|
-|0x25|37|0b100101|Short|Variable|1|
-|0x26|38|0b100110|Short|Variable|2|
-|0x28|40|0b101000|Short|Fixed|0|
-|0x29|41|0b101001|Short|Fixed|1|
-|0x2A|42|0b101010|Short|Fixed|2|
-
-<h2 id="clock-interrupt-frequency-timer-resolution">11.50. Clock Interrupt Frequency (Timer Resolution) <a href="#clock-interrupt-frequency-timer-resolution">(permalink)</a></h2>
+<h2 id="clock-interrupt-frequency-timer-resolution">11.48. Clock Interrupt Frequency (Timer Resolution) <a href="#clock-interrupt-frequency-timer-resolution">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1672,14 +1580,14 @@ A higher resolution results in higher precision, but in some cases, the maximum 
 
 To conclude my view on the topic, I recommend favoring the per-process (non-global) implementation where applicable as it reduces overhead and instead use [RTSS](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download) for precise framerate limiting. It is worth noting that it can introduce noticeably higher latency ([1](https://www.youtube.com/watch?t=377&v=T2ENf9cigSk), [2](https://en.wikipedia.org/wiki/Busy_waiting)) therefore I recommend comparing and benchmarking it against micro-adjusting the requested resolution for higher precision with the global behavior. It is possible that frametime stability is unaffected by raising the resolution beyond 1ms due to improvements in the in-game framerate limiter which in that case, no action is required. The primary point I want to convey is to compare all available options, with a preference of using the per-process behavior which is the default on Windows 10 2004+ if you find that raising the resolution further has little to no impact.
 
-<h2 id="paging-file">11.51. Paging File <a href="#paging-file">(permalink)</a></h2>
+<h2 id="paging-file">11.49. Paging File <a href="#paging-file">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 For most readers, I would recommend keeping the paging file enabled which is the default state. There is an argument that it is preferable to disable it if you have enough RAM for your applications as it reduces I/O overhead and that system memory is faster than disk however, many users have reported in-game stuttering in specific games with the paging file disabled despite being nowhere near maximum RAM load. Windows appears to allocate the page file to secondary drives sometimes which can be problematic if one of the drives is a HDD. This can be resolved by allocating the page file to an SSD and its size to "system managed size" then deallocating it on other drives.
 
-<h2 id="cleanup-and-maintenance">11.52. Cleanup and Maintenance <a href="#cleanup-and-maintenance">(permalink)</a></h2>
+<h2 id="cleanup-and-maintenance">11.50. Cleanup and Maintenance <a href="#cleanup-and-maintenance">(permalink)</a></h2>
 
 It isn't a bad idea to revisit this step every so often. Setting a reminder to do so can be helpful in maintaining a clean system.
 
