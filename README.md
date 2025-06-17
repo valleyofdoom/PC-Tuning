@@ -1007,7 +1007,6 @@ powercfg /h off
 These are runtimes are common dependencies including a magnitude of applications. Typically, application installers automatically install its dependencies but this can't be said for some standalone applications.
 
 - [Visual C++ Redistributable Runtimes](https://github.com/abbodi1406/vcredist)
-- [.NET 3.5](https://woshub.com/how-to-install-net-framework-3-5-on-windows) (less common dependency, instructions include both offline and online installation methods)
 - [.NET 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48) (ships with Windows 10 1909+)
 - [WebView](https://developer.microsoft.com/en-us/microsoft-edge/webview2)
 - [DirectX](https://www.microsoft.com/en-gb/download/details.aspx?id=8109) (game launchers typically install this silently)
