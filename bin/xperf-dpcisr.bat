@@ -16,7 +16,7 @@ echo starting in %record_delay%s
 timeout -t %record_delay%
 
 echo recording for %record_duration%s
-xperf -on base+interrupt+dpc
+xperf -on PROC_THREAD+LOADER+INTERRUPT+DPC
 timeout -t %record_duration%
 
 xperf -stop
