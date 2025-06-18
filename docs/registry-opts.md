@@ -286,7 +286,7 @@
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "AllowCortana"=dword:00000000 ; Windows 10 10240 and later
 "ConnectedSearchUseWeb"=dword:00000000 ; Windows 8.1 9600 and later
-"ConnectedSearchPrivacy"=dword:00000003; Windows 8.1 9600 only
+"ConnectedSearchPrivacy"=dword:00000003 ; Windows 8.1 9600 only
 ```
 
 ## Disable Sending Inking and Typing Data to Microsoft
