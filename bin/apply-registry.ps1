@@ -980,7 +980,7 @@ function main() {
                         $minWinVer = Get-WinVer -windowsBuild $minVer
                         $maxWinVer = Get-WinVer -windowsBuild $maxVer
 
-                        $keyString += "; $($minWinVer) $($minVer)"
+                        $keyString += " ; $($minWinVer) $($minVer)"
 
                         if ($minVer -eq $maxVer) {
                             $keyString += " only"
