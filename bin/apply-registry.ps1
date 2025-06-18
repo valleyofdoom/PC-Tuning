@@ -4,7 +4,7 @@ param(
     [switch]$build_docs
 )
 
-$entries = @{
+$entries = [ordered]@{
     "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify"                                                                 = @(
         @{
             "key_name"    = "DiscontinueEOS"
