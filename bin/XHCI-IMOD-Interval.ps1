@@ -118,6 +118,8 @@ function main() {
             continue
         }
 
+        $deviceId = $xhciController.DeviceID
+
         # check if there is data defined for the current controller by the user
         $userDefinedController = @{}
 
@@ -131,8 +133,6 @@ function main() {
         if ($userDefinedController.ContainsKey("ENABLED") -and (-not $userDefinedController["ENABLED"])) {
             continue
         }
-
-        $deviceId = $xhciController.DeviceID
 
         Write-Host "$($xhciController.Caption) - $($deviceId)"
 
