@@ -71,45 +71,45 @@
   - [10.7. Booting Into the ISO](#booting-into-the-iso)
 - [11. Configure Windows](#configure-windows)
   - [11.1. OOBE Setup](#oobe-setup)
-  - [11.2. User Account Control](#user-account-control)
-  - [11.3. Unrestricted PowerShell Execution Policy](#unrestricted-powershell-execution-policy)
-  - [11.4. Importing bin Folder](#importing-bin-folder)
-  - [11.5. Process Mitigations (Windows 10 1709+)](#process-mitigations-windows-10-1709)
-  - [11.6. Merging Registry Options](#merging-registry-options)
-    - [11.6.1. Registry Options Documentation](#registry-options-documentation)
-    - [11.6.2. Applying Options](#applying-options)
-  - [11.7. Installing Drivers](#installing-drivers)
-  - [11.8. Windows Server Specific Options (Windows Server)](#windows-server-specific-options-windows-server)
-  - [11.9. Privacy Options (Windows 8+)](#privacy-options-windows-8)
-  - [11.10. Search Indexing](#search-indexing)
-  - [11.11. Time, Language and Region](#time-language-and-region)
-  - [11.12. Web Browser](#web-browser)
-  - [11.13. Scheduled Tasks](#scheduled-tasks)
-  - [11.14. Activate Windows](#activate-windows)
-  - [11.15. Declutter Interface](#declutter-interface)
-  - [11.16. Visual Effects](#visual-effects)
-  - [11.17. Superfetch and Prefetch](#superfetch-and-prefetch)
-  - [11.18. Operating System and Partition Name](#operating-system-and-partition-name)
-  - [11.19. Show Tray Icons](#show-tray-icons)
-  - [11.20. Hibernation](#hibernation)
-  - [11.21. Runtimes](#runtimes)
-  - [11.22. Handling Bloatware](#handling-bloatware)
-  - [11.23. Optional Features](#optional-features)
-    - [11.23.1. NET 3.5](#net-35)
-  - [11.24. 7-Zip](#7-zip)
-  - [11.25. Graphics Driver](#graphics-driver)
-  - [11.26. MSI Afterburner](#msi-afterburner)
-  - [11.27. Display Resolutions and Scaling Modes](#display-resolutions-and-scaling-modes)
-  - [11.28. Open-Shell (Windows 8+)](#open-shell-windows-8)
-  - [11.29. Spectre, Meltdown and CPU Microcode](#spectre-meltdown-and-cpu-microcode)
-  - [11.30. Power Options](#power-options)
-  - [11.31. Process Explorer](#process-explorer)
-  - [11.32. Memory Management Settings (Windows 8+)](#memory-management-settings-windows-8)
-  - [11.33. Network Adapter Options](#network-adapter-options)
-  - [11.34. Audio Devices](#audio-devices)
-  - [11.35. Device Manager](#device-manager)
-  - [11.36. Device Power-Saving](#device-power-saving)
-  - [11.37. File System](#file-system)
+  - [11.2. File System](#file-system)
+  - [11.3. User Account Control](#user-account-control)
+  - [11.4. Unrestricted PowerShell Execution Policy](#unrestricted-powershell-execution-policy)
+  - [11.5. Importing bin Folder](#importing-bin-folder)
+  - [11.6. Process Mitigations (Windows 10 1709+)](#process-mitigations-windows-10-1709)
+  - [11.7. Merging Registry Options](#merging-registry-options)
+    - [11.7.1. Registry Options Documentation](#registry-options-documentation)
+    - [11.7.2. Applying Options](#applying-options)
+  - [11.8. Installing Drivers](#installing-drivers)
+  - [11.9. Windows Server Specific Options (Windows Server)](#windows-server-specific-options-windows-server)
+  - [11.10. Privacy Options (Windows 8+)](#privacy-options-windows-8)
+  - [11.11. Search Indexing](#search-indexing)
+  - [11.12. Time, Language and Region](#time-language-and-region)
+  - [11.13. Web Browser](#web-browser)
+  - [11.14. Scheduled Tasks](#scheduled-tasks)
+  - [11.15. Activate Windows](#activate-windows)
+  - [11.16. Declutter Interface](#declutter-interface)
+  - [11.17. Visual Effects](#visual-effects)
+  - [11.18. Superfetch and Prefetch](#superfetch-and-prefetch)
+  - [11.19. Operating System and Partition Name](#operating-system-and-partition-name)
+  - [11.20. Show Tray Icons](#show-tray-icons)
+  - [11.21. Hibernation](#hibernation)
+  - [11.22. Runtimes](#runtimes)
+  - [11.23. Handling Bloatware](#handling-bloatware)
+  - [11.24. Optional Features](#optional-features)
+    - [11.24.1. NET 3.5](#net-35)
+  - [11.25. 7-Zip](#7-zip)
+  - [11.26. Graphics Driver](#graphics-driver)
+  - [11.27. MSI Afterburner](#msi-afterburner)
+  - [11.28. Display Resolutions and Scaling Modes](#display-resolutions-and-scaling-modes)
+  - [11.29. Open-Shell (Windows 8+)](#open-shell-windows-8)
+  - [11.30. Spectre, Meltdown and CPU Microcode](#spectre-meltdown-and-cpu-microcode)
+  - [11.31. Power Options](#power-options)
+  - [11.32. Process Explorer](#process-explorer)
+  - [11.33. Memory Management Settings (Windows 8+)](#memory-management-settings-windows-8)
+  - [11.34. Network Adapter Options](#network-adapter-options)
+  - [11.35. Audio Devices](#audio-devices)
+  - [11.36. Device Manager](#device-manager)
+  - [11.37. Device Power-Saving](#device-power-saving)
   - [11.38. Message Signaled Interrupts](#message-signaled-interrupts)
   - [11.39. XHCI Interrupt Moderation (IMOD)](#xhci-interrupt-moderation-imod)
   - [11.40. Control Panel](#control-panel)
@@ -775,11 +775,35 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 - See [assets/videos/oobe-windows8-example.mp4](/assets/videos/oobe-windows8-example.mp4)
 - See [assets/videos/oobe-windows10+-example.mp4](/assets/videos/oobe-windows10+-example.mp4)
 
-<h2 id="user-account-control">11.2. User Account Control <a href="#user-account-control">(permalink)</a></h2>
+<h2 id="file-system">11.2. File System <a href="#file-system">(permalink)</a></h2>
+
+Open CMD as administrator and enter the commands below.
+
+- Disable the creation of 8.3 character-length file names on FAT and NTFS-formatted volumes which aids performance and security ([1](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security))
+
+  - Disable the creation of 8.3 character-length file names
+
+    ```bat
+    fsutil 8dot3name set 1
+    ```
+
+  - If the steps carried out in section [Booting Into the ISO](#booting-into-the-iso) to strip 8dot3 names was followed correctly, the command below should display a value close to 0 for "total 8dot3 names found"
+
+    ```bat
+    fsutil 8dot3name scan /s C:
+    ```
+
+- Disable updates to the Last Access Time stamp on each directory when directories are listed on an NTFS volume. Disabling the Last Access Time feature improves the speed of file and directory access ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks)). Beware that this may affect backup and remote storage programs as per the official remarks ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks))
+
+    ```bat
+    fsutil behavior set disablelastaccess 1
+    ```
+
+<h2 id="user-account-control">11.3. User Account Control <a href="#user-account-control">(permalink)</a></h2>
 
 Set the User Account Control (UAC) setting to "Always notify" (highest level) by typing ``useraccountcontrolsettings`` in ``Win+R``. This reduces the risk of a malicious program bypassing UAC, which can occur with the default setting ([1](https://devblogs.microsoft.com/oldnewthing/20160816-00/?p=94105), [2](https://github.com/hfiref0x/UACME#system-requirements)).
 
-<h2 id="unrestricted-powershell-execution-policy">11.3. Unrestricted PowerShell Execution Policy <a href="#unrestricted-powershell-execution-policy">(permalink)</a></h2>
+<h2 id="unrestricted-powershell-execution-policy">11.4. Unrestricted PowerShell Execution Policy <a href="#unrestricted-powershell-execution-policy">(permalink)</a></h2>
 
 > [!WARNING]
 > 🔒 Setting the PowerShell Execution Policy to Unrestricted may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting. Alternatively, ``-ExecutionPolicy Bypass`` can be used when starting a PowerShell instance instead of configuring it globally.
@@ -790,11 +814,11 @@ This is required to execute the scripts within the repository. Open PowerShell a
 Set-ExecutionPolicy Unrestricted
 ```
 
-<h2 id="importing-bin-folder">11.4. Importing bin Folder <a href="#importing-bin-folder">(permalink)</a></h2>
+<h2 id="importing-bin-folder">11.5. Importing bin Folder <a href="#importing-bin-folder">(permalink)</a></h2>
 
 Move the ``bin`` folder that you downloaded prior to installing Windows to the ``C:`` drive as outlined in section [Fetching Required Files](#fetching-required-files). If you haven't downloaded it yet, you will need to fetch it from another system as you don't have network access at this stage. The complete path should be ``C:\bin``.
 
-<h2 id="process-mitigations-windows-10-1709">11.5. Process Mitigations (Windows 10 1709+) <a href="#process-mitigations-windows-10-1709">(permalink)</a></h2>
+<h2 id="process-mitigations-windows-10-1709">11.6. Process Mitigations (Windows 10 1709+) <a href="#process-mitigations-windows-10-1709">(permalink)</a></h2>
 
 > [!WARNING]
 > 🔒 Disabling process mitigations may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -804,14 +828,14 @@ Move the ``bin`` folder that you downloaded prior to installing Windows to the `
 
 There are several OS-level mitigations ([1](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps#-disable)) that are enabled by default and may impact performance. If desired, these can be disabled in Windows Defender's "Exploit Protection" page. It should be apparent that disabling mitigations reduces security. This step is carried out now as if you choose to disable Windows Defender in the next steps, the interface will no longer be accessible however they can be toggled using the [Get-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/get-processmitigation?view=windowsserver2022-ps) and [Set-ProcessMitigation](https://learn.microsoft.com/en-us/powershell/module/processmitigations/set-processmitigation?view=windowsserver2019-ps) commands in PowerShell. Some programs may require mitigations to be enabled and will break if they are disabled so proceed with caution.
 
-<h2 id="merging-registry-options">11.6. Merging Registry Options <a href="#merging-registry-options">(permalink)</a></h2>
+<h2 id="merging-registry-options">11.7. Merging Registry Options <a href="#merging-registry-options">(permalink)</a></h2>
 
 > [!WARNING]
 > 🔒 Some changes outlined in the table below may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied, there are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
 
-<h3 id="registry-options-documentation">11.6.1. Registry Options Documentation <a href="#registry-options-documentation">(permalink)</a></h3>
+<h3 id="registry-options-documentation">11.7.1. Registry Options Documentation <a href="#registry-options-documentation">(permalink)</a></h3>
 
 > [!IMPORTANT]
 > As of now, the script does not revert options if re-run. For example, if the script was run with an option set to ``true``, then running the script with a given option set to ``false`` will not revert the changed made as the script is unaware of the previous state of the registry keys associated with the option. This functionality may be implemented in the future but for now, use the ``-get_option_keys <option>`` argument with the script to get all relevant keys for a given option so that you can revert them manually.
@@ -853,7 +877,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable typing insights``|N/A|``true``|
 |``disable suggestions in the search box and in search home``|N/A|``true``|
 
-<h3 id="applying-options">11.6.2. Applying Options <a href="#applying-options">(permalink)</a></h3>
+<h3 id="applying-options">11.7.2. Applying Options <a href="#applying-options">(permalink)</a></h3>
 
 - Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender. If that doesn't work, reboot then re-execute the command again. If none of the previous workarounds worked, then try run the command in safe-mode. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
 
@@ -868,7 +892,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 > [!NOTE]
 > To the maintainers and contributors, the features and options should be tested as listed in the table above. It is inevitable that more steps are required to achieve the same goal with operating system updates and upgrades over time (e.g. manual maintenance of a list of services relating to disabling Windows Defender).
 
-<h2 id="installing-drivers">11.7. Installing Drivers <a href="#installing-drivers">(permalink)</a></h2>
+<h2 id="installing-drivers">11.8. Installing Drivers <a href="#installing-drivers">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -893,7 +917,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - Other required drivers can be installed with [Snappy Driver Installer Origin](https://www.snappy-driver-installer.org)
 
-<h2 id="windows-server-specific-options-windows-server">11.8. Windows Server Specific Options (Windows Server) <a href="#windows-server-specific-options-windows-server">(permalink)</a></h2>
+<h2 id="windows-server-specific-options-windows-server">11.9. Windows Server Specific Options (Windows Server) <a href="#windows-server-specific-options-windows-server">(permalink)</a></h2>
 
 - To enable Wi-Fi, navigate to ``Manage -> Add Roles and Features`` in the Server Manager dashboard and enable ``Wireless LAN Service``
 
@@ -909,11 +933,11 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
 
-<h2 id="privacy-options-windows-8">11.9. Privacy Options (Windows 8+) <a href="#privacy-options-windows-8">(permalink)</a></h2>
+<h2 id="privacy-options-windows-8">11.10. Privacy Options (Windows 8+) <a href="#privacy-options-windows-8">(permalink)</a></h2>
 
 Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``.
 
-<h2 id="search-indexing">11.10. Search Indexing <a href="#search-indexing">(permalink)</a></h2>
+<h2 id="search-indexing">11.11. Search Indexing <a href="#search-indexing">(permalink)</a></h2>
 
 Certain directories on the file system are indexed for search features in Windows which can be viewed by typing ``control srchadmin.dll`` in ``Win+R``. Indexing occurs periodically in the background and often results in notable CPU overhead which can be seen using Process Explorer as described in section [Process Explorer](#process-explorer). Therefore, it is preferable to prevent search indexing globally by disabling the ``Windows Search`` service however, search features may be limited. Open CMD as administrator and enter the command below.
 
@@ -924,7 +948,7 @@ Certain directories on the file system are indexed for search features in Window
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This can be done by opening CMD as administrator then typing ``sc EnumDepend <service>`` which describes the services that rely on the service you want to disable. These services should be disabled to avoid dependency errors. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-<h2 id="time-language-and-region">11.11. Time, Language and Region <a href="#time-language-and-region">(permalink)</a></h2>
+<h2 id="time-language-and-region">11.12. Time, Language and Region <a href="#time-language-and-region">(permalink)</a></h2>
 
 - Configure settings by typing ``intl.cpl`` and ``timedate.cpl`` in ``Win+R``
 
@@ -936,7 +960,7 @@ Certain directories on the file system are indexed for search features in Window
 
 - Ensure that the system time is synced and is correct
 
-<h2 id="web-browser">11.12. Web Browser <a href="#web-browser">(permalink)</a></h2>
+<h2 id="web-browser">11.13. Web Browser <a href="#web-browser">(permalink)</a></h2>
 
 Configure a browser of your choice.
 
@@ -944,11 +968,11 @@ Configure a browser of your choice.
 
 - See [Desktop Browsers | Privacy Guides](https://www.privacyguides.org/en/desktop-browsers)
 
-<h2 id="scheduled-tasks">11.13. Scheduled Tasks <a href="#scheduled-tasks">(permalink)</a></h2>
+<h2 id="scheduled-tasks">11.14. Scheduled Tasks <a href="#scheduled-tasks">(permalink)</a></h2>
 
 There are a handful of scheduled tasks that ship with Windows which can be assessed using [TaskSchedulerView](https://www.nirsoft.net/utils/task_scheduler_view.html). Assessing them can help in having finer control as to what runs on your system silently whether it be updates-related, telemetry-related, defender-related and more. Consider the ``Last Run``, ``Next Run`` and ``Triggers`` column to evaluate whether there is any point disabling the task in question.
 
-<h2 id="activate-windows">11.14. Activate Windows <a href="#activate-windows">(permalink)</a></h2>
+<h2 id="activate-windows">11.15. Activate Windows <a href="#activate-windows">(permalink)</a></h2>
 
 Use the commands below to activate Windows using your license key if you do not have one linked to your HWID. Ensure that the activation process was successful by verifying the activation status in computer properties. Open CMD as administrator and enter the commands below.
 
@@ -960,15 +984,15 @@ slmgr /ipk <license key>
 slmgr /ato
 ```
 
-<h2 id="declutter-interface">11.15. Declutter Interface <a href="#declutter-interface">(permalink)</a></h2>
+<h2 id="declutter-interface">11.16. Declutter Interface <a href="#declutter-interface">(permalink)</a></h2>
 
 Disable features on the taskbar and unpin shortcuts and tiles from the taskbar and start menu. This is obviously personal preference.
 
-<h2 id="visual-effects">11.16. Visual Effects <a href="#visual-effects">(permalink)</a></h2>
+<h2 id="visual-effects">11.17. Visual Effects <a href="#visual-effects">(permalink)</a></h2>
 
 Visual effects options can be accessed by typing ``sysdm.cpl`` in ``Win+R``. This menu provides the ability to disable interface animations which contributes to perceived responsiveness when generally interacting with Windows. On Windows 7, desktop composition could natively be disabled here, but the option is no longer available in Windows 8+. The rest of the options are personal preference.
 
-<h2 id="superfetch-and-prefetch">11.17. Superfetch and Prefetch <a href="#superfetch-and-prefetch">(permalink)</a></h2>
+<h2 id="superfetch-and-prefetch">11.18. Superfetch and Prefetch <a href="#superfetch-and-prefetch">(permalink)</a></h2>
 
 If a HDD isn't present in the system then Superfetch and Prefetch can be disabled with the command below in CMD. Disabling SysMain is in Microsoft's recommendations for configuring devices for real-time performance ([1](https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/soft-real-time/soft-real-time-device)) and the ``C:\Windows\Prefetch`` folder should no longer be populated.
 
@@ -979,7 +1003,7 @@ If a HDD isn't present in the system then Superfetch and Prefetch can be disable
 > [!IMPORTANT]
 > To prevent unexpected breakage and problems due to service dependency errors, assess the other services that depend on the service you want to disable. This can be done by opening CMD as administrator then typing ``sc EnumDepend <service>`` which describes the services that rely on the service you want to disable. These services should be disabled to avoid dependency errors. If you can't disable them (e.g. because you need them), then you have no choice but to leave the service you wanted to disable initially enabled.
 
-<h2 id="operating-system-and-partition-name">11.18. Operating System and Partition Name <a href="#operating-system-and-partition-name">(permalink)</a></h2>
+<h2 id="operating-system-and-partition-name">11.19. Operating System and Partition Name <a href="#operating-system-and-partition-name">(permalink)</a></h2>
 
 Configure the operating system and drive's partition name. It is recommended to set it to something meaningful or unique such has ``W10 22H2 Work`` or ``W10 22H2 Gaming`` for clarity when dual-booting or when multiple drives are present. Open CMD as administrator and enter the commands below.
 
@@ -991,11 +1015,11 @@ Configure the operating system and drive's partition name. It is recommended to 
   label C: OS_NAME
   ```
 
-<h2 id="show-tray-icons">11.19. Show Tray Icons <a href="#show-tray-icons">(permalink)</a></h2>
+<h2 id="show-tray-icons">11.20. Show Tray Icons <a href="#show-tray-icons">(permalink)</a></h2>
 
 I would recommend enabling the ``Always show all icons in the notification area`` for better process management. Hiding icons in the tray area can partially be considered a security risk since you won't be aware of potentially malicious or unwanted programs running silently.
 
-<h2 id="hibernation">11.20. Hibernation <a href="#hibernation">(permalink)</a></h2>
+<h2 id="hibernation">11.21. Hibernation <a href="#hibernation">(permalink)</a></h2>
 
 Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hiberfil.sys``.  It is recommended to shut down instead of saving software state to disk. Open CMD as administrator and enter the command below.
 
@@ -1003,7 +1027,7 @@ Windows has a toggle that disables Fast Startup, hibernation and removes ``C:\hi
 powercfg /h off
 ```
 
-<h2 id="runtimes">11.21. Runtimes <a href="#runtimes">(permalink)</a></h2>
+<h2 id="runtimes">11.22. Runtimes <a href="#runtimes">(permalink)</a></h2>
 
 These are runtimes are common dependencies including a magnitude of applications. Typically, application installers automatically install its dependencies but this can't be said for some standalone applications.
 
@@ -1012,7 +1036,7 @@ These are runtimes are common dependencies including a magnitude of applications
 - [WebView](https://developer.microsoft.com/en-us/microsoft-edge/webview2)
 - [DirectX](https://www.microsoft.com/en-gb/download/details.aspx?id=8109) (game launchers typically install this silently)
 
-<h2 id="handling-bloatware">11.22. Handling Bloatware <a href="#handling-bloatware">(permalink)</a></h2>
+<h2 id="handling-bloatware">11.23. Handling Bloatware <a href="#handling-bloatware">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1057,11 +1081,11 @@ I heavily discourage running debloating scripts or removing components other tha
 
 - You can use Task Manager to check for residual bloatware that is running in the background
 
-<h2 id="optional-features">11.23. Optional Features <a href="#optional-features">(permalink)</a></h2>
+<h2 id="optional-features">11.24. Optional Features <a href="#optional-features">(permalink)</a></h2>
 
 Optional features can be accessed by typing ``OptionalFeatures`` in ``Win+R``. Enable/disable features that you do/don't need. If Windows Update is disabled then you likely won't be able to install features and instead, must install an offline package using DISM. On Windows Server, this can be accessed via the Server Manager dashboard by navigating to ``Manage -> Remove Roles and Features``.
 
-<h3 id="net-35">11.23.1. NET 3.5 <a href="#net-35">(permalink)</a></h3>
+<h3 id="net-35">11.24.1. NET 3.5 <a href="#net-35">(permalink)</a></h3>
 
 Some applications still utilize the NET 3.5 runtime so I would recommend installing it just in case. As mentioned previously, you won't be able to install it in the Optional Features window if Windows Update is disabled but can instead, be installed using an offline package.
 
@@ -1071,16 +1095,16 @@ For using the offline package, download and extract a Windows ISO (e.g. ``C:\EXT
 DISM /Online /Enable-Feature /FeatureName:NetFx3 /LimitAccess /Source:"C:\EXTRACTED_ISO\sources\sxs"
 ```
 
-<h2 id="7-zip">11.24. 7-Zip <a href="#7-zip">(permalink)</a></h2>
+<h2 id="7-zip">11.25. 7-Zip <a href="#7-zip">(permalink)</a></h2>
 
 Download and install [7-Zip](https://www.7-zip.org). Open ``C:\Program Files\7-Zip\7zFM.exe`` then navigate ``Tools -> Options`` and associate 7-Zip with all file extensions by clicking the ``+`` button. You may need to click it twice to override existing associated extensions.
 
-<h2 id="graphics-driver">11.25. Graphics Driver <a href="#graphics-driver">(permalink)</a></h2>
+<h2 id="graphics-driver">11.26. Graphics Driver <a href="#graphics-driver">(permalink)</a></h2>
 
 - See [docs/configure-nvidia.md](/docs/configure-nvidia.md)
 - See [docs/configure-amd.md](/docs/configure-amd.md)
 
-<h2 id="msi-afterburner">11.26. MSI Afterburner <a href="#msi-afterburner">(permalink)</a></h2>
+<h2 id="msi-afterburner">11.27. MSI Afterburner <a href="#msi-afterburner">(permalink)</a></h2>
 
 If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-cards), download and install it now.
 
@@ -1092,7 +1116,7 @@ If you use [MSI Afterburner](https://www.msi.com/Landing/afterburner/graphics-ca
     "C:\Program Files (x86)\MSI Afterburner\MSIAfterburner.exe" /Profile1 /Q
     ```
 
-<h2 id="display-resolutions-and-scaling-modes">11.27. Display Resolutions and Scaling Modes <a href="#display-resolutions-and-scaling-modes">(permalink)</a></h2>
+<h2 id="display-resolutions-and-scaling-modes">11.28. Display Resolutions and Scaling Modes <a href="#display-resolutions-and-scaling-modes">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1113,7 +1137,7 @@ You may have optionally found a stable overclock for your display in earlier sec
 
 - Ensure your resolution is configured properly by typing ``rundll32.exe display.dll,ShowAdapterSettings`` in ``Win+R``
 
-<h2 id="open-shell-windows-8">11.28. Open-Shell (Windows 8+) <a href="#open-shell-windows-8">(permalink)</a></h2>
+<h2 id="open-shell-windows-8">11.29. Open-Shell (Windows 8+) <a href="#open-shell-windows-8">(permalink)</a></h2>
 
 Open-Shell is a FOSS alternative to the Windows Start Menu.
 
@@ -1129,7 +1153,7 @@ Open-Shell is a FOSS alternative to the Windows Start Menu.
 
   - Open ``"C:\Program Files\Open-Shell\Start Menu Settings.lnk"``, enable ``Show all settings`` then navigate to the Windows 8 Settings section and set ``Disable active corners`` to ``All``
 
-<h2 id="spectre-meltdown-and-cpu-microcode">11.29. Spectre, Meltdown and CPU Microcode <a href="#spectre-meltdown-and-cpu-microcode">(permalink)</a></h2>
+<h2 id="spectre-meltdown-and-cpu-microcode">11.30. Spectre, Meltdown and CPU Microcode <a href="#spectre-meltdown-and-cpu-microcode">(permalink)</a></h2>
 
 > [!WARNING]
 > 🔒 Disabling Spectre and Meltdown may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
@@ -1158,14 +1182,14 @@ Meltdown does not affect the AMD architecture ([1](https://www.theverge.com/2018
 
 Use [InSpectre](https://www.grc.com/inspectre.htm) and [CPU-Z's](https://www.cpuid.com/softwares/cpu-z.html) validation feature to check the status or version before and after a reboot to verify expected behavior.
 
-<h2 id="power-options">11.30. Power Options <a href="#power-options">(permalink)</a></h2>
+<h2 id="power-options">11.31. Power Options <a href="#power-options">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 To be completed.
 
-<h2 id="process-explorer">11.31. Process Explorer <a href="#process-explorer">(permalink)</a></h2>
+<h2 id="process-explorer">11.32. Process Explorer <a href="#process-explorer">(permalink)</a></h2>
 
 Task Manager lacks several useful metrics compared to a tool such as Process Explorer. On Windows 8+, Task Manager reports CPU utility in % which provides misleading CPU utilization details ([1](https://aaron-margosis.medium.com/task-managers-cpu-numbers-are-all-but-meaningless-2d165b421e43)). On the other hand, Windows 7's Task Manager and Process Explorer report time-based busy utilization. This also explains as to why disabling idle states within the OS results in 100% CPU utilization in Task Manager.
 
@@ -1195,7 +1219,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
   - Enable the ``VirusTotal`` column
 
-<h2 id="memory-management-settings-windows-8">11.32. Memory Management Settings (Windows 8+) <a href="#memory-management-settings-windows-8">(permalink)</a></h2>
+<h2 id="memory-management-settings-windows-8">11.33. Memory Management Settings (Windows 8+) <a href="#memory-management-settings-windows-8">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1212,7 +1236,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
     Disable-MMAgent -MemoryCompression
     ```
 
-<h2 id="network-adapter-options">11.33. Network Adapter Options <a href="#network-adapter-options">(permalink)</a></h2>
+<h2 id="network-adapter-options">11.34. Network Adapter Options <a href="#network-adapter-options">(permalink)</a></h2>
 
 - Open ``Network Connections`` by typing ``ncpa.cpl`` in ``Win+R``
 
@@ -1224,7 +1248,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
   - See [DNS Resolvers - Recommended Providers | Privacy Guides](https://www.privacyguides.org/en/dns)
 
-<h2 id="audio-devices">11.34. Audio Devices <a href="#audio-devices">(permalink)</a></h2>
+<h2 id="audio-devices">11.35. Audio Devices <a href="#audio-devices">(permalink)</a></h2>
 
 - The sound control panel can be opened by typing ``mmsys.cpl`` in ``Win+R``
 
@@ -1236,7 +1260,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
 - Minimize the size of the audio buffer with [LowAudioLatency](https://github.com/spddl/LowAudioLatency) or on your DAC ([1](https://www.youtube.com/watch?v=JTuZvRF-OgE&t=464s)). Beware of audio dropouts due to the CPU not being able to keep up under load
 
-<h2 id="device-manager">11.35. Device Manager <a href="#device-manager">(permalink)</a></h2>
+<h2 id="device-manager">11.36. Device Manager <a href="#device-manager">(permalink)</a></h2>
 
 - Open Device Manager by typing ``devmgmt.msc`` in ``Win+R``
 
@@ -1257,7 +1281,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
 - Optionally use [DeviceCleanup](https://www.uwe-sieber.de/files/DeviceCleanup.zip) to remove hidden devices
 
-<h2 id="device-power-saving">11.36. Device Power-Saving <a href="#device-power-saving">(permalink)</a></h2>
+<h2 id="device-power-saving">11.37. Device Power-Saving <a href="#device-power-saving">(permalink)</a></h2>
 
 Open PowerShell and enter the command below to disable the ``Allow the computer to turn off this device to save power`` option for all applicable devices in Device Manager.
 
@@ -1266,30 +1290,6 @@ Re-plugging devices may cause this option to re-enable so either avoid doing so,
 ```powershell
 Get-WmiObject MSPower_DeviceEnable -Namespace root\wmi | ForEach-Object { $_.enable = $false; $_.psbase.put(); }
 ```
-
-<h2 id="file-system">11.37. File System <a href="#file-system">(permalink)</a></h2>
-
-Open CMD as administrator and enter the commands below.
-
-- Disable the creation of 8.3 character-length file names on FAT and NTFS-formatted volumes which aids performance and security ([1](https://web.archive.org/web/20200217151754/https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security))
-
-  - Disable the creation of 8.3 character-length file names
-
-    ```bat
-    fsutil 8dot3name set 1
-    ```
-
-  - If the steps carried out in section [Booting Into the ISO](#booting-into-the-iso) to strip 8dot3 names was followed correctly, the command below should display a value close to 0 for "total 8dot3 names found"
-
-    ```bat
-    fsutil 8dot3name scan /s C:
-    ```
-
-- Disable updates to the Last Access Time stamp on each directory when directories are listed on an NTFS volume. Disabling the Last Access Time feature improves the speed of file and directory access ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks)). Beware that this may affect backup and remote storage programs as per the official remarks ([1](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/fsutil-behavior#remarks))
-
-    ```bat
-    fsutil behavior set disablelastaccess 1
-    ```
 
 <h2 id="message-signaled-interrupts">11.38. Message Signaled Interrupts <a href="#message-signaled-interrupts">(permalink)</a></h2>
 
