@@ -954,6 +954,8 @@ function main() {
             $optionSubheading = ConvertTo-TitleCase -string $option
             Add-Content -Path $mdfile -Value "## $($optionSubheading)`n"
 
+            Add-Content -Path $mdfile -Value "config option: ````$($option)`````n"
+
             # start code block
             Add-Content -Path $mdfile -Value "``````"
 
