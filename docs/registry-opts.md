@@ -2,6 +2,8 @@
 
 ## Disable Windows Update
 
+config option: ``disable windows update``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
 "WUServer"=" "
@@ -38,12 +40,16 @@
 
 ## Disable Automatic Windows Updates
 
+config option: ``disable automatic windows updates``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU]
 "NoAutoUpdate"=dword:00000001
 ```
 
 ## Disable Driver Installation Via Windows Update
+
+config option: ``disable driver installation via windows update``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
@@ -65,12 +71,16 @@
 
 ## Disable Automatic Store App Updates
 
+config option: ``disable automatic store app updates``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore]
 "AutoDownload"=dword:00000002 ; Windows 8.1 9600 and later
 ```
 
 ## Disable Windows Defender
+
+config option: ``disable windows defender``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows Defender]
@@ -140,12 +150,16 @@
 
 ## Disable Gamebarpresencewriter
 
+config option: ``disable gamebarpresencewriter``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId\Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter]
 "ActivationType"=dword:00000000 ; Windows 10 10240 and later
 ```
 
 ## Disable Background Apps
+
+config option: ``disable background apps``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy]
@@ -154,12 +168,16 @@
 
 ## Disable Transparency Effects
 
+config option: ``disable transparency effects``
+
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
 "EnableTransparency"=dword:00000000 ; Windows 10 10240 and later
 ```
 
 ## Disable Notifications Network Usage
+
+config option: ``disable notifications network usage``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications]
@@ -168,12 +186,16 @@
 
 ## Disable Windows Marking File Attachments With Information About Their Zone of Origin
 
+config option: ``disable windows marking file attachments with information about their zone of origin``
+
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments]
 "SaveZoneInformation"=dword:00000001
 ```
 
 ## Disable Malicious Software Removal Tool Updates
+
+config option: ``disable malicious software removal tool updates``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MRT]
@@ -182,12 +204,16 @@
 
 ## Disable Sticky Keys
 
+config option: ``disable sticky keys``
+
 ```
 [HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
 "Flags"="506"
 ```
 
 ## Disable Pointer Acceleration
+
+config option: ``disable pointer acceleration``
 
 ```
 [HKEY_CURRENT_USER\Control Panel\Mouse]
@@ -198,12 +224,16 @@
 
 ## Disable Fast Startup
 
+config option: ``disable fast startup``
+
 ```
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
 "HiberbootEnabled"=dword:00000000
 ```
 
 ## Disable Customer Experience Improvement Program
+
+config option: ``disable customer experience improvement program``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SQMClient\Windows]
@@ -221,6 +251,8 @@
 
 ## Disable Windows Error Reporting
 
+config option: ``disable windows error reporting``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\PCHealth\ErrorReporting]
 "DoReport"=dword:00000000
@@ -237,6 +269,8 @@
 
 ## Disable Clipboard History
 
+config option: ``disable clipboard history``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
 "AllowClipboardHistory"=dword:00000000 ; Windows 10 10240 and later
@@ -244,6 +278,8 @@
 ```
 
 ## Disable Activity Feed
+
+config option: ``disable activity feed``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
@@ -254,12 +290,16 @@
 
 ## Disable Advertising Id
 
+config option: ``disable advertising id``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
 "DisabledByGroupPolicy"=dword:00000001 ; Windows 8.1 9600 and later
 ```
 
 ## Disable Autoplay
+
+config option: ``disable autoplay``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
@@ -272,6 +312,8 @@
 
 ## Disable Cloud Content
 
+config option: ``disable cloud content``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
 "DisableCloudOptimizedContent"=dword:00000001 ; Windows 10 18363 and later
@@ -282,6 +324,8 @@
 
 ## Mitigate Web-based Search Info
 
+config option: ``mitigate web-based search info``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "AllowCortana"=dword:00000000 ; Windows 10 10240 and later
@@ -291,12 +335,16 @@
 
 ## Disable Sending Inking and Typing Data to Microsoft
 
+config option: ``disable sending inking and typing data to microsoft``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\TextInput]
 "AllowLinguisticDataCollection"=dword:00000000 ; Windows 10 17134 and later
 ```
 
 ## Disable Automatic Maintenance
+
+config option: ``disable automatic maintenance``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
@@ -305,12 +353,16 @@
 
 ## Disable Computer Is Out of Support Message
 
+config option: ``disable computer is out of support message``
+
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify]
 "DiscontinueEOS"=dword:00000001 ; Windows 8.1 9600 and earlier
 ```
 
 ## Disable Fault Tolerant Heap
+
+config option: ``disable fault tolerant heap``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\FTH]
@@ -319,12 +371,16 @@
 
 ## Disable Sign-in and Lock Last Interactive User After a Restart
 
+config option: ``disable sign-in and lock last interactive user after a restart``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
 "DisableAutomaticRestartSignOn"=dword:00000001 ; Windows 10 18362 and later
 ```
 
 ## Show File Extensions
+
+config option: ``show file extensions``
 
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
@@ -333,6 +389,8 @@
 
 ## Disable Widgets
 
+config option: ``disable widgets``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Dsh]
 "AllowNewsAndInterests"=dword:00000000 ; Windows 10 10240 and later
@@ -340,12 +398,16 @@
 
 ## Disable Remote Assistance
 
+config option: ``disable remote assistance``
+
 ```
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
 "fAllowToGetHelp"=dword:00000000
 ```
 
 ## Disable Telemetry
+
+config option: ``disable telemetry``
 
 ```
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment]
@@ -364,6 +426,8 @@
 
 ## Disable Retrieval of Online Tips and Help in the Immersive Control Panel
 
+config option: ``disable retrieval of online tips and help in the immersive control panel``
+
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "AllowOnlineTips"=dword:00000000 ; Windows 10 16299 and later
@@ -371,12 +435,16 @@
 
 ## Disable Typing Insights
 
+config option: ``disable typing insights``
+
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings]
 "InsightsEnabled"=dword:00000000 ; Windows 10 10240 and later
 ```
 
 ## Disable Suggestions in the Search Box and in Search Home
+
+config option: ``disable suggestions in the search box and in search home``
 
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings]
