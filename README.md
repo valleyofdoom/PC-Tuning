@@ -137,7 +137,8 @@
     - [11.47.2. Disable Idle States](#disable-idle-states)
   - [11.48. Clock Interrupt Frequency (Timer Resolution)](#clock-interrupt-frequency-timer-resolution)
   - [11.49. Paging File](#paging-file)
-  - [11.50. Cleanup and Maintenance](#cleanup-and-maintenance)
+  - [11.50. Background Window Message Rate](#window-message-rate)
+  - [11.51. Cleanup and Maintenance](#cleanup-and-maintenance)
 
 <h1 id="introduction">2. Introduction <a href="#introduction">(permalink)</a></h1>
 
@@ -1586,7 +1587,16 @@ To conclude my view on the topic, I recommend favoring the per-process (non-glob
 
 For most readers, I would recommend keeping the paging file enabled which is the default state. There is an argument that it is preferable to disable it if you have enough RAM for your applications as it reduces I/O overhead and that system memory is faster than disk however, many users have reported in-game stuttering in specific games with the paging file disabled despite being nowhere near maximum RAM load. Windows appears to allocate the page file to secondary drives sometimes which can be problematic if one of the drives is a HDD. This can be resolved by allocating the page file to an SSD and its size to "system managed size" then deallocating it on other drives.
 
-<h2 id="cleanup-and-maintenance">11.50. Cleanup and Maintenance <a href="#cleanup-and-maintenance">(permalink)</a></h2>
+<h2 id="window-message-rate">11.50. Background Window Message Rate <a href="#window-message-rate">(permalink)</a></h2>
+
+Windows 11+ limits the window message rate of background processes ([1](https://blogs.windows.com/windowsdeveloper/2023/05/26/delivering-delightful-performance-for-more-than-one-billion-users-worldwide)). In addition to the introduction of this feature in [22621.1928](https://support.microsoft.com/en-gb/topic/june-27-2023-kb5027303-os-build-22621-1928-preview-1ada2c0a-fa85-43f8-91c4-6ee13fdf278b), a few registry options were also introduced to control the behaviour of this feature. One option allows adjustment of the message rate for background windows. By default, this interval is roughly 8ms/125Hz (0x8). This can be observed by starting a [Mouse Tester](https://github.com/valleyofdoom/MouseTester) log, clicking on another window to send Mouse Tester to the background, and then moving the mouse. After plotting and cropping the logged data to the period when Mouse Tester was in the background while moving the mouse, the polling interval should be close to the value of ``RawMouseThrottleDuration``. The interval can be increased to further exaggerate its effect.
+
+```
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"RawMouseThrottleDuration"=dword:00000008 ; min: 0x3, max: 0x14
+```
+
+<h2 id="cleanup-and-maintenance">11.51. Cleanup and Maintenance <a href="#cleanup-and-maintenance">(permalink)</a></h2>
 
 It isn't a bad idea to revisit this step every so often. Setting a reminder to do so can be helpful in maintaining a clean system.
 
