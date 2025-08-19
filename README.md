@@ -702,13 +702,13 @@ This section covers booting into the ISO retrieved and prepared in the previous 
   - Disable the creation of 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter (e.g. ``D:``)
 
     ```bat
-    fsutil 8dot3name set <drive letter> 1
+    fsutil.exe 8dot3name set <drive letter> 1
     ```
 
   - Strip existing 8.3 character-length file names. Replace ``<drive letter>`` with the correct drive letter (e.g. ``D:``)
 
     ```bat
-    fsutil 8dot3name strip /s /f <drive letter>
+    fsutil.exe 8dot3name strip /s /f <drive letter>
     ```
 
   - Type ``wpeutil reboot`` to exit Windows setup and reboot
