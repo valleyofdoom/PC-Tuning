@@ -935,7 +935,9 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 <h2 id="privacy-options-windows-8">11.10. Privacy Options (Windows 8+) <a href="#privacy-options-windows-8">(permalink)</a></h2>
 
-Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``.
+- Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``
+
+- Disable ``Personalized Experiences`` in Microsoft Store settings
 
 <h2 id="search-indexing">11.11. Search Indexing <a href="#search-indexing">(permalink)</a></h2>
 
