@@ -398,18 +398,28 @@ In my experience on various motherboards, loading a saved profile fails to resto
 
 <h2 id="reviewing-accessible-usb-ports">7.1. Reviewing Accessible USB Ports <a href="#reviewing-accessible-usb-ports">(permalink)</a></h2>
 
-Firstly, familiarize yourself with which USB ports correspond to given USB controllers as some ports shown in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) may not be physically accessible. I recommended plugging a device into every accessible port on your system such as the ones on the motherboard I/O and front panels, then take a note of which controller and port each physical port corresponds to in USB Device Tree Viewer.
+Firstly, familiarize yourself which physical USB connectors correspond to the USB controllers and ports as displayed in [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) (some may not be physically accessible). I recommended systematically plugging one (the same) device into every physical USB connector on your system such as the ones on the motherboard I/O and front panels, then take note of how they correspond to the ones shown in USB Device Tree Viewer.
+
+Keep in mind, a single physical connector can be linked to many ports which are named companion ports. This is indicated by hovering over the port (e.g. hovering over Port 1 displays 1-5 meaning Controller 1, Port 5 is the companion of it and vice versa). Nothing will be displayed when hovering over the port if it doesn't have a companion port meaning it is the only port connected to the physical USB connector.
+
+|Physical Location Note|USB Controller|USB Ports|
+|---|---|---|
+|Motherboard I/O Bottom Row Connector 1|Second|1, 5|
+|Motherboard I/O Bottom Row Connector 2|Second|2, 6|
+|Motherboard I/O Middle Row Connector 1|First|1, 5|
+|Motherboard I/O Top Row Connector 1|First|13|
+|Motherboard I/O Top Row Connector 2|First|14|
 
 <h2 id="layout-planning">7.2. Layout Planning <a href="#layout-planning">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
-Secondly, plan and decide which USB controllers you would like to plug devices into but don't plug them in yet. As for which USB controllers should be used, that is up to you. If you have more than one USB controller, you can isolate devices such as your mouse, keyboard and audio devices onto another USB controller as they have the potential to interfere with polling consistency ([1](https://forums.blurbusters.com/viewtopic.php?f=10&t=7618#p58449)). More USB controllers may be made available by using PCIe expansion cards or external USB 2.0 and 3.0 headers on your motherboard. Always verify with [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html). Ryzen systems have a USB controller that is directly connected to the CPU ([1](https://hexus.net/tech/features/mainboard/131789-amd-ryzen-3000-supporting-x570-chipset-examined)) which can be identified under the PCIe Bus category in [HWiNFO](https://www.hwinfo.com). It is usually the USB controller that is connected to an ``Internal PCIe Bridge to bus`` which is also labelled with the CPU architecture ([example](/assets/images/ryzen-cpu-usb-controller.png)).
+Secondly, you need to plan and decide which USB controllers you would like to plug devices into. As for which USB controllers should be used, that is up to you. If you have more than one USB controller, you can isolate devices such as your mouse, keyboard and audio devices onto seperate USB controllers (depending on how many you have) as they have the potential to interfere with polling consistency ([1](https://forums.blurbusters.com/viewtopic.php?f=10&t=7618#p58449)). More USB controllers may be made available by using PCIe expansion cards or external USB 2.0 and 3.0 headers on your motherboard. Always verify with [USB Device Tree Viewer](https://www.uwe-sieber.de/usbtreeview_e.html) as explained previously. Ryzen systems have a USB controller that is directly connected to the CPU ([1](https://hexus.net/tech/features/mainboard/131789-amd-ryzen-3000-supporting-x570-chipset-examined)) which can be identified under the PCIe Bus category in [HWiNFO](https://www.hwinfo.com). It is usually the USB controller that is connected to an ``Internal PCIe Bridge to bus`` which is also labelled with the CPU architecture ([example](/assets/images/ryzen-cpu-usb-controller.png)).
 
 <h2 id="plugging-in-devices">7.3. Plugging In Devices <a href="#plugging-in-devices">(permalink)</a></h2>
 
-Lastly, plug the devices into the ports and USB controllers that you have decided to use. In any case, consider populating ones that are closest to the root of the USB controller's hub tree first. Additionally, I would also recommend avoiding internal hubs ([example](/assets/images/usb-hub-internal-headers.png)).
+Lastly, plug the devices into the ports and USB controllers that you have decided to use. In any case, consider populating the ports that are closest to the root of the USB controller's hub tree first. Additionally, I would also recommend avoiding internal hubs ([example](/assets/images/usb-hub-internal-headers.png)). It would also be sensible to use the USB 2.0/3.0 ports appropriately (e.g. not wasting a USB 3.0 port by plugging in a USB 2.0 device).
 
 <h1 id="configure-peripherals">8. Configure Peripherals <a href="#configure-peripherals">(permalink)</a></h1>
 
