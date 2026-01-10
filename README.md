@@ -402,13 +402,15 @@ Firstly, familiarize yourself which physical USB connectors correspond to the US
 
 Keep in mind, a single physical connector can be linked to many ports which are named companion ports. This is indicated by hovering over the port (e.g. hovering over Port 1 displays 1-5 meaning Controller 1, Port 5 is the companion of it and vice versa). Nothing will be displayed when hovering over the port if it doesn't have a companion port meaning it is the only port connected to the physical USB connector.
 
+Below is an example of how you can structure your notes regarding port mapping.
+
 |Physical Location Note|USB Controller|USB Ports|
 |---|---|---|
-|Motherboard I/O Bottom Row Connector 1|Second|1, 5|
-|Motherboard I/O Bottom Row Connector 2|Second|2, 6|
-|Motherboard I/O Middle Row Connector 1|First|1, 5|
 |Motherboard I/O Top Row Connector 1|First|13|
 |Motherboard I/O Top Row Connector 2|First|14|
+|Motherboard I/O Middle Row Connector 1|First|1, 5|
+|Motherboard I/O Bottom Row Connector 1|Second|1, 5|
+|Motherboard I/O Bottom Row Connector 2|Second|2, 6|
 
 <h2 id="layout-planning">7.2. Layout Planning <a href="#layout-planning">(permalink)</a></h2>
 
