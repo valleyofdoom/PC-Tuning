@@ -606,7 +606,7 @@ This section contains important points to consider that have been collected over
 
 - Windows 11 is a minimum requirement for [Cross Adapter Scan-Out](https://videocardz.com/newz/microsoft-cross-adapter-scan-out-caso-delivers-16-fps-increse-on-laptops-without-dgpu-igpu-mux-switch) ([1](https://devblogs.microsoft.com/directx/optimizing-hybrid-laptop-performance-with-cross-adapter-scan-out-caso))
 
-- AllowTelemetry can be set to 0 on Windows Server editions ([1](https://gpsearch.azurewebsites.net:/Default.aspx?PolicyID=10937))
+- AllowTelemetry can be set to 0 on Windows Enterprise, Education, and Server editions ([1](https://gpsearch.azurewebsites.net:/Default.aspx?PolicyID=10937))
 
 <h2 id="downloading-and-preparing-a-stock-windows-iso">10.3. Downloading and Preparing a Stock Windows ISO <a href="#downloading-and-preparing-a-stock-windows-iso">(permalink)</a></h2>
 
