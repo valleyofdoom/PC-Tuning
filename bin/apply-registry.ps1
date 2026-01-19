@@ -479,15 +479,6 @@ $entries = [ordered]@{
             "apply_if"    = @("disable windows defender")
         }
     )
-    "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity"                             = @(
-        @{
-            "key_name"    = "Enabled"
-            "min_version" = 10240
-            "value"       = 0
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("disable windows defender")
-        }
-    )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet"                                                                         = @(
         @{
             "key_name"    = "SpyNetReporting"

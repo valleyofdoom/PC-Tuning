@@ -81,7 +81,7 @@
     - [11.7.2. Applying Options](#applying-options)
   - [11.8. Installing Drivers](#installing-drivers)
   - [11.9. Windows Server Specific Options (Windows Server)](#windows-server-specific-options-windows-server)
-  - [11.10. Privacy Options (Windows 8+)](#privacy-options-windows-8)
+  - [11.10. Privacy Options (Windows 8+)](#privacy-options)
   - [11.11. Search Indexing](#search-indexing)
   - [11.12. Time, Language and Region](#time-language-and-region)
   - [11.13. Web Browser](#web-browser)
@@ -101,11 +101,11 @@
   - [11.26. Graphics Driver](#graphics-driver)
   - [11.27. MSI Afterburner](#msi-afterburner)
   - [11.28. Display Resolutions and Scaling Modes](#display-resolutions-and-scaling-modes)
-  - [11.29. Open-Shell (Windows 8+)](#open-shell-windows-8)
+  - [11.29. Open-Shell (Windows 8+)](#open-shell)
   - [11.30. Spectre, Meltdown and CPU Microcode](#spectre-meltdown-and-cpu-microcode)
   - [11.31. Power Options](#power-options)
   - [11.32. Process Explorer](#process-explorer)
-  - [11.33. Memory Management Settings (Windows 8+)](#memory-management-settings-windows-8)
+  - [11.33. Memory Management Settings (Windows 8+)](#memory-management-settings)
   - [11.34. Network Adapter Options](#network-adapter-options)
   - [11.35. Audio Devices](#audio-devices)
   - [11.36. Device Manager](#device-manager)
@@ -128,17 +128,18 @@
   - [11.43. User-Mode Scheduling (Processes, Threads)](#user-mode-scheduling-processes-threads)
     - [11.43.1. Starting a Process with a Specified Affinity Mask](#starting-a-process-with-a-specified-affinity-mask)
     - [11.43.2. Specifying an Affinity Mask for Running Processes](#specifying-an-affinity-mask-for-running-processes)
-  - [11.44. Reserved CPU Sets (Windows 10+)](#reserved-cpu-sets-windows-10)
+  - [11.44. Reserved CPU Sets (Windows 10+)](#reserved-cpu-sets)
     - [11.44.1. Use Cases](#use-cases)
   - [11.45. Analyzing Event Viewer](#analyzing-event-viewer)
-  - [11.46. Virtualization Based Security (VBS)](#virtualization-based-security-vbs)
-  - [11.47. CPU Idle States](#cpu-idle-states)
-    - [11.47.1. Enable Idle States (default)](#enable-idle-states-default)
-    - [11.47.2. Disable Idle States](#disable-idle-states)
-  - [11.48. Clock Interrupt Frequency (Timer Resolution)](#clock-interrupt-frequency-timer-resolution)
-  - [11.49. Paging File](#paging-file)
-  - [11.50. Background Window Message Rate](#window-message-rate)
-  - [11.51. Cleanup and Maintenance](#cleanup-and-maintenance)
+  - [11.46. 11.46. Memory Integrity (Windows 10+)](#memory-integrity)
+  - [11.47. Virtualization Based Security (Windows 10+)](#virtualization-based-security)
+  - [11.48. CPU Idle States](#cpu-idle-states)
+    - [11.48.1. Enable Idle States (default)](#enable-idle-states-default)
+    - [11.48.2. Disable Idle States](#disable-idle-states)
+  - [11.49. Clock Interrupt Frequency (Timer Resolution)](#clock-interrupt-frequency-timer-resolution)
+  - [11.50. Paging File](#paging-file)
+  - [11.51. Background Window Message Rate (Windows 11 22H2+)](#window-message-rate)
+  - [11.52. Cleanup and Maintenance](#cleanup-and-maintenance)
 
 <h1 id="introduction">2. Introduction <a href="#introduction">(permalink)</a></h1>
 
@@ -947,7 +948,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - To remove the user password, enter your current password and leave the new/confirm password fields blank in ``User Accounts`` by typing ``control userpasswords`` in ``Win+R``
 
-<h2 id="privacy-options-windows-8">11.10. Privacy Options (Windows 8+) <a href="#privacy-options-windows-8">(permalink)</a></h2>
+<h2 id="privacy-options">11.10. Privacy Options (Windows 8+) <a href="#privacy-options">(permalink)</a></h2>
 
 - Disable all unnecessary permissions in the ``Privacy`` section by pressing ``Win+I``
 
@@ -1153,7 +1154,7 @@ You may have optionally found a stable overclock for your display in earlier sec
 
 - Ensure your resolution is configured properly by typing ``rundll32.exe display.dll,ShowAdapterSettings`` in ``Win+R``
 
-<h2 id="open-shell-windows-8">11.29. Open-Shell (Windows 8+) <a href="#open-shell-windows-8">(permalink)</a></h2>
+<h2 id="open-shell">11.29. Open-Shell (Windows 8+) <a href="#open-shell">(permalink)</a></h2>
 
 Open-Shell is a FOSS alternative to the Windows Start Menu.
 
@@ -1235,7 +1236,7 @@ Task Manager lacks several useful metrics compared to a tool such as Process Exp
 
   - Enable the ``VirusTotal`` column
 
-<h2 id="memory-management-settings-windows-8">11.33. Memory Management Settings (Windows 8+) <a href="#memory-management-settings-windows-8">(permalink)</a></h2>
+<h2 id="memory-management-settings">11.33. Memory Management Settings (Windows 8+) <a href="#memory-management-settings">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1521,7 +1522,7 @@ Sometimes, the processes that you would like to set an affinity mask to are alre
 Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Object { $_.ProcessorAffinity=0x8 }
 ```
 
-<h2 id="reserved-cpu-sets-windows-10">11.44. Reserved CPU Sets (Windows 10+) <a href="#reserved-cpu-sets-windows-10">(permalink)</a></h2>
+<h2 id="reserved-cpu-sets">11.44. Reserved CPU Sets (Windows 10+) <a href="#reserved-cpu-sets">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1549,10 +1550,21 @@ Get-Process @("svchost", "audiodg") -ErrorAction SilentlyContinue | ForEach-Obje
 
 This step isn't required, but can help to justify unexplained performance issues or issues in general. Ensure that there are no errors present on Event Viewer by typing ``eventvwr.msc`` in ``Win+R`` as anything you may have changed to your operating system could lead to internal errors or exceptions being thrown periodically.
 
-<h2 id="virtualization-based-security-vbs">11.46. Virtualization Based Security (VBS) <a href="#virtualization-based-security-vbs">(permalink)</a></h2>
+<h2 id="memory-integrity">11.46. Memory Integrity (Windows 10+) <a href="#memory-integrity">(permalink)</a></h2>
 
 > [!WARNING]
-> 🔒 Disabling Virtualization Based Security (VBS) may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
+> 🔒 Disabling Memory Integrity may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
+
+Memory Integrity (HVCI) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)). HVCI should be disabled when virtualization is disabled in BIOS, so be careful of HVCI being enabled if you enable virtualization in BIOS for future reference. In certain cases, a minority of anticheats (Vanguard, FACEIT) require HVCI to be enabled, so adjust accordingly if needed or prompted. Open CMD as administrator and enter the command below to disable HVCI if desired.
+
+```bat
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v "Enabled" /t REG_DWORD /d "0" /f
+```
+
+<h2 id="virtualization-based-security">11.47. Virtualization Based Security <a href="#virtualization-based-security">(permalink)</a></h2>
+
+> [!WARNING]
+> 🔒 Disabling Virtualization Based Security may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
 Virtualization Based Security (VBS) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled if desired ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://web.archive.org/web/20250818091118/https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)). VBS should be disabled when virtualization is disabled in BIOS, so be careful of VBS being enabled if you enable virtualization in BIOS for future reference. Open CMD as administrator and enter the command below to disable VBS if desired.
 
@@ -1560,7 +1572,7 @@ Virtualization Based Security (VBS) negatively impacts performance ([1](https://
 reg add "HKLM\System\CurrentControlSet\Control\DeviceGuard" /v "EnableVirtualizationBasedSecurity" /t REG_DWORD /d "0" /f
 ```
 
-<h2 id="cpu-idle-states">11.47. CPU Idle States <a href="#cpu-idle-states">(permalink)</a></h2>
+<h2 id="cpu-idle-states">11.48. CPU Idle States <a href="#cpu-idle-states">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1569,19 +1581,19 @@ Disabling idle states forces C-State 0, which can be seen in [HWiNFO](https://ww
 
 If a static CPU frequency is not set, the effects of forcing C-State 0 should be assessed in terms of frequency boosting behavior. For example, you certainly wouldn't want to disable idle states when relying on Precision Boost Overdrive (PBO), Turbo Boost or similar features. Avoid disabling idle states with Hyper-Threading/Simultaneous Multithreading enabled as single-threaded performance is usually negatively impacted.
 
-<h3 id="enable-idle-states-default">11.47.1. Enable Idle States (default) <a href="#enable-idle-states-default">(permalink)</a></h3>
+<h3 id="enable-idle-states-default">11.48.1. Enable Idle States (default) <a href="#enable-idle-states-default">(permalink)</a></h3>
 
 ```bat
 powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 0 && powercfg /setactive scheme_current
 ```
 
-<h3 id="disable-idle-states">11.47.2. Disable Idle States <a href="#disable-idle-states">(permalink)</a></h3>
+<h3 id="disable-idle-states">11.48.2. Disable Idle States <a href="#disable-idle-states">(permalink)</a></h3>
 
 ```bat
 powercfg /setacvalueindex scheme_current sub_processor 5d76a2ca-e8c0-402f-a133-2158492d58ad 1 && powercfg /setactive scheme_current
 ```
 
-<h2 id="clock-interrupt-frequency-timer-resolution">11.48. Clock Interrupt Frequency (Timer Resolution) <a href="#clock-interrupt-frequency-timer-resolution">(permalink)</a></h2>
+<h2 id="clock-interrupt-frequency-timer-resolution">11.49. Clock Interrupt Frequency (Timer Resolution) <a href="#clock-interrupt-frequency-timer-resolution">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
@@ -1603,23 +1615,23 @@ A higher resolution results in higher precision, but in some cases, the maximum 
 
 To conclude my view on the topic, I recommend favoring the per-process (non-global) implementation where applicable as it reduces overhead and instead use [RTSS](https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download) for precise framerate limiting. It is worth noting that it can introduce noticeably higher latency ([1](https://www.youtube.com/watch?t=377&v=T2ENf9cigSk), [2](https://en.wikipedia.org/wiki/Busy_waiting)) therefore I recommend comparing and benchmarking it against micro-adjusting the requested resolution for higher precision with the global behavior. It is possible that frametime stability is unaffected by raising the resolution beyond 1ms due to improvements in the in-game framerate limiter which in that case, no action is required. The primary point I want to convey is to compare all available options, with a preference of using the per-process behavior which is the default on Windows 10 2004+ if you find that raising the resolution further has little to no impact.
 
-<h2 id="paging-file">11.49. Paging File <a href="#paging-file">(permalink)</a></h2>
+<h2 id="paging-file">11.50. Paging File <a href="#paging-file">(permalink)</a></h2>
 
 > [!CAUTION]
 > 📊 **Do NOT** blindly follow the recommendations in this section. **Do** benchmark the specified changes to ensure they result in positive performance scaling, as every system behaves differently and changes could unintentionally degrade performance ([instructions](#benchmarking)).
 
 For most readers, I would recommend keeping the paging file enabled which is the default state. There is an argument that it is preferable to disable it if you have enough RAM for your applications as it reduces I/O overhead and that system memory is faster than disk however, many users have reported in-game stuttering in specific games with the paging file disabled despite being nowhere near maximum RAM load. Windows appears to allocate the page file to secondary drives sometimes which can be problematic if one of the drives is a HDD. This can be resolved by allocating the page file to an SSD and its size to "system managed size" then deallocating it on other drives.
 
-<h2 id="window-message-rate">11.50. Background Window Message Rate <a href="#window-message-rate">(permalink)</a></h2>
+<h2 id="window-message-rate">11.51. Background Window Message Rate (Windows 11 22H2+) <a href="#window-message-rate">(permalink)</a></h2>
 
-Windows 11+ limits the window message rate of background processes ([1](https://blogs.windows.com/windowsdeveloper/2023/05/26/delivering-delightful-performance-for-more-than-one-billion-users-worldwide)). In addition to the introduction of this feature in [22621.1928](https://support.microsoft.com/en-gb/topic/june-27-2023-kb5027303-os-build-22621-1928-preview-1ada2c0a-fa85-43f8-91c4-6ee13fdf278b), a few registry options were also introduced to control the behaviour of this feature. One option allows adjustment of the message rate for background windows. By default, this interval is roughly 8ms/125Hz (0x8). This can be observed by starting a [Mouse Tester](https://github.com/valleyofdoom/MouseTester) log, clicking on another window to send Mouse Tester to the background, and then moving the mouse. After plotting and cropping the logged data to the period when Mouse Tester was in the background while moving the mouse, the polling interval should be close to the value of ``RawMouseThrottleDuration``. The interval can be increased to further exaggerate its effect.
+Windows 11 22H2+ limits the window message rate of background processes ([1](https://blogs.windows.com/windowsdeveloper/2023/05/26/delivering-delightful-performance-for-more-than-one-billion-users-worldwide)). In addition to the introduction of this feature in the [22621.1928](https://support.microsoft.com/en-gb/topic/june-27-2023-kb5027303-os-build-22621-1928-preview-1ada2c0a-fa85-43f8-91c4-6ee13fdf278b) update, a few registry options were also introduced to control the behaviour of this feature. One option allows adjustment of the message rate for background windows. By default, this interval is roughly 8ms/125Hz (0x8). This can be observed by starting a [Mouse Tester](https://github.com/valleyofdoom/MouseTester) log, clicking on another window to send Mouse Tester to the background, and then moving the mouse. After plotting and cropping the logged data to the period when Mouse Tester was in the background while moving the mouse, the polling interval should be close to the value of ``RawMouseThrottleDuration``. The interval can be increased to further exaggerate its effect.
 
 ```
 [HKEY_CURRENT_USER\Control Panel\Mouse]
 "RawMouseThrottleDuration"=dword:00000008 ; min: 0x3, max: 0x14
 ```
 
-<h2 id="cleanup-and-maintenance">11.51. Cleanup and Maintenance <a href="#cleanup-and-maintenance">(permalink)</a></h2>
+<h2 id="cleanup-and-maintenance">11.52. Cleanup and Maintenance <a href="#cleanup-and-maintenance">(permalink)</a></h2>
 
 It isn't a bad idea to revisit this step every so often. Setting a reminder to do so can be helpful in maintaining a clean system.
 
