@@ -1551,7 +1551,14 @@ This step isn't required, but can help to justify unexplained performance issues
 
 <h2 id="virtualization-based-security-vbs">11.46. Virtualization Based Security (VBS) <a href="#virtualization-based-security-vbs">(permalink)</a></h2>
 
-Virtualization Based Security negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)) if required. On the other hand, [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies/) recommend keeping it enabled. VBS should be disabled when virtualization is disabled in BIOS, so be careful of VBS being enabled if you enable virtualization in BIOS for future reference.
+> [!WARNING]
+> 🔒 Disabling Virtualization Based Security (VBS) may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
+
+Virtualization Based Security (VBS) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled if desired ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://web.archive.org/web/20250818091118/https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)). VBS should be disabled when virtualization is disabled in BIOS, so be careful of VBS being enabled if you enable virtualization in BIOS for future reference. Open CMD as administrator and enter the command below to disable VBS if desired.
+
+```bat
+reg add "HKLM\System\CurrentControlSet\Control\DeviceGuard" /v "EnableVirtualizationBasedSecurity" /t REG_DWORD /d "0" /f
+```
 
 <h2 id="cpu-idle-states">11.47. CPU Idle States <a href="#cpu-idle-states">(permalink)</a></h2>
 
