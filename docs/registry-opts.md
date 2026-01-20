@@ -125,9 +125,6 @@ config option: ``disable windows defender``
 "SecurityHealth"=- ; Windows 10 10240 and later
 "WindowsDefender"=- ; Windows 10 10240 and later
 
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity]
-"Enabled"=dword:00000000 ; Windows 10 10240 and later
-
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Spynet]
 "SpyNetReporting"=dword:00000000 ; Windows 10 10240 and later
 "SubmitSamplesConsent"=dword:00000000 ; Windows 10 10240 and later
