@@ -131,7 +131,7 @@
   - [11.44. Reserved CPU Sets (Windows 10+)](#reserved-cpu-sets)
     - [11.44.1. Use Cases](#use-cases)
   - [11.45. Analyzing Event Viewer](#analyzing-event-viewer)
-  - [11.46. 11.46. Memory Integrity (Windows 10+)](#memory-integrity)
+  - [11.46. Memory Integrity (Windows 10+)](#memory-integrity)
   - [11.47. Virtualization Based Security (Windows 10+)](#virtualization-based-security)
   - [11.48. CPU Idle States](#cpu-idle-states)
     - [11.48.1. Enable Idle States (default)](#enable-idle-states-default)
@@ -1568,7 +1568,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorE
 
 Virtualization Based Security (VBS) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)). VBS should be disabled when virtualization is disabled in BIOS, so beware that it will be enabled when you enable virtualization in BIOS for future reference. VBS can be disabled if desired ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://web.archive.org/web/20250818091118/https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)) and the current state can be determined by typing ``msinfo32`` in ``Win+R``.
 
-It is important to note that if a feature such as Virtual Machine Platform is enabled, which inhibits the ability to disable VBS, you likely have virtualization enabled for a specific reason. In this case, an alternative approach is to only enable virtualization when you need it, but toggling this each time can be inconvenient.
+It is important to note that having certain features enabled (e.g. Memory Integrity, Virtual Machine Platform, Hyper-V, Sandbox) inhibits the ability to disable VBS but you likely have them enabled for a specific reason (e.g. because you use those features). In this case, an alternative approach is to only enable virtualization when you need it, but toggling this each time can be inconvenient.
 
 <h2 id="cpu-idle-states">11.48. CPU Idle States <a href="#cpu-idle-states">(permalink)</a></h2>
 
