@@ -121,6 +121,7 @@
     - [11.41.5. Game Mode](#game-mode)
     - [11.41.6. Media Player](#media-player)
     - [11.41.7. QoS Policies](#qos-policies)
+  - [11.42. Game Bar](#game-bar)
   - [11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more)](#kernel-mode-scheduling-interrupts-dpcs-and-more)
     - [11.42.1. GPU and DirectX Graphics Kernel](#gpu-and-directx-graphics-kernel)
     - [11.42.2. XHCI and Audio Controller](#xhci-and-audio-controller)
@@ -1455,6 +1456,24 @@ Depending on your network and router configuration, QoS policies can be set in W
   ```bat
   reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\QoS" /v "Do not use NLA" /t REG_SZ /d "1" /f
   ```
+
+<h2 id="game-bar">11.42. Game Bar <a href="#game-bar">(permalink)</a></h2>
+
+As explained in section [Register Game in Config Store](#register-game), Game Bar is needed to carry out the outlined steps. Depending on your configuration, Game Bar may or may not run each time a game is launched. If Game Bar access isn't frequently required, it can be disabled until it is needed (e.g. to register a new game in the config store). If Game Bar doesn't automatically launch, then it can be left enabled. Windows 11+ removed the option to toggle Game Bar in the settings so open CMD as administrator and use the commands below to toggle Game Bar.
+
+<h3 id="enable-game-bar-default">11.42.1. Enable Game Bar (default) <a href="#enable-game-bar-default">(permalink)</a></h3>
+
+```bat
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "0" /f
+reg add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d "0" /f
+```
+
+<h3 id="disable-game-bar">11.42.1. Disable Game Bar <a href="#disable-game-bar">(permalink)</a></h3>
+
+```bat
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "1" /f
+reg add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d "1" /f
+```
 
 <h2 id="kernel-mode-scheduling-interrupts-dpcs-and-more">11.42. Kernel-Mode Scheduling (Interrupts, DPCs and more) <a href="#kernel-mode-scheduling-interrupts-dpcs-and-more">(permalink)</a></h2>
 
