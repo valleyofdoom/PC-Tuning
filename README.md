@@ -1555,7 +1555,7 @@ This step isn't required, but can help to justify unexplained performance issues
 > [!WARNING]
 > 🔒 Disabling Memory Integrity may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
-Memory Integrity (HVCI) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)). HVCI should be disabled when virtualization is disabled in BIOS, so be careful of HVCI being enabled if you enable virtualization in BIOS for future reference. In certain cases, a minority of anticheats (Vanguard, FACEIT) require HVCI to be enabled, so adjust accordingly if needed or prompted. Open CMD as administrator and enter the command below to disable HVCI if desired.
+Memory Integrity (HVCI) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)). HVCI should be disabled when virtualization is disabled in BIOS, so beware that it will be enabled when you enable virtualization in BIOS for future reference. In certain cases, a minority of anticheats (Vanguard, FACEIT) require HVCI to be enabled, so adjust accordingly if needed or prompted. Open CMD as administrator and enter the command below to disable HVCI if desired.
 
 ```bat
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorEnforcedCodeIntegrity" /v "Enabled" /t REG_DWORD /d "0" /f
@@ -1566,11 +1566,9 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\HypervisorE
 > [!WARNING]
 > 🔒 Disabling Virtualization Based Security may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
-Virtualization Based Security (VBS) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)) and in some cases, it is enabled by default. Its status can be determined by typing ``msinfo32`` in ``Win+R`` and can be disabled if desired ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://web.archive.org/web/20250818091118/https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)). VBS should be disabled when virtualization is disabled in BIOS, so be careful of VBS being enabled if you enable virtualization in BIOS for future reference. Open CMD as administrator and enter the command below to disable VBS if desired.
+Virtualization Based Security (VBS) negatively impacts performance ([1](https://www.tomshardware.com/news/windows-11-gaming-benchmarks-performance-vbs-hvci-security)). VBS should be disabled when virtualization is disabled in BIOS, so beware that it will be enabled when you enable virtualization in BIOS for future reference. VBS can be disabled if desired ([1](https://www.tomshardware.com/how-to/disable-vbs-windows-11), [2](https://web.archive.org/web/20250818091118/https://support.microsoft.com/en-us/windows/options-to-optimize-gaming-performance-in-windows-11-a255f612-2949-4373-a566-ff6f3f474613)) and the current state can be determined by typing ``msinfo32`` in ``Win+R``.
 
-```bat
-reg add "HKLM\System\CurrentControlSet\Control\DeviceGuard" /v "EnableVirtualizationBasedSecurity" /t REG_DWORD /d "0" /f
-```
+It is important to note that if a feature such as Virtual Machine Platform is enabled, which inhibits the ability to disable VBS, you likely have virtualization enabled for a specific reason. In this case, an alternative approach is to only enable virtualization when you need it, but toggling this each time can be inconvenient.
 
 <h2 id="cpu-idle-states">11.48. CPU Idle States <a href="#cpu-idle-states">(permalink)</a></h2>
 
