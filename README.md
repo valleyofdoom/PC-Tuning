@@ -1464,15 +1464,15 @@ As explained in section [Register Game in Config Store](#register-game), Game Ba
 <h3 id="enable-game-bar-default">11.42.1. Enable Game Bar (default) <a href="#enable-game-bar-default">(permalink)</a></h3>
 
 ```bat
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "0" /f
-reg add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d "0" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "1" /f
+reg add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d "1" /f
 ```
 
 <h3 id="disable-game-bar">11.42.1. Disable Game Bar <a href="#disable-game-bar">(permalink)</a></h3>
 
 ```bat
-reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "1" /f
-reg add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d "1" /f
+reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR" /v "AppCaptureEnabled" /t REG_DWORD /d "0" /f
+reg add "HKCU\System\GameConfigStore" /v "GameDVR_Enabled" /t REG_DWORD /d "0" /f
 ```
 
 <h2 id="kernel-mode-scheduling-interrupts-dpcs-and-more">11.43. Kernel-Mode Scheduling (Interrupts, DPCs and more) <a href="#kernel-mode-scheduling-interrupts-dpcs-and-more">(permalink)</a></h2>
