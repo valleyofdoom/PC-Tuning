@@ -879,7 +879,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable advertising id``|- Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable autoplay``|- Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable cloud content``|- Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
-|``mitigate web-based search info``|- Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
+|``disable suggestions and web results in the search box and in search home``|- Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable sending inking and typing data to microsoft``|- Recommended by [privacyguides.org](https://www.privacyguides.org/en/os/windows/group-policies)|``true``|
 |``disable automatic maintenance``|- Maintenance tasks can be viewed by typing ``Get-ScheduledTask \| ? {$_.Settings.MaintenanceSettings}`` in PowerShell|``true``|
 |``disable computer is out of support message``|- Disables [this](https://support.microsoft.com/en-us/topic/you-received-a-notification-your-windows-7-pc-is-out-of-support-3278599f-9613-5cc1-e0ee-4f81f623adcf) intrusive message. Not relevant to users with a modern Windows version|``true``|
@@ -891,7 +891,6 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 |``disable telemetry``|N/A|``true``|
 |``disable retrieval of online tips and help in the immersive control panel``|N/A|``true``|
 |``disable typing insights``|N/A|``true``|
-|``disable suggestions in the search box and in search home``|N/A|``true``|
 
 <h3 id="applying-options">11.7.2. Applying Options <a href="#applying-options">(permalink)</a></h3>
 

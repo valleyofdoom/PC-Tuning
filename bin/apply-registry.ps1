@@ -420,22 +420,7 @@ $entries = [ordered]@{
             "min_version" = 10240
             "value"       = 0
             "type"        = "REG_DWORD"
-            "apply_if"    = @("mitigate web-based search info")
-        }
-        @{
-            "key_name"    = "ConnectedSearchUseWeb"
-            "min_version" = 9600
-            "value"       = 0
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("mitigate web-based search info")
-        }
-        @{
-            "key_name"    = "ConnectedSearchPrivacy"
-            "min_version" = 9600
-            "max_version" = 9600
-            "value"       = 3
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("mitigate web-based search info")
+            "apply_if"    = @("disable suggestions and web results in the search box and in search home")
         }
     )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"                                               = @(
@@ -618,13 +603,12 @@ $entries = [ordered]@{
             "apply_if"    = @("disable background apps")
         }
     )
-    "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings"                                                            = @(
+    "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer"                                                            = @(
         @{
-            "key_name"    = "IsDynamicSearchBoxEnabled"
-            "min_version" = 22000
-            "value"       = 0
+            "key_name"    = "DisableSearchBoxSuggestions"
+            "value"       = 1
             "type"        = "REG_DWORD"
-            "apply_if"    = @("disable suggestions in the search box and in search home")
+            "apply_if"    = @("disable suggestions and web results in the search box and in search home")
         }
     )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components"                                                          = @(
