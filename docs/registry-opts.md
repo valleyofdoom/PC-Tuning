@@ -319,15 +319,16 @@ config option: ``disable cloud content``
 "DisableWindowsConsumerFeatures"=dword:00000001 ; Windows 10 10240 and later
 ```
 
-## Mitigate Web-based Search Info
+## Disable Suggestions and Web Results in the Search Box and in Search Home
 
-config option: ``mitigate web-based search info``
+config option: ``disable suggestions and web results in the search box and in search home``
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
 "AllowCortana"=dword:00000000 ; Windows 10 10240 and later
-"ConnectedSearchUseWeb"=dword:00000000 ; Windows 8.1 9600 and later
-"ConnectedSearchPrivacy"=dword:00000003 ; Windows 8.1 9600 only
+
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+"DisableSearchBoxSuggestions"=dword:00000001
 ```
 
 ## Disable Sending Inking and Typing Data to Microsoft
@@ -437,14 +438,5 @@ config option: ``disable typing insights``
 ```
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\input\Settings]
 "InsightsEnabled"=dword:00000000 ; Windows 10 10240 and later
-```
-
-## Disable Suggestions in the Search Box and in Search Home
-
-config option: ``disable suggestions in the search box and in search home``
-
-```
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\SearchSettings]
-"IsDynamicSearchBoxEnabled"=dword:00000000 ; Windows 11 22000 and later
 ```
 
