@@ -920,13 +920,15 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 - You can find drivers by searching for drivers that are compatible with your device's HWID. See [media/device-hwid-example.png](/assets/images/find-driver-key-example.png) in regard to finding your HWID in Device Manager for a given device
 
-- If possible, try to obtain the driver in its INF form so that it can be installed in Device Manager as executable installers usually install other bloatware that persistently runs in the background along with the driver itself. Sometimes you can extract the installer's executable with 7-Zip
+- If possible, try to obtain the driver in its INF form so that it can be installed in Device Manager as executable installers usually install other bloatware that persistently runs in the background along with the driver itself. Sometimes you can extract the installer's executable with 7-Zip (e.g. most commonly NIC drivers)
+
+- On Windows 7, USB and/or NVMe drivers should already be installed if needed from integrating them in [Downloading and Preparing a Stock Windows ISO](#downloading-and-preparing-a-stock-windows-iso) as they are not included in Windows 7 as explained in the section
 
 - It is recommended to update and install the following:
 
   - Network Interface Controller. If you do not have internet access at this stage, you will need to download your NIC driver from another device or dual-boot as they may not be packaged at all with Windows
 
-  - [USB](https://winraid.level1techs.com/t/usb-3-0-3-1-drivers-original-and-modded/30871) and [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (if you are configuring Windows 7, both may have already been integrated in section [Downloading and Preparing a Stock Windows ISO](#downloading-and-preparing-a-stock-windows-iso))
+  - [NVMe](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310)
 
   - [SATA](https://winraid.level1techs.com/t/recommended-ahci-raid-and-nvme-drivers/28310) (required on Windows 7 as the stock driver does not support Message Signaled Interrupts)
 
