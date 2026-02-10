@@ -854,7 +854,7 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 <h3 id="registry-options-documentation">11.7.1. Registry Options Documentation <a href="#registry-options-documentation">(permalink)</a></h3>
 
 > [!IMPORTANT]
-> As of now, the script does not revert options if re-run. For example, if the script was run with an option set to ``true``, then running the script with a given option set to ``false`` will not revert the changed made as the script is unaware of the previous state of the registry keys associated with the option. This functionality may be implemented in the future but for now, use the ``-get_option_keys <option>`` argument with the script to get all relevant keys for a given option so that you can revert them manually.
+> The script does not support reverting options. For example, if the script was run with an option set to ``true``, running the script again with it set to ``false`` will not revert changes made because the previous state of entries are not recorded. The script is designed for a single-use, one-time setup. Use the ``-get_option_keys <option>`` argument with the script or refer to [/docs/registry-opts.md](/docs/registry-opts.md) to get all relevant keys for a given option so that you can revert them manually if desired.
 
 |Option|Notes|Default Value|
 |---|---|---|
@@ -894,7 +894,9 @@ The registry settings are merged with the ``apply-registry.ps1`` script. As for 
 
 <h3 id="applying-options">11.7.2. Applying Options <a href="#applying-options">(permalink)</a></h3>
 
-- Open PowerShell as administrator and enter the command below. If the command fails, then try to disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender. If that doesn't work, reboot then re-execute the command again. If none of the previous workarounds worked, then try run the command in safe-mode. If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
+- If you prefer not to run any scripts, the option of manually creating the registry file with the keys you need are explained in [/docs/registry-opts.md](/docs/registry-opts.md). This document contains all of the keys that would be merged when using the script
+
+- Open PowerShell as administrator and enter the command below. If the command fails, then carry out the following steps in order: disable tamper protection (Windows 10 1909+) and real-time protection in Windows Defender. If it still fails, then reboot and re-execute the command again. If it still fails, then run the command in safe-mode
 
     ```powershell
     C:\bin\apply-registry.ps1
