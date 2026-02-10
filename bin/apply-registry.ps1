@@ -1029,9 +1029,6 @@ function main() {
         return 1
     }
 
-    # contains keys to apply after all version filtering and config validation
-    $filteredEntries = @{}
-
     # track seen options to find unrecognized options in registry-options.json
     $seenOptions = New-Object System.Collections.Generic.HashSet[string]
     $undefinedOptions = New-Object System.Collections.Generic.HashSet[string]
@@ -1065,14 +1062,8 @@ function main() {
             # check if key meets the version criteria
             $isWinverSupported = $windowsBuild -ge $minVersion -and $windowsBuild -le $maxVersion
 
-            if ($isUserApplyKey -and $isWinverSupported) {
-                # initialize path if it doesn't exist
-                if (-not $filteredEntries.Contains($path)) {
-                    $filteredEntries.Add($path, (New-Object System.Collections.ArrayList))
-                }
-
-                $filteredEntries[$path].Add($key)
-            }
+            # this is used later to determine whether the key should be applied or not
+            $key["is_apply"] = $isUserApplyKey -and $isWinverSupported
         }
     }
 
@@ -1103,10 +1094,21 @@ function main() {
     # registry file header and clear previous contents
     Set-Content -Path $registryFile -Value "Windows Registry Editor Version 5.00`n"
 
-    foreach ($path in $filteredEntries.Keys) {
+    foreach ($path in $entries.Keys) {
+        # check if any keys under a path that will get applied to avoid writing an empty path
+        $pathIsUsed = $entries[$path] | Where-Object { $_["is_apply"] } | Measure-Object | Select-Object -ExpandProperty Count
+
+        if (-not $pathIsUsed) {
+            continue
+        }
+
         Add-Content -Path $registryFile -Value "[$($path)]"
 
-        foreach ($key in $filteredEntries[$path]) {
+        foreach ($key in $entries[$path]) {
+            if (-not $key["is_apply"]) {
+                continue
+            }
+
             $keyString = Get-Key-String -keyData $key
 
             if ($null -eq $keyString) {
