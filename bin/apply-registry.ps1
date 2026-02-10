@@ -603,12 +603,12 @@ $entries = [ordered]@{
             "apply_if"    = @("disable background apps")
         }
     )
-    "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer"                                                            = @(
+    "HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer"                                                                        = @(
         @{
-            "key_name"    = "DisableSearchBoxSuggestions"
-            "value"       = 1
-            "type"        = "REG_DWORD"
-            "apply_if"    = @("disable suggestions and web results in the search box and in search home")
+            "key_name" = "DisableSearchBoxSuggestions"
+            "value"    = 1
+            "type"     = "REG_DWORD"
+            "apply_if" = @("disable suggestions and web results in the search box and in search home")
         }
     )
     "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components"                                                          = @(
