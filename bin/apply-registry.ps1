@@ -898,8 +898,6 @@ function main() {
         # an ordered hashmap must be used to preserve the order of config options
         $options = New-Object System.Collections.Specialized.OrderedDictionary
 
-        $config = Get-Content -Path "registry-options.json" -Raw | ConvertFrom-Json
-
         # get all option names in the sorted hashmap
         foreach ($option in $config.options.PSObject.Properties.Name) {
             $options.Add($option, (New-Object System.Collections.Specialized.OrderedDictionary))
