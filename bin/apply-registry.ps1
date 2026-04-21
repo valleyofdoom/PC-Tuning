@@ -4,6 +4,9 @@ param(
     [switch]$build_docs
 )
 
+$registry_options_json = "registry-options.json"
+$mdfile = "..\docs\registry-opts.md"
+
 $entries = [ordered]@{
     "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify"                                                                 = @(
         @{
@@ -789,15 +792,15 @@ function Apply-Registry($filePath) {
     return 0
 }
 
-function Get-Option-Keys($optionName, $windowsBuild) {
+function Get-Option-Keys($optionName, $winVer) {
     foreach ($path in $entries.Keys) {
         foreach ($key in $entries[$path]) {
             # unspecified versions implies that they key should be applied to all versions
-            $minVersion = if ($key.Contains("min_version")) { $key["min_version"] } else { $windowsBuild }
-            $maxVersion = if ($key.Contains("max_version")) { $key["max_version"] } else { $windowsBuild }
+            $minVersion = if ($key.Contains("min_version")) { $key["min_version"] } else { $winVer }
+            $maxVersion = if ($key.Contains("max_version")) { $key["max_version"] } else { $winVer }
 
             # check if key meets the version criteria
-            $isWinverSupported = $windowsBuild -ge $minVersion -and $windowsBuild -le $maxVersion
+            $isWinverSupported = $winVer -ge $minVersion -and $winVer -le $maxVersion
 
             # check if registry key is associated with option
             $isKeyAssociated = $key["apply_if"].Contains($optionName)
@@ -812,9 +815,9 @@ function Get-Option-Keys($optionName, $windowsBuild) {
 }
 
 function Get-Key-String($keyData) {
-    # default key does not have extra quotes
     $keyName = $keyData["key_name"]
 
+    # default key does not have extra quotes
     if ($keyName -eq "@") {
         $line = "@"
     } else {
@@ -867,32 +870,32 @@ function ConvertTo-TitleCase($string) {
     return $capitalizedString
 }
 
-function Get-WinVer($windowsBuild) {
-    $version = ""
+function Get-MajorBuild($winVer) {
+    $majorBuild = $null
 
-    switch ($windowsBuild) {
-        { $_ -ge 22000 } { $version = "Windows 11"; break }
-        { $_ -ge 10240 } { $version = "Windows 10"; break }
-        { $_ -ge 9600 } { $version = "Windows 8.1"; break }
-        { $_ -ge 9200 } { $version = "Windows 8"; break }
-        { $_ -ge 7600 } { $version = "Windows 7"; break }
+    switch ($winVer) {
+        { $_ -ge 22000 } { $majorBuild = 11; break }
+        { $_ -ge 10240 } { $majorBuild = 10; break }
+        { $_ -ge 9600 } { $majorBuild = 8.1; break }
+        { $_ -ge 9200 } { $majorBuild = 8; break }
+        { $_ -ge 7600 } { $majorBuild = 7; break }
         default {
-            Write-Host "error: unrecognized windows build $($windowsBuild)"
+            Write-Host "error: unrecognized windows version $($winVer)"
         }
     }
 
-    return $version
+    return $majorBuild
 }
 
 function main() {
     Set-Location $PSScriptRoot
 
-    if (-not (Test-Path "registry-options.json")) {
-        Write-Host "error: registry-options.json not found"
+    if (-not (Test-Path $registry_options_json)) {
+        Write-Host "error: $($registry_options_json) not found"
         return 1
     }
 
-    $config = Get-Content -Path "registry-options.json" -Raw | ConvertFrom-Json
+    $config = Get-Content -Path $registry_options_json -Raw | ConvertFrom-Json
 
     if ($build_docs) {
         # an ordered hashmap must be used to preserve the order of config options
@@ -918,7 +921,6 @@ function main() {
         }
 
         $hasError = $false
-        $mdfile = "..\docs\registry-opts.md"
 
         Set-Content -Path $mdfile -Value "# Registry Options`n"
 
@@ -952,22 +954,43 @@ function main() {
                     if ($hasMinVer -and $hasMaxVer) {
                         $minVer = $key["min_version"]
                         $maxVer = $key["max_version"]
-                        $minWinVer = Get-WinVer -windowsBuild $minVer
-                        $maxWinVer = Get-WinVer -windowsBuild $maxVer
 
-                        $keyString += " ; $($minWinVer) $($minVer)"
+                        if ($minVer -gt $maxVer) {
+                            Write-Host "error: invalid min/max version range for $($key["key_name"])"
+                            $hasError = $true
+                        }
+
+                        $minMajorBuild = Get-MajorBuild -winVer $minVer
+                        $maxMajorBuild = Get-MajorBuild -winVer $maxVer
+
+                        if ($null -eq $minMajorBuild -or $null -eq $maxMajorBuild) {
+                            return 1
+                        }
+
+                        $keyString += " ; Windows $($minMajorBuild) $($minVer)"
 
                         if ($minVer -eq $maxVer) {
                             $keyString += " only"
-                        } elseif ($minWinVer -eq $maxWinVer) {
+                        } elseif ($minMajorBuild -eq $maxMajorBuild) {
                             $keyString += " - $($maxVer)"
                         } else {
-                            $keyString += " - $($maxWinVer) $($maxVer)"
+                            $keyString += " - Windows $($maxMajorBuild) $($maxVer)"
                         }
                     } elseif ($hasMinVer -and -not $hasMaxVer) {
-                        $keyString += " ; $(Get-WinVer -windowsBuild $key["min_version"]) $($key["min_version"]) and later"
+                        $minMajorBuild = Get-MajorBuild -winVer $key["min_version"]
+
+                        if ($null -eq $minMajorBuild) {
+                            return 1
+                        }
+
+                        $keyString += " ; Windows $($minMajorBuild) $($key["min_version"]) and later"
                     } elseif (-not $hasMinVer -and $hasMaxVer) {
-                        $keyString += " ; $(Get-WinVer -windowsBuild $key["max_version"]) $($key["max_version"]) and earlier"
+                        $maxMajorBuild = Get-MajorBuild -winVer $key["max_version"]
+
+                        if ($null -eq $maxMajorBuild) {
+                            return 1
+                        }
+                        $keyString += " ; Windows $($maxMajorBuild) $($key["max_version"]) and earlier"
                     }
 
                     Add-Content -Path $mdfile -Value $keyString
@@ -987,35 +1010,25 @@ function main() {
             Add-Content -Path $mdfile -Value "```````n"
         }
 
-        if ($hasError) {
-            return 1
-        }
-
-        return 0
+        Write-Host "$(if ($hasError -ne 0) { "error: failed" } else { "info: succeeded" }) building docs"
+        return $hasError
     }
 
-    $windowsBuild = if ($windows_build) { $windows_build } else { [System.Environment]::OSVersion.Version.Build }
-
-    # manually get windows build based on build version
-    switch ($windowsBuild) {
-        { $_ -ge 22000 } { $majorBuild = 11; break }
-        { $_ -ge 10240 } { $majorBuild = 10; break }
-        { $_ -ge 9600 } { $majorBuild = 8.1; break }
-        { $_ -ge 9200 } { $majorBuild = 8; break }
-        { $_ -ge 7600 } { $majorBuild = 7; break }
-        default {
-            Write-Host "error: unrecognized windows build $($windowsBuild)"
-            return 1
-        }
-    }
+    $winVer = if ($windows_build) { $windows_build } else { [System.Environment]::OSVersion.Version.Build }
 
     if ($get_option_keys) {
-        # all option names are in lower case
+        # convert argument value to lower case as all option names are in lower case
         $get_option_keys = $get_option_keys.ToLower()
+
+        $majorBuild = Get-MajorBuild -winVer $winVer
+
+        if ($null -eq $majorBuild) {
+            return 1
+        }
 
         Write-Host "info: showing entries associated with option `"$($get_option_keys)`" on windows $($majorBuild)`n"
 
-        Get-Option-Keys -optionName $get_option_keys -windowsBuild $windowsBuild
+        Get-Option-Keys -optionName $get_option_keys -winVer $winVer
         return 0
     }
 
@@ -1029,7 +1042,7 @@ function main() {
         return 1
     }
 
-    # track seen options to find unrecognized options in registry-options.json
+    # track seen options to find unrecognized options in $registry_options_json
     $seenOptions = New-Object System.Collections.Generic.HashSet[string]
     $undefinedOptions = New-Object System.Collections.Generic.HashSet[string]
 
@@ -1043,7 +1056,7 @@ function main() {
                 # add option to set in order to keep track of what options have been seen so far
                 $seenOptions.Add($applyIfOption)
 
-                # check if option is in registry-options.json
+                # check if option is in $registry_options_json
                 $isOptionInConfig = $config.options.PSObject.Properties.Match($applyIfOption).Count -gt 0
 
                 if ($isOptionInConfig) {
@@ -1056,11 +1069,11 @@ function main() {
             }
 
             # unspecified versions implies that they key should be applied to all versions
-            $minVersion = if ($key.Contains("min_version")) { $key["min_version"] } else { $windowsBuild }
-            $maxVersion = if ($key.Contains("max_version")) { $key["max_version"] } else { $windowsBuild }
+            $minVersion = if ($key.Contains("min_version")) { $key["min_version"] } else { $winVer }
+            $maxVersion = if ($key.Contains("max_version")) { $key["max_version"] } else { $winVer }
 
             # check if key meets the version criteria
-            $isWinverSupported = $windowsBuild -ge $minVersion -and $windowsBuild -le $maxVersion
+            $isWinverSupported = $winVer -ge $minVersion -and $winVer -le $maxVersion
 
             # this is used later to determine whether the key should be applied or not
             $key["is_apply"] = $isUserApplyKey -and $isWinverSupported
@@ -1128,7 +1141,13 @@ function main() {
 
     $mergeResult = Apply-Registry -filePath $registryFile
 
-    Write-Host "$(if ($mergeResult -ne 0) { "error: failed" } else { "info: succeeded" }) merging registry settings for windows $($majorBuild)"
+    $currentMajorBuild = Get-MajorBuild -winVer $winVer
+
+    if ($null -eq $currentMajorBuild) {
+        return 1
+    }
+
+    Write-Host "$(if ($mergeResult -ne 0) { "error: failed" } else { "info: succeeded" }) merging registry settings for windows $($currentMajorBuild) $($winVer)"
     return $mergeResult
 }
 
