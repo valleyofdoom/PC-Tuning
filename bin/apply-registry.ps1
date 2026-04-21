@@ -4,10 +4,10 @@ param(
     [switch]$build_docs
 )
 
-$registry_options_json = "registry-options.json"
-$mdfile = "..\docs\registry-opts.md"
+$REGISTRY_OPTIONS_JSON = "registry-options.json"
+$MDFILE = "..\docs\registry-opts.md"
 
-$entries = [ordered]@{
+$ENTRIES = [ordered]@{
     "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\EOSNotify"                                                                 = @(
         @{
             "key_name"    = "DiscontinueEOS"
@@ -792,9 +792,9 @@ function Apply-Registry($filePath) {
     return 0
 }
 
-function Get-Option-Keys($optionName, $winVer) {
-    foreach ($path in $entries.Keys) {
-        foreach ($key in $entries[$path]) {
+function Get-OptionKeys($optionName, $winVer) {
+    foreach ($path in $ENTRIES.Keys) {
+        foreach ($key in $ENTRIES[$path]) {
             # unspecified versions implies that they key should be applied to all versions
             $minVersion = if ($key.Contains("min_version")) { $key["min_version"] } else { $winVer }
             $maxVersion = if ($key.Contains("max_version")) { $key["max_version"] } else { $winVer }
@@ -814,7 +814,7 @@ function Get-Option-Keys($optionName, $winVer) {
     }
 }
 
-function Get-Key-String($keyData) {
+function Get-KeyString($keyData) {
     $keyName = $keyData["key_name"]
 
     # default key does not have extra quotes
@@ -890,12 +890,12 @@ function Get-MajorBuild($winVer) {
 function main() {
     Set-Location $PSScriptRoot
 
-    if (-not (Test-Path $registry_options_json)) {
-        Write-Host "error: $($registry_options_json) not found"
+    if (-not (Test-Path $REGISTRY_OPTIONS_JSON)) {
+        Write-Host "error: $($REGISTRY_OPTIONS_JSON) not found"
         return 1
     }
 
-    $config = Get-Content -Path $registry_options_json -Raw | ConvertFrom-Json
+    $config = Get-Content -Path $REGISTRY_OPTIONS_JSON -Raw | ConvertFrom-Json
 
     if ($build_docs) {
         # an ordered hashmap must be used to preserve the order of config options
@@ -907,8 +907,8 @@ function main() {
         }
 
         # populate the hashmap with all the option paths and keys
-        foreach ($path in $entries.Keys) {
-            foreach ($key in $entries[$path]) {
+        foreach ($path in $ENTRIES.Keys) {
+            foreach ($key in $ENTRIES[$path]) {
                 foreach ($applyIfOption in $key["apply_if"]) {
                     # initialize path if it doesn't
                     if (-not ($options[$applyIfOption].Contains($path))) {
@@ -922,27 +922,27 @@ function main() {
 
         $hasError = $false
 
-        Set-Content -Path $mdfile -Value "# Registry Options`n"
+        Set-Content -Path $MDFILE -Value "# Registry Options`n"
 
         foreach ($option in $options.Keys) {
             # create option name subheading
             $optionSubheading = ConvertTo-TitleCase -string $option
-            Add-Content -Path $mdfile -Value "## $($optionSubheading)`n"
+            Add-Content -Path $MDFILE -Value "## $($optionSubheading)`n"
 
-            Add-Content -Path $mdfile -Value "config option: ````$($option)`````n"
+            Add-Content -Path $MDFILE -Value "config option: ````$($option)`````n"
 
             # start code block
-            Add-Content -Path $mdfile -Value "``````"
+            Add-Content -Path $MDFILE -Value "``````"
 
             # used to keep track of last path
             $keyCount = 0
 
             foreach ($path in $options[$option].Keys) {
                 # write path
-                Add-Content -Path $mdfile -Value "[$($path)]"
+                Add-Content -Path $MDFILE -Value "[$($path)]"
 
                 foreach ($key in $options[$option][$path]) {
-                    $keyString = Get-Key-String -keyData $key
+                    $keyString = Get-KeyString -keyData $key
 
                     if ($null -eq $keyString) {
                         $hasError = $true
@@ -993,7 +993,7 @@ function main() {
                         $keyString += " ; Windows $($maxMajorBuild) $($key["max_version"]) and earlier"
                     }
 
-                    Add-Content -Path $mdfile -Value $keyString
+                    Add-Content -Path $MDFILE -Value $keyString
                 }
 
                 $keyCount++
@@ -1001,13 +1001,13 @@ function main() {
 
                 if (-not $isLastPath) {
                     # add new line if not last path
-                    Add-Content -Path $mdfile -Value ""
+                    Add-Content -Path $MDFILE -Value ""
                 }
 
             }
 
             # end code block
-            Add-Content -Path $mdfile -Value "```````n"
+            Add-Content -Path $MDFILE -Value "```````n"
         }
 
         Write-Host "$(if ($hasError -ne 0) { "error: failed" } else { "info: succeeded" }) building docs"
@@ -1028,7 +1028,7 @@ function main() {
 
         Write-Host "info: showing entries associated with option `"$($get_option_keys)`" on windows $($majorBuild)`n"
 
-        Get-Option-Keys -optionName $get_option_keys -winVer $winVer
+        Get-OptionKeys -optionName $get_option_keys -winVer $winVer
         return 0
     }
 
@@ -1042,21 +1042,21 @@ function main() {
         return 1
     }
 
-    # track seen options to find unrecognized options in $registry_options_json
+    # track seen options to find unrecognized options in $REGISTRY_OPTIONS_JSON
     $seenOptions = New-Object System.Collections.Generic.HashSet[string]
     $undefinedOptions = New-Object System.Collections.Generic.HashSet[string]
 
     Write-Host "info: parsing config"
 
-    foreach ($path in $entries.Keys) {
-        foreach ($key in $entries[$path]) {
+    foreach ($path in $ENTRIES.Keys) {
+        foreach ($key in $ENTRIES[$path]) {
             $isUserApplyKey = $false
 
             foreach ($applyIfOption in $key["apply_if"]) {
                 # add option to set in order to keep track of what options have been seen so far
                 $seenOptions.Add($applyIfOption)
 
-                # check if option is in $registry_options_json
+                # check if option is in $REGISTRY_OPTIONS_JSON
                 $isOptionInConfig = $config.options.PSObject.Properties.Match($applyIfOption).Count -gt 0
 
                 if ($isOptionInConfig) {
@@ -1107,9 +1107,9 @@ function main() {
     # registry file header and clear previous contents
     Set-Content -Path $registryFile -Value "Windows Registry Editor Version 5.00`n"
 
-    foreach ($path in $entries.Keys) {
+    foreach ($path in $ENTRIES.Keys) {
         # check if any keys under a path that will get applied to avoid writing an empty path
-        $pathIsUsed = $entries[$path] | Where-Object { $_["is_apply"] } | Measure-Object | Select-Object -ExpandProperty Count
+        $pathIsUsed = $ENTRIES[$path] | Where-Object { $_["is_apply"] } | Measure-Object | Select-Object -ExpandProperty Count
 
         if (-not $pathIsUsed) {
             continue
@@ -1117,12 +1117,12 @@ function main() {
 
         Add-Content -Path $registryFile -Value "[$($path)]"
 
-        foreach ($key in $entries[$path]) {
+        foreach ($key in $ENTRIES[$path]) {
             if (-not $key["is_apply"]) {
                 continue
             }
 
-            $keyString = Get-Key-String -keyData $key
+            $keyString = Get-KeyString -keyData $key
 
             if ($null -eq $keyString) {
                 $hasError = $true
