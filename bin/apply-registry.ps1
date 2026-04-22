@@ -64,6 +64,24 @@ $ENTRIES = [ordered]@{
             "type"        = "REG_DWORD"
             "apply_if"    = @("disable windows update")
         }
+        "TargetReleaseVersion"                         = @{
+            "min_version" = 17134
+            "value"       = 1
+            "type"        = "REG_DWORD"
+            "apply_if"    = @("disable feature updates")
+        }
+        "ProductVersion"                               = @{
+            "min_version" = 19041
+            "value"       = "<dynamic value>"
+            "type"        = "REG_SZ"
+            "apply_if"    = @("disable feature updates")
+        }
+        "TargetReleaseVersionInfo"                     = @{
+            "min_version" = 17134
+            "value"       = "<dynamic value>"
+            "type"        = "REG_SZ"
+            "apply_if"    = @("disable feature updates")
+        }
     }
     "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"                                                               = [ordered]@{
         "NoAutoUpdate" = @{
@@ -920,15 +938,15 @@ function main() {
 
     $winVer = if ($windows_build) { $windows_build } else { [System.Environment]::OSVersion.Version.Build }
 
+    $majorBuild = Get-MajorBuild -winVer $winVer
+
+    if ($null -eq $majorBuild) {
+        return 1
+    }
+
     if ($get_option_keys) {
         # convert argument value to lower case as all option names are in lower case
         $get_option_keys = $get_option_keys.ToLower()
-
-        $majorBuild = Get-MajorBuild -winVer $winVer
-
-        if ($null -eq $majorBuild) {
-            return 1
-        }
 
         Write-Host "info: showing entries associated with option `"$($get_option_keys)`" on windows $($majorBuild) $($winVer)`n"
 
@@ -1004,6 +1022,30 @@ function main() {
     if ($configErrors -gt 0) {
         Write-Host "error: resolve $($configErrors) errors in config before trying again"
         return 1
+    }
+
+    # sets the values for keys that are dynamic (e.g. current version of windows)
+
+    $productVersionKeyData = $ENTRIES["HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"]["ProductVersion"]
+    if ($productVersionKeyData["is_apply"]) {
+        $value = "Windows $($majorBuild)"
+        Write-Host "info: setting dynamic value for `"ProductVersion`" to `"$($value)`""
+        $productVersionKeyData["value"] = $value
+    }
+
+    $targetReleaseVersionInfoKeyData = $ENTRIES["HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate"]["TargetReleaseVersionInfo"]
+    if ($targetReleaseVersionInfoKeyData["is_apply"]) {
+        $regData = Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+
+        $currentDisplayVersion = $regData.DisplayVersion
+
+        if ($null -eq $currentDisplayVersion) {
+            Write-Host "error: failed to get DisplayVersion from registry"
+            return 1
+        }
+
+        Write-Host "info: setting dynamic value for `"TargetReleaseVersionInfo`" to `"$($currentDisplayVersion)`""
+        $targetReleaseVersionInfoKeyData["value"] = $currentDisplayVersion
     }
 
     Write-Host "info: creating registry file"
