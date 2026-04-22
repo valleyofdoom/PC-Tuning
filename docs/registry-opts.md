@@ -47,6 +47,17 @@ config option: ``disable automatic windows updates``
 "NoAutoUpdate"=dword:00000001
 ```
 
+## Disable Feature Updates
+
+config option: ``disable feature updates``
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate]
+"TargetReleaseVersion"=dword:00000001 ; Windows 10 17134 and later
+"ProductVersion"="<dynamic value>" ; Windows 10 19041 and later
+"TargetReleaseVersionInfo"="<dynamic value>" ; Windows 10 17134 and later
+```
+
 ## Disable Driver Installation Via Windows Update
 
 config option: ``disable driver installation via windows update``
