@@ -53,8 +53,6 @@
 
 - Texture filtering - Quality - High performance
 
-- Threaded Optimization - offloads GPU-related processing tasks on the CPU ([1](https://tweakguides.pcgamingwiki.com/NVFORCE_8.html)). It may harm frame pacing as it takes CPU time away from your real-time application but you should benchmark nonetheless. You should also determine whether you are already CPU bottlenecked if you do choose to enable the setting
-
 - Ensure that settings aren't being overridden for programs in the ``Program Settings`` tab, such as Image Sharpening for some EAC games to prevent unexpected results
 
 <h3 id="change-resolution">3.2. Change Resolution <a href="#change-resolution">(permalink)</a></h3>
