@@ -694,7 +694,7 @@ This section covers booting into the ISO retrieved and prepared in the previous 
 
 - If Secure Boot is enabled, temporarily disable it for the installation process. Boot into Ventoy on your USB in BIOS and select your Windows ISO. Once setup has finished, Secure Boot can be re-enabled if you had temporarily disabled it
 
-- On Windows 10 24H2+ use the previous version of setup ([example](https://schneegans.de/windows/no-8.3/24h2.png))
+- On Windows 11 24H2+ use the previous version of setup ([example](https://schneegans.de/windows/no-8.3/24h2.png))
 
 - On the legacy language and keyboard selection page (not after this page as this won't work otherwise), prevent Windows setup restarting automatically so that 8dot3 names can be stripped properly as explained in the next steps by pressing ``Shift+F10`` to open CMD then type ``setup /NoReboot``. Continue with setup but don't restart at the end
 
