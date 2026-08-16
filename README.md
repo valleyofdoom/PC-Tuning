@@ -628,7 +628,6 @@ Ensure to download an ISO that contains an edition with group policy support as 
 - [New Download Links](https://docs.google.com/spreadsheets/d/1zTF5uRJKfZ3ziLxAZHh47kF85ja34_OFB5C5bVSPumk)
 - [Adguard File List](https://files.rg-adguard.net)
 - [Fido](https://github.com/pbatard/Fido)
-- [UUP dump](https://uupdump.net)
 
 <h2 id="iso-preparation">10.5. ISO Preparation <a href="#iso-preparation">(permalink)</a></h2>
 
