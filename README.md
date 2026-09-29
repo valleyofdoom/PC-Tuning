@@ -848,7 +848,7 @@ There are several OS-level mitigations ([1](https://learn.microsoft.com/en-us/po
 > [!WARNING]
 > 🔒 Some changes outlined in the table below may negatively impact security and expose the system to vulnerabilities. Users should evaluate the security risks associated with modifying the specified setting.
 
-The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied, there are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
+The registry settings are merged with the ``apply-registry.ps1`` script. As for which options get applied, they are outlined in the table below which this can be customized by editing ``C:\bin\registry-options.json`` in a text editor and setting properties to either ``true`` or ``false``. You can backup the config file so that you don't need to modify it each time you reinstall Windows.
 
 <h3 id="registry-options-documentation">11.7.1. Registry Options Documentation <a href="#registry-options-documentation">(permalink)</a></h3>
 
