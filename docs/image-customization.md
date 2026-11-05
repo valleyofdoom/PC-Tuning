@@ -145,9 +145,7 @@ explorer "%MOUNT_DIR%"
 To strip the 8dot3names in the iso, use these commands.
 
 ```bat
-"%PSEXEC%" -accepteula -nobanner -s 
-"%windir%\system32\fsutil.exe" 8dot3name strip /f /s 
-"%MOUNT_DIR%"
+"%PSEXEC%" -accepteula -nobanner -s "%windir%\system32\fsutil.exe" 8dot3name strip /f /s "%MOUNT_DIR%"
 ```
 
 <h2 id="unmounting-and-saving-changes">10. Unmounting and Saving Changes <a href="#unmounting-and-saving-changes">(permalink)</a></h2>
