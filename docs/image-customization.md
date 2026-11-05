@@ -7,14 +7,15 @@
 - [3. Preparing the Build Environment](#preparing-the-build-environment)
 - [4. Removing Non-Essential Editions](#removing-non-essential-editions)
 - [5. Mounting the ISO](#mounting-the-iso)
-- [6. Integrating Drivers](#integrating-drivers)
-- [7. Integrating Updates](#integrating-updates)
-- [8. Enabling .NET 3.5 (Windows 8+)](#enabling-net-35-windows-8)
-- [9. Modifying ISO Contents](#modifying-iso-contents)
-- [9a. Stripping 8dot3name file names](#stripping-8dot3name-file-names)
-- [10. Unmounting and Saving Changes](#unmounting-and-saving-changes)
-- [11. ISO Compression](#iso-compression)
-- [12. Convert to ISO](#convert-to-iso)
+- [6. Disabling the Creation of 8dot3name file names](#disabling-the-creation-of-8dot3name-file-names)
+- [7. Integrating Drivers](#integrating-drivers)
+- [8. Integrating Updates](#integrating-updates)
+- [9. Enabling .NET 3.5 (Windows 8+)](#enabling-net-35-windows-8)
+- [10. Modifying ISO Contents](#modifying-iso-contents)
+- [11. Stripping 8dot3name file names](#stripping-8dot3name-file-names)
+- [12. Unmounting and Saving Changes](#unmounting-and-saving-changes)
+- [13. ISO Compression](#iso-compression)
+- [14. Convert to ISO](#convert-to-iso)
 
 <h2 id="requirements">2. Requirements <a href="#requirements">(permalink)</a></h2>
 
@@ -108,7 +109,18 @@ Mount the ISO with the command below.
 DISM /Mount-Wim /WimFile:"%EXTRACTED_ISO%\sources\install.wim" /Index:1 /MountDir:"%MOUNT_DIR%"
 ```
 
-<h2 id="integrating-drivers">6. Integrating Drivers <a href="#integrating-drivers">(permalink)</a></h2>
+<h2 id="disabling-the-creation-of-8dot3name-file-names">6. Disabling the Creation of 8dot3name file names <a href="#disabling-the-creation-of-8dot3name-file-names">(permalink)</a></h2>
+
+Editing the registry hive of the iso to disable the creation of 8dot3name file names so none get created after we strip them.
+
+```bat
+> nul 2>&1 reg unload HKLM\OFFLINE_SYSTEM
+reg load HKLM\OFFLINE_SYSTEM "%MOUNT_DIR%\Windows\System32\config\SYSTEM"
+reg add "HKLM\OFFLINE_SYSTEM\ControlSet001\Control\FileSystem" /v NtfsDisable8dot3NameCreation /t REG_DWORD /d 1 /f
+reg unload HKLM\OFFLINE_SYSTEM
+```
+
+<h2 id="integrating-drivers">7. Integrating Drivers <a href="#integrating-drivers">(permalink)</a></h2>
 
 Place all the drivers that you want to integrate (if any) in a folder such as ``C:\drivers`` and use the command below to integrate them into the mounted ISO.
 
@@ -116,7 +128,7 @@ Place all the drivers that you want to integrate (if any) in a folder such as ``
 DISM /Image:"%MOUNT_DIR%" /Add-Driver /Driver:"C:\drivers" /Recurse /ForceUnsigned
 ```
 
-<h2 id="integrating-updates">7. Integrating Updates <a href="#integrating-updates">(permalink)</a></h2>
+<h2 id="integrating-updates">8. Integrating Updates <a href="#integrating-updates">(permalink)</a></h2>
 
 Integrate the updates into the mounted ISO with the command below. The servicing stack must be installed before installing any cumulative updates.
 
@@ -124,7 +136,7 @@ Integrate the updates into the mounted ISO with the command below. The servicing
 DISM /Image:"%MOUNT_DIR%" /Add-Package /PackagePath=<path\to\update>
 ```
 
-<h2 id="enabling-net-35-windows-8">8. Enabling .NET 3.5 (Windows 8+) <a href="#enabling-net-35-windows-8">(permalink)</a></h2>
+<h2 id="enabling-net-35-windows-8">9. Enabling .NET 3.5 (Windows 8+) <a href="#enabling-net-35-windows-8">(permalink)</a></h2>
 
 .NET 3.5 can be enabled using the command below which a minority of applications depend on.
 
@@ -132,7 +144,7 @@ DISM /Image:"%MOUNT_DIR%" /Add-Package /PackagePath=<path\to\update>
 DISM /Image:"%MOUNT_DIR%" /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:"%EXTRACTED_ISO%\sources\sxs"
 ```
 
-<h2 id="modifying-iso-contents">9. Modifying ISO Contents <a href="#modifying-iso-contents">(permalink)</a></h2>
+<h2 id="modifying-iso-contents">10. Modifying ISO Contents <a href="#modifying-iso-contents">(permalink)</a></h2>
 
 To modify the ISO contents, the directory can be opened with the command below.
 
@@ -140,7 +152,7 @@ To modify the ISO contents, the directory can be opened with the command below.
 explorer "%MOUNT_DIR%"
 ```
 
-<h2 id="stripping-8dot3name-file-names">9a. Stripping 8dot3name file names <a href="#stripping-8dot3name-file-names">(permalink)</a></h2>
+<h2 id="stripping-8dot3name-file-names">11. Stripping 8dot3name file names <a href="#stripping-8dot3name-file-names">(permalink)</a></h2>
 
 To strip the 8dot3names in the iso, use these commands.
 
@@ -148,7 +160,7 @@ To strip the 8dot3names in the iso, use these commands.
 "%PSEXEC%" -accepteula -nobanner -s "%windir%\system32\fsutil.exe" 8dot3name strip /f /s "%MOUNT_DIR%"
 ```
 
-<h2 id="unmounting-and-saving-changes">10. Unmounting and Saving Changes <a href="#unmounting-and-saving-changes">(permalink)</a></h2>
+<h2 id="unmounting-and-saving-changes">12. Unmounting and Saving Changes <a href="#unmounting-and-saving-changes">(permalink)</a></h2>
 
 Run the command below to commit our changes to the ISO. If you get an error, check if the directory is empty to ensure the ISO is unmounted by typing ``explorer "%MOUNT_DIR%"``. If it is empty, you can likely ignore the error, otherwise try closing all open folders and running the command again.
 
@@ -156,7 +168,7 @@ Run the command below to commit our changes to the ISO. If you get an error, che
 DISM /Unmount-Wim /MountDir:"%MOUNT_DIR%" /Commit && rd /s /q "%MOUNT_DIR%"
 ```
 
-<h2 id="iso-compression">11. ISO Compression <a href="#iso-compression">(permalink)</a></h2>
+<h2 id="iso-compression">13. ISO Compression <a href="#iso-compression">(permalink)</a></h2>
 
 Compressing has no advantage other than reducing the size. Keep in mind that Windows setup must decompress the ISO upon installation which takes time. Use the command below to compress the ISO.
 
@@ -164,7 +176,7 @@ Compressing has no advantage other than reducing the size. Keep in mind that Win
 DISM /Export-Image /SourceImageFile:"%EXTRACTED_ISO%\sources\install.wim" /SourceIndex:1 /DestinationImageFile:"%EXTRACTED_ISO%\sources\install.esd" /Compress:recovery /CheckIntegrity && del /f /q "%EXTRACTED_ISO%\sources\install.wim"
 ```
 
-<h2 id="convert-to-iso">12. Convert to ISO <a href="#convert-to-iso">(permalink)</a></h2>
+<h2 id="convert-to-iso">14. Convert to ISO <a href="#convert-to-iso">(permalink)</a></h2>
 
 Use the command below to pack the extracted contents back to a single ISO which will be created in the ``C:`` drive.
 
