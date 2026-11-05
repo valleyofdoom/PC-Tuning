@@ -11,6 +11,7 @@
 - [7. Integrating Updates](#integrating-updates)
 - [8. Enabling .NET 3.5 (Windows 8+)](#enabling-net-35-windows-8)
 - [9. Modifying ISO Contents](#modifying-iso-contents)
+- [9a. Stripping 8dot3name file names](#stripping-8dot3name-file-names)
 - [10. Unmounting and Saving Changes](#unmounting-and-saving-changes)
 - [11. ISO Compression](#iso-compression)
 - [12. Convert to ISO](#convert-to-iso)
@@ -20,6 +21,8 @@
 - Extraction tool - [7-Zip](https://www.7-zip.org) is recommended
 
 - [Windows ADK](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install) - Install Deployment Tools
+
+- [PsExec](https://download.sysinternals.com/files/PSTools.zip) - Extract only PsExec.exe to C:\Windows
 
 <h2 id="preparing-the-build-environment">3. Preparing the Build Environment <a href="#preparing-the-build-environment">(permalink)</a></h2>
 
@@ -42,13 +45,19 @@
 - Set the path where the ISO will be mounted for servicing to the ``MOUNT_DIR`` variable. Changing the value below isn't necessary
 
     ```bat
-    set "MOUNT_DIR=%temp%\MOUNT_DIR"
+    set "MOUNT_DIR=C:\mnt"
     ```
 
 - Set the path to the ``oscdimg.exe`` binary to the ``OSCDIMG`` variable. Unless you installed deployment tools to a location other than the default, changing the value below isn't necessary
 
     ```bat
     set "OSCDIMG=C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe"
+    ```
+
+- Set the path to the ``PsExec.exe`` as fsutil.exe must be executed in the SYSTEM account
+
+    ```bat
+    set "PSEXEC=C:\Windows\PsExec.exe"
     ```
 
 - Prepare the ``MOUNT_DIR`` directory for mounting
@@ -71,6 +80,10 @@
     if exist "%OSCDIMG%" (echo true) else (echo false)
     ```
 
+    ```bat
+    if exist "%PSEXEC%" (echo true) else (echo false)
+    ```
+    
 <h2 id="removing-non-essential-editions">4. Removing Non-Essential Editions <a href="#removing-non-essential-editions">(permalink)</a></h2>
 
 Remove every edition except the desired edition by retrieving the indexes of every other edition and removing them with the commands below. Once completed, the only edition to exist should be the desired edition at index 1.
@@ -125,6 +138,16 @@ To modify the ISO contents, the directory can be opened with the command below.
 
 ```bat
 explorer "%MOUNT_DIR%"
+```
+
+<h2 id="stripping-8dot3name-file-names">9a. Stripping 8dot3name file names <a href="#stripping-8dot3name-file-names">(permalink)</a></h2>
+
+To strip the 8dot3names in the iso, use these commands.
+
+```bat
+"%PSEXEC%" -accepteula -nobanner -s 
+"%windir%\system32\fsutil.exe" 8dot3name strip /f /s 
+"%MOUNT_DIR%"
 ```
 
 <h2 id="unmounting-and-saving-changes">10. Unmounting and Saving Changes <a href="#unmounting-and-saving-changes">(permalink)</a></h2>
